@@ -1,0 +1,791 @@
+{
+ "nome": "stg_telefonia_cdr",
+ "descricao": "Registros de chamadas (CDR) da plataforma de telefonia",
+ "dominio": "Staging",
+ "camada": "staging",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "ingest_telefonia",
+ "fonte": "Telefonia (CDR)",
+ "status": "vermelho",
+ "motivo_status": "Sem atualização há 3 dias: falha de autenticação no SFTP da operadora desde 15/11",
+ "tem_pk": true,
+ "saude": 15.2,
+ "ultima_carga": "2026-11-14T02:10:45-03:00",
+ "atraso_horas": 54.0,
+ "linhas": 1745037,
+ "testes_total": 7,
+ "testes_falhando": 1,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "falha",
+  "falha"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [
+  "INC-2032"
+ ],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Registros de chamadas (CDR) da plataforma de telefonia. Pertence ao domínio Staging e fica na camada de staging (dado bruto, como chega da origem). Origem: Telefonia (CDR). Carga diária pela rotina `ingest_telefonia`, com SLA de 24 horas. Tem 13 colunas; chave primária: `id_chamada_cdr`. Responsável: Thiago Meireles (Engenharia de Dados). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_chamada_cdr",
+   "tipo": "varchar(36)",
+   "descricao": "Identificador único da chamada na plataforma de telefonia",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nr_origem",
+   "tipo": "varchar(20)",
+   "descricao": "Número de origem da chamada",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "nr_destino",
+   "tipo": "varchar(20)",
+   "descricao": "Número de destino (0800 ou DDR)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "ramal_agente",
+   "tipo": "varchar(8)",
+   "descricao": "Ramal do agente que atendeu",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "cd_fila",
+   "tipo": "varchar(12)",
+   "descricao": "Fila de atendimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_inicio",
+   "tipo": "timestamp",
+   "descricao": "Início da chamada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_atendimento",
+   "tipo": "timestamp",
+   "descricao": "Momento do atendimento humano",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_fim",
+   "tipo": "timestamp",
+   "descricao": "Fim da chamada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "duracao_seg",
+   "tipo": "integer",
+   "descricao": "Duração total em segundos",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tempo_espera_seg",
+   "tipo": "integer",
+   "descricao": "Tempo em fila em segundos",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "status_chamada",
+   "tipo": "varchar(20)",
+   "descricao": "Atendida, abandonada ou retida na URA",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_arquivo_origem",
+   "tipo": "varchar(60)",
+   "descricao": "Arquivo CDR de origem no SFTP",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "_dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da ingestão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:10:05-03:00",
+   "duracao_seg": 22,
+   "linhas": 540,
+   "linhas_esperadas": 523,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:10:39-03:00",
+   "duracao_seg": 27,
+   "linhas": 3189,
+   "linhas_esperadas": 3085,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:10:51-03:00",
+   "duracao_seg": 26,
+   "linhas": 2796,
+   "linhas_esperadas": 2798,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:10:19-03:00",
+   "duracao_seg": 23,
+   "linhas": 2750,
+   "linhas_esperadas": 2667,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:10:18-03:00",
+   "duracao_seg": 26,
+   "linhas": 2656,
+   "linhas_esperadas": 2615,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:10:41-03:00",
+   "duracao_seg": 21,
+   "linhas": 2572,
+   "linhas_esperadas": 2510,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:10:23-03:00",
+   "duracao_seg": 25,
+   "linhas": 1135,
+   "linhas_esperadas": 1098,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:10:35-03:00",
+   "duracao_seg": 26,
+   "linhas": 517,
+   "linhas_esperadas": 523,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:10:27-03:00",
+   "duracao_seg": 24,
+   "linhas": 3000,
+   "linhas_esperadas": 3085,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:10:12-03:00",
+   "duracao_seg": 24,
+   "linhas": 2749,
+   "linhas_esperadas": 2798,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:10:06-03:00",
+   "duracao_seg": 25,
+   "linhas": 2678,
+   "linhas_esperadas": 2667,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:10:18-03:00",
+   "duracao_seg": 22,
+   "linhas": 2671,
+   "linhas_esperadas": 2615,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:10:53-03:00",
+   "duracao_seg": 22,
+   "linhas": 2589,
+   "linhas_esperadas": 2510,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:10:04-03:00",
+   "duracao_seg": 25,
+   "linhas": 1070,
+   "linhas_esperadas": 1098,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:10:24-03:00",
+   "duracao_seg": 23,
+   "linhas": 505,
+   "linhas_esperadas": 523,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:10:44-03:00",
+   "duracao_seg": 22,
+   "linhas": 2998,
+   "linhas_esperadas": 3085,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:10:27-03:00",
+   "duracao_seg": 25,
+   "linhas": 2708,
+   "linhas_esperadas": 2798,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:10:14-03:00",
+   "duracao_seg": 23,
+   "linhas": 2672,
+   "linhas_esperadas": 2667,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:10:25-03:00",
+   "duracao_seg": 23,
+   "linhas": 2678,
+   "linhas_esperadas": 2615,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:10:33-03:00",
+   "duracao_seg": 24,
+   "linhas": 2495,
+   "linhas_esperadas": 2510,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:10:11-03:00",
+   "duracao_seg": 25,
+   "linhas": 1113,
+   "linhas_esperadas": 1098,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:10:07-03:00",
+   "duracao_seg": 24,
+   "linhas": 509,
+   "linhas_esperadas": 523,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:10:11-03:00",
+   "duracao_seg": 26,
+   "linhas": 3103,
+   "linhas_esperadas": 3085,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:10:02-03:00",
+   "duracao_seg": 25,
+   "linhas": 2861,
+   "linhas_esperadas": 2798,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:10:29-03:00",
+   "duracao_seg": 26,
+   "linhas": 2755,
+   "linhas_esperadas": 2667,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:10:26-03:00",
+   "duracao_seg": 23,
+   "linhas": 2655,
+   "linhas_esperadas": 2615,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:10:45-03:00",
+   "duracao_seg": 26,
+   "linhas": 2466,
+   "linhas_esperadas": 2510,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:10:18-03:00",
+   "duracao_seg": 25,
+   "linhas": null,
+   "linhas_esperadas": 1098,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Falha de autenticação no SFTP da operadora (530 Login incorrect): credencial expirada."
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:10:12-03:00",
+   "duracao_seg": 27,
+   "linhas": null,
+   "linhas_esperadas": 523,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Falha de autenticação no SFTP da operadora (530 Login incorrect): credencial expirada."
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:10:03-03:00",
+   "duracao_seg": 27,
+   "linhas": null,
+   "linhas_esperadas": 3085,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Falha de autenticação no SFTP da operadora (530 Login incorrect): credencial expirada."
+  }
+ ],
+ "testes": [
+  {
+   "id": "stg_telefonia_cdr.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_chamada_cdr`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'stg_telefonia_cdr' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "stg_telefonia_cdr.unicidade.id_chamada_cdr",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_chamada_cdr`",
+   "coluna": "id_chamada_cdr",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_chamada_cdr` (1.745.037 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_chamada_cdr, COUNT(*) AS qtd\nFROM stg_telefonia_cdr\nGROUP BY id_chamada_cdr\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "stg_telefonia_cdr.nao_nulo.nr_origem",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `nr_origem`",
+   "coluna": "nr_origem",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `nr_origem`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN nr_origem IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM stg_telefonia_cdr;"
+  },
+  {
+   "id": "stg_telefonia_cdr.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "2.466 linhas na última carga, dentro da faixa esperada (cerca de 2.510)",
+   "valor_observado": 2466,
+   "limite": 2510,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'stg_telefonia_cdr'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "stg_telefonia_cdr.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "falha",
+   "evidencia": "Sem atualização há 3 dias: falha de autenticação no SFTP da operadora desde 15/11",
+   "valor_observado": 77.8,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta",
+    "falha",
+    "falha"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'stg_telefonia_cdr' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "stg_telefonia_cdr.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (13 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'stg_telefonia_cdr'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'stg_telefonia_cdr';"
+  },
+  {
+   "id": "stg_telefonia_cdr.dominio_valores.status_chamada",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `status_chamada`",
+   "coluna": "status_chamada",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `status_chamada` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT status_chamada, COUNT(*) AS qtd\nFROM stg_telefonia_cdr\nWHERE status_chamada NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'status_chamada')\nGROUP BY status_chamada;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_chamada_cdr",
+   "nr_origem",
+   "nr_destino",
+   "ramal_agente",
+   "cd_fila",
+   "dt_inicio",
+   "dt_atendimento",
+   "dt_fim",
+   "duracao_seg",
+   "tempo_espera_seg",
+   "status_chamada",
+   "nm_arquivo_origem",
+   "_dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "cha-d15542f431",
+     "(71) 9****-3762",
+     "4003-1200",
+     "6658",
+     "F3075",
+     "2026-11-13 18:08:52",
+     "2026-11-13 18:09:52",
+     "2026-11-13 18:27:52",
+     519,
+     111,
+     "Atendida",
+     "cdr_20261113_17.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   },
+   {
+    "valores": [
+     "cha-68e6b89dfb",
+     "(21) 9****-8308",
+     "4003-1200",
+     "7301",
+     "F2486",
+     "2026-11-12 13:10:51",
+     "2026-11-12 13:11:51",
+     "2026-11-12 13:35:51",
+     478,
+     205,
+     "Atendida",
+     "cdr_20261113_21.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   },
+   {
+    "valores": [
+     "cha-2ea027c38a",
+     "(11) 9****-8086",
+     "4003-1200",
+     "9009",
+     "F2117",
+     "2026-11-12 12:13:04",
+     null,
+     "2026-11-12 12:20:04",
+     277,
+     448,
+     "Abandonada",
+     "cdr_20261113_14.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   },
+   {
+    "valores": [
+     "cha-0e7fd27719",
+     "(41) 9****-5695",
+     "0800 *** 1200",
+     "5689",
+     "F7405",
+     "2026-11-13 07:45:38",
+     "2026-11-13 07:46:38",
+     "2026-11-13 08:10:38",
+     257,
+     351,
+     "Retida na URA",
+     "cdr_20261113_19.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   },
+   {
+    "valores": [
+     "cha-a5a8cf4cf6",
+     "(31) 9****-3592",
+     "4003-1200",
+     "7629",
+     "F3887",
+     "2026-11-13 19:59:41",
+     null,
+     "2026-11-13 20:12:41",
+     232,
+     370,
+     "Abandonada",
+     "cdr_20261113_10.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   },
+   {
+    "valores": [
+     "cha-99433940bf",
+     "(51) 9****-4020",
+     "4003-1200",
+     null,
+     "F3765",
+     "2026-11-12 18:53:24",
+     "2026-11-12 18:54:24",
+     "2026-11-12 19:07:24",
+     322,
+     337,
+     "Atendida",
+     "cdr_20261113_04.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   },
+   {
+    "valores": [
+     "cha-23220dc202",
+     "(21) 9****-2914",
+     "4003-1200",
+     null,
+     "F9896",
+     "2026-11-12 19:42:32",
+     "2026-11-12 19:43:32",
+     "2026-11-12 19:50:32",
+     416,
+     354,
+     "Atendida",
+     "cdr_20261113_18.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   },
+   {
+    "valores": [
+     "cha-8796f834be",
+     "(71) 9****-1279",
+     "4003-1200",
+     "7606",
+     "F7064",
+     "2026-11-13 19:27:44",
+     "2026-11-13 19:28:44",
+     "2026-11-13 19:44:44",
+     49,
+     264,
+     "Atendida",
+     "cdr_20261113_22.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   },
+   {
+    "valores": [
+     "cha-e01f4b829b",
+     "(71) 9****-7082",
+     "4003-1200",
+     "3828",
+     "F1552",
+     "2026-11-13 09:05:47",
+     "2026-11-13 09:06:47",
+     "2026-11-13 09:12:47",
+     425,
+     42,
+     "Abandonada",
+     "cdr_20261113_12.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   },
+   {
+    "valores": [
+     "cha-1d3cc91ac9",
+     "(19) 9****-5847",
+     "4003-1200",
+     "5889",
+     "F5811",
+     "2026-11-12 15:54:06",
+     "2026-11-12 15:55:06",
+     "2026-11-12 15:58:06",
+     526,
+     537,
+     "Abandonada",
+     "cdr_20261113_12.csv.gz",
+     "2026-11-14 02:10:45"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_chamada"
+ ]
+}

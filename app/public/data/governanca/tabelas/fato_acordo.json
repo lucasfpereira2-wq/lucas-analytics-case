@@ -1,0 +1,737 @@
+{
+ "nome": "fato_acordo",
+ "descricao": "Acordos de pagamento firmados",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cobranca",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 99.3,
+ "ultima_carga": "2026-11-17T03:30:28-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 28069,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Acordos de pagamento firmados. Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). É construída a partir de `stg_erp_parcelas`, `fato_parcelas`. Carga diária pela rotina `core_cobranca`, com SLA de 24 horas. Tem 10 colunas; chave primária: `id_acordo`. Responsável: Patrícia Lemos (Crédito & Cobrança). Alimenta: Cobrança: Carteira e Inadimplência.",
+ "colunas": [
+  {
+   "nome": "id_acordo",
+   "tipo": "bigint",
+   "descricao": "Chave do acordo",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cota",
+   "tipo": "bigint",
+   "descricao": "Cota negociada",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_cota",
+    "coluna": "id_cota"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_cobranca",
+   "tipo": "varchar(40)",
+   "descricao": "Canal em que o acordo foi firmado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_parcelas_acordo",
+   "tipo": "smallint",
+   "descricao": "Parcelas do acordo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_divida_original",
+   "tipo": "decimal(14,2)",
+   "descricao": "Dívida original negociada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_acordo",
+   "tipo": "decimal(14,2)",
+   "descricao": "Valor total do acordo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_desconto",
+   "tipo": "decimal(7,4)",
+   "descricao": "Desconto concedido sobre encargos",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "situacao_acordo",
+   "tipo": "varchar(20)",
+   "descricao": "Vigente, cumprido ou quebrado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_acordo",
+   "tipo": "date",
+   "descricao": "Data do acordo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_quebra",
+   "tipo": "date",
+   "descricao": "Data da quebra",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:30:28-03:00",
+   "duracao_seg": 35,
+   "linhas": 8,
+   "linhas_esperadas": 8,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:30:21-03:00",
+   "duracao_seg": 35,
+   "linhas": 51,
+   "linhas_esperadas": 50,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:30:02-03:00",
+   "duracao_seg": 36,
+   "linhas": 46,
+   "linhas_esperadas": 45,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:30:31-03:00",
+   "duracao_seg": 39,
+   "linhas": 42,
+   "linhas_esperadas": 43,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:30:21-03:00",
+   "duracao_seg": 38,
+   "linhas": 42,
+   "linhas_esperadas": 42,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:30:41-03:00",
+   "duracao_seg": 39,
+   "linhas": 41,
+   "linhas_esperadas": 41,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:30:10-03:00",
+   "duracao_seg": 37,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:30:22-03:00",
+   "duracao_seg": 38,
+   "linhas": 8,
+   "linhas_esperadas": 8,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:30:15-03:00",
+   "duracao_seg": 36,
+   "linhas": 51,
+   "linhas_esperadas": 50,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:30:15-03:00",
+   "duracao_seg": 36,
+   "linhas": 46,
+   "linhas_esperadas": 45,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:30:16-03:00",
+   "duracao_seg": 39,
+   "linhas": 44,
+   "linhas_esperadas": 43,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:30:44-03:00",
+   "duracao_seg": 34,
+   "linhas": 41,
+   "linhas_esperadas": 42,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:30:23-03:00",
+   "duracao_seg": 32,
+   "linhas": 41,
+   "linhas_esperadas": 41,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:30:42-03:00",
+   "duracao_seg": 39,
+   "linhas": 19,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:30:47-03:00",
+   "duracao_seg": 37,
+   "linhas": 8,
+   "linhas_esperadas": 8,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:30:50-03:00",
+   "duracao_seg": 34,
+   "linhas": 48,
+   "linhas_esperadas": 50,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:30:39-03:00",
+   "duracao_seg": 30,
+   "linhas": null,
+   "linhas_esperadas": 45,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Timeout ao consultar `fato_parcelas`: consulta excedeu 30 minutos. Reprocessada no dia seguinte."
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:30:03-03:00",
+   "duracao_seg": 39,
+   "linhas": 44,
+   "linhas_esperadas": 43,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:30:50-03:00",
+   "duracao_seg": 35,
+   "linhas": 41,
+   "linhas_esperadas": 42,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:30:05-03:00",
+   "duracao_seg": 36,
+   "linhas": 41,
+   "linhas_esperadas": 41,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:30:07-03:00",
+   "duracao_seg": 38,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:30:45-03:00",
+   "duracao_seg": 36,
+   "linhas": 8,
+   "linhas_esperadas": 8,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:30:34-03:00",
+   "duracao_seg": 33,
+   "linhas": 51,
+   "linhas_esperadas": 50,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:30:06-03:00",
+   "duracao_seg": 33,
+   "linhas": 45,
+   "linhas_esperadas": 45,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:30:19-03:00",
+   "duracao_seg": 37,
+   "linhas": 43,
+   "linhas_esperadas": 43,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:30:40-03:00",
+   "duracao_seg": 39,
+   "linhas": 42,
+   "linhas_esperadas": 42,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:30:21-03:00",
+   "duracao_seg": 37,
+   "linhas": 41,
+   "linhas_esperadas": 41,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:30:45-03:00",
+   "duracao_seg": 38,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T03:30:26-03:00",
+   "duracao_seg": 33,
+   "linhas": 8,
+   "linhas_esperadas": 8,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T03:30:28-03:00",
+   "duracao_seg": 32,
+   "linhas": 48,
+   "linhas_esperadas": 50,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_acordo.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_acordo`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_acordo' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_acordo.unicidade.id_acordo",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_acordo`",
+   "coluna": "id_acordo",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_acordo` (28.069 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_acordo, COUNT(*) AS qtd\nFROM fato_acordo\nGROUP BY id_acordo\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_acordo.nao_nulo.id_cota",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_cota`",
+   "coluna": "id_cota",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_cota`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_cota IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_acordo;"
+  },
+  {
+   "id": "fato_acordo.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cota`",
+   "coluna": "id_cota",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cota` existem em `dim_cota`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_acordo f\nLEFT JOIN dim_cota p ON p.id_cota = f.id_cota\nWHERE f.id_cota IS NOT NULL AND p.id_cota IS NULL;"
+  },
+  {
+   "id": "fato_acordo.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "48 linhas na última carga, dentro da faixa esperada (cerca de 50)",
+   "valor_observado": 48,
+   "limite": 50,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_acordo'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_acordo.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 4h (17/11 às 03:30); SLA de 24h",
+   "valor_observado": 4.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_acordo' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_acordo.dominio_valores.canal_cobranca",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `canal_cobranca`",
+   "coluna": "canal_cobranca",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `canal_cobranca` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT canal_cobranca, COUNT(*) AS qtd\nFROM fato_acordo\nWHERE canal_cobranca NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'canal_cobranca')\nGROUP BY canal_cobranca;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_acordo",
+   "id_cota",
+   "canal_cobranca",
+   "qt_parcelas_acordo",
+   "vl_divida_original",
+   "vl_acordo",
+   "pc_desconto",
+   "situacao_acordo",
+   "dt_acordo",
+   "dt_quebra"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     38100,
+     74408,
+     "Assessoria externa",
+     13,
+     11450.57,
+     5534.29,
+     10.34,
+     "Quebrado",
+     "2026-10-30",
+     "2026-10-31"
+    ]
+   },
+   {
+    "valores": [
+     38101,
+     74353,
+     "WhatsApp",
+     37,
+     2027.53,
+     12512.36,
+     8.49,
+     "Quebrado",
+     "2026-10-29",
+     "2026-10-25"
+    ]
+   },
+   {
+    "valores": [
+     38102,
+     74362,
+     "WhatsApp",
+     21,
+     11007.7,
+     11357.85,
+     10.54,
+     "Vigente",
+     "2026-10-23",
+     "2026-11-12"
+    ]
+   },
+   {
+    "valores": [
+     38103,
+     74593,
+     "Régua digital (SMS/e-mail)",
+     30,
+     1905.15,
+     5468.2,
+     11.36,
+     "Cumprido",
+     "2026-11-11",
+     "2026-11-07"
+    ]
+   },
+   {
+    "valores": [
+     38104,
+     74578,
+     "Central de cobrança",
+     22,
+     4428.33,
+     13450.64,
+     21.79,
+     "Vigente",
+     "2026-11-07",
+     null
+    ]
+   },
+   {
+    "valores": [
+     38105,
+     74465,
+     "Negativação",
+     32,
+     3676.76,
+     13673.74,
+     5.85,
+     "Quebrado",
+     "2026-11-10",
+     "2026-11-05"
+    ]
+   },
+   {
+    "valores": [
+     38106,
+     74689,
+     "WhatsApp",
+     15,
+     1818.33,
+     12302.96,
+     2.88,
+     "Vigente",
+     "2026-11-04",
+     "2026-11-16"
+    ]
+   },
+   {
+    "valores": [
+     38107,
+     74408,
+     "Régua digital (SMS/e-mail)",
+     15,
+     13163.53,
+     7608.54,
+     1.05,
+     "Vigente",
+     "2026-11-10",
+     null
+    ]
+   },
+   {
+    "valores": [
+     38108,
+     74436,
+     "Régua digital (SMS/e-mail)",
+     27,
+     9960.85,
+     11361.9,
+     8.41,
+     "Cumprido",
+     "2026-11-10",
+     "2026-10-24"
+    ]
+   },
+   {
+    "valores": [
+     38109,
+     74468,
+     "Assessoria externa",
+     3,
+     4190.35,
+     4360.4,
+     7.33,
+     "Cumprido",
+     "2026-11-01",
+     "2026-11-01"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_erp_parcelas",
+  "fato_parcelas"
+ ],
+ "downstream": [
+  "fato_renegociacao",
+  "mart_cobranca_carteira"
+ ]
+}

@@ -1,0 +1,775 @@
+{
+ "nome": "mart_vendas_comercial",
+ "descricao": "Mart do relatório de Vendas / Comercial",
+ "dominio": "Marts",
+ "camada": "mart",
+ "dono": "Fernanda Rocha",
+ "dono_area": "Analytics & BI",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "mart_vendas",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "Funil de 16/11 subestimado: `fato_proposta` recebeu carga parcial",
+ "tem_pk": true,
+ "saude": 52.8,
+ "ultima_carga": "2026-11-17T05:00:46-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 120512,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "atrasada",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "vendas"
+ ],
+ "incidentes": [
+  "INC-2033"
+ ],
+ "tags": [],
+ "descricao_longa": "Mart do relatório de Vendas / Comercial. Pertence ao domínio Marts e fica na camada de marts (dado agregado para consumo em relatório). É construída a partir de `fato_contrato_venda`, `fato_proposta`, `fato_funil_crm`, `fato_meta_comercial` e outras. Carga diária pela rotina `mart_vendas`, com SLA de 24 horas. Tem 13 colunas; chave primária: `dt_referencia, regional, uf, canal_venda, segmento`. Responsável: Fernanda Rocha (Analytics & BI). Alimenta: Vendas / Comercial.",
+ "colunas": [
+  {
+   "nome": "dt_referencia",
+   "tipo": "date",
+   "descricao": "Data de referência",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "regional",
+   "tipo": "varchar(30)",
+   "descricao": "Regional comercial",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "uf",
+   "tipo": "char(2)",
+   "descricao": "UF",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_venda",
+   "tipo": "varchar(30)",
+   "descricao": "Canal de venda",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_leads",
+   "tipo": "integer",
+   "descricao": "Leads captados",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_propostas",
+   "tipo": "integer",
+   "descricao": "Propostas digitadas",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_vendas",
+   "tipo": "integer",
+   "descricao": "Cotas vendidas",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_credito_vendido",
+   "tipo": "decimal(16,2)",
+   "descricao": "Crédito comercializado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_meta_cotas",
+   "tipo": "integer",
+   "descricao": "Meta de cotas do período",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "vl_meta_credito",
+   "tipo": "decimal(16,2)",
+   "descricao": "Meta de crédito do período",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "qt_cancelamentos_7d",
+   "tipo": "integer",
+   "descricao": "Cancelamentos no prazo de arrependimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da carga",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T05:00:48-03:00",
+   "duracao_seg": 353,
+   "linhas": 167,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T05:00:34-03:00",
+   "duracao_seg": 299,
+   "linhas": 166,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T05:00:19-03:00",
+   "duracao_seg": 306,
+   "linhas": 163,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T05:00:22-03:00",
+   "duracao_seg": 319,
+   "linhas": 167,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T05:00:20-03:00",
+   "duracao_seg": 360,
+   "linhas": 165,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T05:00:43-03:00",
+   "duracao_seg": 311,
+   "linhas": 162,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T05:00:19-03:00",
+   "duracao_seg": 292,
+   "linhas": 165,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T07:00:20-03:00",
+   "duracao_seg": 312,
+   "linhas": 172,
+   "linhas_esperadas": 167,
+   "status": "atrasada",
+   "anomalia_volume": false,
+   "mensagem": "Aguardou a conclusão de `core_vendas`, que excedeu a janela; iniciou com 2 horas de atraso."
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T05:00:08-03:00",
+   "duracao_seg": 302,
+   "linhas": 167,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T05:00:51-03:00",
+   "duracao_seg": 351,
+   "linhas": 170,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T05:00:26-03:00",
+   "duracao_seg": 300,
+   "linhas": 163,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T05:00:35-03:00",
+   "duracao_seg": 300,
+   "linhas": 164,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T05:00:55-03:00",
+   "duracao_seg": 360,
+   "linhas": 168,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T05:00:18-03:00",
+   "duracao_seg": 339,
+   "linhas": 166,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T05:00:37-03:00",
+   "duracao_seg": 362,
+   "linhas": 165,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T05:00:43-03:00",
+   "duracao_seg": 357,
+   "linhas": 166,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T05:00:35-03:00",
+   "duracao_seg": 349,
+   "linhas": 166,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T05:00:20-03:00",
+   "duracao_seg": 300,
+   "linhas": 163,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T05:00:32-03:00",
+   "duracao_seg": 298,
+   "linhas": 165,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T05:00:34-03:00",
+   "duracao_seg": 297,
+   "linhas": 168,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T05:00:29-03:00",
+   "duracao_seg": 304,
+   "linhas": 166,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T05:00:30-03:00",
+   "duracao_seg": 298,
+   "linhas": 165,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T05:00:23-03:00",
+   "duracao_seg": 297,
+   "linhas": 166,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T05:00:13-03:00",
+   "duracao_seg": 334,
+   "linhas": 169,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T05:00:15-03:00",
+   "duracao_seg": 335,
+   "linhas": 172,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T05:00:11-03:00",
+   "duracao_seg": 363,
+   "linhas": 172,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T05:00:37-03:00",
+   "duracao_seg": 311,
+   "linhas": 169,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T05:00:37-03:00",
+   "duracao_seg": 314,
+   "linhas": 163,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T05:00:47-03:00",
+   "duracao_seg": 309,
+   "linhas": 167,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T05:00:46-03:00",
+   "duracao_seg": 358,
+   "linhas": 169,
+   "linhas_esperadas": 167,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "mart_vendas_comercial.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `dt_referencia, regional, uf, canal_venda, segmento`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'mart_vendas_comercial' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "mart_vendas_comercial.unicidade.dt_referencia",
+   "regra": "unicidade",
+   "nome": "Unicidade de `dt_referencia, regional, uf, canal_venda, segmento`",
+   "coluna": "dt_referencia, regional, uf, canal_venda, segmento",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `dt_referencia, regional, uf, canal_venda, segmento` (120.512 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_referencia, regional, uf, canal_venda, segmento, COUNT(*) AS qtd\nFROM mart_vendas_comercial\nGROUP BY dt_referencia, regional, uf, canal_venda, segmento\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "mart_vendas_comercial.nao_nulo.vl_credito_vendido",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `vl_credito_vendido`",
+   "coluna": "vl_credito_vendido",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `vl_credito_vendido`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN vl_credito_vendido IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM mart_vendas_comercial;"
+  },
+  {
+   "id": "mart_vendas_comercial.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "alerta",
+   "evidencia": "Funil de 16/11 subestimado: `fato_proposta` recebeu carga parcial",
+   "valor_observado": 61,
+   "limite": 20,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'mart_vendas_comercial'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "mart_vendas_comercial.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2h (17/11 às 05:00); SLA de 24h",
+   "valor_observado": 3.0,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'mart_vendas_comercial' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "mart_vendas_comercial.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_credito_vendido",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,05% em `vl_credito_vendido` contra `fato_contrato_venda`",
+   "valor_observado": 0.05,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_credito_vendido) - o.total) / o.total AS pc_diferenca\nFROM mart_vendas_comercial a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'mart_vendas_comercial' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "dt_referencia",
+   "regional",
+   "uf",
+   "canal_venda",
+   "segmento",
+   "qt_leads",
+   "qt_propostas",
+   "qt_vendas",
+   "vl_credito_vendido",
+   "qt_meta_cotas",
+   "vl_meta_credito",
+   "qt_cancelamentos_7d",
+   "dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "2026-11-16",
+     "Sul",
+     "SC",
+     "Parceiro",
+     "Pesada",
+     701,
+     792,
+     35,
+     45000.0,
+     402,
+     420000.0,
+     103,
+     "2026-11-17 05:00:46"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     "Centro-Oeste",
+     "DF",
+     "Parceiro",
+     "Pesada",
+     577,
+     854,
+     326,
+     300000.0,
+     578,
+     120000.0,
+     220,
+     "2026-11-17 05:00:46"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     "Sul",
+     "SC",
+     "Representante",
+     "Imóvel",
+     377,
+     646,
+     120,
+     120000.0,
+     323,
+     240000.0,
+     381,
+     "2026-11-17 05:00:46"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     "Centro-Oeste",
+     "GO",
+     "Loja",
+     "Serviços",
+     541,
+     318,
+     246,
+     120000.0,
+     402,
+     120000.0,
+     596,
+     "2026-11-17 05:00:46"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     "Sul",
+     "RS",
+     "Digital",
+     "Serviços",
+     666,
+     715,
+     590,
+     300000.0,
+     748,
+     95000.0,
+     824,
+     "2026-11-17 05:00:46"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     "São Paulo",
+     "SP",
+     "Loja",
+     "Auto",
+     737,
+     646,
+     387,
+     120000.0,
+     640,
+     null,
+     687,
+     "2026-11-17 05:00:46"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     "Centro-Oeste",
+     "GO",
+     "Loja",
+     "Pesada",
+     135,
+     678,
+     535,
+     60000.0,
+     243,
+     180000.0,
+     80,
+     "2026-11-17 05:00:46"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     "Sul",
+     "RS",
+     "Digital",
+     "Serviços",
+     276,
+     632,
+     439,
+     95000.0,
+     188,
+     95000.0,
+     351,
+     "2026-11-17 05:00:46"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     "Sul",
+     "RS",
+     "Representante",
+     "Imóvel",
+     72,
+     697,
+     642,
+     120000.0,
+     708,
+     180000.0,
+     164,
+     "2026-11-17 05:00:46"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-15",
+     "Sul",
+     "PR",
+     "Representante",
+     "Imóvel",
+     112,
+     176,
+     279,
+     300000.0,
+     650,
+     420000.0,
+     789,
+     "2026-11-17 05:00:46"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "fato_contrato_venda",
+  "fato_proposta",
+  "fato_funil_crm",
+  "fato_meta_comercial",
+  "dim_vendedor",
+  "dim_canal_venda",
+  "fato_cancelamento_cota",
+  "dim_filial"
+ ],
+ "downstream": [
+  "mart_executivo_kpis"
+ ]
+}

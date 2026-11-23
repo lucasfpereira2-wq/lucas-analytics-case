@@ -1,0 +1,615 @@
+{
+ "nome": "dim_tabela_taxa",
+ "descricao": "Tabelas de taxa de administração por plano e prazo",
+ "dominio": "Produto",
+ "camada": "core",
+ "dono": "Rafael Nogueira",
+ "dono_area": "Produtos",
+ "criticidade": "media",
+ "frequencia": "semanal",
+ "sla_horas": 168,
+ "pipeline": "core_produto",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-15T03:00:35-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 64,
+ "testes_total": 4,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Tabelas de taxa de administração por plano e prazo. Pertence ao domínio Produto e fica na camada core (dado tratado e modelado). É construída a partir de `stg_erp_contratos`. Carga semanal pela rotina `core_produto`, com SLA de 168 horas. Tem 7 colunas; chave primária: `id_tabela_taxa`. Responsável: Rafael Nogueira (Produtos).",
+ "colunas": [
+  {
+   "nome": "id_tabela_taxa",
+   "tipo": "integer",
+   "descricao": "Chave da tabela de taxa",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_plano",
+   "tipo": "varchar(12)",
+   "descricao": "Plano a que a tabela se aplica",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "prazo_meses",
+   "tipo": "smallint",
+   "descricao": "Prazo em meses",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_taxa_administracao",
+   "tipo": "decimal(7,4)",
+   "descricao": "Taxa de administração total",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_taxa_antecipada",
+   "tipo": "decimal(7,4)",
+   "descricao": "Taxa de administração antecipada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_inicio_vigencia",
+   "tipo": "date",
+   "descricao": "Início da vigência",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_fim_vigencia",
+   "tipo": "date",
+   "descricao": "Fim da vigência",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:00:53-03:00",
+   "duracao_seg": 38,
+   "linhas": 64,
+   "linhas_esperadas": 64,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:00:20-03:00",
+   "duracao_seg": 32,
+   "linhas": 64,
+   "linhas_esperadas": 64,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:00:19-03:00",
+   "duracao_seg": 39,
+   "linhas": 64,
+   "linhas_esperadas": 64,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:00:35-03:00",
+   "duracao_seg": 34,
+   "linhas": 64,
+   "linhas_esperadas": 64,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_tabela_taxa.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_tabela_taxa`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_tabela_taxa' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_tabela_taxa.unicidade.id_tabela_taxa",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_tabela_taxa`",
+   "coluna": "id_tabela_taxa",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_tabela_taxa` (64 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_tabela_taxa, COUNT(*) AS qtd\nFROM dim_tabela_taxa\nGROUP BY id_tabela_taxa\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_tabela_taxa.nao_nulo.dt_inicio_vigencia",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_inicio_vigencia`",
+   "coluna": "dt_inicio_vigencia",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_inicio_vigencia`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_inicio_vigencia IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_tabela_taxa;"
+  },
+  {
+   "id": "dim_tabela_taxa.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2 dias (15/11 às 03:00); SLA de 168h",
+   "valor_observado": 53.0,
+   "limite": 168,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_tabela_taxa' AND status IN ('sucesso', 'alerta');"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_tabela_taxa",
+   "cd_plano",
+   "prazo_meses",
+   "pc_taxa_administracao",
+   "pc_taxa_antecipada",
+   "dt_inicio_vigencia",
+   "dt_fim_vigencia"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     1000,
+     "PL2116",
+     60,
+     17.21,
+     11.18,
+     "2025-02-04",
+     "2026-10-26"
+    ]
+   },
+   {
+    "valores": [
+     1001,
+     "PL7695",
+     200,
+     1.47,
+     18.25,
+     "2025-04-22",
+     "2026-11-10"
+    ]
+   },
+   {
+    "valores": [
+     1002,
+     "PL3496",
+     200,
+     16.83,
+     1.8,
+     "2024-09-07",
+     "2026-11-04"
+    ]
+   },
+   {
+    "valores": [
+     1003,
+     "PL7530",
+     100,
+     10.71,
+     16.05,
+     "2025-09-27",
+     "2026-10-26"
+    ]
+   },
+   {
+    "valores": [
+     1004,
+     "PL1736",
+     200,
+     13.18,
+     4.41,
+     "2026-08-03",
+     "2026-10-31"
+    ]
+   },
+   {
+    "valores": [
+     1005,
+     "PL2537",
+     180,
+     6.05,
+     20.05,
+     "2023-06-06",
+     "2026-11-10"
+    ]
+   },
+   {
+    "valores": [
+     1006,
+     "PL6742",
+     100,
+     9.23,
+     1.4,
+     "2026-04-21",
+     "2026-11-05"
+    ]
+   },
+   {
+    "valores": [
+     1007,
+     "PL1311",
+     80,
+     5.36,
+     15.45,
+     "2025-07-28",
+     "2026-11-04"
+    ]
+   },
+   {
+    "valores": [
+     1008,
+     "PL1995",
+     100,
+     16.0,
+     16.31,
+     "2023-08-17",
+     "2026-10-25"
+    ]
+   },
+   {
+    "valores": [
+     1009,
+     "PL6139",
+     60,
+     11.52,
+     2.02,
+     "2023-12-16",
+     null
+    ]
+   },
+   {
+    "valores": [
+     1010,
+     "PL1616",
+     200,
+     7.56,
+     20.56,
+     "2023-09-28",
+     "2026-10-24"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_erp_contratos"
+ ],
+ "downstream": []
+}

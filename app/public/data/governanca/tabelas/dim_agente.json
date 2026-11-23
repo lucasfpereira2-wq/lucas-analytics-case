@@ -1,0 +1,655 @@
+{
+ "nome": "dim_agente",
+ "descricao": "Agentes de atendimento e suas filas",
+ "dominio": "Atendimento",
+ "camada": "core",
+ "dono": "Juliana Prado",
+ "dono_area": "Experiência do Cliente",
+ "criticidade": "baixa",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_atendimento",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T03:00:26-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 312,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Agentes de atendimento e suas filas. Pertence ao domínio Atendimento e fica na camada core (dado tratado e modelado). É construída a partir de `dim_colaborador`. Carga diária pela rotina `core_atendimento`, com SLA de 24 horas. Tem 8 colunas; chave primária: `id_agente`. Responsável: Juliana Prado (Experiência do Cliente). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_agente",
+   "tipo": "integer",
+   "descricao": "Chave do agente",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_colaborador",
+   "tipo": "integer",
+   "descricao": "Colaborador",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_colaborador",
+    "coluna": "id_colaborador"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_agente",
+   "tipo": "varchar(120)",
+   "descricao": "Nome do agente",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "fila_principal",
+   "tipo": "varchar(40)",
+   "descricao": "Fila principal de atuação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "turno",
+   "tipo": "varchar(10)",
+   "descricao": "Turno de trabalho",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nivel",
+   "tipo": "varchar(10)",
+   "descricao": "Nível (N1, N2, retenção)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativo",
+   "tipo": "char(1)",
+   "descricao": "Agente ativo (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_inicio",
+   "tipo": "date",
+   "descricao": "Início na operação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:00:48-03:00",
+   "duracao_seg": 40,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:00:13-03:00",
+   "duracao_seg": 36,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:00:24-03:00",
+   "duracao_seg": 39,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:00:21-03:00",
+   "duracao_seg": 39,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:00:19-03:00",
+   "duracao_seg": 33,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:00:15-03:00",
+   "duracao_seg": 36,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:00:14-03:00",
+   "duracao_seg": 35,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:00:36-03:00",
+   "duracao_seg": 39,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:00:23-03:00",
+   "duracao_seg": 34,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:00:20-03:00",
+   "duracao_seg": 32,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:00:26-03:00",
+   "duracao_seg": 33,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:00:32-03:00",
+   "duracao_seg": 35,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:00:31-03:00",
+   "duracao_seg": 32,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:00:14-03:00",
+   "duracao_seg": 37,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:00:48-03:00",
+   "duracao_seg": 37,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:00:52-03:00",
+   "duracao_seg": 39,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:00:04-03:00",
+   "duracao_seg": 33,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:00:44-03:00",
+   "duracao_seg": 36,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:00:03-03:00",
+   "duracao_seg": 35,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:00:25-03:00",
+   "duracao_seg": 37,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:00:23-03:00",
+   "duracao_seg": 35,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:00:37-03:00",
+   "duracao_seg": 37,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:00:21-03:00",
+   "duracao_seg": 37,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:00:34-03:00",
+   "duracao_seg": 34,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:00:22-03:00",
+   "duracao_seg": 39,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:00:48-03:00",
+   "duracao_seg": 38,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:00:47-03:00",
+   "duracao_seg": 35,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:00:43-03:00",
+   "duracao_seg": 35,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T03:00:48-03:00",
+   "duracao_seg": 37,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T03:00:26-03:00",
+   "duracao_seg": 36,
+   "linhas": 312,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_agente.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_agente`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_agente' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_agente.unicidade.id_agente",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_agente`",
+   "coluna": "id_agente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_agente` (312 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_agente, COUNT(*) AS qtd\nFROM dim_agente\nGROUP BY id_agente\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_agente.nao_nulo.id_colaborador",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_colaborador`",
+   "coluna": "id_colaborador",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_colaborador`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_colaborador IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_agente;"
+  },
+  {
+   "id": "dim_agente.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_colaborador`",
+   "coluna": "id_colaborador",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_colaborador` existem em `dim_colaborador`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM dim_agente f\nLEFT JOIN dim_colaborador p ON p.id_colaborador = f.id_colaborador\nWHERE f.id_colaborador IS NOT NULL AND p.id_colaborador IS NULL;"
+  },
+  {
+   "id": "dim_agente.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 4h (17/11 às 03:00); SLA de 24h",
+   "valor_observado": 5.0,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_agente' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_agente.dominio_valores.turno",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `turno`",
+   "coluna": "turno",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `turno` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT turno, COUNT(*) AS qtd\nFROM dim_agente\nWHERE turno NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'turno')\nGROUP BY turno;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_agente",
+   "id_colaborador",
+   "nm_agente",
+   "fila_principal",
+   "turno",
+   "nivel",
+   "fl_ativo",
+   "dt_inicio"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     120,
+     1025,
+     "Fernanda C. Cardoso",
+     "Retenção",
+     "Tarde",
+     "N2",
+     "S",
+     "2026-10-27"
+    ]
+   },
+   {
+    "valores": [
+     121,
+     693,
+     "Renata A. Cardoso",
+     "Chat e App",
+     "Tarde",
+     "Retenção",
+     "S",
+     "2026-10-30"
+    ]
+   },
+   {
+    "valores": [
+     122,
+     845,
+     "Fernanda F. Siqueira",
+     "Voz Geral",
+     "Tarde",
+     "Retenção",
+     "N",
+     "2026-10-29"
+    ]
+   },
+   {
+    "valores": [
+     123,
+     881,
+     "Patrícia M. Silveira",
+     "Chat e App",
+     "Manhã",
+     "N1",
+     "S",
+     "2026-11-03"
+    ]
+   },
+   {
+    "valores": [
+     124,
+     664,
+     "Marcelo M. Teixeira",
+     "Chat e App",
+     "Noite",
+     "Retenção",
+     "S",
+     "2026-11-12"
+    ]
+   },
+   {
+    "valores": [
+     125,
+     900,
+     "Thiago F. Antunes",
+     "Voz Geral",
+     "Noite",
+     "N2",
+     "S",
+     "2026-11-09"
+    ]
+   },
+   {
+    "valores": [
+     126,
+     931,
+     "Juliana S. Siqueira",
+     "WhatsApp",
+     "Manhã",
+     "N2",
+     "N",
+     "2026-10-22"
+    ]
+   },
+   {
+    "valores": [
+     127,
+     723,
+     "Ana Paula V. Barros",
+     "Voz Cobrança",
+     "Manhã",
+     "Retenção",
+     "S",
+     "2026-11-08"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "dim_colaborador"
+ ],
+ "downstream": [
+  "fato_chamada",
+  "fato_conversa_whatsapp",
+  "fato_ticket"
+ ]
+}

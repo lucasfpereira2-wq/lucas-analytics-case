@@ -1,0 +1,789 @@
+{
+ "nome": "fato_contrato_venda",
+ "descricao": "Vendas efetivadas (contratos de adesão)",
+ "dominio": "Vendas",
+ "camada": "core",
+ "dono": "Bruno Tavares",
+ "dono_area": "Inteligência Comercial",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_vendas",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T02:30:34-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 94183,
+ "testes_total": 8,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "vendas",
+  "cobranca-safra"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Vendas efetivadas (contratos de adesão). Pertence ao domínio Vendas e fica na camada core (dado tratado e modelado). É construída a partir de `stg_erp_contratos`, `fato_proposta`, `dim_cota`, `dim_vendedor`. Carga diária pela rotina `core_vendas`, com SLA de 24 horas. Tem 11 colunas; chave primária: `id_contrato`. Responsável: Bruno Tavares (Inteligência Comercial). Alimenta: Vendas / Comercial, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "id_contrato",
+   "tipo": "bigint",
+   "descricao": "Chave da venda (contrato de adesão)",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_proposta",
+   "tipo": "bigint",
+   "descricao": "Proposta que originou a venda",
+   "pk": false,
+   "fk": {
+    "tabela": "fato_proposta",
+    "coluna": "id_proposta"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "id_cota",
+   "tipo": "bigint",
+   "descricao": "Cota vendida",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_cota",
+    "coluna": "id_cota"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_vendedor",
+   "tipo": "integer",
+   "descricao": "Vendedor da venda",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_vendedor",
+    "coluna": "id_vendedor"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_venda",
+   "tipo": "varchar(30)",
+   "descricao": "Canal de venda",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "uf",
+   "tipo": "char(2)",
+   "descricao": "UF da venda",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_credito",
+   "tipo": "decimal(14,2)",
+   "descricao": "Crédito comercializado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_primeira_parcela",
+   "tipo": "decimal(12,2)",
+   "descricao": "Valor da primeira parcela",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_cancelado_7d",
+   "tipo": "char(1)",
+   "descricao": "Cancelada no prazo de arrependimento (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_venda",
+   "tipo": "date",
+   "descricao": "Data da venda",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:30:42-03:00",
+   "duracao_seg": 38,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:30:11-03:00",
+   "duracao_seg": 31,
+   "linhas": 79,
+   "linhas_esperadas": 81,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:30:26-03:00",
+   "duracao_seg": 35,
+   "linhas": 72,
+   "linhas_esperadas": 74,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:30:47-03:00",
+   "duracao_seg": 39,
+   "linhas": 69,
+   "linhas_esperadas": 70,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:30:50-03:00",
+   "duracao_seg": 33,
+   "linhas": 70,
+   "linhas_esperadas": 69,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:30:35-03:00",
+   "duracao_seg": 32,
+   "linhas": 68,
+   "linhas_esperadas": 66,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:30:45-03:00",
+   "duracao_seg": 35,
+   "linhas": 29,
+   "linhas_esperadas": 29,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:30:24-03:00",
+   "duracao_seg": 34,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:30:40-03:00",
+   "duracao_seg": 38,
+   "linhas": 82,
+   "linhas_esperadas": 81,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:30:43-03:00",
+   "duracao_seg": 36,
+   "linhas": 74,
+   "linhas_esperadas": 74,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:30:45-03:00",
+   "duracao_seg": 34,
+   "linhas": 68,
+   "linhas_esperadas": 70,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:30:51-03:00",
+   "duracao_seg": 39,
+   "linhas": 70,
+   "linhas_esperadas": 69,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:30:21-03:00",
+   "duracao_seg": 32,
+   "linhas": 66,
+   "linhas_esperadas": 66,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:30:26-03:00",
+   "duracao_seg": 33,
+   "linhas": 29,
+   "linhas_esperadas": 29,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:30:49-03:00",
+   "duracao_seg": 34,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:30:02-03:00",
+   "duracao_seg": 38,
+   "linhas": 83,
+   "linhas_esperadas": 81,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:30:47-03:00",
+   "duracao_seg": 36,
+   "linhas": 72,
+   "linhas_esperadas": 74,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:30:11-03:00",
+   "duracao_seg": 34,
+   "linhas": 72,
+   "linhas_esperadas": 70,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:30:06-03:00",
+   "duracao_seg": 31,
+   "linhas": 71,
+   "linhas_esperadas": 69,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:30:41-03:00",
+   "duracao_seg": 39,
+   "linhas": 66,
+   "linhas_esperadas": 66,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:30:22-03:00",
+   "duracao_seg": 32,
+   "linhas": 28,
+   "linhas_esperadas": 29,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:30:33-03:00",
+   "duracao_seg": 33,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:30:26-03:00",
+   "duracao_seg": 36,
+   "linhas": 79,
+   "linhas_esperadas": 81,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:30:51-03:00",
+   "duracao_seg": 38,
+   "linhas": 73,
+   "linhas_esperadas": 74,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:30:17-03:00",
+   "duracao_seg": 37,
+   "linhas": 70,
+   "linhas_esperadas": 70,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:30:51-03:00",
+   "duracao_seg": 39,
+   "linhas": 70,
+   "linhas_esperadas": 69,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:30:22-03:00",
+   "duracao_seg": 36,
+   "linhas": 68,
+   "linhas_esperadas": 66,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:30:16-03:00",
+   "duracao_seg": 33,
+   "linhas": 28,
+   "linhas_esperadas": 29,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:30:11-03:00",
+   "duracao_seg": 36,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:30:34-03:00",
+   "duracao_seg": 36,
+   "linhas": 83,
+   "linhas_esperadas": 81,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_contrato_venda.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_contrato`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_contrato_venda' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_contrato_venda.unicidade.id_contrato",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_contrato`",
+   "coluna": "id_contrato",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_contrato` (94.183 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_contrato, COUNT(*) AS qtd\nFROM fato_contrato_venda\nGROUP BY id_contrato\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_contrato_venda.nao_nulo.id_cota",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_cota`",
+   "coluna": "id_cota",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_cota`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_cota IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_contrato_venda;"
+  },
+  {
+   "id": "fato_contrato_venda.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_proposta`",
+   "coluna": "id_proposta",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_proposta` existem em `fato_proposta`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_contrato_venda f\nLEFT JOIN fato_proposta p ON p.id_proposta = f.id_proposta\nWHERE f.id_proposta IS NOT NULL AND p.id_proposta IS NULL;"
+  },
+  {
+   "id": "fato_contrato_venda.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "83 linhas na última carga, dentro da faixa esperada (cerca de 81)",
+   "valor_observado": 83,
+   "limite": 81,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_contrato_venda'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_contrato_venda.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:30); SLA de 24h",
+   "valor_observado": 5.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_contrato_venda' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_contrato_venda.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_credito",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,02% em `vl_credito` contra `stg_erp_contratos`",
+   "valor_observado": 0.02,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_credito) - o.total) / o.total AS pc_diferenca\nFROM fato_contrato_venda a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'fato_contrato_venda' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  },
+  {
+   "id": "fato_contrato_venda.dominio_valores.segmento",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `segmento`",
+   "coluna": "segmento",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `segmento` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT segmento, COUNT(*) AS qtd\nFROM fato_contrato_venda\nWHERE segmento NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'segmento')\nGROUP BY segmento;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_contrato",
+   "id_proposta",
+   "id_cota",
+   "id_vendedor",
+   "segmento",
+   "canal_venda",
+   "uf",
+   "vl_credito",
+   "vl_primeira_parcela",
+   "fl_cancelado_7d",
+   "dt_venda"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     129800,
+     598611,
+     74588,
+     233,
+     "Auto",
+     "Loja",
+     "RS",
+     150000.0,
+     771.79,
+     "S",
+     "2026-10-25"
+    ]
+   },
+   {
+    "valores": [
+     129801,
+     598476,
+     74658,
+     213,
+     "Imóvel",
+     "Representante",
+     "CE",
+     300000.0,
+     959.6,
+     "N",
+     "2026-10-31"
+    ]
+   },
+   {
+    "valores": [
+     129802,
+     null,
+     74462,
+     228,
+     "Serviços",
+     "Loja",
+     "RS",
+     80000.0,
+     865.6,
+     "N",
+     "2026-11-14"
+    ]
+   },
+   {
+    "valores": [
+     129803,
+     598544,
+     74386,
+     231,
+     "Pesada",
+     "Loja",
+     "MG",
+     45000.0,
+     2587.2,
+     "S",
+     "2026-11-10"
+    ]
+   },
+   {
+    "valores": [
+     129804,
+     598388,
+     74595,
+     215,
+     "Pesada",
+     "Loja",
+     "GO",
+     60000.0,
+     2112.52,
+     "S",
+     "2026-10-24"
+    ]
+   },
+   {
+    "valores": [
+     129805,
+     598598,
+     74510,
+     218,
+     "Pesada",
+     "Representante",
+     "SP",
+     80000.0,
+     1563.77,
+     "S",
+     "2026-10-27"
+    ]
+   },
+   {
+    "valores": [
+     129806,
+     598477,
+     74459,
+     240,
+     "Pesada",
+     "Loja",
+     "PE",
+     60000.0,
+     3076.93,
+     "N",
+     "2026-10-26"
+    ]
+   },
+   {
+    "valores": [
+     129807,
+     null,
+     74520,
+     212,
+     "Serviços",
+     "Representante",
+     "PE",
+     95000.0,
+     2963.57,
+     "S",
+     "2026-10-31"
+    ]
+   },
+   {
+    "valores": [
+     129808,
+     598325,
+     74502,
+     233,
+     "Serviços",
+     "Parceiro",
+     "PE",
+     45000.0,
+     1324.32,
+     "S",
+     "2026-11-08"
+    ]
+   },
+   {
+    "valores": [
+     129809,
+     598374,
+     74380,
+     212,
+     "Imóvel",
+     "Parceiro",
+     "MG",
+     45000.0,
+     831.94,
+     "S",
+     "2026-10-23"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_erp_contratos",
+  "fato_proposta",
+  "dim_cota",
+  "dim_vendedor"
+ ],
+ "downstream": [
+  "fato_comissao",
+  "mart_vendas_comercial",
+  "mart_cobranca_safra_mob"
+ ]
+}

@@ -1,0 +1,619 @@
+{
+ "nome": "dim_calendario",
+ "descricao": "Calendário com dias úteis e feriados",
+ "dominio": "Corporativo",
+ "camada": "core",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "baixa",
+ "frequencia": "mensal",
+ "sla_horas": 744,
+ "pipeline": "core_corporativo",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-01T02:50:49-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 4018,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Calendário com dias úteis e feriados. Pertence ao domínio Corporativo e fica na camada core (dado tratado e modelado). Carga mensal pela rotina `core_corporativo`, com SLA de 744 horas. Tem 8 colunas; chave primária: `dt_data`. Responsável: Thiago Meireles (Engenharia de Dados).",
+ "colunas": [
+  {
+   "nome": "dt_data",
+   "tipo": "date",
+   "descricao": "Data",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "ano",
+   "tipo": "smallint",
+   "descricao": "Ano",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "mes",
+   "tipo": "smallint",
+   "descricao": "Mês",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "competencia",
+   "tipo": "char(7)",
+   "descricao": "Mês de competência (AAAA-MM)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dia_semana",
+   "tipo": "varchar(15)",
+   "descricao": "Dia da semana",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_dia_util",
+   "tipo": "char(1)",
+   "descricao": "Dia útil (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_feriado",
+   "tipo": "char(1)",
+   "descricao": "Feriado nacional (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_feriado",
+   "tipo": "varchar(60)",
+   "descricao": "Nome do feriado",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:50:49-03:00",
+   "duracao_seg": 37,
+   "linhas": 3999,
+   "linhas_esperadas": 3999,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_calendario.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `dt_data`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_calendario' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_calendario.unicidade.dt_data",
+   "regra": "unicidade",
+   "nome": "Unicidade de `dt_data`",
+   "coluna": "dt_data",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `dt_data` (4.018 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_data, COUNT(*) AS qtd\nFROM dim_calendario\nGROUP BY dt_data\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_calendario.nao_nulo.ano",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `ano`",
+   "coluna": "ano",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `ano`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN ano IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_calendario;"
+  },
+  {
+   "id": "dim_calendario.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 16 dias (01/11 às 02:50); SLA de 744h",
+   "valor_observado": 389.2,
+   "limite": 744,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_calendario' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_calendario.dominio_valores.dia_semana",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `dia_semana`",
+   "coluna": "dia_semana",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `dia_semana` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dia_semana, COUNT(*) AS qtd\nFROM dim_calendario\nWHERE dia_semana NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'dia_semana')\nGROUP BY dia_semana;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "dt_data",
+   "ano",
+   "mes",
+   "competencia",
+   "dia_semana",
+   "fl_dia_util",
+   "fl_feriado",
+   "nm_feriado"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "2026-11-14",
+     2026,
+     11,
+     "2026-11",
+     "sábado",
+     "N",
+     "N",
+     null
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-15",
+     2026,
+     11,
+     "2026-11",
+     "domingo",
+     "N",
+     "S",
+     "Proclamação da República"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     2026,
+     11,
+     "2026-11",
+     "segunda-feira",
+     "S",
+     "N",
+     null
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-17",
+     2026,
+     11,
+     "2026-11",
+     "terça-feira",
+     "S",
+     "N",
+     null
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-18",
+     2026,
+     11,
+     "2026-11",
+     "quarta-feira",
+     "S",
+     "N",
+     null
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-19",
+     2026,
+     11,
+     "2026-11",
+     "quinta-feira",
+     "S",
+     "N",
+     null
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-20",
+     2026,
+     11,
+     "2026-11",
+     "sexta-feira",
+     "N",
+     "S",
+     "Dia da Consciência Negra"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-21",
+     2026,
+     11,
+     "2026-11",
+     "sábado",
+     "N",
+     "N",
+     null
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": []
+}

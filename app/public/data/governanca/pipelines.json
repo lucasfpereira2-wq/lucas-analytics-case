@@ -1,0 +1,5517 @@
+[
+ {
+  "id": "ingest_telefonia",
+  "nome": "Ingestão da telefonia (CDR)",
+  "descricao": "Baixa do SFTP da operadora os arquivos CDR com as chamadas do dia anterior.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 02:10",
+  "agenda_cron": "10 2 * * *",
+  "dono": "Thiago Meireles",
+  "tabelas": [
+   "stg_telefonia_cdr"
+  ],
+  "status": "vermelho",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T02:10:03-03:00",
+   "duracao_seg": 27,
+   "status": "falha",
+   "mensagem": "Falha de autenticação no SFTP da operadora (530 Login incorrect): credencial expirada."
+  },
+  "taxa_sucesso_30d": 90.0,
+  "duracao_media_seg": 24,
+  "falhas_30d": 3,
+  "falhas_recorrentes": [
+   {
+    "erro": "Falha de autenticação no SFTP da operadora (530 Login incorrect): credencial expirada.",
+    "ocorrencias": 3,
+    "ultima": "2026-11-17"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 27
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-15",
+    "status": "falha",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-16",
+    "status": "falha",
+    "duracao_seg": 27
+   },
+   {
+    "data": "2026-11-17",
+    "status": "falha",
+    "duracao_seg": 27
+   }
+  ]
+ },
+ {
+  "id": "core_atendimento",
+  "nome": "Atendimento por voz",
+  "descricao": "Consolida as chamadas de voz e atualiza agentes, filas e motivos de contato.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 03:00",
+  "agenda_cron": "0 3 * * *",
+  "dono": "Juliana Prado",
+  "tabelas": [
+   "fato_chamada",
+   "dim_motivo_contato",
+   "dim_agente",
+   "dim_fila_atendimento"
+  ],
+  "status": "vermelho",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T03:00:26-03:00",
+   "duracao_seg": 36,
+   "status": "falha",
+   "mensagem": "Tarefa ignorada (upstream_failed): `stg_telefonia_cdr` não foi carregada."
+  },
+  "taxa_sucesso_30d": 90.0,
+  "duracao_media_seg": 49,
+  "falhas_30d": 3,
+  "falhas_recorrentes": [
+   {
+    "erro": "Tarefa ignorada (upstream_failed): `stg_telefonia_cdr` não foi carregada.",
+    "ocorrencias": 3,
+    "ultima": "2026-11-17"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 63
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 50
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 42
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 45
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 43
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 63
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 51
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 43
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 66
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 51
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-11-15",
+    "status": "falha",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-16",
+    "status": "falha",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-17",
+    "status": "falha",
+    "duracao_seg": 36
+   }
+  ]
+ },
+ {
+  "id": "ingest_banco_boletos",
+  "nome": "Boletos registrados (API do banco)",
+  "descricao": "Consulta na API de cobrança do banco os boletos registrados no dia anterior.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 03:40",
+  "agenda_cron": "40 3 * * *",
+  "dono": "Thiago Meireles",
+  "tabelas": [
+   "stg_banco_boletos_registrados"
+  ],
+  "status": "vermelho",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T03:40:39-03:00",
+   "duracao_seg": 27,
+   "status": "falha",
+   "mensagem": "Certificado digital da API do banco expirado (SSL: CERTIFICATE_HAS_EXPIRED)."
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 24,
+  "falhas_30d": 1,
+  "falhas_recorrentes": [
+   {
+    "erro": "Certificado digital da API do banco expirado (SSL: CERTIFICATE_HAS_EXPIRED).",
+    "ocorrencias": 1,
+    "ultima": "2026-11-17"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 27
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-17",
+    "status": "falha",
+    "duracao_seg": 27
+   }
+  ]
+ },
+ {
+  "id": "mart_atendimento",
+  "nome": "Mart de Atendimento",
+  "descricao": "Agrega volumes, tempos, NPS e CSAT de todos os canais para o relatório de Atendimento.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 05:10",
+  "agenda_cron": "10 5 * * *",
+  "dono": "Fernanda Rocha",
+  "tabelas": [
+   "mart_atendimento"
+  ],
+  "status": "vermelho",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T05:10:11-03:00",
+   "duracao_seg": 105,
+   "status": "falha",
+   "mensagem": "Etapa de voz ignorada por falha na dependência `fato_chamada`; canais digitais carregados e execução marcada como falha."
+  },
+  "taxa_sucesso_30d": 90.0,
+  "duracao_media_seg": 326,
+  "falhas_30d": 3,
+  "falhas_recorrentes": [
+   {
+    "erro": "Etapa de voz ignorada por falha na dependência `fato_chamada`; canais digitais carregados e execução marcada como falha.",
+    "ocorrencias": 3,
+    "ultima": "2026-11-17"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 298
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 365
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 346
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 361
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 305
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 323
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 307
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 319
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 350
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 343
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 349
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 303
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 333
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 351
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 326
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 341
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 309
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 336
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 365
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 288
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 309
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 291
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 353
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 306
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 321
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 297
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 300
+   },
+   {
+    "data": "2026-11-15",
+    "status": "falha",
+    "duracao_seg": 51
+   },
+   {
+    "data": "2026-11-16",
+    "status": "falha",
+    "duracao_seg": 97
+   },
+   {
+    "data": "2026-11-17",
+    "status": "falha",
+    "duracao_seg": 105
+   }
+  ]
+ },
+ {
+  "id": "core_grupos_cotas",
+  "nome": "Grupos e cotas",
+  "descricao": "Atualiza grupos, cotas e suas movimentações (transferências, cancelamentos, reativações).",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 02:00",
+  "agenda_cron": "0 2 * * *",
+  "dono": "Camila Furtado",
+  "tabelas": [
+   "dim_grupo",
+   "dim_cota",
+   "fato_cota_movimentacao",
+   "fato_transferencia_cota",
+   "fato_cancelamento_cota",
+   "fato_reativacao_cota",
+   "fato_posicao_grupo_mensal"
+  ],
+  "status": "amarelo",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T02:00:06-03:00",
+   "duracao_seg": 186,
+   "status": "atrasada",
+   "mensagem": "Execução de hoje ainda não concluída: tarefa aguardando liberação de bloqueio na tabela de origem do ERP."
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 188,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 195
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 184
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 180
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 179
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 201
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 198
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 193
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 190
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 201
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 181
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 192
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 202
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 186
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 180
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 202
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 171
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 189
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 192
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 174
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 197
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 173
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 174
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 171
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 196
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 188
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 198
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 187
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 182
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 192
+   },
+   {
+    "data": "2026-11-17",
+    "status": "atrasada",
+    "duracao_seg": 186
+   }
+  ]
+ },
+ {
+  "id": "core_vendas",
+  "nome": "Vendas e funil comercial",
+  "descricao": "Monta leads, propostas, vendas, funil, comissões e as dimensões comerciais.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 02:30",
+  "agenda_cron": "30 2 * * *",
+  "dono": "Bruno Tavares",
+  "tabelas": [
+   "fato_lead",
+   "fato_proposta",
+   "fato_contrato_venda",
+   "fato_funil_crm",
+   "dim_vendedor",
+   "dim_equipe_comercial",
+   "dim_canal_venda",
+   "dim_parceiro",
+   "fato_comissao"
+  ],
+  "status": "amarelo",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T02:30:07-03:00",
+   "duracao_seg": 90,
+   "status": "atrasada",
+   "mensagem": "Aguardou nova tentativa de `stg_crm_propostas`; concluída com 5 horas de atraso."
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 95,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 93
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 88
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 94
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 90
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 89
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 90
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 110
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 93
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 91
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 87
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 94
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 94
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 90
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 112
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 89
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 91
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 94
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 95
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 96
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 96
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 108
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 97
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 96
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 94
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 96
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 96
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 95
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 112
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 88
+   },
+   {
+    "data": "2026-11-17",
+    "status": "atrasada",
+    "duracao_seg": 90
+   }
+  ]
+ },
+ {
+  "id": "core_financeiro_parcelas",
+  "nome": "Parcelas e pagamentos",
+  "descricao": "Carga incremental de parcelas do ERP e conciliação dos pagamentos com o retorno bancário.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 02:45",
+  "agenda_cron": "45 2 * * *",
+  "dono": "Patrícia Lemos",
+  "tabelas": [
+   "fato_parcelas",
+   "fato_pagamento"
+  ],
+  "status": "amarelo",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T02:45:31-03:00",
+   "duracao_seg": 61,
+   "status": "alerta",
+   "mensagem": "Concluída após 1 retry: o lote de 16/11 foi gravado duas vezes em modo append (312 linhas além do recebido da origem)."
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 56,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 52
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 52
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 61
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 56
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 61
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 59
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 54
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 58
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 56
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 59
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 54
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 53
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 57
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 52
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 62
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 54
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 61
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 51
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 56
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 58
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 57
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 52
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 54
+   },
+   {
+    "data": "2026-11-17",
+    "status": "alerta",
+    "duracao_seg": 61
+   }
+  ]
+ },
+ {
+  "id": "legacy_chamadas_dts",
+  "nome": "Chamadas do discador antigo (legado)",
+  "descricao": "Pacote DTS herdado que recarrega o histórico de chamadas do discador antigo. Sem dono e sem documentação.",
+  "orquestrador": "DTS legado",
+  "agenda": "Diária às 02:50",
+  "agenda_cron": "50 2 * * *",
+  "dono": null,
+  "tabelas": [
+   "fato_chamadas_legacy"
+  ],
+  "status": "amarelo",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T02:50:40-03:00",
+   "duracao_seg": 39,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 86.7,
+  "duracao_media_seg": 35,
+  "falhas_30d": 4,
+  "falhas_recorrentes": [
+   {
+    "erro": "DTS_E_OLEDBERROR: falha de login no servidor SQLLEG01 (0x80040E4D). Pacote PKG_CHAMADAS_HIST abortado na etapa 3.",
+    "ocorrencias": 4,
+    "ultima": "2026-11-15"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-10-21",
+    "status": "falha",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 31
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-10-28",
+    "status": "falha",
+    "duracao_seg": 29
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 34
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-11-06",
+    "status": "falha",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-11-15",
+    "status": "falha",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 39
+   }
+  ]
+ },
+ {
+  "id": "core_produto_reajuste",
+  "nome": "Reajuste do bem de referência",
+  "descricao": "Aplica os índices mensais (INCC, IPCA, FIPE) aos bens de referência. Depende da publicação dos índices.",
+  "orquestrador": "Airflow",
+  "agenda": "Mensal, dia 12 às 03:15",
+  "agenda_cron": "15 3 12 * *",
+  "dono": "Rafael Nogueira",
+  "tabelas": [
+   "fato_reajuste_bem"
+  ],
+  "status": "amarelo",
+  "ultima_execucao": {
+   "inicio": null,
+   "duracao_seg": null,
+   "status": "atrasada",
+   "mensagem": "Índices de novembro (INCC, IPCA e FIPE) ainda não recebidos; carga não realizada."
+  },
+  "taxa_sucesso_30d": 0.0,
+  "duracao_media_seg": 0,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-12",
+    "status": "atrasada",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   }
+  ]
+ },
+ {
+  "id": "core_cobranca",
+  "nome": "Cobrança e inadimplência",
+  "descricao": "Gera a fotografia diária da carteira, acordos, renegociações e acionamentos de cobrança.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 03:30",
+  "agenda_cron": "30 3 * * *",
+  "dono": "Patrícia Lemos",
+  "tabelas": [
+   "fato_acordo",
+   "fato_renegociacao",
+   "dim_regua_cobranca",
+   "fato_acao_cobranca",
+   "dim_assessoria_cobranca",
+   "fato_inadimplencia_diaria"
+  ],
+  "status": "amarelo",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T03:30:22-03:00",
+   "duracao_seg": 64,
+   "status": "atrasada",
+   "mensagem": "Fila de processamento congestionada após a falha de boletos; concluída com 4 horas de atraso."
+  },
+  "taxa_sucesso_30d": 93.3,
+  "duracao_media_seg": 67,
+  "falhas_30d": 1,
+  "falhas_recorrentes": [
+   {
+    "erro": "Timeout ao consultar `fato_parcelas`: consulta excedeu 30 minutos. Reprocessada no dia seguinte.",
+    "ocorrencias": 1,
+    "ultima": "2026-11-04"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 66
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 61
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 66
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 67
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 68
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 65
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 82
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 68
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 63
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 66
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 66
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 65
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 65
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 81
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 64
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 60
+   },
+   {
+    "data": "2026-11-04",
+    "status": "falha",
+    "duracao_seg": 50
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 64
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 66
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 66
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 83
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 63
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 62
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 66
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 62
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 65
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 65
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 82
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 63
+   },
+   {
+    "data": "2026-11-17",
+    "status": "atrasada",
+    "duracao_seg": 64
+   }
+  ]
+ },
+ {
+  "id": "core_financeiro_boletos",
+  "nome": "Ciclo de vida dos boletos",
+  "descricao": "Relaciona boletos registrados às parcelas e acompanha emissão, registro e liquidação.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 04:00",
+  "agenda_cron": "0 4 * * *",
+  "dono": "Patrícia Lemos",
+  "tabelas": [
+   "fato_boleto"
+  ],
+  "status": "amarelo",
+  "ultima_execucao": {
+   "inicio": null,
+   "duracao_seg": null,
+   "status": "atrasada",
+   "mensagem": "Aguardando `stg_banco_boletos_registrados`, que falhou hoje às 03:40."
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 38,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 41
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 41
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 42
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 41
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 34
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 41
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-11-17",
+    "status": "atrasada",
+    "duracao_seg": null
+   }
+  ]
+ },
+ {
+  "id": "core_assembleias_garantias",
+  "nome": "Garantias dos créditos liberados",
+  "descricao": "Atualiza as garantias e o registro de gravames dos créditos liberados.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 04:50",
+  "agenda_cron": "50 4 * * *",
+  "dono": "Diego Sampaio",
+  "tabelas": [
+   "fato_garantia"
+  ],
+  "status": "amarelo",
+  "ultima_execucao": {
+   "inicio": null,
+   "duracao_seg": null,
+   "status": "atrasada",
+   "mensagem": "Execução de hoje ainda não concluída: aguardando o retorno do sistema de registro de gravames."
+  },
+  "taxa_sucesso_30d": 93.3,
+  "duracao_media_seg": 35,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 31
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-16",
+    "status": "atrasada",
+    "duracao_seg": 34
+   },
+   {
+    "data": "2026-11-17",
+    "status": "atrasada",
+    "duracao_seg": null
+   }
+  ]
+ },
+ {
+  "id": "planilha_metas_manual",
+  "nome": "Metas comerciais (planilha)",
+  "descricao": "Planilha de metas enviada pela área comercial e carregada manualmente até o 3º dia útil do mês.",
+  "orquestrador": "Carga manual",
+  "agenda": "Mensal, até o 3º dia útil (carga manual)",
+  "agenda_cron": "42 10 3 * *",
+  "dono": "Bruno Tavares",
+  "tabelas": [
+   "fato_meta_comercial"
+  ],
+  "status": "amarelo",
+  "ultima_execucao": {
+   "inicio": "2026-11-03T10:42:04-03:00",
+   "duracao_seg": 31,
+   "status": "alerta",
+   "mensagem": "Planilha de novembro carregada sem 2 das 5 regionais (48 de 80 linhas)."
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 31,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-03",
+    "status": "alerta",
+    "duracao_seg": 31
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   }
+  ]
+ },
+ {
+  "id": "ingest_whatsapp",
+  "nome": "Ingestão do WhatsApp Business",
+  "descricao": "Grava as conversas recebidas por webhook da WhatsApp Business API, em modo append.",
+  "orquestrador": "Airflow",
+  "agenda": "A cada hora, no minuto 05",
+  "agenda_cron": "5 * * * *",
+  "dono": null,
+  "tabelas": [
+   "stg_whatsapp_conversas"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T07:05:08-03:00",
+   "duracao_seg": 23,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 22,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 19
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 23
+   }
+  ]
+ },
+ {
+  "id": "ingest_helpdesk",
+  "nome": "Ingestão do helpdesk",
+  "descricao": "Coleta tickets e interações de chat, e-mail e aplicativo pela API do helpdesk.",
+  "orquestrador": "Airflow",
+  "agenda": "A cada hora, no minuto 10",
+  "agenda_cron": "10 * * * *",
+  "dono": "Thiago Meireles",
+  "tabelas": [
+   "stg_helpdesk_tickets"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T07:10:42-03:00",
+   "duracao_seg": 23,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 22,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-05",
+    "status": "alerta",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 23
+   }
+  ]
+ },
+ {
+  "id": "core_atendimento_digital",
+  "nome": "Atendimento digital",
+  "descricao": "Consolida conversas de WhatsApp, tickets e interações digitais.",
+  "orquestrador": "Airflow",
+  "agenda": "A cada hora, no minuto 25",
+  "agenda_cron": "25 * * * *",
+  "dono": "Juliana Prado",
+  "tabelas": [
+   "fato_conversa_whatsapp",
+   "fato_ticket",
+   "fato_interacao_digital"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T07:25:19-03:00",
+   "duracao_seg": 53,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 54,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 57
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 53
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 51
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 56
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 56
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 56
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 54
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 56
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 58
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 52
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 56
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 54
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 57
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 50
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 53
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 51
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 54
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 54
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 50
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 56
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 57
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 53
+   }
+  ]
+ },
+ {
+  "id": "ingest_erp",
+  "nome": "Ingestão do ERP de Consórcio",
+  "descricao": "Extrai contratos, cotas, parcelas, assembleias e lances do ERP de consórcio para a staging.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 01:00",
+  "agenda_cron": "0 1 * * *",
+  "dono": "Thiago Meireles",
+  "tabelas": [
+   "stg_erp_contratos",
+   "stg_erp_cotas",
+   "stg_erp_parcelas",
+   "stg_erp_assembleias",
+   "stg_erp_lances"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T01:00:15-03:00",
+   "duracao_seg": 103,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 108,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 101
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 115
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 106
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 114
+   },
+   {
+    "data": "2026-10-23",
+    "status": "atrasada",
+    "duracao_seg": 107
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 102
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 119
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 112
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 118
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 99
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 104
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 105
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 109
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 103
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 101
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 118
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 114
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 101
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 103
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 113
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 119
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 104
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 104
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 99
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 100
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 104
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 107
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 115
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 118
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 103
+   }
+  ]
+ },
+ {
+  "id": "ingest_crm",
+  "nome": "Ingestão do CRM Comercial",
+  "descricao": "Coleta clientes, propostas e eventos de funil pela API paginada do CRM.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 01:15",
+  "agenda_cron": "15 1 * * *",
+  "dono": "Thiago Meireles",
+  "tabelas": [
+   "stg_crm_clientes",
+   "stg_crm_propostas",
+   "stg_crm_funil_eventos"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T01:15:15-03:00",
+   "duracao_seg": 35,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 37,
+  "falhas_30d": 1,
+  "falhas_recorrentes": [
+   {
+    "erro": "HTTP 503 Service Unavailable na API do CRM após 5 tentativas (manutenção do fornecedor).",
+    "ocorrencias": 1,
+    "ultima": "2026-10-29"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 32
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-29",
+    "status": "falha",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 33
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 35
+   }
+  ]
+ },
+ {
+  "id": "core_corporativo_rh",
+  "nome": "Colaboradores (RH)",
+  "descricao": "Lê o arquivo diário da folha e atualiza o cadastro de colaboradores.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 01:20",
+  "agenda_cron": "20 1 * * *",
+  "dono": "Thiago Meireles",
+  "tabelas": [
+   "dim_colaborador"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T01:20:22-03:00",
+   "duracao_seg": 35,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 37,
+  "falhas_30d": 1,
+  "falhas_recorrentes": [
+   {
+    "erro": "Arquivo colaboradores_20261019.csv não encontrado no diretório de troca do RH.",
+    "ocorrencias": 1,
+    "ultima": "2026-10-20"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-10-20",
+    "status": "falha",
+    "duracao_seg": 27
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 34
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 34
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 34
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 41
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 36
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 34
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 39
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 41
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 35
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 38
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 35
+   }
+  ]
+ },
+ {
+  "id": "core_cadastro",
+  "nome": "Cadastro único de clientes",
+  "descricao": "Consolida clientes do CRM e do ERP em um cadastro único, com endereços, contatos e consentimentos.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 01:40",
+  "agenda_cron": "40 1 * * *",
+  "dono": "Marina Azevedo",
+  "tabelas": [
+   "dim_cliente",
+   "dim_cliente_pf",
+   "dim_cliente_pj",
+   "dim_endereco",
+   "dim_contato",
+   "fato_consentimento_lgpd",
+   "fato_atualizacao_cadastral"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T01:40:17-03:00",
+   "duracao_seg": 1123,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 1122,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 1151
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 1108
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 1119
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 1132
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 1051
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 1140
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 1094
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 1109
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 1069
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 1142
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 1104
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 1139
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 1116
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 1114
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 1072
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 1121
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 1150
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 1171
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 1137
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 1099
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 1087
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 1096
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 1115
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 1131
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 1135
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 1138
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 1174
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 1152
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 1183
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 1123
+   }
+  ]
+ },
+ {
+  "id": "ingest_banco_cnab",
+  "nome": "Retorno bancário (CNAB 240)",
+  "descricao": "Processa os arquivos de retorno CNAB 240 com as liquidações do dia anterior.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 01:45",
+  "agenda_cron": "45 1 * * *",
+  "dono": "Thiago Meireles",
+  "tabelas": [
+   "stg_banco_retorno_cnab"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T01:45:50-03:00",
+   "duracao_seg": 26,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 25,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 28
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 28
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 27
+   },
+   {
+    "data": "2026-11-03",
+    "status": "alerta",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 28
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 27
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 27
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 27
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 27
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 28
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 28
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 26
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 26
+   }
+  ]
+ },
+ {
+  "id": "ingest_pesquisas",
+  "nome": "Ingestão das pesquisas (NPS e CSAT)",
+  "descricao": "Recebe as respostas de NPS e CSAT entregues pela plataforma de pesquisas.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 02:30",
+  "agenda_cron": "30 2 * * *",
+  "dono": "Thiago Meireles",
+  "tabelas": [
+   "stg_pesquisas_respostas"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T02:30:22-03:00",
+   "duracao_seg": 21,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 22,
+  "falhas_30d": 1,
+  "falhas_recorrentes": [
+   {
+    "erro": "Token da API da plataforma de pesquisas expirado (HTTP 401). Renovado manualmente no mesmo dia.",
+    "ocorrencias": 1,
+    "ultima": "2026-11-10"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 20
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 24
+   },
+   {
+    "data": "2026-11-10",
+    "status": "falha",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 21
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 23
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 25
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 22
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 21
+   }
+  ]
+ },
+ {
+  "id": "core_corporativo",
+  "nome": "Dimensões corporativas",
+  "descricao": "Atualiza filiais, regionais e o calendário de dias úteis.",
+  "orquestrador": "Airflow",
+  "agenda": "Semanal, domingos às 02:50",
+  "agenda_cron": "50 2 * * 0",
+  "dono": "Thiago Meireles",
+  "tabelas": [
+   "dim_filial",
+   "dim_regional",
+   "dim_calendario"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-15T02:50:18-03:00",
+   "duracao_seg": 40,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 46,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 55
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   }
+  ]
+ },
+ {
+  "id": "core_produto",
+  "nome": "Catálogo de produtos",
+  "descricao": "Atualiza segmentos, planos, bens de referência e tabelas de taxa.",
+  "orquestrador": "Airflow",
+  "agenda": "Semanal, domingos às 03:00",
+  "agenda_cron": "0 3 * * 0",
+  "dono": "Rafael Nogueira",
+  "tabelas": [
+   "dim_segmento",
+   "dim_plano",
+   "dim_bem_referencia",
+   "dim_tabela_taxa"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-15T03:00:23-03:00",
+   "duracao_seg": 63,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 64,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 64
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 64
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 65
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 63
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sem_agenda",
+    "duracao_seg": null
+   }
+  ]
+ },
+ {
+  "id": "core_assembleias",
+  "nome": "Assembleias e contemplações",
+  "descricao": "Carrega assembleias, lances, sorteios, contemplações e liberações de crédito.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 03:15",
+  "agenda_cron": "15 3 * * *",
+  "dono": "Diego Sampaio",
+  "tabelas": [
+   "fato_assembleia",
+   "fato_lance",
+   "fato_sorteio",
+   "fato_contemplacao",
+   "fato_liberacao_credito"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T03:15:06-03:00",
+   "duracao_seg": 71,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 76,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 73
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 68
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 72
+   },
+   {
+    "data": "2026-10-22",
+    "status": "alerta",
+    "duracao_seg": 171
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 73
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 72
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 73
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 73
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 69
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 74
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 72
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 70
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 71
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 73
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 73
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 74
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 75
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 69
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 74
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 72
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 72
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 72
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 74
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 76
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 73
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 70
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 72
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 74
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 73
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 71
+   }
+  ]
+ },
+ {
+  "id": "core_pesquisas",
+  "nome": "Pesquisas de satisfação",
+  "descricao": "Trata as respostas de NPS e CSAT e associa ao cliente e ao atendimento avaliado.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 03:20",
+  "agenda_cron": "20 3 * * *",
+  "dono": "Juliana Prado",
+  "tabelas": [
+   "fato_pesquisa_nps",
+   "fato_pesquisa_csat"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T03:20:11-03:00",
+   "duracao_seg": 48,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 46,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 42
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 45
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 43
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 42
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 45
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 42
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 43
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 41
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 45
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 48
+   }
+  ]
+ },
+ {
+  "id": "core_financeiro_fundos",
+  "nome": "Fundo comum e fundo de reserva",
+  "descricao": "Apura a movimentação dos fundos por grupo a partir dos pagamentos conciliados.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 03:45",
+  "agenda_cron": "45 3 * * *",
+  "dono": "Patrícia Lemos",
+  "tabelas": [
+   "fato_fundo_comum",
+   "fato_fundo_reserva"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T03:45:13-03:00",
+   "duracao_seg": 43,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 45,
+  "falhas_30d": 1,
+  "falhas_recorrentes": [
+   {
+    "erro": "Deadlock ao gravar o saldo dos fundos (transação escolhida como vítima). Reprocessada no dia seguinte.",
+    "ocorrencias": 1,
+    "ultima": "2026-10-27"
+   }
+  ],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 43
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 45
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-10-27",
+    "status": "falha",
+    "duracao_seg": 37
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 40
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 45
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 42
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 49
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 48
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 41
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 44
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 43
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 46
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 47
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 41
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 45
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 43
+   }
+  ]
+ },
+ {
+  "id": "mart_vendas",
+  "nome": "Mart de Vendas / Comercial",
+  "descricao": "Agrega vendas, funil e metas para o relatório de Vendas / Comercial.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 05:00",
+  "agenda_cron": "0 5 * * *",
+  "dono": "Fernanda Rocha",
+  "tabelas": [
+   "mart_vendas_comercial"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T05:00:46-03:00",
+   "duracao_seg": 358,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 323,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 353
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 299
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 306
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 319
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 360
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 311
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 292
+   },
+   {
+    "data": "2026-10-26",
+    "status": "atrasada",
+    "duracao_seg": 312
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 302
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 351
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 300
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 300
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 360
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 339
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 362
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 357
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 349
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 300
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 298
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 297
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 304
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 298
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 297
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 334
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 335
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 363
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 311
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 314
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 309
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 358
+   }
+  ]
+ },
+ {
+  "id": "mart_cobranca",
+  "nome": "Marts de Cobrança",
+  "descricao": "Monta a carteira por faixa de atraso e as curvas de safra, MOB e cohort.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 05:20",
+  "agenda_cron": "20 5 * * *",
+  "dono": "Fernanda Rocha",
+  "tabelas": [
+   "mart_cobranca_carteira",
+   "mart_cobranca_safra_mob"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T05:20:36-03:00",
+   "duracao_seg": 432,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 462,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 436
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 470
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 460
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 441
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 454
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 505
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 480
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 508
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 463
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 460
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 443
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 474
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 455
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 428
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 467
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 466
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 478
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 416
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 493
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 472
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 449
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 485
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 420
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 497
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 408
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 471
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 491
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 443
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 486
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 432
+   }
+  ]
+ },
+ {
+  "id": "mart_assembleias",
+  "nome": "Mart de Assembleias e Contemplações",
+  "descricao": "Agrega assembleias, lances, contemplações e liberações por grupo e competência.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 05:30",
+  "agenda_cron": "30 5 * * *",
+  "dono": "Fernanda Rocha",
+  "tabelas": [
+   "mart_assembleias_contemplacoes"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T05:30:17-03:00",
+   "duracao_seg": 367,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 100.0,
+  "duracao_media_seg": 336,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 364
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 292
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 335
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 337
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 366
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 364
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 359
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 304
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 363
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 328
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 311
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 302
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 331
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 357
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 324
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 361
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 350
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 291
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 356
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 303
+   },
+   {
+    "data": "2026-11-08",
+    "status": "sucesso",
+    "duracao_seg": 354
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 332
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 349
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 302
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 359
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 325
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 357
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 301
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 324
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 367
+   }
+  ]
+ },
+ {
+  "id": "mart_executivo",
+  "nome": "KPIs executivos",
+  "descricao": "Consolida os indicadores dos cinco marts para o comitê executivo.",
+  "orquestrador": "Airflow",
+  "agenda": "Diária às 06:00",
+  "agenda_cron": "0 6 * * *",
+  "dono": "Fernanda Rocha",
+  "tabelas": [
+   "mart_executivo_kpis"
+  ],
+  "status": "verde",
+  "ultima_execucao": {
+   "inicio": "2026-11-17T06:00:13-03:00",
+   "duracao_seg": 325,
+   "status": "sucesso"
+  },
+  "taxa_sucesso_30d": 96.7,
+  "duracao_media_seg": 326,
+  "falhas_30d": 0,
+  "falhas_recorrentes": [],
+  "execucoes_30d": [
+   {
+    "data": "2026-10-19",
+    "status": "sucesso",
+    "duracao_seg": 300
+   },
+   {
+    "data": "2026-10-20",
+    "status": "sucesso",
+    "duracao_seg": 322
+   },
+   {
+    "data": "2026-10-21",
+    "status": "sucesso",
+    "duracao_seg": 316
+   },
+   {
+    "data": "2026-10-22",
+    "status": "sucesso",
+    "duracao_seg": 333
+   },
+   {
+    "data": "2026-10-23",
+    "status": "sucesso",
+    "duracao_seg": 363
+   },
+   {
+    "data": "2026-10-24",
+    "status": "sucesso",
+    "duracao_seg": 324
+   },
+   {
+    "data": "2026-10-25",
+    "status": "sucesso",
+    "duracao_seg": 302
+   },
+   {
+    "data": "2026-10-26",
+    "status": "sucesso",
+    "duracao_seg": 308
+   },
+   {
+    "data": "2026-10-27",
+    "status": "sucesso",
+    "duracao_seg": 322
+   },
+   {
+    "data": "2026-10-28",
+    "status": "sucesso",
+    "duracao_seg": 318
+   },
+   {
+    "data": "2026-10-29",
+    "status": "sucesso",
+    "duracao_seg": 362
+   },
+   {
+    "data": "2026-10-30",
+    "status": "sucesso",
+    "duracao_seg": 314
+   },
+   {
+    "data": "2026-10-31",
+    "status": "sucesso",
+    "duracao_seg": 299
+   },
+   {
+    "data": "2026-11-01",
+    "status": "sucesso",
+    "duracao_seg": 357
+   },
+   {
+    "data": "2026-11-02",
+    "status": "sucesso",
+    "duracao_seg": 324
+   },
+   {
+    "data": "2026-11-03",
+    "status": "sucesso",
+    "duracao_seg": 326
+   },
+   {
+    "data": "2026-11-04",
+    "status": "sucesso",
+    "duracao_seg": 326
+   },
+   {
+    "data": "2026-11-05",
+    "status": "sucesso",
+    "duracao_seg": 362
+   },
+   {
+    "data": "2026-11-06",
+    "status": "sucesso",
+    "duracao_seg": 345
+   },
+   {
+    "data": "2026-11-07",
+    "status": "sucesso",
+    "duracao_seg": 362
+   },
+   {
+    "data": "2026-11-08",
+    "status": "atrasada",
+    "duracao_seg": 335
+   },
+   {
+    "data": "2026-11-09",
+    "status": "sucesso",
+    "duracao_seg": 290
+   },
+   {
+    "data": "2026-11-10",
+    "status": "sucesso",
+    "duracao_seg": 313
+   },
+   {
+    "data": "2026-11-11",
+    "status": "sucesso",
+    "duracao_seg": 311
+   },
+   {
+    "data": "2026-11-12",
+    "status": "sucesso",
+    "duracao_seg": 310
+   },
+   {
+    "data": "2026-11-13",
+    "status": "sucesso",
+    "duracao_seg": 321
+   },
+   {
+    "data": "2026-11-14",
+    "status": "sucesso",
+    "duracao_seg": 314
+   },
+   {
+    "data": "2026-11-15",
+    "status": "sucesso",
+    "duracao_seg": 326
+   },
+   {
+    "data": "2026-11-16",
+    "status": "sucesso",
+    "duracao_seg": 361
+   },
+   {
+    "data": "2026-11-17",
+    "status": "sucesso",
+    "duracao_seg": 325
+   }
+  ]
+ }
+]

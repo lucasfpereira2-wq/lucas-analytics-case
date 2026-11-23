@@ -1,0 +1,753 @@
+{
+ "nome": "fato_acao_cobranca",
+ "descricao": "Acionamentos de cobrança por canal",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cobranca",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "Carga concluída com 4 horas de atraso em relação ao SLA",
+ "tem_pk": true,
+ "saude": 49.1,
+ "ultima_carga": "2026-11-17T07:30:11-03:00",
+ "atraso_horas": 4.0,
+ "linhas": 920520,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "atrasada"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Acionamentos de cobrança por canal. Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). É construída a partir de `dim_regua_cobranca`, `fato_parcelas`, `dim_assessoria_cobranca`. Carga diária pela rotina `core_cobranca`, com SLA de 24 horas. Tem 9 colunas; chave primária: `id_acao`. Responsável: Patrícia Lemos (Crédito & Cobrança). Alimenta: Cobrança: Carteira e Inadimplência.",
+ "colunas": [
+  {
+   "nome": "id_acao",
+   "tipo": "bigint",
+   "descricao": "Chave do acionamento",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_parcela",
+   "tipo": "bigint",
+   "descricao": "Parcela cobrada",
+   "pk": false,
+   "fk": {
+    "tabela": "fato_parcelas",
+    "coluna": "id_parcela"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_etapa_regua",
+   "tipo": "smallint",
+   "descricao": "Etapa da régua",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_regua_cobranca",
+    "coluna": "id_etapa_regua"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_assessoria",
+   "tipo": "integer",
+   "descricao": "Assessoria externa, quando houver",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_assessoria_cobranca",
+    "coluna": "id_assessoria"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "canal_cobranca",
+   "tipo": "varchar(40)",
+   "descricao": "Canal do acionamento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "resultado_acao",
+   "tipo": "varchar(30)",
+   "descricao": "Resultado do contato",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_promessa_pagamento",
+   "tipo": "char(1)",
+   "descricao": "Houve promessa de pagamento (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_recuperado",
+   "tipo": "decimal(12,2)",
+   "descricao": "Valor recuperado atribuído à ação",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_acao",
+   "tipo": "timestamp",
+   "descricao": "Data e hora do acionamento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:30:38-03:00",
+   "duracao_seg": 38,
+   "linhas": 359,
+   "linhas_esperadas": 356,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:30:15-03:00",
+   "duracao_seg": 33,
+   "linhas": 2041,
+   "linhas_esperadas": 2098,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:30:52-03:00",
+   "duracao_seg": 36,
+   "linhas": 1921,
+   "linhas_esperadas": 1903,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:30:25-03:00",
+   "duracao_seg": 38,
+   "linhas": 1824,
+   "linhas_esperadas": 1814,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:30:09-03:00",
+   "duracao_seg": 38,
+   "linhas": 1744,
+   "linhas_esperadas": 1778,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:30:12-03:00",
+   "duracao_seg": 37,
+   "linhas": 1711,
+   "linhas_esperadas": 1707,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:30:24-03:00",
+   "duracao_seg": 38,
+   "linhas": 734,
+   "linhas_esperadas": 747,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:30:26-03:00",
+   "duracao_seg": 41,
+   "linhas": 361,
+   "linhas_esperadas": 356,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:30:55-03:00",
+   "duracao_seg": 34,
+   "linhas": 2154,
+   "linhas_esperadas": 2098,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:30:55-03:00",
+   "duracao_seg": 37,
+   "linhas": 1943,
+   "linhas_esperadas": 1903,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:30:26-03:00",
+   "duracao_seg": 37,
+   "linhas": 1792,
+   "linhas_esperadas": 1814,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:30:22-03:00",
+   "duracao_seg": 37,
+   "linhas": 1722,
+   "linhas_esperadas": 1778,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:30:04-03:00",
+   "duracao_seg": 39,
+   "linhas": 1658,
+   "linhas_esperadas": 1707,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:30:22-03:00",
+   "duracao_seg": 33,
+   "linhas": 736,
+   "linhas_esperadas": 747,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:30:39-03:00",
+   "duracao_seg": 36,
+   "linhas": 350,
+   "linhas_esperadas": 356,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:30:10-03:00",
+   "duracao_seg": 35,
+   "linhas": 2123,
+   "linhas_esperadas": 2098,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:30:25-03:00",
+   "duracao_seg": 29,
+   "linhas": null,
+   "linhas_esperadas": 1903,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Timeout ao consultar `fato_parcelas`: consulta excedeu 30 minutos. Reprocessada no dia seguinte."
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:30:49-03:00",
+   "duracao_seg": 36,
+   "linhas": 1857,
+   "linhas_esperadas": 1814,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:30:54-03:00",
+   "duracao_seg": 40,
+   "linhas": 1838,
+   "linhas_esperadas": 1778,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:30:13-03:00",
+   "duracao_seg": 39,
+   "linhas": 1653,
+   "linhas_esperadas": 1707,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:30:16-03:00",
+   "duracao_seg": 34,
+   "linhas": 742,
+   "linhas_esperadas": 747,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:30:14-03:00",
+   "duracao_seg": 33,
+   "linhas": 352,
+   "linhas_esperadas": 356,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:30:34-03:00",
+   "duracao_seg": 33,
+   "linhas": 2062,
+   "linhas_esperadas": 2098,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:30:38-03:00",
+   "duracao_seg": 37,
+   "linhas": 1946,
+   "linhas_esperadas": 1903,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:30:51-03:00",
+   "duracao_seg": 37,
+   "linhas": 1817,
+   "linhas_esperadas": 1814,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:30:20-03:00",
+   "duracao_seg": 35,
+   "linhas": 1748,
+   "linhas_esperadas": 1778,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:30:07-03:00",
+   "duracao_seg": 38,
+   "linhas": 1703,
+   "linhas_esperadas": 1707,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:30:05-03:00",
+   "duracao_seg": 36,
+   "linhas": 750,
+   "linhas_esperadas": 747,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T03:30:08-03:00",
+   "duracao_seg": 36,
+   "linhas": 353,
+   "linhas_esperadas": 356,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T07:30:11-03:00",
+   "duracao_seg": 38,
+   "linhas": 2104,
+   "linhas_esperadas": 2098,
+   "status": "atrasada",
+   "anomalia_volume": false,
+   "mensagem": "Fila de processamento congestionada após a falha de boletos; concluída com 4 horas de atraso."
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_acao_cobranca.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_acao`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_acao_cobranca' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_acao_cobranca.unicidade.id_acao",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_acao`",
+   "coluna": "id_acao",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_acao` (920.520 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_acao, COUNT(*) AS qtd\nFROM fato_acao_cobranca\nGROUP BY id_acao\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_acao_cobranca.nao_nulo.id_parcela",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_parcela`",
+   "coluna": "id_parcela",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_parcela`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_parcela IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_acao_cobranca;"
+  },
+  {
+   "id": "fato_acao_cobranca.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_parcela`",
+   "coluna": "id_parcela",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_parcela` existem em `fato_parcelas`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_acao_cobranca f\nLEFT JOIN fato_parcelas p ON p.id_parcela = f.id_parcela\nWHERE f.id_parcela IS NOT NULL AND p.id_parcela IS NULL;"
+  },
+  {
+   "id": "fato_acao_cobranca.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "2.104 linhas na última carga, dentro da faixa esperada (cerca de 2.098)",
+   "valor_observado": 2104,
+   "limite": 2098,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_acao_cobranca'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_acao_cobranca.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "alerta",
+   "evidencia": "Carga concluída com 4 horas de atraso em relação ao SLA",
+   "valor_observado": 0.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_acao_cobranca' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_acao_cobranca.dominio_valores.canal_cobranca",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `canal_cobranca`",
+   "coluna": "canal_cobranca",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,1% dos valores de `canal_cobranca` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.1,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT canal_cobranca, COUNT(*) AS qtd\nFROM fato_acao_cobranca\nWHERE canal_cobranca NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'canal_cobranca')\nGROUP BY canal_cobranca;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_acao",
+   "id_parcela",
+   "id_etapa_regua",
+   "id_assessoria",
+   "canal_cobranca",
+   "resultado_acao",
+   "fl_promessa_pagamento",
+   "vl_recuperado",
+   "dt_acao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     48212291,
+     21,
+     null,
+     "Régua digital (SMS/e-mail)",
+     "Promessa de pagamento",
+     "S",
+     50894.93,
+     "2026-11-15 17:40:53"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     48212262,
+     9,
+     5,
+     "Central de cobrança",
+     "Sem contato",
+     "N",
+     581938.12,
+     "2026-11-14 19:32:14"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     48212153,
+     3,
+     30,
+     "Negativação",
+     "Mensagem entregue",
+     "S",
+     611682.61,
+     "2026-11-16 11:59:39"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     48211937,
+     31,
+     null,
+     "Assessoria externa",
+     "Promessa de pagamento",
+     "S",
+     null,
+     "2026-11-15 13:57:19"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     48211985,
+     6,
+     28,
+     "Régua digital (SMS/e-mail)",
+     "Recusa",
+     "S",
+     423075.17,
+     "2026-11-14 07:03:17"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     48212100,
+     1,
+     6,
+     "Central de cobrança",
+     "Sem contato",
+     "N",
+     486976.43,
+     "2026-11-14 13:39:01"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     48211917,
+     9,
+     null,
+     "Assessoria externa",
+     "Mensagem entregue",
+     "N",
+     476361.62,
+     "2026-11-15 10:57:47"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     48212160,
+     25,
+     null,
+     "Régua digital (SMS/e-mail)",
+     "Promessa de pagamento",
+     "N",
+     null,
+     "2026-11-15 13:37:24"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     48211957,
+     25,
+     15,
+     "Régua digital (SMS/e-mail)",
+     "Sem contato",
+     "N",
+     null,
+     "2026-11-16 16:17:54"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     48212236,
+     26,
+     11,
+     "Régua digital (SMS/e-mail)",
+     "Sem contato",
+     "N",
+     401641.05,
+     "2026-11-15 08:39:18"
+    ]
+   },
+   {
+    "valores": [
+     5000010,
+     48211994,
+     17,
+     13,
+     "Central de cobrança",
+     "Sem contato",
+     "N",
+     593257.5,
+     "2026-11-14 13:11:06"
+    ]
+   },
+   {
+    "valores": [
+     5000011,
+     48212239,
+     6,
+     10,
+     "Negativação",
+     "Mensagem entregue",
+     "S",
+     636405.63,
+     "2026-11-14 14:36:47"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "dim_regua_cobranca",
+  "fato_parcelas",
+  "dim_assessoria_cobranca"
+ ],
+ "downstream": [
+  "mart_cobranca_carteira"
+ ]
+}

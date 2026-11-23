@@ -1,0 +1,744 @@
+{
+ "nome": "fato_inadimplencia_diaria",
+ "descricao": "Fotografia diária da carteira por faixa de atraso",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cobranca",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "Variação anômala no saldo em atraso de 16/11, herdada das parcelas duplicadas",
+ "tem_pk": true,
+ "saude": 52.0,
+ "ultima_carga": "2026-11-17T03:30:34-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 386640,
+ "testes_total": 8,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira",
+  "cobranca-safra"
+ ],
+ "incidentes": [
+  "INC-2031"
+ ],
+ "tags": [],
+ "descricao_longa": "Fotografia diária da carteira por faixa de atraso. Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). É construída a partir de `fato_parcelas`, `fato_pagamento`, `dim_cota`. Carga diária pela rotina `core_cobranca`, com SLA de 24 horas. Tem 9 colunas; chave primária: `dt_referencia, id_cota`. Responsável: Patrícia Lemos (Crédito & Cobrança). Alimenta: Cobrança: Carteira e Inadimplência, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "dt_referencia",
+   "tipo": "date",
+   "descricao": "Data da fotografia",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cota",
+   "tipo": "bigint",
+   "descricao": "Cota",
+   "pk": true,
+   "fk": {
+    "tabela": "dim_cota",
+    "coluna": "id_cota"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento da cota",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "faixa_atraso",
+   "tipo": "varchar(10)",
+   "descricao": "Em dia, 1–30, 31–60, 61–90 ou 90+",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dias_atraso",
+   "tipo": "integer",
+   "descricao": "Dias de atraso da parcela mais antiga",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_parcelas_atraso",
+   "tipo": "smallint",
+   "descricao": "Parcelas em atraso",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_saldo_atraso",
+   "tipo": "decimal(14,2)",
+   "descricao": "Saldo em atraso",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_saldo_devedor",
+   "tipo": "decimal(14,2)",
+   "descricao": "Saldo devedor total",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_contemplada",
+   "tipo": "char(1)",
+   "descricao": "Cota contemplada (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:30:02-03:00",
+   "duracao_seg": 39,
+   "linhas": 524,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:30:06-03:00",
+   "duracao_seg": 35,
+   "linhas": 512,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:30:21-03:00",
+   "duracao_seg": 37,
+   "linhas": 519,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:30:53-03:00",
+   "duracao_seg": 35,
+   "linhas": 535,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:30:07-03:00",
+   "duracao_seg": 40,
+   "linhas": 541,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:30:46-03:00",
+   "duracao_seg": 34,
+   "linhas": 525,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:30:09-03:00",
+   "duracao_seg": 33,
+   "linhas": 532,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:30:02-03:00",
+   "duracao_seg": 36,
+   "linhas": 538,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:30:52-03:00",
+   "duracao_seg": 34,
+   "linhas": 511,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:30:54-03:00",
+   "duracao_seg": 39,
+   "linhas": 519,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:30:31-03:00",
+   "duracao_seg": 39,
+   "linhas": 543,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:30:26-03:00",
+   "duracao_seg": 34,
+   "linhas": 520,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:30:52-03:00",
+   "duracao_seg": 37,
+   "linhas": 535,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:30:50-03:00",
+   "duracao_seg": 37,
+   "linhas": 544,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:30:43-03:00",
+   "duracao_seg": 33,
+   "linhas": 533,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:30:14-03:00",
+   "duracao_seg": 32,
+   "linhas": 532,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:30:22-03:00",
+   "duracao_seg": 24,
+   "linhas": null,
+   "linhas_esperadas": 528,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Timeout ao consultar `fato_parcelas`: consulta excedeu 30 minutos. Reprocessada no dia seguinte."
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:30:54-03:00",
+   "duracao_seg": 33,
+   "linhas": 540,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:30:43-03:00",
+   "duracao_seg": 36,
+   "linhas": 545,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:30:20-03:00",
+   "duracao_seg": 35,
+   "linhas": 540,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:30:14-03:00",
+   "duracao_seg": 37,
+   "linhas": 545,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:30:23-03:00",
+   "duracao_seg": 36,
+   "linhas": 525,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:30:45-03:00",
+   "duracao_seg": 38,
+   "linhas": 515,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:30:51-03:00",
+   "duracao_seg": 40,
+   "linhas": 524,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:30:45-03:00",
+   "duracao_seg": 31,
+   "linhas": 516,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:30:07-03:00",
+   "duracao_seg": 32,
+   "linhas": 543,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:30:28-03:00",
+   "duracao_seg": 38,
+   "linhas": 537,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:30:07-03:00",
+   "duracao_seg": 37,
+   "linhas": 525,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T03:30:28-03:00",
+   "duracao_seg": 38,
+   "linhas": 535,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T03:30:34-03:00",
+   "duracao_seg": 32,
+   "linhas": 515,
+   "linhas_esperadas": 528,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_inadimplencia_diaria.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `dt_referencia, id_cota`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_inadimplencia_diaria' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_inadimplencia_diaria.unicidade.dt_referencia",
+   "regra": "unicidade",
+   "nome": "Unicidade de `dt_referencia, id_cota`",
+   "coluna": "dt_referencia, id_cota",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `dt_referencia, id_cota` (386.640 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_referencia, id_cota, COUNT(*) AS qtd\nFROM fato_inadimplencia_diaria\nGROUP BY dt_referencia, id_cota\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_inadimplencia_diaria.nao_nulo.vl_saldo_atraso",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `vl_saldo_atraso`",
+   "coluna": "vl_saldo_atraso",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `vl_saldo_atraso`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN vl_saldo_atraso IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_inadimplencia_diaria;"
+  },
+  {
+   "id": "fato_inadimplencia_diaria.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cota`",
+   "coluna": "id_cota",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cota` existem em `dim_cota`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_inadimplencia_diaria f\nLEFT JOIN dim_cota p ON p.id_cota = f.id_cota\nWHERE f.id_cota IS NOT NULL AND p.id_cota IS NULL;"
+  },
+  {
+   "id": "fato_inadimplencia_diaria.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "515 linhas na última carga, dentro da faixa esperada (cerca de 528)",
+   "valor_observado": 515,
+   "limite": 528,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_inadimplencia_diaria'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_inadimplencia_diaria.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 4h (17/11 às 03:30); SLA de 24h",
+   "valor_observado": 4.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_inadimplencia_diaria' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_inadimplencia_diaria.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_saldo_atraso",
+   "severidade": "critico",
+   "resultado": "alerta",
+   "evidencia": "Variação anômala no saldo em atraso de 16/11, herdada das parcelas duplicadas",
+   "valor_observado": 1.4,
+   "limite": 0.6,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_saldo_atraso) - o.total) / o.total AS pc_diferenca\nFROM fato_inadimplencia_diaria a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'fato_inadimplencia_diaria' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  },
+  {
+   "id": "fato_inadimplencia_diaria.dominio_valores.segmento",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `segmento`",
+   "coluna": "segmento",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `segmento` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT segmento, COUNT(*) AS qtd\nFROM fato_inadimplencia_diaria\nWHERE segmento NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'segmento')\nGROUP BY segmento;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "dt_referencia",
+   "id_cota",
+   "segmento",
+   "faixa_atraso",
+   "dias_atraso",
+   "qt_parcelas_atraso",
+   "vl_saldo_atraso",
+   "vl_saldo_devedor",
+   "fl_contemplada"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "2026-11-16",
+     74679,
+     "Auto",
+     "61–90",
+     12,
+     21,
+     6985463.57,
+     6067639.54,
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-15",
+     74675,
+     "Auto",
+     "31–60",
+     0,
+     7,
+     2544314.0,
+     8528170.08,
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     74398,
+     "Pesada",
+     "90+",
+     4,
+     14,
+     1393968.8,
+     5475508.1,
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     74336,
+     "Imóvel",
+     "Em dia",
+     0,
+     8,
+     4765949.56,
+     7101364.48,
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     74630,
+     "Imóvel",
+     "31–60",
+     68,
+     16,
+     1934862.35,
+     7235093.57,
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-15",
+     74664,
+     "Pesada",
+     "90+",
+     35,
+     33,
+     1400522.94,
+     463586.21,
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     74578,
+     "Auto",
+     "Em dia",
+     35,
+     40,
+     7714606.68,
+     7676598.52,
+     "N"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-15",
+     74520,
+     "Serviços",
+     "90+",
+     0,
+     13,
+     7442456.13,
+     7479231.24,
+     "N"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     74354,
+     "Imóvel",
+     "31–60",
+     4,
+     33,
+     781385.09,
+     1679599.8,
+     "N"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-15",
+     74500,
+     "Auto",
+     "31–60",
+     0,
+     3,
+     9369122.0,
+     5385180.24,
+     "N"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "fato_parcelas",
+  "fato_pagamento",
+  "dim_cota"
+ ],
+ "downstream": [
+  "mart_cobranca_carteira",
+  "mart_cobranca_safra_mob"
+ ]
+}

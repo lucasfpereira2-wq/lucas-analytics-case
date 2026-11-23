@@ -1,0 +1,769 @@
+{
+ "nome": "fato_chamada",
+ "descricao": "Chamadas de voz atendidas e abandonadas (URA e humano)",
+ "dominio": "Atendimento",
+ "camada": "core",
+ "dono": "Juliana Prado",
+ "dono_area": "Experiência do Cliente",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_atendimento",
+ "fonte": null,
+ "status": "vermelho",
+ "motivo_status": "Sem atualização há 3 dias: depende de `stg_telefonia_cdr`, que está parada",
+ "tem_pk": true,
+ "saude": 15.2,
+ "ultima_carga": "2026-11-14T03:00:15-03:00",
+ "atraso_horas": 53.0,
+ "linhas": 1745037,
+ "testes_total": 7,
+ "testes_falhando": 1,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "nao_executou",
+  "nao_executou",
+  "nao_executou"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [
+  "INC-2032"
+ ],
+ "tags": [],
+ "descricao_longa": "Chamadas de voz atendidas e abandonadas (URA e humano). Pertence ao domínio Atendimento e fica na camada core (dado tratado e modelado). É construída a partir de `stg_telefonia_cdr`, `dim_agente`, `dim_fila_atendimento`, `dim_motivo_contato`. Carga diária pela rotina `core_atendimento`, com SLA de 24 horas. Tem 11 colunas; chave primária: `id_chamada`. Responsável: Juliana Prado (Experiência do Cliente). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_chamada",
+   "tipo": "varchar(36)",
+   "descricao": "Chave da chamada",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_agente",
+   "tipo": "integer",
+   "descricao": "Agente que atendeu",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_agente",
+    "coluna": "id_agente"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "id_fila",
+   "tipo": "smallint",
+   "descricao": "Fila de atendimento",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_fila_atendimento",
+    "coluna": "id_fila"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_motivo",
+   "tipo": "integer",
+   "descricao": "Motivo do contato",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_motivo_contato",
+    "coluna": "id_motivo"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "tipo_atendimento",
+   "tipo": "varchar(10)",
+   "descricao": "URA ou humano",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_inicio",
+   "tipo": "timestamp",
+   "descricao": "Início da chamada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "duracao_seg",
+   "tipo": "integer",
+   "descricao": "Tempo de atendimento em segundos",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tempo_espera_seg",
+   "tipo": "integer",
+   "descricao": "Tempo de espera em segundos",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_atendida",
+   "tipo": "char(1)",
+   "descricao": "Chamada atendida (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_abandonada",
+   "tipo": "char(1)",
+   "descricao": "Chamada abandonada em fila (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_resolvida_primeiro_contato",
+   "tipo": "char(1)",
+   "descricao": "Resolvida no primeiro contato (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:00:22-03:00",
+   "duracao_seg": 37,
+   "linhas": 517,
+   "linhas_esperadas": 523,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:00:26-03:00",
+   "duracao_seg": 34,
+   "linhas": 3162,
+   "linhas_esperadas": 3087,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:00:54-03:00",
+   "duracao_seg": 34,
+   "linhas": 2760,
+   "linhas_esperadas": 2799,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:00:27-03:00",
+   "duracao_seg": 36,
+   "linhas": 2589,
+   "linhas_esperadas": 2669,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:00:41-03:00",
+   "duracao_seg": 41,
+   "linhas": 2527,
+   "linhas_esperadas": 2616,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:00:41-03:00",
+   "duracao_seg": 34,
+   "linhas": 2573,
+   "linhas_esperadas": 2512,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:00:31-03:00",
+   "duracao_seg": 38,
+   "linhas": 1136,
+   "linhas_esperadas": 1099,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:00:11-03:00",
+   "duracao_seg": 34,
+   "linhas": 521,
+   "linhas_esperadas": 523,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:00:38-03:00",
+   "duracao_seg": 42,
+   "linhas": 3136,
+   "linhas_esperadas": 3087,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:00:14-03:00",
+   "duracao_seg": 34,
+   "linhas": 2743,
+   "linhas_esperadas": 2799,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:00:13-03:00",
+   "duracao_seg": 37,
+   "linhas": 2659,
+   "linhas_esperadas": 2669,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:00:52-03:00",
+   "duracao_seg": 41,
+   "linhas": 2629,
+   "linhas_esperadas": 2616,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:00:02-03:00",
+   "duracao_seg": 35,
+   "linhas": 2525,
+   "linhas_esperadas": 2512,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:00:27-03:00",
+   "duracao_seg": 36,
+   "linhas": 1106,
+   "linhas_esperadas": 1099,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:00:12-03:00",
+   "duracao_seg": 37,
+   "linhas": 505,
+   "linhas_esperadas": 523,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:00:16-03:00",
+   "duracao_seg": 35,
+   "linhas": 3179,
+   "linhas_esperadas": 3087,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:00:38-03:00",
+   "duracao_seg": 38,
+   "linhas": 2703,
+   "linhas_esperadas": 2799,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:00:55-03:00",
+   "duracao_seg": 42,
+   "linhas": 2718,
+   "linhas_esperadas": 2669,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:00:28-03:00",
+   "duracao_seg": 34,
+   "linhas": 2615,
+   "linhas_esperadas": 2616,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:00:22-03:00",
+   "duracao_seg": 36,
+   "linhas": 2530,
+   "linhas_esperadas": 2512,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:00:42-03:00",
+   "duracao_seg": 41,
+   "linhas": 1070,
+   "linhas_esperadas": 1099,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:00:21-03:00",
+   "duracao_seg": 38,
+   "linhas": 531,
+   "linhas_esperadas": 523,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:00:46-03:00",
+   "duracao_seg": 38,
+   "linhas": 3013,
+   "linhas_esperadas": 3087,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:00:47-03:00",
+   "duracao_seg": 43,
+   "linhas": 2889,
+   "linhas_esperadas": 2799,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:00:53-03:00",
+   "duracao_seg": 37,
+   "linhas": 2633,
+   "linhas_esperadas": 2669,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:00:09-03:00",
+   "duracao_seg": 38,
+   "linhas": 2593,
+   "linhas_esperadas": 2616,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:00:15-03:00",
+   "duracao_seg": 41,
+   "linhas": 2438,
+   "linhas_esperadas": 2512,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 1099,
+   "status": "nao_executou",
+   "anomalia_volume": false,
+   "mensagem": "Tarefa ignorada (upstream_failed): `stg_telefonia_cdr` não foi carregada."
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 523,
+   "status": "nao_executou",
+   "anomalia_volume": false,
+   "mensagem": "Tarefa ignorada (upstream_failed): `stg_telefonia_cdr` não foi carregada."
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 3087,
+   "status": "nao_executou",
+   "anomalia_volume": false,
+   "mensagem": "Tarefa ignorada (upstream_failed): `stg_telefonia_cdr` não foi carregada."
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_chamada.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_chamada`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_chamada' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_chamada.unicidade.id_chamada",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_chamada`",
+   "coluna": "id_chamada",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_chamada` (1.745.037 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_chamada, COUNT(*) AS qtd\nFROM fato_chamada\nGROUP BY id_chamada\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_chamada.nao_nulo.id_fila",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_fila`",
+   "coluna": "id_fila",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_fila`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_fila IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_chamada;"
+  },
+  {
+   "id": "fato_chamada.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_agente`",
+   "coluna": "id_agente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_agente` existem em `dim_agente`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_chamada f\nLEFT JOIN dim_agente p ON p.id_agente = f.id_agente\nWHERE f.id_agente IS NOT NULL AND p.id_agente IS NULL;"
+  },
+  {
+   "id": "fato_chamada.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "2.438 linhas na última carga, dentro da faixa esperada (cerca de 2.512)",
+   "valor_observado": 2438,
+   "limite": 2512,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_chamada'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_chamada.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "falha",
+   "evidencia": "Sem atualização há 3 dias: depende de `stg_telefonia_cdr`, que está parada",
+   "valor_observado": 77.0,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta",
+    "falha",
+    "falha"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_chamada' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_chamada.dominio_valores.tipo_atendimento",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_atendimento`",
+   "coluna": "tipo_atendimento",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `tipo_atendimento` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_atendimento, COUNT(*) AS qtd\nFROM fato_chamada\nWHERE tipo_atendimento NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_atendimento')\nGROUP BY tipo_atendimento;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_chamada",
+   "id_agente",
+   "id_fila",
+   "id_motivo",
+   "tipo_atendimento",
+   "dt_inicio",
+   "duracao_seg",
+   "tempo_espera_seg",
+   "fl_atendida",
+   "fl_abandonada",
+   "fl_resolvida_primeiro_contato"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "cha-37f32db55f",
+     null,
+     15,
+     null,
+     "Humano",
+     "2026-11-11 08:15:56",
+     258,
+     64,
+     "S",
+     "S",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "cha-f953b9c10a",
+     138,
+     12,
+     null,
+     "Humano",
+     "2026-11-12 15:50:47",
+     156,
+     561,
+     "N",
+     "N",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "cha-f46f6d2a99",
+     121,
+     17,
+     36,
+     "Humano",
+     "2026-11-12 21:27:56",
+     479,
+     469,
+     "S",
+     "N",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "cha-7f16db454d",
+     130,
+     26,
+     42,
+     "URA",
+     "2026-11-11 08:01:35",
+     307,
+     72,
+     "N",
+     "S",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "cha-a6579e7cc0",
+     145,
+     15,
+     47,
+     "Humano",
+     "2026-11-11 09:59:56",
+     274,
+     196,
+     "S",
+     "S",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "cha-0361491330",
+     145,
+     19,
+     32,
+     "URA",
+     "2026-11-12 09:50:25",
+     525,
+     173,
+     "N",
+     "S",
+     "N"
+    ]
+   },
+   {
+    "valores": [
+     "cha-6735484d83",
+     121,
+     26,
+     51,
+     "Humano",
+     "2026-11-13 08:55:26",
+     418,
+     132,
+     "S",
+     "N",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "cha-5ec3f482c8",
+     138,
+     30,
+     50,
+     "Humano",
+     "2026-11-11 18:38:02",
+     124,
+     273,
+     "S",
+     "S",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "cha-edc13639fd",
+     144,
+     13,
+     39,
+     "Humano",
+     "2026-11-13 15:37:22",
+     330,
+     357,
+     "N",
+     "S",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "cha-37044bf98b",
+     134,
+     5,
+     null,
+     "Humano",
+     "2026-11-12 16:56:53",
+     500,
+     321,
+     "S",
+     "S",
+     "S"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_telefonia_cdr",
+  "dim_agente",
+  "dim_fila_atendimento",
+  "dim_motivo_contato"
+ ],
+ "downstream": [
+  "mart_atendimento"
+ ]
+}

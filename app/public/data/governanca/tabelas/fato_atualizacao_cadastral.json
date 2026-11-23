@@ -1,0 +1,648 @@
+{
+ "nome": "fato_atualizacao_cadastral",
+ "descricao": "Histórico de alterações cadastrais",
+ "dominio": "Cadastro",
+ "camada": "core",
+ "dono": "Marina Azevedo",
+ "dono_area": "Cadastro & CRM",
+ "criticidade": "baixa",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cadastro",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T01:40:21-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 50218,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Histórico de alterações cadastrais. Pertence ao domínio Cadastro e fica na camada core (dado tratado e modelado). É construída a partir de `stg_crm_clientes`. Carga diária pela rotina `core_cadastro`, com SLA de 24 horas. Tem 8 colunas; chave primária: `id_atualizacao`. Responsável: Marina Azevedo (Cadastro & CRM).",
+ "colunas": [
+  {
+   "nome": "id_atualizacao",
+   "tipo": "bigint",
+   "descricao": "Chave da alteração cadastral",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cliente",
+   "tipo": "bigint",
+   "descricao": "Cliente (identificador do CRM)",
+   "pk": false,
+   "fk": {
+    "tabela": "stg_crm_clientes",
+    "coluna": "id_cliente_crm"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "campo_alterado",
+   "tipo": "varchar(40)",
+   "descricao": "Campo que sofreu alteração",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "valor_anterior",
+   "tipo": "varchar(200)",
+   "descricao": "Valor antes da alteração",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "valor_novo",
+   "tipo": "varchar(200)",
+   "descricao": "Valor depois da alteração",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "origem",
+   "tipo": "varchar(30)",
+   "descricao": "Canal que originou a alteração",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "usuario_responsavel",
+   "tipo": "varchar(40)",
+   "descricao": "Usuário ou sistema responsável",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_alteracao",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da alteração",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:40:33-03:00",
+   "duracao_seg": 36,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:40:44-03:00",
+   "duracao_seg": 31,
+   "linhas": 82,
+   "linhas_esperadas": 83,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:40:16-03:00",
+   "duracao_seg": 31,
+   "linhas": 74,
+   "linhas_esperadas": 75,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:40:53-03:00",
+   "duracao_seg": 35,
+   "linhas": 70,
+   "linhas_esperadas": 72,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T01:40:08-03:00",
+   "duracao_seg": 32,
+   "linhas": 71,
+   "linhas_esperadas": 70,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:40:33-03:00",
+   "duracao_seg": 38,
+   "linhas": 66,
+   "linhas_esperadas": 67,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:40:44-03:00",
+   "duracao_seg": 34,
+   "linhas": 29,
+   "linhas_esperadas": 30,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:40:17-03:00",
+   "duracao_seg": 34,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:40:32-03:00",
+   "duracao_seg": 35,
+   "linhas": 84,
+   "linhas_esperadas": 83,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:40:03-03:00",
+   "duracao_seg": 35,
+   "linhas": 74,
+   "linhas_esperadas": 75,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:40:23-03:00",
+   "duracao_seg": 33,
+   "linhas": 71,
+   "linhas_esperadas": 72,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:40:24-03:00",
+   "duracao_seg": 31,
+   "linhas": 69,
+   "linhas_esperadas": 70,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:40:30-03:00",
+   "duracao_seg": 37,
+   "linhas": 65,
+   "linhas_esperadas": 67,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:40:14-03:00",
+   "duracao_seg": 34,
+   "linhas": 30,
+   "linhas_esperadas": 30,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:40:35-03:00",
+   "duracao_seg": 38,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:40:54-03:00",
+   "duracao_seg": 35,
+   "linhas": 84,
+   "linhas_esperadas": 83,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:40:05-03:00",
+   "duracao_seg": 33,
+   "linhas": 74,
+   "linhas_esperadas": 75,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:40:42-03:00",
+   "duracao_seg": 33,
+   "linhas": 72,
+   "linhas_esperadas": 72,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:40:38-03:00",
+   "duracao_seg": 37,
+   "linhas": 71,
+   "linhas_esperadas": 70,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:40:21-03:00",
+   "duracao_seg": 37,
+   "linhas": 67,
+   "linhas_esperadas": 67,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:40:48-03:00",
+   "duracao_seg": 35,
+   "linhas": 31,
+   "linhas_esperadas": 30,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:40:16-03:00",
+   "duracao_seg": 39,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:40:36-03:00",
+   "duracao_seg": 39,
+   "linhas": 84,
+   "linhas_esperadas": 83,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:40:11-03:00",
+   "duracao_seg": 34,
+   "linhas": 75,
+   "linhas_esperadas": 75,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:40:15-03:00",
+   "duracao_seg": 38,
+   "linhas": 73,
+   "linhas_esperadas": 72,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:40:37-03:00",
+   "duracao_seg": 36,
+   "linhas": 68,
+   "linhas_esperadas": 70,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:40:20-03:00",
+   "duracao_seg": 36,
+   "linhas": 69,
+   "linhas_esperadas": 67,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:40:40-03:00",
+   "duracao_seg": 37,
+   "linhas": 30,
+   "linhas_esperadas": 30,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:40:15-03:00",
+   "duracao_seg": 37,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:40:21-03:00",
+   "duracao_seg": 32,
+   "linhas": 81,
+   "linhas_esperadas": 83,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_atualizacao_cadastral.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_atualizacao`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_atualizacao_cadastral' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_atualizacao_cadastral.unicidade.id_atualizacao",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_atualizacao`",
+   "coluna": "id_atualizacao",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_atualizacao` (50.218 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_atualizacao, COUNT(*) AS qtd\nFROM fato_atualizacao_cadastral\nGROUP BY id_atualizacao\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_atualizacao_cadastral.nao_nulo.id_cliente",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_cliente`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_cliente IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_atualizacao_cadastral;"
+  },
+  {
+   "id": "fato_atualizacao_cadastral.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cliente` existem em `stg_crm_clientes`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_atualizacao_cadastral f\nLEFT JOIN stg_crm_clientes p ON p.id_cliente_crm = f.id_cliente\nWHERE f.id_cliente IS NOT NULL AND p.id_cliente_crm IS NULL;"
+  },
+  {
+   "id": "fato_atualizacao_cadastral.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "81 linhas na última carga, dentro da faixa esperada (cerca de 83)",
+   "valor_observado": 81,
+   "limite": 83,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_atualizacao_cadastral'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_atualizacao_cadastral.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:40); SLA de 24h",
+   "valor_observado": 6.3,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_atualizacao_cadastral' AND status IN ('sucesso', 'alerta');"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_atualizacao",
+   "id_cliente",
+   "campo_alterado",
+   "valor_anterior",
+   "valor_novo",
+   "origem",
+   "usuario_responsavel",
+   "dt_alteracao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     318622,
+     "estado_civil",
+     "Solteiro(a)",
+     "a***@exemplo.com",
+     "App",
+     "loja.0231",
+     "2026-11-14 11:51:20"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     318526,
+     "estado_civil",
+     "Solteiro(a)",
+     "(11) 9****-7733",
+     "CRM",
+     "crm.batch",
+     "2026-11-16 11:05:46"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     318528,
+     "renda",
+     "Solteiro(a)",
+     "(11) 9****-7733",
+     "App",
+     "crm.batch",
+     "2026-11-14 18:13:00"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     318778,
+     "email",
+     "(11) 9****-2041",
+     "Casado(a)",
+     "Central de atendimento",
+     "atd.jsilva",
+     "2026-11-16 10:26:00"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     318422,
+     "renda",
+     "(11) 9****-2041",
+     "Casado(a)",
+     "Loja",
+     "app.cliente",
+     "2026-11-15 20:29:42"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     318524,
+     "endereco",
+     "(11) 9****-2041",
+     "a***@exemplo.com",
+     "Loja",
+     "loja.0231",
+     "2026-11-14 21:25:19"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     318415,
+     "endereco",
+     "(11) 9****-2041",
+     "a***@exemplo.com",
+     "CRM",
+     "app.cliente",
+     "2026-11-16 19:26:35"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     318786,
+     "telefone",
+     "Solteiro(a)",
+     "Casado(a)",
+     "CRM",
+     "loja.0231",
+     "2026-11-15 15:25:57"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_crm_clientes"
+ ],
+ "downstream": []
+}

@@ -1,0 +1,97 @@
+{
+  "titulo": "Minha jornada em dados",
+  "subtitulo": "De atendente a analista sênior e gestão",
+  "inicio": 2012,
+  "fim": 2027,
+  "hoje": 2026.9,
+  "niveis": ["Atendimento", "Planejamento", "Assistente MIS", "Analista Jr", "Analista Pleno", "Sênior · Gestão"],
+  "degraus": [
+    { "ano": 2012.2, "nivel": 0 },
+    { "ano": 2013.0, "nivel": 1 },
+    { "ano": 2014.7, "nivel": 2 },
+    { "ano": 2018.2, "nivel": 3 },
+    { "ano": 2019.3, "nivel": 4 },
+    { "ano": 2020.5, "nivel": 5 }
+  ],
+  "empresas": [
+    { "nome": "AeC", "de": 2012.2, "ate": 2020.2, "cor": "#5AA9E6", "linha": 0 },
+    { "nome": "Mundiale", "de": 2020.2, "ate": 2021.7, "cor": "#7b8cff", "linha": 0 },
+    { "nome": "Sólides", "de": 2021.7, "ate": 2022.3, "cor": "#9A8CF0", "linha": 1 },
+    { "nome": "Mundiale", "de": 2022.3, "ate": 2023.95, "cor": "#7b8cff", "linha": 0 },
+    { "nome": "AeC", "de": 2023.95, "ate": 2024.3, "cor": "#5AA9E6", "linha": 1 },
+    { "nome": "A3Data", "de": 2024.3, "ate": 2025.45, "cor": "#D28AC8", "linha": 0 },
+    { "nome": "Raro Labs", "de": 2025.45, "ate": 2026.9, "cor": "#eceffe", "linha": 1 }
+  ],
+  "marcos": [
+    {
+      "ano": 2012.2,
+      "nivel": 0,
+      "empresa": 0,
+      "periodo": "2012 – 2020",
+      "empresaNome": "AeC",
+      "cargo": "De atendente a Analista de MIS Pleno",
+      "texto": "Comecei no atendimento. Em 8 anos foram 4 promoções, construindo KPIs e rotinas gerenciais em Excel, Power BI, SQL e SSIS/SSRS.",
+      "tags": ["Contact center", "MIS", "SQL"]
+    },
+    {
+      "ano": 2020.5,
+      "nivel": 5,
+      "empresa": 1,
+      "periodo": "2020 – 2021",
+      "empresaNome": "Mundiale",
+      "cargo": "Analista de Dados Pleno → Sênior",
+      "texto": "ETL, bancos relacionais e não relacionais e Python; indicadores de mídia e performance em Google Ads e Analytics.",
+      "tags": ["Mídia digital", "ETL", "Python"]
+    },
+    {
+      "ano": 2021.75,
+      "nivel": 5,
+      "empresa": 2,
+      "periodo": "2021 – 2022",
+      "empresaNome": "Sólides",
+      "cargo": "Analista de Business Intelligence",
+      "texto": "Visibilidade de performance de Marketing, Comercial e Customer Success em um SaaS B2B: MRR, ARR, churn, LTV e NPS.",
+      "tags": ["SaaS B2B", "MRR · ARR", "Churn"]
+    },
+    {
+      "ano": 2022.6,
+      "nivel": 5,
+      "empresa": 3,
+      "periodo": "2022 – 2023",
+      "empresaNome": "Mundiale",
+      "cargo": "Sr. Data Analyst",
+      "texto": "Estratégias definidas com stakeholders para aumentar a receita dos clientes estratégicos, com dashboards orientados a resultado.",
+      "tags": ["Performance", "Receita", "Stakeholders"]
+    },
+    {
+      "ano": 2023.95,
+      "nivel": 5,
+      "empresa": 4,
+      "periodo": "2023 – 2024",
+      "empresaNome": "AeC",
+      "cargo": "Coordenador de Planejamento Estratégico",
+      "texto": "Gestão de equipe e do resultado da operação de seguros e odontológico: receita, margem, ROI, despesas e investimentos.",
+      "tags": ["Gestão de equipe", "P&L", "Seguros"]
+    },
+    {
+      "ano": 2024.6,
+      "nivel": 5,
+      "empresa": 5,
+      "periodo": "2024 – 2025",
+      "empresaNome": "A3Data",
+      "cargo": "Sr. Data Analyst",
+      "texto": "+20% nos principais indicadores de um produto de investimentos de um banco, e a estruturação de um data lake exclusivo da equipe.",
+      "tags": ["Investimentos", "Data lake", "+20%"]
+    },
+    {
+      "ano": 2025.6,
+      "nivel": 5,
+      "empresa": 6,
+      "periodo": "2025 – hoje",
+      "empresaNome": "Raro Labs",
+      "cargo": "Sr. Data Analyst",
+      "texto": "Alocado em um cliente de crédito: dashboards executivos, monitoramento de vendas e segmentação comportamental de clientes.",
+      "tags": ["Crédito", "Power BI", "Segmentação"]
+    }
+  ]
+}

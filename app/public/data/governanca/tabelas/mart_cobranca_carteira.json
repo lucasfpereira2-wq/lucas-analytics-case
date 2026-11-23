@@ -1,0 +1,778 @@
+{
+ "nome": "mart_cobranca_carteira",
+ "descricao": "Mart do relatório de Carteira e Inadimplência",
+ "dominio": "Marts",
+ "camada": "mart",
+ "dono": "Fernanda Rocha",
+ "dono_area": "Analytics & BI",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "mart_cobranca",
+ "fonte": null,
+ "status": "vermelho",
+ "motivo_status": "Recebimento de 16/11 está 1,8% acima do extrato bancário (CNAB)",
+ "tem_pk": true,
+ "saude": 23.1,
+ "ultima_carga": "2026-11-17T05:20:45-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 142170,
+ "testes_total": 6,
+ "testes_falhando": 1,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira"
+ ],
+ "incidentes": [
+  "INC-2031",
+  "INC-2024"
+ ],
+ "tags": [],
+ "descricao_longa": "Mart do relatório de Carteira e Inadimplência. Pertence ao domínio Marts e fica na camada de marts (dado agregado para consumo em relatório). É construída a partir de `fato_parcelas`, `fato_pagamento`, `fato_inadimplencia_diaria`, `fato_acordo` e outras. Carga diária pela rotina `mart_cobranca`, com SLA de 24 horas. Tem 12 colunas; chave primária: `dt_referencia, segmento, regional, faixa_atraso`. Responsável: Fernanda Rocha (Analytics & BI). Alimenta: Cobrança: Carteira e Inadimplência.",
+ "colunas": [
+  {
+   "nome": "dt_referencia",
+   "tipo": "date",
+   "descricao": "Data de referência",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "regional",
+   "tipo": "varchar(30)",
+   "descricao": "Regional",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "faixa_atraso",
+   "tipo": "varchar(10)",
+   "descricao": "Faixa de atraso",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cotas",
+   "tipo": "integer",
+   "descricao": "Cotas na carteira",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_saldo_devedor",
+   "tipo": "decimal(18,2)",
+   "descricao": "Saldo devedor",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_saldo_atraso",
+   "tipo": "decimal(18,2)",
+   "descricao": "Saldo em atraso",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_previsto",
+   "tipo": "decimal(18,2)",
+   "descricao": "Recebimento previsto no dia",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_recebido",
+   "tipo": "decimal(18,2)",
+   "descricao": "Recebimento realizado no dia",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_recuperado",
+   "tipo": "decimal(18,2)",
+   "descricao": "Valor recuperado por ações de cobrança",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_acordos",
+   "tipo": "integer",
+   "descricao": "Acordos firmados",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da carga",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T05:20:21-03:00",
+   "duracao_seg": 346,
+   "linhas": 192,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T05:20:21-03:00",
+   "duracao_seg": 316,
+   "linhas": 201,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T05:20:40-03:00",
+   "duracao_seg": 351,
+   "linhas": 198,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T05:20:45-03:00",
+   "duracao_seg": 296,
+   "linhas": 189,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T05:20:20-03:00",
+   "duracao_seg": 295,
+   "linhas": 200,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T05:20:29-03:00",
+   "duracao_seg": 357,
+   "linhas": 201,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T05:20:25-03:00",
+   "duracao_seg": 337,
+   "linhas": 200,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T05:20:14-03:00",
+   "duracao_seg": 362,
+   "linhas": 189,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T05:20:39-03:00",
+   "duracao_seg": 286,
+   "linhas": 190,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T05:20:12-03:00",
+   "duracao_seg": 300,
+   "linhas": 195,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T05:20:39-03:00",
+   "duracao_seg": 358,
+   "linhas": 201,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T05:20:39-03:00",
+   "duracao_seg": 310,
+   "linhas": 194,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T05:20:39-03:00",
+   "duracao_seg": 365,
+   "linhas": 196,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T05:20:28-03:00",
+   "duracao_seg": 327,
+   "linhas": 201,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T05:20:54-03:00",
+   "duracao_seg": 332,
+   "linhas": 196,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T05:20:12-03:00",
+   "duracao_seg": 357,
+   "linhas": 200,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T05:20:37-03:00",
+   "duracao_seg": 350,
+   "linhas": 202,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T05:20:26-03:00",
+   "duracao_seg": 322,
+   "linhas": 199,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T05:20:07-03:00",
+   "duracao_seg": 317,
+   "linhas": 194,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T05:20:40-03:00",
+   "duracao_seg": 287,
+   "linhas": 193,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T05:20:34-03:00",
+   "duracao_seg": 360,
+   "linhas": 189,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T05:20:18-03:00",
+   "duracao_seg": 346,
+   "linhas": 194,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T05:20:20-03:00",
+   "duracao_seg": 300,
+   "linhas": 200,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T05:20:16-03:00",
+   "duracao_seg": 358,
+   "linhas": 189,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T05:20:50-03:00",
+   "duracao_seg": 289,
+   "linhas": 195,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T05:20:42-03:00",
+   "duracao_seg": 296,
+   "linhas": 200,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T05:20:54-03:00",
+   "duracao_seg": 295,
+   "linhas": 202,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T05:20:06-03:00",
+   "duracao_seg": 322,
+   "linhas": 194,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T05:20:55-03:00",
+   "duracao_seg": 329,
+   "linhas": 199,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T05:20:45-03:00",
+   "duracao_seg": 331,
+   "linhas": 197,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "mart_cobranca_carteira.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `dt_referencia, segmento, regional, faixa_atraso`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'mart_cobranca_carteira' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "mart_cobranca_carteira.unicidade.dt_referencia",
+   "regra": "unicidade",
+   "nome": "Unicidade de `dt_referencia, segmento, regional, faixa_atraso`",
+   "coluna": "dt_referencia, segmento, regional, faixa_atraso",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `dt_referencia, segmento, regional, faixa_atraso` (142.170 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_referencia, segmento, regional, faixa_atraso, COUNT(*) AS qtd\nFROM mart_cobranca_carteira\nGROUP BY dt_referencia, segmento, regional, faixa_atraso\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "mart_cobranca_carteira.nao_nulo.vl_saldo_devedor",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `vl_saldo_devedor`",
+   "coluna": "vl_saldo_devedor",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `vl_saldo_devedor`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN vl_saldo_devedor IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM mart_cobranca_carteira;"
+  },
+  {
+   "id": "mart_cobranca_carteira.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "197 linhas na última carga, dentro da faixa esperada (cerca de 195)",
+   "valor_observado": 197,
+   "limite": 195,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'mart_cobranca_carteira'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "mart_cobranca_carteira.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2h (17/11 às 05:20); SLA de 24h",
+   "valor_observado": 2.7,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'mart_cobranca_carteira' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "mart_cobranca_carteira.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_recebido",
+   "severidade": "critico",
+   "resultado": "falha",
+   "evidencia": "Recebimento de 16/11 está 1,8% acima do extrato bancário (CNAB): R$ 19,29 mi no mart contra R$ 18,95 mi no banco",
+   "valor_observado": 1.8,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "falha"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_recebido) - o.total) / o.total AS pc_diferenca\nFROM mart_cobranca_carteira a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'mart_cobranca_carteira' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "dt_referencia",
+   "segmento",
+   "regional",
+   "faixa_atraso",
+   "qt_cotas",
+   "vl_saldo_devedor",
+   "vl_saldo_atraso",
+   "vl_previsto",
+   "vl_recebido",
+   "vl_recuperado",
+   "qt_acordos",
+   "dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "2026-11-16",
+     "Pesada",
+     "Sul",
+     "Em dia",
+     38,
+     8075771.44,
+     3394336.33,
+     421024.71,
+     176570.73,
+     154439.86,
+     30,
+     "2026-11-17 05:20:45"
+    ],
+    "problema": "Recebimento de 16/11 inflado pelas parcelas duplicadas",
+    "colunas_problema": [
+     "vl_recebido"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     "Imóvel",
+     "São Paulo",
+     "90+",
+     604,
+     8695551.85,
+     1712563.42,
+     246727.16,
+     266979.0,
+     63389.99,
+     29,
+     "2026-11-17 05:20:45"
+    ],
+    "problema": "Recebimento de 16/11 inflado pelas parcelas duplicadas",
+    "colunas_problema": [
+     "vl_recebido"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     "Pesada",
+     "Centro-Oeste",
+     "31–60",
+     665,
+     8800317.74,
+     3311211.89,
+     20944.21,
+     141749.12,
+     455403.2,
+     39,
+     "2026-11-17 05:20:45"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     "Auto",
+     "Sul",
+     "61–90",
+     789,
+     8111038.53,
+     800081.38,
+     466399.74,
+     39325.47,
+     246334.57,
+     1,
+     "2026-11-17 05:20:45"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     "Pesada",
+     "Sul",
+     "90+",
+     391,
+     5471990.55,
+     3868837.68,
+     355597.24,
+     337694.77,
+     600216.08,
+     24,
+     "2026-11-17 05:20:45"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     "Serviços",
+     "Norte e Nordeste",
+     "1–30",
+     75,
+     8031203.55,
+     1850560.76,
+     26453.22,
+     630100.88,
+     524391.2,
+     9,
+     "2026-11-17 05:20:45"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-16",
+     "Imóvel",
+     "Sul",
+     "1–30",
+     172,
+     1795913.81,
+     7227822.53,
+     55319.37,
+     96647.56,
+     425543.82,
+     1,
+     "2026-11-17 05:20:45"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-15",
+     "Pesada",
+     "Sudeste",
+     "31–60",
+     257,
+     6695946.83,
+     1946223.34,
+     217366.61,
+     596022.58,
+     473876.84,
+     32,
+     "2026-11-17 05:20:45"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-15",
+     "Pesada",
+     "Norte e Nordeste",
+     "31–60",
+     623,
+     8149127.55,
+     5936975.43,
+     174802.0,
+     68372.53,
+     46967.34,
+     31,
+     "2026-11-17 05:20:45"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     "Serviços",
+     "Centro-Oeste",
+     "1–30",
+     387,
+     3505730.6,
+     5898539.02,
+     377011.41,
+     209391.25,
+     482550.44,
+     16,
+     "2026-11-17 05:20:45"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-14",
+     "Auto",
+     "São Paulo",
+     "Em dia",
+     465,
+     532795.43,
+     7123253.52,
+     358625.26,
+     546988.04,
+     330138.97,
+     24,
+     "2026-11-17 05:20:45"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "fato_parcelas",
+  "fato_pagamento",
+  "fato_inadimplencia_diaria",
+  "fato_acordo",
+  "fato_acao_cobranca",
+  "dim_cota"
+ ],
+ "downstream": [
+  "mart_executivo_kpis"
+ ]
+}

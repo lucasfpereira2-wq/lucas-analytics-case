@@ -1,0 +1,806 @@
+{
+ "nome": "mart_cobranca_safra_mob",
+ "descricao": "Mart de safra, MOB e cohort de cancelamento",
+ "dominio": "Marts",
+ "camada": "mart",
+ "dono": "Fernanda Rocha",
+ "dono_area": "Analytics & BI",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "mart_cobranca",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "147 cotas sem grupo fora das safras; efeito marginal das parcelas duplicadas",
+ "tem_pk": true,
+ "saude": 52.7,
+ "ultima_carga": "2026-11-17T05:20:36-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 23772,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "cobranca-safra"
+ ],
+ "incidentes": [
+  "INC-2031",
+  "INC-2024"
+ ],
+ "tags": [],
+ "descricao_longa": "Mart de safra, MOB e cohort de cancelamento. Pertence ao domínio Marts e fica na camada de marts (dado agregado para consumo em relatório). É construída a partir de `fato_parcelas`, `fato_inadimplencia_diaria`, `fato_contrato_venda`, `fato_cancelamento_cota` e outras. Carga diária pela rotina `mart_cobranca`, com SLA de 24 horas. Tem 12 colunas; chave primária: `safra, mob, segmento, canal_venda`. Responsável: Fernanda Rocha (Analytics & BI). Alimenta: Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "safra",
+   "tipo": "char(7)",
+   "descricao": "Mês de adesão (AAAA-MM)",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "mob",
+   "tipo": "smallint",
+   "descricao": "Meses desde a adesão",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_venda",
+   "tipo": "varchar(30)",
+   "descricao": "Canal de venda",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cotas_safra",
+   "tipo": "integer",
+   "descricao": "Cotas vendidas na safra",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cotas_ativas",
+   "tipo": "integer",
+   "descricao": "Cotas ativas no MOB",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cotas_over30",
+   "tipo": "integer",
+   "descricao": "Cotas com atraso acima de 30 dias",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cotas_over60",
+   "tipo": "integer",
+   "descricao": "Cotas com atraso acima de 60 dias",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cotas_over90",
+   "tipo": "integer",
+   "descricao": "Cotas com atraso acima de 90 dias",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cancelamentos",
+   "tipo": "integer",
+   "descricao": "Cancelamentos acumulados até o MOB",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_credito_safra",
+   "tipo": "decimal(18,2)",
+   "descricao": "Crédito comercializado na safra",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da carga",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T05:20:45-03:00",
+   "duracao_seg": 350,
+   "linhas": 23565,
+   "linhas_esperadas": 23565,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T05:20:03-03:00",
+   "duracao_seg": 391,
+   "linhas": 23572,
+   "linhas_esperadas": 23572,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T05:20:31-03:00",
+   "duracao_seg": 373,
+   "linhas": 23579,
+   "linhas_esperadas": 23579,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T05:20:52-03:00",
+   "duracao_seg": 367,
+   "linhas": 23587,
+   "linhas_esperadas": 23587,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T05:20:11-03:00",
+   "duracao_seg": 381,
+   "linhas": 23594,
+   "linhas_esperadas": 23594,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T05:20:14-03:00",
+   "duracao_seg": 416,
+   "linhas": 23601,
+   "linhas_esperadas": 23601,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T05:20:50-03:00",
+   "duracao_seg": 396,
+   "linhas": 23608,
+   "linhas_esperadas": 23608,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T05:20:13-03:00",
+   "duracao_seg": 418,
+   "linhas": 23615,
+   "linhas_esperadas": 23615,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T05:20:28-03:00",
+   "duracao_seg": 392,
+   "linhas": 23622,
+   "linhas_esperadas": 23622,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T05:20:49-03:00",
+   "duracao_seg": 385,
+   "linhas": 23629,
+   "linhas_esperadas": 23629,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T05:20:36-03:00",
+   "duracao_seg": 341,
+   "linhas": 23636,
+   "linhas_esperadas": 23636,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T05:20:23-03:00",
+   "duracao_seg": 397,
+   "linhas": 23644,
+   "linhas_esperadas": 23644,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T05:20:32-03:00",
+   "duracao_seg": 361,
+   "linhas": 23651,
+   "linhas_esperadas": 23651,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T05:20:21-03:00",
+   "duracao_seg": 347,
+   "linhas": 23658,
+   "linhas_esperadas": 23658,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T05:20:40-03:00",
+   "duracao_seg": 384,
+   "linhas": 23665,
+   "linhas_esperadas": 23665,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T05:20:17-03:00",
+   "duracao_seg": 377,
+   "linhas": 23672,
+   "linhas_esperadas": 23672,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T05:20:27-03:00",
+   "duracao_seg": 391,
+   "linhas": 23679,
+   "linhas_esperadas": 23679,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T05:20:34-03:00",
+   "duracao_seg": 336,
+   "linhas": 23686,
+   "linhas_esperadas": 23686,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T05:20:10-03:00",
+   "duracao_seg": 414,
+   "linhas": 23694,
+   "linhas_esperadas": 23694,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T05:20:26-03:00",
+   "duracao_seg": 401,
+   "linhas": 23701,
+   "linhas_esperadas": 23701,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T05:20:20-03:00",
+   "duracao_seg": 356,
+   "linhas": 23708,
+   "linhas_esperadas": 23708,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T05:20:27-03:00",
+   "duracao_seg": 399,
+   "linhas": 23715,
+   "linhas_esperadas": 23715,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T05:20:35-03:00",
+   "duracao_seg": 345,
+   "linhas": 23722,
+   "linhas_esperadas": 23722,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T05:20:15-03:00",
+   "duracao_seg": 408,
+   "linhas": 23729,
+   "linhas_esperadas": 23729,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T05:20:35-03:00",
+   "duracao_seg": 336,
+   "linhas": 23736,
+   "linhas_esperadas": 23736,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T05:20:28-03:00",
+   "duracao_seg": 397,
+   "linhas": 23743,
+   "linhas_esperadas": 23743,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T05:20:09-03:00",
+   "duracao_seg": 418,
+   "linhas": 23751,
+   "linhas_esperadas": 23751,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T05:20:34-03:00",
+   "duracao_seg": 363,
+   "linhas": 23758,
+   "linhas_esperadas": 23758,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T05:20:50-03:00",
+   "duracao_seg": 404,
+   "linhas": 23765,
+   "linhas_esperadas": 23765,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T05:20:36-03:00",
+   "duracao_seg": 350,
+   "linhas": 23772,
+   "linhas_esperadas": 23772,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "mart_cobranca_safra_mob.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `safra, mob, segmento, canal_venda`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'mart_cobranca_safra_mob' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "mart_cobranca_safra_mob.unicidade.safra",
+   "regra": "unicidade",
+   "nome": "Unicidade de `safra, mob, segmento, canal_venda`",
+   "coluna": "safra, mob, segmento, canal_venda",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `safra, mob, segmento, canal_venda` (23.772 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT safra, mob, segmento, canal_venda, COUNT(*) AS qtd\nFROM mart_cobranca_safra_mob\nGROUP BY safra, mob, segmento, canal_venda\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "mart_cobranca_safra_mob.nao_nulo.vl_credito_safra",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `vl_credito_safra`",
+   "coluna": "vl_credito_safra",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `vl_credito_safra`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN vl_credito_safra IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM mart_cobranca_safra_mob;"
+  },
+  {
+   "id": "mart_cobranca_safra_mob.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial",
+   "severidade": "alto",
+   "resultado": "alerta",
+   "evidencia": "147 cotas sem grupo fora das safras; efeito marginal das parcelas duplicadas",
+   "valor_observado": 147,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM dim_cota f\nLEFT JOIN dim_grupo p ON p.id_grupo = f.id_grupo\nWHERE f.id_grupo IS NOT NULL AND p.id_grupo IS NULL;"
+  },
+  {
+   "id": "mart_cobranca_safra_mob.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "23.772 linhas na última carga, dentro da faixa esperada (cerca de 23.772)",
+   "valor_observado": 23772,
+   "limite": 23772,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'mart_cobranca_safra_mob'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "mart_cobranca_safra_mob.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2h (17/11 às 05:20); SLA de 24h",
+   "valor_observado": 2.7,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'mart_cobranca_safra_mob' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "mart_cobranca_safra_mob.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "qt_cotas_safra",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,02% em `qt_cotas_safra` contra `fato_contrato_venda`",
+   "valor_observado": 0.02,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.qt_cotas_safra) - o.total) / o.total AS pc_diferenca\nFROM mart_cobranca_safra_mob a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'mart_cobranca_safra_mob' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "safra",
+   "mob",
+   "segmento",
+   "canal_venda",
+   "qt_cotas_safra",
+   "qt_cotas_ativas",
+   "qt_cotas_over30",
+   "qt_cotas_over60",
+   "qt_cotas_over90",
+   "qt_cancelamentos",
+   "vl_credito_safra",
+   "dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "2026-11",
+     1,
+     "Auto",
+     "Parceiro",
+     446,
+     312,
+     546,
+     672,
+     301,
+     859,
+     120000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-10",
+     2,
+     "Auto",
+     "Parceiro",
+     23,
+     887,
+     380,
+     657,
+     593,
+     330,
+     60000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-09",
+     3,
+     "Serviços",
+     "Representante",
+     704,
+     631,
+     120,
+     277,
+     63,
+     899,
+     80000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     4,
+     "Serviços",
+     "Loja",
+     851,
+     775,
+     316,
+     794,
+     38,
+     494,
+     300000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-10",
+     5,
+     "Auto",
+     "Representante",
+     752,
+     352,
+     128,
+     100,
+     897,
+     667,
+     60000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-09",
+     6,
+     "Imóvel",
+     "Parceiro",
+     638,
+     706,
+     593,
+     271,
+     399,
+     542,
+     80000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     7,
+     "Pesada",
+     "Parceiro",
+     119,
+     418,
+     561,
+     281,
+     144,
+     805,
+     60000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-10",
+     8,
+     "Auto",
+     "Representante",
+     625,
+     833,
+     691,
+     806,
+     774,
+     159,
+     60000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-09",
+     9,
+     "Auto",
+     "Representante",
+     208,
+     112,
+     245,
+     649,
+     175,
+     516,
+     45000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     10,
+     "Imóvel",
+     "Loja",
+     236,
+     869,
+     443,
+     804,
+     852,
+     319,
+     95000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-10",
+     11,
+     "Auto",
+     "Digital",
+     561,
+     817,
+     693,
+     429,
+     900,
+     859,
+     95000.0,
+     "2026-11-17 05:20:36"
+    ]
+   },
+   {
+    "valores": [
+     "2026-09",
+     12,
+     "Imóvel",
+     "Representante",
+     269,
+     116,
+     212,
+     57,
+     78,
+     683,
+     300000.0,
+     "2026-11-17 05:20:36"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "fato_parcelas",
+  "fato_inadimplencia_diaria",
+  "fato_contrato_venda",
+  "fato_cancelamento_cota",
+  "dim_cota"
+ ],
+ "downstream": [
+  "mart_executivo_kpis"
+ ]
+}

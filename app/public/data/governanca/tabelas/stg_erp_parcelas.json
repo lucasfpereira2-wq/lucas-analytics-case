@@ -1,0 +1,826 @@
+{
+ "nome": "stg_erp_parcelas",
+ "descricao": "Parcelas emitidas e baixadas no ERP",
+ "dominio": "Staging",
+ "camada": "staging",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "ingest_erp",
+ "fonte": "ERP Consórcio",
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 99.7,
+ "ultima_carga": "2026-11-17T01:00:15-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 2814412,
+ "testes_total": 8,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "atrasada",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira",
+  "cobranca-safra"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Parcelas emitidas e baixadas no ERP. Pertence ao domínio Staging e fica na camada de staging (dado bruto, como chega da origem). Origem: ERP Consórcio. Carga diária pela rotina `ingest_erp`, com SLA de 24 horas. Tem 12 colunas; chave primária: `id_parcela_erp`. Responsável: Thiago Meireles (Engenharia de Dados). Alimenta: Cobrança: Carteira e Inadimplência, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "id_parcela_erp",
+   "tipo": "bigint",
+   "descricao": "Identificador da parcela no ERP",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cota_erp",
+   "tipo": "bigint",
+   "descricao": "Cota a que a parcela pertence",
+   "pk": false,
+   "fk": {
+    "tabela": "stg_erp_cotas",
+    "coluna": "id_cota_erp"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nr_parcela",
+   "tipo": "integer",
+   "descricao": "Número sequencial da parcela",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_vencimento",
+   "tipo": "date",
+   "descricao": "Data de vencimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_parcela",
+   "tipo": "decimal(12,2)",
+   "descricao": "Valor total da parcela",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_fundo_comum",
+   "tipo": "decimal(12,2)",
+   "descricao": "Parte destinada ao fundo comum",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_taxa_adm",
+   "tipo": "decimal(12,2)",
+   "descricao": "Parte de taxa de administração",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_fundo_reserva",
+   "tipo": "decimal(12,2)",
+   "descricao": "Parte de fundo de reserva",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_baixa",
+   "tipo": "date",
+   "descricao": "Data da baixa no ERP",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "vl_baixado",
+   "tipo": "decimal(12,2)",
+   "descricao": "Valor baixado",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "situacao",
+   "tipo": "varchar(20)",
+   "descricao": "Situação da parcela",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "_dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da ingestão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:00:38-03:00",
+   "duracao_seg": 32,
+   "linhas": 2238,
+   "linhas_esperadas": 2240,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:00:44-03:00",
+   "duracao_seg": 32,
+   "linhas": 12814,
+   "linhas_esperadas": 13218,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:00:34-03:00",
+   "duracao_seg": 31,
+   "linhas": 12263,
+   "linhas_esperadas": 11986,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:00:14-03:00",
+   "duracao_seg": 29,
+   "linhas": 11520,
+   "linhas_esperadas": 11426,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:00:07-03:00",
+   "duracao_seg": 31,
+   "linhas": 11552,
+   "linhas_esperadas": 11202,
+   "status": "atrasada",
+   "anomalia_volume": false,
+   "mensagem": "Janela de backup do ERP estendida; extração iniciou com 2 horas de atraso."
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:00:33-03:00",
+   "duracao_seg": 28,
+   "linhas": 11066,
+   "linhas_esperadas": 10754,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:00:25-03:00",
+   "duracao_seg": 33,
+   "linhas": 4743,
+   "linhas_esperadas": 4705,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:00:39-03:00",
+   "duracao_seg": 32,
+   "linhas": 2216,
+   "linhas_esperadas": 2240,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:00:51-03:00",
+   "duracao_seg": 30,
+   "linhas": 12907,
+   "linhas_esperadas": 13218,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:00:32-03:00",
+   "duracao_seg": 27,
+   "linhas": 11668,
+   "linhas_esperadas": 11986,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:00:19-03:00",
+   "duracao_seg": 31,
+   "linhas": 11793,
+   "linhas_esperadas": 11426,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:00:32-03:00",
+   "duracao_seg": 27,
+   "linhas": 11543,
+   "linhas_esperadas": 11202,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:00:12-03:00",
+   "duracao_seg": 32,
+   "linhas": 10608,
+   "linhas_esperadas": 10754,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:00:50-03:00",
+   "duracao_seg": 27,
+   "linhas": 4757,
+   "linhas_esperadas": 4705,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:00:55-03:00",
+   "duracao_seg": 33,
+   "linhas": 2195,
+   "linhas_esperadas": 2240,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:00:30-03:00",
+   "duracao_seg": 32,
+   "linhas": 13311,
+   "linhas_esperadas": 13218,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:00:11-03:00",
+   "duracao_seg": 26,
+   "linhas": 12320,
+   "linhas_esperadas": 11986,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:00:08-03:00",
+   "duracao_seg": 31,
+   "linhas": 11152,
+   "linhas_esperadas": 11426,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:00:35-03:00",
+   "duracao_seg": 29,
+   "linhas": 11091,
+   "linhas_esperadas": 11202,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:00:09-03:00",
+   "duracao_seg": 29,
+   "linhas": 10511,
+   "linhas_esperadas": 10754,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:00:09-03:00",
+   "duracao_seg": 32,
+   "linhas": 4754,
+   "linhas_esperadas": 4705,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:00:25-03:00",
+   "duracao_seg": 26,
+   "linhas": 2278,
+   "linhas_esperadas": 2240,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:00:13-03:00",
+   "duracao_seg": 32,
+   "linhas": 13122,
+   "linhas_esperadas": 13218,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:00:05-03:00",
+   "duracao_seg": 28,
+   "linhas": 11583,
+   "linhas_esperadas": 11986,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:00:32-03:00",
+   "duracao_seg": 29,
+   "linhas": 11488,
+   "linhas_esperadas": 11426,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:00:48-03:00",
+   "duracao_seg": 28,
+   "linhas": 11546,
+   "linhas_esperadas": 11202,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:00:36-03:00",
+   "duracao_seg": 31,
+   "linhas": 10888,
+   "linhas_esperadas": 10754,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:00:27-03:00",
+   "duracao_seg": 32,
+   "linhas": 4581,
+   "linhas_esperadas": 4705,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:00:39-03:00",
+   "duracao_seg": 33,
+   "linhas": 2166,
+   "linhas_esperadas": 2240,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:00:15-03:00",
+   "duracao_seg": 29,
+   "linhas": 13214,
+   "linhas_esperadas": 13218,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "stg_erp_parcelas.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_parcela_erp`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'stg_erp_parcelas' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "stg_erp_parcelas.unicidade.id_parcela_erp",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_parcela_erp`",
+   "coluna": "id_parcela_erp",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_parcela_erp` (2.814.412 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_parcela_erp, COUNT(*) AS qtd\nFROM stg_erp_parcelas\nGROUP BY id_parcela_erp\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "stg_erp_parcelas.nao_nulo.id_cota_erp",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_cota_erp`",
+   "coluna": "id_cota_erp",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_cota_erp`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_cota_erp IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM stg_erp_parcelas;"
+  },
+  {
+   "id": "stg_erp_parcelas.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cota_erp`",
+   "coluna": "id_cota_erp",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cota_erp` existem em `stg_erp_cotas`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM stg_erp_parcelas f\nLEFT JOIN stg_erp_cotas p ON p.id_cota_erp = f.id_cota_erp\nWHERE f.id_cota_erp IS NOT NULL AND p.id_cota_erp IS NULL;"
+  },
+  {
+   "id": "stg_erp_parcelas.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "13.214 linhas na última carga, dentro da faixa esperada (cerca de 13.218)",
+   "valor_observado": 13214,
+   "limite": 13218,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'stg_erp_parcelas'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "stg_erp_parcelas.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:00); SLA de 24h",
+   "valor_observado": 7.0,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'stg_erp_parcelas' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "stg_erp_parcelas.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (12 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'stg_erp_parcelas'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'stg_erp_parcelas';"
+  },
+  {
+   "id": "stg_erp_parcelas.dominio_valores.situacao",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `situacao`",
+   "coluna": "situacao",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `situacao` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT situacao, COUNT(*) AS qtd\nFROM stg_erp_parcelas\nWHERE situacao NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'situacao')\nGROUP BY situacao;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_parcela_erp",
+   "id_cota_erp",
+   "nr_parcela",
+   "dt_vencimento",
+   "vl_parcela",
+   "vl_fundo_comum",
+   "vl_taxa_adm",
+   "vl_fundo_reserva",
+   "dt_baixa",
+   "vl_baixado",
+   "situacao",
+   "_dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     74374,
+     8,
+     "2026-11-16",
+     702.85,
+     597.42,
+     91.37,
+     14.06,
+     "2026-11-16",
+     2583.86,
+     "Ativo",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     74555,
+     11,
+     "2026-11-11",
+     1854.66,
+     1576.46,
+     241.11,
+     37.09,
+     "2026-11-08",
+     1084.68,
+     "Em análise",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     74413,
+     6,
+     "2026-11-21",
+     2052.39,
+     1744.53,
+     266.81,
+     41.05,
+     "2026-10-23",
+     2136.28,
+     "Ativo",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     74623,
+     3,
+     "2026-11-18",
+     3177.29,
+     2700.69,
+     413.05,
+     63.55,
+     "2026-10-28",
+     2684.26,
+     "Ativo",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     74596,
+     26,
+     "2026-11-18",
+     1098.55,
+     933.77,
+     142.81,
+     21.97,
+     "2026-11-14",
+     null,
+     "Em análise",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     74488,
+     27,
+     "2026-11-16",
+     474.19,
+     403.07,
+     61.64,
+     9.48,
+     "2026-10-31",
+     2603.8,
+     "Ativo",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     74613,
+     35,
+     "2026-11-26",
+     3517.34,
+     2989.74,
+     457.25,
+     70.35,
+     "2026-10-30",
+     null,
+     "Em análise",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     74405,
+     20,
+     "2026-11-27",
+     1488.68,
+     1265.38,
+     193.53,
+     29.77,
+     null,
+     2267.25,
+     "Encerrado",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     74562,
+     2,
+     "2026-11-10",
+     2099.53,
+     1784.6,
+     272.94,
+     41.99,
+     "2026-11-03",
+     1509.67,
+     "Ativo",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     74405,
+     3,
+     "2026-11-18",
+     1384.68,
+     1176.98,
+     180.01,
+     27.69,
+     null,
+     738.36,
+     "Ativo",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000010,
+     74660,
+     31,
+     "2026-11-21",
+     961.17,
+     817.0,
+     124.95,
+     19.22,
+     "2026-11-04",
+     1366.61,
+     "Em análise",
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000011,
+     74302,
+     9,
+     "2026-11-14",
+     3857.56,
+     3278.93,
+     501.48,
+     77.15,
+     "2026-11-12",
+     3461.37,
+     "Em análise",
+     "2026-11-17 01:00:15"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_parcelas",
+  "fato_acordo"
+ ]
+}

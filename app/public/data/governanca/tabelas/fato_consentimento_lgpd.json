@@ -1,0 +1,769 @@
+{
+ "nome": "fato_consentimento_lgpd",
+ "descricao": "Consentimentos e revogações de uso de dados pessoais (LGPD)",
+ "dominio": "Cadastro",
+ "camada": "core",
+ "dono": "Marina Azevedo",
+ "dono_area": "Cadastro & CRM",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cadastro",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "2,8% dos consentimentos sem `base_legal` informada",
+ "tem_pk": true,
+ "saude": 52.5,
+ "ultima_carga": "2026-11-17T01:40:52-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 917489,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [
+  "PII",
+  "LGPD"
+ ],
+ "descricao_longa": "Consentimentos e revogações de uso de dados pessoais (LGPD). Pertence ao domínio Cadastro e fica na camada core (dado tratado e modelado). É construída a partir de `stg_crm_clientes`. Carga diária pela rotina `core_cadastro`, com SLA de 24 horas. Tem 10 colunas; chave primária: `id_consentimento`. Responsável: Marina Azevedo (Cadastro & CRM).",
+ "colunas": [
+  {
+   "nome": "id_consentimento",
+   "tipo": "bigint",
+   "descricao": "Chave do registro de consentimento",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cliente",
+   "tipo": "bigint",
+   "descricao": "Titular dos dados (identificador do CRM)",
+   "pk": false,
+   "fk": {
+    "tabela": "stg_crm_clientes",
+    "coluna": "id_cliente_crm"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "finalidade",
+   "tipo": "varchar(40)",
+   "descricao": "Finalidade do tratamento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "base_legal",
+   "tipo": "varchar(40)",
+   "descricao": "Base legal do tratamento (LGPD, art. 7º)",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "canal_coleta",
+   "tipo": "varchar(30)",
+   "descricao": "Canal em que o consentimento foi coletado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_consentido",
+   "tipo": "char(1)",
+   "descricao": "Consentimento concedido (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_consentimento",
+   "tipo": "timestamp",
+   "descricao": "Data e hora do consentimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_revogacao",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da revogação",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "versao_termo",
+   "tipo": "varchar(10)",
+   "descricao": "Versão do termo aceito",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "ip_coleta",
+   "tipo": "varchar(45)",
+   "descricao": "Endereço IP da coleta",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:40:12-03:00",
+   "duracao_seg": 34,
+   "linhas": 378,
+   "linhas_esperadas": 378,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:40:28-03:00",
+   "duracao_seg": 35,
+   "linhas": 2173,
+   "linhas_esperadas": 2232,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:40:51-03:00",
+   "duracao_seg": 41,
+   "linhas": 2038,
+   "linhas_esperadas": 2024,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:40:28-03:00",
+   "duracao_seg": 33,
+   "linhas": 1869,
+   "linhas_esperadas": 1930,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T01:40:41-03:00",
+   "duracao_seg": 34,
+   "linhas": 1920,
+   "linhas_esperadas": 1892,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:40:23-03:00",
+   "duracao_seg": 40,
+   "linhas": 1837,
+   "linhas_esperadas": 1816,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:40:48-03:00",
+   "duracao_seg": 39,
+   "linhas": 821,
+   "linhas_esperadas": 795,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:40:16-03:00",
+   "duracao_seg": 39,
+   "linhas": 385,
+   "linhas_esperadas": 378,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:40:28-03:00",
+   "duracao_seg": 34,
+   "linhas": 2277,
+   "linhas_esperadas": 2232,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:40:30-03:00",
+   "duracao_seg": 34,
+   "linhas": 1959,
+   "linhas_esperadas": 2024,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:40:13-03:00",
+   "duracao_seg": 39,
+   "linhas": 1985,
+   "linhas_esperadas": 1930,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:40:21-03:00",
+   "duracao_seg": 36,
+   "linhas": 1853,
+   "linhas_esperadas": 1892,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:40:54-03:00",
+   "duracao_seg": 33,
+   "linhas": 1824,
+   "linhas_esperadas": 1816,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:40:08-03:00",
+   "duracao_seg": 34,
+   "linhas": 815,
+   "linhas_esperadas": 795,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:40:52-03:00",
+   "duracao_seg": 40,
+   "linhas": 382,
+   "linhas_esperadas": 378,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:40:22-03:00",
+   "duracao_seg": 38,
+   "linhas": 2202,
+   "linhas_esperadas": 2232,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:40:24-03:00",
+   "duracao_seg": 41,
+   "linhas": 2085,
+   "linhas_esperadas": 2024,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:40:23-03:00",
+   "duracao_seg": 39,
+   "linhas": 1967,
+   "linhas_esperadas": 1930,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:40:53-03:00",
+   "duracao_seg": 34,
+   "linhas": 1928,
+   "linhas_esperadas": 1892,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:40:36-03:00",
+   "duracao_seg": 37,
+   "linhas": 1772,
+   "linhas_esperadas": 1816,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:40:26-03:00",
+   "duracao_seg": 41,
+   "linhas": 773,
+   "linhas_esperadas": 795,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:40:34-03:00",
+   "duracao_seg": 37,
+   "linhas": 377,
+   "linhas_esperadas": 378,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:40:03-03:00",
+   "duracao_seg": 33,
+   "linhas": 2155,
+   "linhas_esperadas": 2232,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:40:13-03:00",
+   "duracao_seg": 33,
+   "linhas": 1967,
+   "linhas_esperadas": 2024,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:40:15-03:00",
+   "duracao_seg": 33,
+   "linhas": 1939,
+   "linhas_esperadas": 1930,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:40:44-03:00",
+   "duracao_seg": 38,
+   "linhas": 1850,
+   "linhas_esperadas": 1892,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:40:07-03:00",
+   "duracao_seg": 34,
+   "linhas": 1833,
+   "linhas_esperadas": 1816,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:40:19-03:00",
+   "duracao_seg": 34,
+   "linhas": 804,
+   "linhas_esperadas": 795,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:40:10-03:00",
+   "duracao_seg": 36,
+   "linhas": 381,
+   "linhas_esperadas": 378,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:40:52-03:00",
+   "duracao_seg": 41,
+   "linhas": 2226,
+   "linhas_esperadas": 2232,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_consentimento_lgpd.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_consentimento`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_consentimento_lgpd' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_consentimento_lgpd.unicidade.id_consentimento",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_consentimento`",
+   "coluna": "id_consentimento",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_consentimento` (917.489 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_consentimento, COUNT(*) AS qtd\nFROM fato_consentimento_lgpd\nGROUP BY id_consentimento\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_consentimento_lgpd.nao_nulo.base_legal",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `base_legal`",
+   "coluna": "base_legal",
+   "severidade": "alto",
+   "resultado": "alerta",
+   "evidencia": "2,8% dos consentimentos sem `base_legal` informada",
+   "valor_observado": 2.8,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN base_legal IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_consentimento_lgpd;"
+  },
+  {
+   "id": "fato_consentimento_lgpd.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cliente` existem em `stg_crm_clientes`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_consentimento_lgpd f\nLEFT JOIN stg_crm_clientes p ON p.id_cliente_crm = f.id_cliente\nWHERE f.id_cliente IS NOT NULL AND p.id_cliente_crm IS NULL;"
+  },
+  {
+   "id": "fato_consentimento_lgpd.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "2.226 linhas na última carga, dentro da faixa esperada (cerca de 2.232)",
+   "valor_observado": 2226,
+   "limite": 2232,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_consentimento_lgpd'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_consentimento_lgpd.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:40); SLA de 24h",
+   "valor_observado": 6.3,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_consentimento_lgpd' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_consentimento_lgpd.dominio_valores.canal_coleta",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `canal_coleta`",
+   "coluna": "canal_coleta",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,1% dos valores de `canal_coleta` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.1,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT canal_coleta, COUNT(*) AS qtd\nFROM fato_consentimento_lgpd\nWHERE canal_coleta NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'canal_coleta')\nGROUP BY canal_coleta;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_consentimento",
+   "id_cliente",
+   "finalidade",
+   "base_legal",
+   "canal_coleta",
+   "fl_consentido",
+   "dt_consentimento",
+   "dt_revogacao",
+   "versao_termo",
+   "ip_coleta"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     318558,
+     "Compartilhamento com parceiros",
+     "Legítimo interesse",
+     "Central de atendimento",
+     "S",
+     "2026-11-14 12:18:40",
+     "2026-11-14 17:07:15",
+     "v3.2",
+     "187.12.***.***"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     318441,
+     "Análise de crédito",
+     "Consentimento",
+     "Central de atendimento",
+     "S",
+     "2026-11-15 17:36:19",
+     "2026-11-14 11:18:56",
+     "v3.2",
+     "187.41.***.***"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     318510,
+     "Pesquisa de satisfação",
+     "Execução de contrato",
+     "Loja",
+     "S",
+     "2026-11-16 17:42:22",
+     "2026-11-15 13:09:18",
+     "v2.8",
+     "187.85.***.***"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     318718,
+     "Pesquisa de satisfação",
+     null,
+     "App",
+     "S",
+     "2026-11-15 12:51:37",
+     "2026-11-15 10:56:36",
+     "v3.2",
+     "187.45.***.***"
+    ],
+    "problema": "Consentimento sem `base_legal` informada",
+    "colunas_problema": [
+     "base_legal"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     318437,
+     "Oferta de produtos",
+     "Consentimento",
+     "App",
+     "S",
+     "2026-11-16 11:58:54",
+     "2026-11-14 13:30:50",
+     "v3.2",
+     "187.73.***.***"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     318677,
+     "Pesquisa de satisfação",
+     "Consentimento",
+     "Central de atendimento",
+     "S",
+     "2026-11-14 20:24:44",
+     "2026-11-15 17:16:14",
+     "v3.1",
+     "187.52.***.***"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     318518,
+     "Oferta de produtos",
+     "Obrigação legal",
+     "App",
+     "S",
+     "2026-11-14 20:29:37",
+     "2026-11-16 08:23:39",
+     "v3.1",
+     "187.62.***.***"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     318461,
+     "Compartilhamento com parceiros",
+     "Execução de contrato",
+     "Parceiro",
+     "S",
+     "2026-11-15 18:02:46",
+     null,
+     "v2.8",
+     "187.84.***.***"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     318794,
+     "Compartilhamento com parceiros",
+     null,
+     "Loja",
+     "N",
+     "2026-11-15 10:11:00",
+     "2026-11-16 20:48:22",
+     "v3.2",
+     "187.34.***.***"
+    ],
+    "problema": "Consentimento sem `base_legal` informada",
+    "colunas_problema": [
+     "base_legal"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     318742,
+     "Compartilhamento com parceiros",
+     "Consentimento",
+     "Parceiro",
+     "S",
+     "2026-11-15 18:24:25",
+     "2026-11-14 10:40:04",
+     "v3.2",
+     null
+    ]
+   },
+   {
+    "valores": [
+     5000010,
+     318732,
+     "Compartilhamento com parceiros",
+     "Execução de contrato",
+     "Parceiro",
+     "S",
+     "2026-11-15 16:57:25",
+     "2026-11-15 11:36:42",
+     "v2.8",
+     "187.42.***.***"
+    ]
+   },
+   {
+    "valores": [
+     5000011,
+     318630,
+     "Cobrança",
+     "Execução de contrato",
+     "Central de atendimento",
+     "S",
+     "2026-11-16 07:55:27",
+     "2026-11-16 18:25:52",
+     "v3.1",
+     "187.48.***.***"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_crm_clientes"
+ ],
+ "downstream": []
+}

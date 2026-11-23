@@ -1,0 +1,62 @@
+{
+  "nome": "Lucas Pereira",
+  "iniciais": "LP",
+  "titulo": "Gestão de Dados · Estratégia · Performance · Engenharia & Analytics",
+  "frase": "12 anos transformando dado bruto em decisão executiva, e dado confiável em vantagem de negócio.",
+  "bio": "32 anos, pai de duas filhas e há 12 anos na carreira de dados. Já estive dos dois lados: construindo pipelines e liderando times, estratégia e indicadores de performance. Acredito que nenhum dashboard vale mais do que a confiança no dado que está por trás dele.",
+  "destaques": [
+    {
+      "valor": "12+",
+      "rotulo": "anos em dados"
+    },
+    {
+      "valor": "Gestão",
+      "rotulo": "de times e estratégia"
+    },
+    {
+      "valor": "Engenharia",
+      "rotulo": "de dados e pipelines"
+    },
+    {
+      "valor": "Analytics",
+      "rotulo": "e performance"
+    }
+  ],
+  "pilares": [
+    {
+      "icone": "governanca",
+      "titulo": "Governança & Qualidade",
+      "texto": "dado com dono, SLA e teste"
+    },
+    {
+      "icone": "engenharia",
+      "titulo": "Engenharia",
+      "texto": "pipelines confiáveis, modelagem e PKs"
+    },
+    {
+      "icone": "analytics",
+      "titulo": "Analytics & BI",
+      "texto": "relatórios executivos que viram decisão"
+    },
+    {
+      "icone": "gestao",
+      "titulo": "Gestão & Estratégia",
+      "texto": "times, prioridades e indicadores"
+    }
+  ],
+  "porque": {
+    "titulo": "A pergunta deste case",
+    "texto": "Se eu assumisse hoje uma área de dados com problemas de qualidade (números divulgados errados, rotinas que não atualizam, cargas que duplicam e tabelas sem chave primária), o que eu faria? Este ambiente simulado responde na prática: diagnosticar, monitorar e garantir que cada número divulgado seja confiável."
+  },
+  "aviso": {
+    "rotulo": "Ambiente simulado",
+    "destaque": "dados 100% fictícios",
+    "titulo": "Todos os dados são fictícios.",
+    "texto": "Tabelas, números e incidentes foram gerados por simulação para esta demonstração e não representam a operação real de nenhuma empresa."
+  },
+  "portfolio": "https://www.lucasanalytics.com.br/",
+  "linkedin": "https://www.linkedin.com/in/lucas-fernandes-317427168/",
+  "email": "[PREENCHER: e-mail]",
+  "agenda": "[PREENCHER]",
+  "foto": "foto-lucas.jpg"
+}

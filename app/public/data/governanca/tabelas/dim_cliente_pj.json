@@ -1,0 +1,670 @@
+{
+ "nome": "dim_cliente_pj",
+ "descricao": "Atributos específicos de pessoa jurídica",
+ "dominio": "Cadastro",
+ "camada": "core",
+ "dono": "Marina Azevedo",
+ "dono_area": "Cadastro & CRM",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cadastro",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T01:40:29-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 41436,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Atributos específicos de pessoa jurídica. Pertence ao domínio Cadastro e fica na camada core (dado tratado e modelado). É construída a partir de `dim_cliente`. Carga diária pela rotina `core_cadastro`, com SLA de 24 horas. Tem 9 colunas; chave primária: `id_cliente`. Responsável: Marina Azevedo (Cadastro & CRM).",
+ "colunas": [
+  {
+   "nome": "id_cliente",
+   "tipo": "bigint",
+   "descricao": "Cliente pessoa jurídica",
+   "pk": true,
+   "fk": {
+    "tabela": "dim_cliente",
+    "coluna": "id_cliente"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cnpj",
+   "tipo": "varchar(18)",
+   "descricao": "CNPJ",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "razao_social",
+   "tipo": "varchar(120)",
+   "descricao": "Razão social",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nome_fantasia",
+   "tipo": "varchar(120)",
+   "descricao": "Nome fantasia",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "cnae_principal",
+   "tipo": "varchar(9)",
+   "descricao": "CNAE principal",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "porte",
+   "tipo": "varchar(20)",
+   "descricao": "Porte da empresa",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "nome_representante",
+   "tipo": "varchar(120)",
+   "descricao": "Representante legal",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "cpf_representante",
+   "tipo": "varchar(14)",
+   "descricao": "CPF do representante legal",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "dt_fundacao",
+   "tipo": "date",
+   "descricao": "Data de fundação",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:40:04-03:00",
+   "duracao_seg": 73,
+   "linhas": 41076,
+   "linhas_esperadas": 41076,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:40:23-03:00",
+   "duracao_seg": 84,
+   "linhas": 41088,
+   "linhas_esperadas": 41088,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:40:08-03:00",
+   "duracao_seg": 75,
+   "linhas": 41100,
+   "linhas_esperadas": 41100,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:40:47-03:00",
+   "duracao_seg": 86,
+   "linhas": 41113,
+   "linhas_esperadas": 41113,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T01:40:48-03:00",
+   "duracao_seg": 88,
+   "linhas": 41125,
+   "linhas_esperadas": 41125,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:40:27-03:00",
+   "duracao_seg": 87,
+   "linhas": 41138,
+   "linhas_esperadas": 41138,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:40:41-03:00",
+   "duracao_seg": 74,
+   "linhas": 41150,
+   "linhas_esperadas": 41150,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:40:24-03:00",
+   "duracao_seg": 74,
+   "linhas": 41163,
+   "linhas_esperadas": 41163,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:40:19-03:00",
+   "duracao_seg": 70,
+   "linhas": 41175,
+   "linhas_esperadas": 41175,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:40:49-03:00",
+   "duracao_seg": 70,
+   "linhas": 41187,
+   "linhas_esperadas": 41187,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:40:41-03:00",
+   "duracao_seg": 72,
+   "linhas": 41200,
+   "linhas_esperadas": 41200,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:40:37-03:00",
+   "duracao_seg": 71,
+   "linhas": 41212,
+   "linhas_esperadas": 41212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:40:44-03:00",
+   "duracao_seg": 73,
+   "linhas": 41225,
+   "linhas_esperadas": 41225,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:40:10-03:00",
+   "duracao_seg": 77,
+   "linhas": 41237,
+   "linhas_esperadas": 41237,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:40:34-03:00",
+   "duracao_seg": 87,
+   "linhas": 41250,
+   "linhas_esperadas": 41250,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:40:39-03:00",
+   "duracao_seg": 89,
+   "linhas": 41262,
+   "linhas_esperadas": 41262,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:40:46-03:00",
+   "duracao_seg": 88,
+   "linhas": 41274,
+   "linhas_esperadas": 41274,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:40:14-03:00",
+   "duracao_seg": 89,
+   "linhas": 41287,
+   "linhas_esperadas": 41287,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:40:52-03:00",
+   "duracao_seg": 79,
+   "linhas": 41299,
+   "linhas_esperadas": 41299,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:40:19-03:00",
+   "duracao_seg": 86,
+   "linhas": 41312,
+   "linhas_esperadas": 41312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:40:51-03:00",
+   "duracao_seg": 73,
+   "linhas": 41324,
+   "linhas_esperadas": 41324,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:40:41-03:00",
+   "duracao_seg": 76,
+   "linhas": 41337,
+   "linhas_esperadas": 41337,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:40:39-03:00",
+   "duracao_seg": 77,
+   "linhas": 41349,
+   "linhas_esperadas": 41349,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:40:25-03:00",
+   "duracao_seg": 71,
+   "linhas": 41361,
+   "linhas_esperadas": 41361,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:40:43-03:00",
+   "duracao_seg": 72,
+   "linhas": 41374,
+   "linhas_esperadas": 41374,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:40:17-03:00",
+   "duracao_seg": 82,
+   "linhas": 41386,
+   "linhas_esperadas": 41386,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:40:38-03:00",
+   "duracao_seg": 83,
+   "linhas": 41399,
+   "linhas_esperadas": 41399,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:40:36-03:00",
+   "duracao_seg": 85,
+   "linhas": 41411,
+   "linhas_esperadas": 41411,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:40:51-03:00",
+   "duracao_seg": 80,
+   "linhas": 41424,
+   "linhas_esperadas": 41424,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:40:29-03:00",
+   "duracao_seg": 86,
+   "linhas": 41436,
+   "linhas_esperadas": 41436,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_cliente_pj.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_cliente`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_cliente_pj' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_cliente_pj.unicidade.id_cliente",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_cliente` (41.436 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_cliente, COUNT(*) AS qtd\nFROM dim_cliente_pj\nGROUP BY id_cliente\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_cliente_pj.nao_nulo.cpf_representante",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `cpf_representante`",
+   "coluna": "cpf_representante",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `cpf_representante`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN cpf_representante IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_cliente_pj;"
+  },
+  {
+   "id": "dim_cliente_pj.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cliente` existem em `dim_cliente`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM dim_cliente_pj f\nLEFT JOIN dim_cliente p ON p.id_cliente = f.id_cliente\nWHERE f.id_cliente IS NOT NULL AND p.id_cliente IS NULL;"
+  },
+  {
+   "id": "dim_cliente_pj.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:40); SLA de 24h",
+   "valor_observado": 6.3,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_cliente_pj' AND status IN ('sucesso', 'alerta');"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_cliente",
+   "cnpj",
+   "razao_social",
+   "nome_fantasia",
+   "cnae_principal",
+   "porte",
+   "nome_representante",
+   "cpf_representante",
+   "dt_fundacao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     318410,
+     "**.872.374/0001-**",
+     "Comercial Ponte Nova Ltda",
+     "Ponte Nova",
+     "0111-3/02",
+     "Médio",
+     "Renata V. Teixeira",
+     "***.121.***-42",
+     "1960-05-09"
+    ]
+   },
+   {
+    "valores": [
+     318634,
+     "**.652.113/0001-**",
+     "Imobiliária Jardim Real Ltda",
+     "Serra Azul",
+     "4120-4/00",
+     "Médio",
+     "Camila A. Rezende",
+     "***.774.***-48",
+     "1960-05-19"
+    ]
+   },
+   {
+    "valores": [
+     318416,
+     "**.740.995/0001-**",
+     "Logística Rota Sul Ltda",
+     "Ponte Nova",
+     "6821-8/01",
+     "ME",
+     "Aline P. Macedo",
+     "***.163.***-44",
+     null
+    ]
+   },
+   {
+    "valores": [
+     318532,
+     "**.976.336/0001-**",
+     "Clínica Vida Plena Ltda",
+     "Jardim Real",
+     "6821-8/01",
+     "Grande",
+     "Juliana B. Silveira",
+     "***.291.***-89",
+     "1994-02-28"
+    ]
+   },
+   {
+    "valores": [
+     318692,
+     "**.877.756/0001-**",
+     "Transportes Serra Azul Ltda",
+     "Vale Verde",
+     "0111-3/02",
+     "Grande",
+     "Renata S. Siqueira",
+     "***.157.***-48",
+     "1989-05-27"
+    ]
+   },
+   {
+    "valores": [
+     318736,
+     "**.581.450/0001-**",
+     "Auto Center Bandeirantes Ltda",
+     "Ponte Nova",
+     "4930-2/02",
+     "ME",
+     "Luiz Henrique T. Monteiro",
+     "***.804.***-75",
+     "1986-06-18"
+    ]
+   },
+   {
+    "valores": [
+     318667,
+     "**.362.869/0001-**",
+     "Clínica Vida Plena Ltda",
+     "Vale Verde",
+     "4930-2/02",
+     "Médio",
+     "Luiz Henrique Q. Pacheco",
+     "***.426.***-54",
+     "1963-03-09"
+    ]
+   },
+   {
+    "valores": [
+     318440,
+     "**.139.831/0001-**",
+     "Logística Rota Sul Ltda",
+     "Ponte Nova",
+     "4711-3/02",
+     "EPP",
+     "Renata F. Freitas",
+     "***.544.***-64",
+     "1982-11-04"
+    ]
+   },
+   {
+    "valores": [
+     318646,
+     "**.918.133/0001-**",
+     "Auto Center Bandeirantes Ltda",
+     "Serra Azul",
+     "4711-3/02",
+     "Médio",
+     "Ana Paula S. Pacheco",
+     "***.697.***-22",
+     "1987-08-24"
+    ]
+   },
+   {
+    "valores": [
+     318712,
+     "**.256.706/0001-**",
+     "Transportes Serra Azul Ltda",
+     "Ponte Nova",
+     "4711-3/02",
+     "Médio",
+     "Ricardo S. Cardoso",
+     "***.284.***-16",
+     "1977-03-02"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "dim_cliente"
+ ],
+ "downstream": []
+}

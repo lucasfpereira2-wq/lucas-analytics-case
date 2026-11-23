@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lucas Analytics Case. Se eu assumisse hoje uma área de dados com problemas de qualidade, o que eu faria? Ambiente simulado com dados 100% fictícios." />
+    <meta name="theme-color" content="#00203A" />
+    <title>Lucas Analytics Case · Qualidade e Governança de Dados</title>
+    <script>
+      // Aplica o tema antes da primeira pintura (evita o flash claro/escuro).
+      (function () {
+        try {
+          var salvo = localStorage.getItem('lucas-case:tema');
+          var escuro = salvo ? salvo === 'escuro' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.classList.toggle('dark', escuro);
+          document.documentElement.dataset.theme = escuro ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+{
+  "titulo": "Plano de 90 dias",
+  "subtitulo": "Se eu assumisse hoje uma área de dados com problemas de qualidade, este seria o plano: do diagnóstico ao monitoramento contínuo, com entregas visíveis a cada 30 dias.",
+  "principios": [
+    { "titulo": "Do relatório para a origem", "texto": "A prioridade vem dos números que a diretoria usa. A linhagem mostra quais tabelas sustentam cada um." },
+    { "titulo": "Entrega a cada duas semanas", "texto": "Nada de projeto de seis meses. Cada ciclo fecha com um problema resolvido e medido." },
+    { "titulo": "Transparência total", "texto": "O farol é aberto. Quem consome o dado sabe, antes da decisão, se pode confiar nele." }
+  ],
+  "fases": [
+    {
+      "id": "fase-1",
+      "periodo": "Dias 1–30",
+      "titulo": "Diagnóstico e inventário",
+      "objetivo": "Saber exatamente o que existe, o que está quebrado e o que cada falha custa ao negócio.",
+      "entregas": [
+        "Inventário das 80 tabelas com domínio, camada, frequência e sistema de origem",
+        "Linhagem dos 5 relatórios executivos até as fontes",
+        "Linha de base do Índice de Saúde dos Dados, com fórmula pública",
+        "Mapa das tabelas sem chave primária e sem dono, ordenado por impacto",
+        "Registro dos incidentes abertos com causa raiz e efeito em cada relatório",
+        "Correção emergencial dos dois incidentes críticos (duplicidade e rotina parada)"
+      ],
+      "riscos": ["Conhecimento concentrado em poucas pessoas", "Sistemas legados sem documentação", "Expectativa de solução imediata para tudo"],
+      "envolve": ["Diretoria (patrocínio)", "TI e Engenharia de Dados", "Gestores de Vendas, Cobrança e Atendimento"]
+    },
+    {
+      "id": "fase-2",
+      "periodo": "Dias 31–60",
+      "titulo": "Padronização: PKs, testes, SLAs e donos",
+      "objetivo": "Fechar as portas por onde o erro entra: toda tabela crítica com chave, teste, prazo e responsável.",
+      "entregas": [
+        "Chave primária e carga idempotente em 100% das tabelas críticas",
+        "Testes automatizados a cada carga: unicidade, nulos, integridade, volume e frescor",
+        "SLA de atualização acordado com cada área consumidora",
+        "Dono nomeado para cada tabela, com rotina de acionamento",
+        "Selo de Confiança dos 5 relatórios executivos publicado na página de impacto",
+        "Padrão de modelagem e de nomes para novas tabelas"
+      ],
+      "riscos": ["Limpeza de histórico duplicado altera números já divulgados", "Resistência a assumir a posição de dono do dado", "Janela de processamento noturna apertada"],
+      "envolve": ["Engenharia de Dados", "Donos de dados nas áreas de negócio", "Controladoria (reconciliações)"]
+    },
+    {
+      "id": "fase-3",
+      "periodo": "Dias 61–90",
+      "titulo": "Monitoramento contínuo, catálogo e cultura",
+      "objetivo": "Tornar a qualidade um processo permanente, com metas, e não um mutirão.",
+      "entregas": [
+        "Farol de Dados em produção, com alertas automáticos para os donos",
+        "Catálogo e glossário de métricas com definição única por indicador",
+        "Rito semanal de qualidade de dados, com incidentes e tendência",
+        "OKRs de dados no painel da diretoria (saúde, cobertura de testes, tempo de detecção)",
+        "Trilha de capacitação para analistas e gestores consumidores",
+        "Roteiro dos próximos dois trimestres (autoatendimento e modelos preditivos)"
+      ],
+      "riscos": ["Fadiga de alertas se os limites forem mal calibrados", "Perda de prioridade após os primeiros resultados", "Catálogo desatualizado sem dono definido"],
+      "envolve": ["Todas as áreas consumidoras", "RH (capacitação)", "Diretoria (OKRs)"]
+    }
+  ],
+  "metricas": [
+    { "indicador": "Índice de Saúde dos Dados", "base": "71%", "meta": "90%+", "progresso_base": 71, "progresso_meta": 90 },
+    { "indicador": "Tabelas críticas com chave primária", "base": "Parcial", "meta": "100%", "progresso_base": 78, "progresso_meta": 100 },
+    { "indicador": "Tabelas com dono definido", "base": "Parcial", "meta": "100%", "progresso_base": 85, "progresso_meta": 100 },
+    { "indicador": "Tempo médio para detectar falha de rotina", "base": "Dias", "meta": "Minutos", "progresso_base": 15, "progresso_meta": 95 },
+    { "indicador": "Relatórios executivos com selo confiável", "base": "2 de 5", "meta": "5 de 5", "progresso_base": 40, "progresso_meta": 100 }
+  ],
+  "projecao": [
+    { "dia": 0, "indice": 71, "marco": "Linha de base" },
+    { "dia": 10, "indice": 72 },
+    { "dia": 20, "indice": 74.5, "marco": "Incidentes críticos corrigidos" },
+    { "dia": 30, "indice": 76, "marco": "Inventário e linhagem concluídos" },
+    { "dia": 40, "indice": 79 },
+    { "dia": 50, "indice": 82.5, "marco": "PKs em 100% das tabelas críticas" },
+    { "dia": 60, "indice": 85, "marco": "Testes, SLAs e donos" },
+    { "dia": 70, "indice": 87.5 },
+    { "dia": 80, "indice": 89.5, "marco": "Farol com alertas automáticos" },
+    { "dia": 90, "indice": 91, "marco": "Meta: 90%+" }
+  ],
+  "problemas_fallback": [
+    { "titulo": "Parcelas duplicadas inflando a carteira de cobrança", "tabela": "fato_parcelas", "severidade": "critico", "impacto": "Carteira e inadimplência superestimadas no relatório de Cobrança.", "acao": "Definir a chave, remover os duplicados e tornar a carga idempotente." },
+    { "titulo": "Rotina de atendimento por voz sem atualizar", "tabela": "fato_atendimentos", "severidade": "critico", "impacto": "Volume e NPS de Atendimento divulgados sem o canal de voz.", "acao": "Restabelecer a carga, reprocessar os dias faltantes e ligar o alerta de frescor." },
+    { "titulo": "Propostas carregadas parcialmente", "tabela": "stg_propostas", "severidade": "alto", "impacto": "Funil de Vendas mostra menos propostas do que o real.", "acao": "Teste de volume contra a origem e reprocessamento automático." },
+    { "titulo": "Tabelas críticas sem chave primária", "tabela": "fato_lances", "severidade": "alto", "impacto": "Risco permanente de duplicidade a cada reexecução.", "acao": "Definir o grão com o dono do dado e criar a PK com teste de unicidade." },
+    { "titulo": "Tabelas sem dono definido", "tabela": "dim_grupos", "severidade": "medio", "impacto": "Ninguém é acionado quando o dado quebra.", "acao": "Nomear donos por domínio e publicar a matriz de responsabilidade." }
+  ]
+}

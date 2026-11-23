@@ -1,0 +1,378 @@
+[
+ {
+  "termo": "Cota",
+  "definicao": "Participação de um consorciado em um grupo. Cada cota dá direito a um crédito e gera parcelas mensais até o fim do plano.",
+  "dominio": "Grupos e Cotas",
+  "tabelas": [
+   "dim_cota",
+   "fato_cota_movimentacao"
+  ],
+  "relatorios": [
+   "vendas",
+   "cobranca-carteira",
+   "cobranca-safra",
+   "assembleias"
+  ],
+  "dono": "Camila Furtado"
+ },
+ {
+  "termo": "Grupo",
+  "definicao": "Conjunto de consorciados reunidos para formar poupança comum, com prazo e número máximo de participantes definidos.",
+  "dominio": "Grupos e Cotas",
+  "tabelas": [
+   "dim_grupo",
+   "fato_posicao_grupo_mensal"
+  ],
+  "relatorios": [
+   "assembleias",
+   "cobranca-safra"
+  ],
+  "dono": "Camila Furtado"
+ },
+ {
+  "termo": "Carteira ativa",
+  "definicao": "Quantidade de cotas ativas (não canceladas nem quitadas) na data de referência. É medida de estoque: usa a última fotografia do período, nunca a soma de datas.",
+  "dominio": "Grupos e Cotas",
+  "tabelas": [
+   "dim_cota",
+   "fato_inadimplencia_diaria"
+  ],
+  "relatorios": [
+   "cobranca-carteira"
+  ],
+  "dono": "Camila Furtado",
+  "formula": "Cotas com situação ativa ou contemplada em pagamento na data de referência"
+ },
+ {
+  "termo": "Assembleia",
+  "definicao": "Reunião periódica do grupo em que ocorrem as contemplações por sorteio e por lance, conforme o saldo do fundo comum.",
+  "dominio": "Assembleias",
+  "tabelas": [
+   "fato_assembleia",
+   "fato_sorteio",
+   "fato_lance"
+  ],
+  "relatorios": [
+   "assembleias"
+  ],
+  "dono": "Diego Sampaio"
+ },
+ {
+  "termo": "Contemplação",
+  "definicao": "Atribuição do crédito a uma cota, por sorteio ou por lance vencedor, em assembleia.",
+  "dominio": "Assembleias",
+  "tabelas": [
+   "fato_contemplacao"
+  ],
+  "relatorios": [
+   "assembleias"
+  ],
+  "dono": "Diego Sampaio"
+ },
+ {
+  "termo": "Lance",
+  "definicao": "Oferta de antecipação de parcelas feita pelo consorciado para tentar a contemplação. Vence o maior percentual ofertado.",
+  "dominio": "Assembleias",
+  "tabelas": [
+   "fato_lance"
+  ],
+  "relatorios": [
+   "assembleias"
+  ],
+  "dono": "Diego Sampaio",
+  "formula": "Percentual do lance = valor ofertado / valor do crédito"
+ },
+ {
+  "termo": "Lance embutido",
+  "definicao": "Parte do lance paga com o próprio crédito da cota. O valor embutido é abatido do crédito liberado.",
+  "dominio": "Assembleias",
+  "tabelas": [
+   "fato_lance",
+   "fato_liberacao_credito"
+  ],
+  "relatorios": [
+   "assembleias"
+  ],
+  "dono": "Diego Sampaio"
+ },
+ {
+  "termo": "Crédito comercializado",
+  "definicao": "Soma dos valores de crédito das cotas vendidas no período. É a principal medida de produção comercial.",
+  "dominio": "Vendas",
+  "tabelas": [
+   "fato_contrato_venda",
+   "mart_vendas_comercial"
+  ],
+  "relatorios": [
+   "vendas"
+  ],
+  "dono": "Bruno Tavares",
+  "formula": "Soma de vl_credito das vendas do período"
+ },
+ {
+  "termo": "Ticket médio",
+  "definicao": "Valor médio do crédito por cota vendida.",
+  "dominio": "Vendas",
+  "tabelas": [
+   "fato_contrato_venda"
+  ],
+  "relatorios": [
+   "vendas"
+  ],
+  "dono": "Bruno Tavares",
+  "formula": "Crédito comercializado / cotas vendidas"
+ },
+ {
+  "termo": "Fundo comum",
+  "definicao": "Recursos arrecadados dos consorciados destinados ao pagamento dos créditos contemplados do grupo.",
+  "dominio": "Financeiro e Cobrança",
+  "tabelas": [
+   "fato_fundo_comum",
+   "fato_parcelas"
+  ],
+  "relatorios": [
+   "assembleias",
+   "cobranca-carteira"
+  ],
+  "dono": "Patrícia Lemos"
+ },
+ {
+  "termo": "Fundo de reserva",
+  "definicao": "Parcela da arrecadação usada para cobrir insuficiências do grupo, como inadimplência. O saldo remanescente é devolvido no encerramento.",
+  "dominio": "Financeiro e Cobrança",
+  "tabelas": [
+   "fato_fundo_reserva"
+  ],
+  "relatorios": [
+   "cobranca-carteira"
+  ],
+  "dono": "Patrícia Lemos"
+ },
+ {
+  "termo": "Taxa de administração",
+  "definicao": "Remuneração da administradora pela gestão do grupo, cobrada como percentual do crédito ao longo do plano.",
+  "dominio": "Produto",
+  "tabelas": [
+   "dim_plano",
+   "dim_tabela_taxa",
+   "fato_parcelas"
+  ],
+  "relatorios": [
+   "vendas"
+  ],
+  "dono": "Rafael Nogueira",
+  "formula": "Percentual total do plano / prazo em meses, aplicado sobre o crédito"
+ },
+ {
+  "termo": "Inadimplência over 30/60/90",
+  "definicao": "Parcela da carteira com atraso superior a 30, 60 ou 90 dias, em quantidade de cotas ou em saldo.",
+  "dominio": "Financeiro e Cobrança",
+  "tabelas": [
+   "fato_inadimplencia_diaria",
+   "mart_cobranca_carteira"
+  ],
+  "relatorios": [
+   "cobranca-carteira",
+   "cobranca-safra"
+  ],
+  "dono": "Patrícia Lemos",
+  "formula": "Cotas (ou saldo) com atraso acima de N dias / carteira ativa",
+  "sigla": "Over 30/60/90"
+ },
+ {
+  "termo": "Roll rate",
+  "definicao": "Percentual de cotas que migram de uma faixa de atraso para a faixa seguinte de um mês para o outro.",
+  "dominio": "Financeiro e Cobrança",
+  "tabelas": [
+   "fato_inadimplencia_diaria"
+  ],
+  "relatorios": [
+   "cobranca-carteira"
+  ],
+  "dono": "Patrícia Lemos",
+  "formula": "Cotas que passaram da faixa A para a faixa B / cotas na faixa A no mês anterior"
+ },
+ {
+  "termo": "Safra",
+  "definicao": "Conjunto de cotas vendidas no mesmo mês de adesão. Permite comparar a qualidade das vendas ao longo do tempo.",
+  "dominio": "Financeiro e Cobrança",
+  "tabelas": [
+   "mart_cobranca_safra_mob",
+   "fato_contrato_venda"
+  ],
+  "relatorios": [
+   "cobranca-safra"
+  ],
+  "dono": "Patrícia Lemos"
+ },
+ {
+  "termo": "MOB",
+  "definicao": "Meses decorridos desde a adesão da cota. Eixo usado nas curvas de safra.",
+  "dominio": "Financeiro e Cobrança",
+  "tabelas": [
+   "mart_cobranca_safra_mob"
+  ],
+  "relatorios": [
+   "cobranca-safra"
+  ],
+  "dono": "Patrícia Lemos",
+  "formula": "Meses entre a data de adesão e a data de referência",
+  "sigla": "Months on Book"
+ },
+ {
+  "termo": "Cohort de cancelamento",
+  "definicao": "Acompanhamento do percentual de cotas canceladas de cada safra conforme o MOB.",
+  "dominio": "Financeiro e Cobrança",
+  "tabelas": [
+   "fato_cancelamento_cota",
+   "mart_cobranca_safra_mob"
+  ],
+  "relatorios": [
+   "cobranca-safra"
+  ],
+  "dono": "Patrícia Lemos",
+  "formula": "Cancelamentos acumulados da safra até o MOB / cotas vendidas na safra"
+ },
+ {
+  "termo": "Tempo médio de atendimento",
+  "definicao": "Tempo médio em que o agente fica em contato com o cliente.",
+  "dominio": "Atendimento",
+  "tabelas": [
+   "fato_chamada",
+   "mart_atendimento"
+  ],
+  "relatorios": [
+   "atendimento"
+  ],
+  "dono": "Juliana Prado",
+  "formula": "Soma do tempo de atendimento / contatos atendidos",
+  "sigla": "TMA"
+ },
+ {
+  "termo": "Tempo médio de espera",
+  "definicao": "Tempo médio que o cliente aguarda em fila até ser atendido.",
+  "dominio": "Atendimento",
+  "tabelas": [
+   "fato_chamada",
+   "mart_atendimento"
+  ],
+  "relatorios": [
+   "atendimento"
+  ],
+  "dono": "Juliana Prado",
+  "formula": "Soma do tempo de espera / contatos atendidos",
+  "sigla": "TME"
+ },
+ {
+  "termo": "Resolução no primeiro contato",
+  "definicao": "Parcela dos contatos resolvidos sem necessidade de novo contato pelo mesmo motivo.",
+  "dominio": "Atendimento",
+  "tabelas": [
+   "fato_chamada",
+   "fato_ticket",
+   "mart_atendimento"
+  ],
+  "relatorios": [
+   "atendimento"
+  ],
+  "dono": "Juliana Prado",
+  "formula": "Contatos resolvidos no primeiro contato / contatos atendidos",
+  "sigla": "FCR"
+ },
+ {
+  "termo": "Taxa de abandono",
+  "definicao": "Parcela dos contatos em que o cliente desiste antes de ser atendido.",
+  "dominio": "Atendimento",
+  "tabelas": [
+   "fato_chamada",
+   "mart_atendimento"
+  ],
+  "relatorios": [
+   "atendimento"
+  ],
+  "dono": "Juliana Prado",
+  "formula": "Contatos abandonados / contatos recebidos"
+ },
+ {
+  "termo": "Net Promoter Score",
+  "definicao": "Indicador de lealdade medido pela pergunta de recomendação (nota de 0 a 10). Exige uma resposta por cliente e pesquisa: respostas duplicadas distorcem o resultado.",
+  "dominio": "Atendimento",
+  "tabelas": [
+   "fato_pesquisa_nps",
+   "stg_pesquisas_respostas"
+  ],
+  "relatorios": [
+   "atendimento"
+  ],
+  "dono": "Juliana Prado",
+  "formula": "% de promotores (notas 9 e 10) - % de detratores (notas de 0 a 6)",
+  "sigla": "NPS"
+ },
+ {
+  "termo": "Satisfação do cliente",
+  "definicao": "Parcela das avaliações pós-atendimento com nota 4 ou 5.",
+  "dominio": "Atendimento",
+  "tabelas": [
+   "fato_pesquisa_csat"
+  ],
+  "relatorios": [
+   "atendimento"
+  ],
+  "dono": "Juliana Prado",
+  "formula": "Respostas com nota 4 ou 5 / total de respostas",
+  "sigla": "CSAT"
+ },
+ {
+  "termo": "SLA de dados",
+  "definicao": "Prazo máximo acordado entre uma carga e a seguinte. Passado esse prazo, a tabela é considerada atrasada.",
+  "dominio": "Governança de Dados",
+  "tabelas": [],
+  "relatorios": [],
+  "dono": "Thiago Meireles",
+  "formula": "Horas desde a última carga <= SLA da tabela"
+ },
+ {
+  "termo": "Frescor",
+  "definicao": "Idade do dado: tempo decorrido desde a última carga concluída com sucesso.",
+  "dominio": "Governança de Dados",
+  "tabelas": [],
+  "relatorios": [],
+  "dono": "Thiago Meireles",
+  "formula": "Agora - data e hora da última carga"
+ },
+ {
+  "termo": "Linhagem",
+  "definicao": "Mapa do caminho do dado, da fonte ao relatório. Mostra quais tabelas e relatórios são afetados quando algo falha na origem.",
+  "dominio": "Governança de Dados",
+  "tabelas": [],
+  "relatorios": [
+   "vendas",
+   "cobranca-carteira",
+   "cobranca-safra",
+   "atendimento",
+   "assembleias"
+  ],
+  "dono": "Thiago Meireles"
+ },
+ {
+  "termo": "Chave primária",
+  "definicao": "Coluna ou conjunto de colunas que identifica cada registro de forma única. Sem ela, não há como garantir contagens sem duplicidade.",
+  "dominio": "Governança de Dados",
+  "tabelas": [
+   "stg_whatsapp_conversas",
+   "fato_chamadas_legacy"
+  ],
+  "relatorios": [],
+  "dono": "Thiago Meireles",
+  "sigla": "PK"
+ },
+ {
+  "termo": "Índice de Saúde dos Dados",
+  "definicao": "Nota de 0 a 100 que resume a confiabilidade de uma tabela, de um domínio ou do ambiente inteiro.",
+  "dominio": "Governança de Dados",
+  "tabelas": [],
+  "relatorios": [],
+  "dono": "Thiago Meireles",
+  "formula": "(40% testes de qualidade + 30% frescor + 20% sucesso das rotinas em 30 dias + 10% chave primária) x fator de risco do farol, com média ponderada pela criticidade"
+ }
+]

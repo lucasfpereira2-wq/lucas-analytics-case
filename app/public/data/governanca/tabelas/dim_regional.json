@@ -1,0 +1,557 @@
+{
+ "nome": "dim_regional",
+ "descricao": "Regionais comerciais e suas UFs",
+ "dominio": "Corporativo",
+ "camada": "core",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "media",
+ "frequencia": "semanal",
+ "sla_horas": 168,
+ "pipeline": "core_corporativo",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-15T02:50:49-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 5,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Regionais comerciais e suas UFs. Pertence ao domínio Corporativo e fica na camada core (dado tratado e modelado). Carga semanal pela rotina `core_corporativo`, com SLA de 168 horas. Tem 6 colunas; chave primária: `id_regional`. Responsável: Thiago Meireles (Engenharia de Dados).",
+ "colunas": [
+  {
+   "nome": "id_regional",
+   "tipo": "smallint",
+   "descricao": "Chave da regional",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_regional",
+   "tipo": "varchar(30)",
+   "descricao": "Nome da regional",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "ufs",
+   "tipo": "varchar(80)",
+   "descricao": "UFs atendidas pela regional",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_gestor",
+   "tipo": "varchar(120)",
+   "descricao": "Gestor regional",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "fl_ativa",
+   "tipo": "char(1)",
+   "descricao": "Regional ativa (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_atualizacao",
+   "tipo": "timestamp",
+   "descricao": "Última atualização",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:50:16-03:00",
+   "duracao_seg": 39,
+   "linhas": 5,
+   "linhas_esperadas": 5,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:50:05-03:00",
+   "duracao_seg": 36,
+   "linhas": 5,
+   "linhas_esperadas": 5,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:50:37-03:00",
+   "duracao_seg": 34,
+   "linhas": 5,
+   "linhas_esperadas": 5,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:50:49-03:00",
+   "duracao_seg": 33,
+   "linhas": 5,
+   "linhas_esperadas": 5,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_regional.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_regional`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_regional' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_regional.unicidade.id_regional",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_regional`",
+   "coluna": "id_regional",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_regional` (5 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_regional, COUNT(*) AS qtd\nFROM dim_regional\nGROUP BY id_regional\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_regional.nao_nulo.dt_atualizacao",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_atualizacao`",
+   "coluna": "dt_atualizacao",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_atualizacao`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_atualizacao IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_regional;"
+  },
+  {
+   "id": "dim_regional.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2 dias (15/11 às 02:50); SLA de 168h",
+   "valor_observado": 53.2,
+   "limite": 168,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_regional' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_regional.dominio_valores.ufs",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `ufs`",
+   "coluna": "ufs",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `ufs` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT ufs, COUNT(*) AS qtd\nFROM dim_regional\nWHERE ufs NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'ufs')\nGROUP BY ufs;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_regional",
+   "nm_regional",
+   "ufs",
+   "nm_gestor",
+   "fl_ativa",
+   "dt_atualizacao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     1,
+     "São Paulo",
+     "SP",
+     "Aline Q. Silveira",
+     "S",
+     "2026-11-13 10:30:18"
+    ]
+   },
+   {
+    "valores": [
+     2,
+     "Sudeste",
+     "MG, RJ, ES",
+     "Fernanda B. Silveira",
+     "S",
+     "2026-11-14 09:23:55"
+    ]
+   },
+   {
+    "valores": [
+     3,
+     "Sul",
+     "PR, SC, RS",
+     "Aline A. Antunes",
+     "S",
+     "2026-11-14 11:11:21"
+    ]
+   },
+   {
+    "valores": [
+     4,
+     "Centro-Oeste",
+     "GO, MT, MS, DF",
+     "Larissa F. Figueiredo",
+     "S",
+     "2026-11-12 11:31:59"
+    ]
+   },
+   {
+    "valores": [
+     5,
+     "Norte e Nordeste",
+     "BA, PE, CE, MA, RN, PB",
+     "Marcelo S. Brandão",
+     "S",
+     "2026-11-13 16:41:03"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": []
+}

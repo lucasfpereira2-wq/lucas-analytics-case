@@ -1,0 +1,698 @@
+{
+ "nome": "fato_renegociacao",
+ "descricao": "Renegociações e diluições de parcelas",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cobranca",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 99.3,
+ "ultima_carga": "2026-11-17T03:30:22-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 9543,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Renegociações e diluições de parcelas. Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). É construída a partir de `fato_acordo`, `fato_parcelas`. Carga diária pela rotina `core_cobranca`, com SLA de 24 horas. Tem 8 colunas; chave primária: `id_renegociacao`. Responsável: Patrícia Lemos (Crédito & Cobrança).",
+ "colunas": [
+  {
+   "nome": "id_renegociacao",
+   "tipo": "bigint",
+   "descricao": "Chave da renegociação",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_acordo",
+   "tipo": "bigint",
+   "descricao": "Acordo relacionado",
+   "pk": false,
+   "fk": {
+    "tabela": "fato_acordo",
+    "coluna": "id_acordo"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "id_cota",
+   "tipo": "bigint",
+   "descricao": "Cota renegociada",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_cota",
+    "coluna": "id_cota"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tipo_renegociacao",
+   "tipo": "varchar(30)",
+   "descricao": "Diluição, alongamento ou redução de crédito",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_parcelas_diluidas",
+   "tipo": "smallint",
+   "descricao": "Parcelas diluídas no saldo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_renegociado",
+   "tipo": "decimal(14,2)",
+   "descricao": "Valor renegociado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "situacao",
+   "tipo": "varchar(20)",
+   "descricao": "Situação da renegociação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_renegociacao",
+   "tipo": "date",
+   "descricao": "Data da renegociação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:30:45-03:00",
+   "duracao_seg": 36,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:30:41-03:00",
+   "duracao_seg": 36,
+   "linhas": 17,
+   "linhas_esperadas": 17,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:30:08-03:00",
+   "duracao_seg": 39,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:30:51-03:00",
+   "duracao_seg": 39,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:30:09-03:00",
+   "duracao_seg": 37,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:30:35-03:00",
+   "duracao_seg": 35,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:30:40-03:00",
+   "duracao_seg": 33,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:30:33-03:00",
+   "duracao_seg": 34,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:30:29-03:00",
+   "duracao_seg": 37,
+   "linhas": 17,
+   "linhas_esperadas": 17,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:30:49-03:00",
+   "duracao_seg": 38,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:30:14-03:00",
+   "duracao_seg": 32,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:30:08-03:00",
+   "duracao_seg": 39,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:30:12-03:00",
+   "duracao_seg": 37,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:30:55-03:00",
+   "duracao_seg": 36,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:30:32-03:00",
+   "duracao_seg": 38,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:30:36-03:00",
+   "duracao_seg": 35,
+   "linhas": 17,
+   "linhas_esperadas": 17,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:30:53-03:00",
+   "duracao_seg": 29,
+   "linhas": null,
+   "linhas_esperadas": 15,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Timeout ao consultar `fato_parcelas`: consulta excedeu 30 minutos. Reprocessada no dia seguinte."
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:30:04-03:00",
+   "duracao_seg": 32,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:30:25-03:00",
+   "duracao_seg": 36,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:30:10-03:00",
+   "duracao_seg": 39,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:30:06-03:00",
+   "duracao_seg": 37,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:30:02-03:00",
+   "duracao_seg": 37,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:30:32-03:00",
+   "duracao_seg": 32,
+   "linhas": 17,
+   "linhas_esperadas": 17,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:30:54-03:00",
+   "duracao_seg": 34,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:30:22-03:00",
+   "duracao_seg": 35,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:30:31-03:00",
+   "duracao_seg": 39,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:30:02-03:00",
+   "duracao_seg": 34,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:30:52-03:00",
+   "duracao_seg": 34,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T03:30:55-03:00",
+   "duracao_seg": 33,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T03:30:22-03:00",
+   "duracao_seg": 39,
+   "linhas": 17,
+   "linhas_esperadas": 17,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_renegociacao.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_renegociacao`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_renegociacao' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_renegociacao.unicidade.id_renegociacao",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_renegociacao`",
+   "coluna": "id_renegociacao",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_renegociacao` (9.543 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_renegociacao, COUNT(*) AS qtd\nFROM fato_renegociacao\nGROUP BY id_renegociacao\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_renegociacao.nao_nulo.id_cota",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_cota`",
+   "coluna": "id_cota",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_cota`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_cota IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_renegociacao;"
+  },
+  {
+   "id": "fato_renegociacao.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_acordo`",
+   "coluna": "id_acordo",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_acordo` existem em `fato_acordo`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_renegociacao f\nLEFT JOIN fato_acordo p ON p.id_acordo = f.id_acordo\nWHERE f.id_acordo IS NOT NULL AND p.id_acordo IS NULL;"
+  },
+  {
+   "id": "fato_renegociacao.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "17 linhas na última carga, dentro da faixa esperada (cerca de 17)",
+   "valor_observado": 17,
+   "limite": 17,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_renegociacao'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_renegociacao.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 4h (17/11 às 03:30); SLA de 24h",
+   "valor_observado": 4.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_renegociacao' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_renegociacao.dominio_valores.tipo_renegociacao",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_renegociacao`",
+   "coluna": "tipo_renegociacao",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,1% dos valores de `tipo_renegociacao` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.1,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_renegociacao, COUNT(*) AS qtd\nFROM fato_renegociacao\nWHERE tipo_renegociacao NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_renegociacao')\nGROUP BY tipo_renegociacao;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_renegociacao",
+   "id_acordo",
+   "id_cota",
+   "tipo_renegociacao",
+   "qt_parcelas_diluidas",
+   "vl_renegociado",
+   "situacao",
+   "dt_renegociacao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     null,
+     74439,
+     "Alongamento",
+     19,
+     7358.9,
+     "Encerrado",
+     "2026-11-01"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     38174,
+     74422,
+     "Redução de crédito",
+     18,
+     13614.8,
+     "Ativo",
+     "2026-11-09"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     38205,
+     74442,
+     "Redução de crédito",
+     36,
+     4528.77,
+     "Encerrado",
+     "2026-11-05"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     null,
+     74566,
+     "Diluição",
+     3,
+     10794.48,
+     "Em análise",
+     "2026-11-07"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     38441,
+     74455,
+     "Alongamento",
+     7,
+     9806.38,
+     "Em análise",
+     "2026-11-05"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     null,
+     74384,
+     "Alongamento",
+     12,
+     13224.3,
+     "Em análise",
+     "2026-11-01"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     38318,
+     74524,
+     "Alongamento",
+     9,
+     5162.86,
+     "Ativo",
+     "2026-11-09"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     38256,
+     74546,
+     "Alongamento",
+     24,
+     9039.03,
+     "Ativo",
+     "2026-10-25"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     38395,
+     74439,
+     "Diluição",
+     6,
+     3337.53,
+     "Encerrado",
+     "2026-11-10"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     38401,
+     74384,
+     "Alongamento",
+     35,
+     7033.48,
+     "Encerrado",
+     "2026-10-25"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "fato_acordo",
+  "fato_parcelas"
+ ],
+ "downstream": []
+}

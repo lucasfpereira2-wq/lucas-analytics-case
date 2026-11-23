@@ -1,0 +1,693 @@
+{
+ "nome": "fato_reajuste_bem",
+ "descricao": "Reajustes mensais do bem de referência (INCC, IPCA, tabela FIPE)",
+ "dominio": "Produto",
+ "camada": "core",
+ "dono": "Rafael Nogueira",
+ "dono_area": "Produtos",
+ "criticidade": "media",
+ "frequencia": "mensal",
+ "sla_horas": 744,
+ "pipeline": "core_produto_reajuste",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "Reajuste de novembro ainda não carregado: 5 dias além do previsto",
+ "tem_pk": true,
+ "saude": 44.3,
+ "ultima_carga": "2026-10-12T03:15:00-03:00",
+ "atraso_horas": 125.0,
+ "linhas": 3072,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "atrasada",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Reajustes mensais do bem de referência (INCC, IPCA, tabela FIPE). Pertence ao domínio Produto e fica na camada core (dado tratado e modelado). É construída a partir de `dim_bem_referencia`. Carga mensal pela rotina `core_produto_reajuste`, com SLA de 744 horas. Tem 8 colunas; chave primária: `id_reajuste`. Responsável: Rafael Nogueira (Produtos).",
+ "colunas": [
+  {
+   "nome": "id_reajuste",
+   "tipo": "bigint",
+   "descricao": "Chave do reajuste",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_bem",
+   "tipo": "integer",
+   "descricao": "Bem de referência reajustado",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_bem_referencia",
+    "coluna": "id_bem"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "competencia",
+   "tipo": "char(7)",
+   "descricao": "Mês de competência (AAAA-MM)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "indice_reajuste",
+   "tipo": "varchar(10)",
+   "descricao": "Índice aplicado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_reajuste",
+   "tipo": "decimal(7,4)",
+   "descricao": "Percentual de reajuste",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_anterior",
+   "tipo": "decimal(14,2)",
+   "descricao": "Valor do crédito antes do reajuste",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_reajustado",
+   "tipo": "decimal(14,2)",
+   "descricao": "Valor do crédito após o reajuste",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_aplicacao",
+   "tipo": "date",
+   "descricao": "Data de aplicação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 134,
+   "status": "atrasada",
+   "anomalia_volume": false,
+   "mensagem": "Índices de novembro (INCC, IPCA e FIPE) ainda não recebidos; carga não realizada."
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_reajuste_bem.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_reajuste`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_reajuste_bem' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_reajuste_bem.unicidade.id_reajuste",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_reajuste`",
+   "coluna": "id_reajuste",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_reajuste` (3.072 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_reajuste, COUNT(*) AS qtd\nFROM fato_reajuste_bem\nGROUP BY id_reajuste\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_reajuste_bem.nao_nulo.id_bem",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_bem`",
+   "coluna": "id_bem",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_bem`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_bem IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_reajuste_bem;"
+  },
+  {
+   "id": "fato_reajuste_bem.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_bem`",
+   "coluna": "id_bem",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_bem` existem em `dim_bem_referencia`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_reajuste_bem f\nLEFT JOIN dim_bem_referencia p ON p.id_bem = f.id_bem\nWHERE f.id_bem IS NOT NULL AND p.id_bem IS NULL;"
+  },
+  {
+   "id": "fato_reajuste_bem.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0 linhas na última carga, dentro da faixa esperada (cerca de 0)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_reajuste_bem'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_reajuste_bem.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "alerta",
+   "evidencia": "Reajuste de novembro ainda não carregado: 5 dias além do previsto",
+   "valor_observado": 868.8,
+   "limite": 744,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_reajuste_bem' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_reajuste_bem.dominio_valores.indice_reajuste",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `indice_reajuste`",
+   "coluna": "indice_reajuste",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `indice_reajuste` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT indice_reajuste, COUNT(*) AS qtd\nFROM fato_reajuste_bem\nWHERE indice_reajuste NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'indice_reajuste')\nGROUP BY indice_reajuste;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_reajuste",
+   "id_bem",
+   "competencia",
+   "indice_reajuste",
+   "pc_reajuste",
+   "vl_anterior",
+   "vl_reajustado",
+   "dt_aplicacao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     46,
+     "2026-11",
+     "INCC",
+     20.93,
+     3846.17,
+     3370.18,
+     "2026-09-26"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     51,
+     "2026-11",
+     "IPCA",
+     12.56,
+     2097.69,
+     3529.21,
+     "2026-09-16"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     55,
+     "2026-11",
+     "FIPE",
+     0.57,
+     907.88,
+     1879.42,
+     "2026-09-18"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     70,
+     "2026-11",
+     "FIPE",
+     8.43,
+     1039.62,
+     685.11,
+     "2026-09-17"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     69,
+     "2026-11",
+     "FIPE",
+     18.75,
+     1094.83,
+     1854.07,
+     "2026-09-28"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     47,
+     "2026-11",
+     "IPCA",
+     16.45,
+     3313.13,
+     3447.67,
+     "2026-10-10"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     57,
+     "2026-11",
+     "IPCA",
+     17.81,
+     1264.98,
+     1328.65,
+     "2026-10-09"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     65,
+     "2026-11",
+     "INCC",
+     6.32,
+     3291.68,
+     3618.84,
+     "2026-10-08"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     62,
+     "2026-11",
+     "FIPE",
+     1.46,
+     2303.19,
+     2533.97,
+     "2026-10-03"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     45,
+     "2026-11",
+     "FIPE",
+     2.31,
+     1960.06,
+     1746.68,
+     "2026-10-03"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "dim_bem_referencia"
+ ],
+ "downstream": []
+}

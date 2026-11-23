@@ -1,0 +1,824 @@
+{
+ "nome": "fato_parcelas",
+ "descricao": "Parcelas emitidas por cota, com vencimento e situação",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_financeiro_parcelas",
+ "fonte": null,
+ "status": "vermelho",
+ "motivo_status": "312 registros duplicados em `id_parcela`",
+ "tem_pk": true,
+ "saude": 23.0,
+ "ultima_carga": "2026-11-17T02:45:31-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 2814724,
+ "testes_total": 8,
+ "testes_falhando": 1,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "alerta"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira",
+  "cobranca-safra"
+ ],
+ "incidentes": [
+  "INC-2031"
+ ],
+ "tags": [],
+ "descricao_longa": "Parcelas emitidas por cota, com vencimento e situação. Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). É construída a partir de `stg_erp_parcelas`, `dim_cota`. Carga diária pela rotina `core_financeiro_parcelas`, com SLA de 24 horas. Tem 13 colunas; chave primária: `id_parcela`. Responsável: Patrícia Lemos (Crédito & Cobrança). Alimenta: Cobrança: Carteira e Inadimplência, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "id_parcela",
+   "tipo": "bigint",
+   "descricao": "Chave da parcela (declarada; unicidade verificada por teste)",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cota",
+   "tipo": "bigint",
+   "descricao": "Cota a que a parcela pertence",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_cota",
+    "coluna": "id_cota"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nr_parcela",
+   "tipo": "smallint",
+   "descricao": "Número sequencial da parcela",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_vencimento",
+   "tipo": "date",
+   "descricao": "Data de vencimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_parcela",
+   "tipo": "decimal(12,2)",
+   "descricao": "Valor total da parcela",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_fundo_comum",
+   "tipo": "decimal(12,2)",
+   "descricao": "Parte destinada ao fundo comum",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_taxa_adm",
+   "tipo": "decimal(12,2)",
+   "descricao": "Parte de taxa de administração",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_fundo_reserva",
+   "tipo": "decimal(12,2)",
+   "descricao": "Parte de fundo de reserva",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_pagamento",
+   "tipo": "date",
+   "descricao": "Data do pagamento",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "vl_pago",
+   "tipo": "decimal(12,2)",
+   "descricao": "Valor pago",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "situacao_parcela",
+   "tipo": "varchar(20)",
+   "descricao": "Em aberto, paga, em atraso ou renegociada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dias_atraso",
+   "tipo": "integer",
+   "descricao": "Dias de atraso na data de referência",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da carga",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:45:49-03:00",
+   "duracao_seg": 42,
+   "linhas": 2238,
+   "linhas_esperadas": 2238,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:45:45-03:00",
+   "duracao_seg": 42,
+   "linhas": 12814,
+   "linhas_esperadas": 12814,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:45:28-03:00",
+   "duracao_seg": 51,
+   "linhas": 12263,
+   "linhas_esperadas": 12263,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:45:23-03:00",
+   "duracao_seg": 46,
+   "linhas": 11520,
+   "linhas_esperadas": 11520,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:45:46-03:00",
+   "duracao_seg": 44,
+   "linhas": 11552,
+   "linhas_esperadas": 11552,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:45:39-03:00",
+   "duracao_seg": 51,
+   "linhas": 11066,
+   "linhas_esperadas": 11066,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:45:23-03:00",
+   "duracao_seg": 49,
+   "linhas": 4743,
+   "linhas_esperadas": 4743,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:45:14-03:00",
+   "duracao_seg": 44,
+   "linhas": 2216,
+   "linhas_esperadas": 2216,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:45:11-03:00",
+   "duracao_seg": 49,
+   "linhas": 12907,
+   "linhas_esperadas": 12907,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:45:36-03:00",
+   "duracao_seg": 45,
+   "linhas": 11668,
+   "linhas_esperadas": 11668,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:45:46-03:00",
+   "duracao_seg": 47,
+   "linhas": 11793,
+   "linhas_esperadas": 11793,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:45:55-03:00",
+   "duracao_seg": 48,
+   "linhas": 11543,
+   "linhas_esperadas": 11543,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:45:50-03:00",
+   "duracao_seg": 46,
+   "linhas": 10608,
+   "linhas_esperadas": 10608,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:45:48-03:00",
+   "duracao_seg": 45,
+   "linhas": 4757,
+   "linhas_esperadas": 4757,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:45:10-03:00",
+   "duracao_seg": 45,
+   "linhas": 2195,
+   "linhas_esperadas": 2195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:45:47-03:00",
+   "duracao_seg": 42,
+   "linhas": 13311,
+   "linhas_esperadas": 13311,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:45:42-03:00",
+   "duracao_seg": 48,
+   "linhas": 12320,
+   "linhas_esperadas": 12320,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:45:38-03:00",
+   "duracao_seg": 43,
+   "linhas": 11152,
+   "linhas_esperadas": 11152,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:45:31-03:00",
+   "duracao_seg": 52,
+   "linhas": 11091,
+   "linhas_esperadas": 11091,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:45:21-03:00",
+   "duracao_seg": 46,
+   "linhas": 10511,
+   "linhas_esperadas": 10511,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:45:44-03:00",
+   "duracao_seg": 44,
+   "linhas": 4754,
+   "linhas_esperadas": 4754,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:45:46-03:00",
+   "duracao_seg": 52,
+   "linhas": 2278,
+   "linhas_esperadas": 2278,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:45:51-03:00",
+   "duracao_seg": 42,
+   "linhas": 13122,
+   "linhas_esperadas": 13122,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:45:30-03:00",
+   "duracao_seg": 46,
+   "linhas": 11583,
+   "linhas_esperadas": 11583,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:45:05-03:00",
+   "duracao_seg": 49,
+   "linhas": 11488,
+   "linhas_esperadas": 11488,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:45:48-03:00",
+   "duracao_seg": 46,
+   "linhas": 11546,
+   "linhas_esperadas": 11546,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:45:12-03:00",
+   "duracao_seg": 46,
+   "linhas": 10888,
+   "linhas_esperadas": 10888,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:45:46-03:00",
+   "duracao_seg": 43,
+   "linhas": 4581,
+   "linhas_esperadas": 4581,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:45:45-03:00",
+   "duracao_seg": 42,
+   "linhas": 2166,
+   "linhas_esperadas": 2166,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:45:31-03:00",
+   "duracao_seg": 51,
+   "linhas": 13526,
+   "linhas_esperadas": 13214,
+   "status": "alerta",
+   "anomalia_volume": true,
+   "mensagem": "Concluída após 1 retry: o lote de 16/11 foi gravado duas vezes em modo append (312 linhas além do recebido da origem)."
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_parcelas.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_parcela`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_parcelas' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_parcelas.unicidade.id_parcela",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_parcela`",
+   "coluna": "id_parcela",
+   "severidade": "critico",
+   "resultado": "falha",
+   "evidencia": "312 registros duplicados em `id_parcela` (R$ 341 mil lançados em duplicidade no recebimento de 16/11)",
+   "valor_observado": 312,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "falha"
+   ],
+   "sql": "SELECT id_parcela, COUNT(*) AS qtd\nFROM fato_parcelas\nGROUP BY id_parcela\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_parcelas.nao_nulo.id_cota",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_cota`",
+   "coluna": "id_cota",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_cota`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_cota IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_parcelas;"
+  },
+  {
+   "id": "fato_parcelas.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cota`",
+   "coluna": "id_cota",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cota` existem em `dim_cota`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_parcelas f\nLEFT JOIN dim_cota p ON p.id_cota = f.id_cota\nWHERE f.id_cota IS NOT NULL AND p.id_cota IS NULL;"
+  },
+  {
+   "id": "fato_parcelas.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "alerta",
+   "evidencia": "13.526 linhas na última carga contra 13.214 esperadas (+2,4%)",
+   "valor_observado": 13526,
+   "limite": 13214,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_parcelas'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_parcelas.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:45); SLA de 24h",
+   "valor_observado": 5.2,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_parcelas' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_parcelas.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_parcela",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,03% em `vl_parcela` contra `stg_erp_parcelas`",
+   "valor_observado": 0.03,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_parcela) - o.total) / o.total AS pc_diferenca\nFROM fato_parcelas a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'fato_parcelas' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  },
+  {
+   "id": "fato_parcelas.dominio_valores.situacao_parcela",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `situacao_parcela`",
+   "coluna": "situacao_parcela",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `situacao_parcela` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT situacao_parcela, COUNT(*) AS qtd\nFROM fato_parcelas\nWHERE situacao_parcela NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'situacao_parcela')\nGROUP BY situacao_parcela;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_parcela",
+   "id_cota",
+   "nr_parcela",
+   "dt_vencimento",
+   "vl_parcela",
+   "vl_fundo_comum",
+   "vl_taxa_adm",
+   "vl_fundo_reserva",
+   "dt_pagamento",
+   "vl_pago",
+   "situacao_parcela",
+   "dias_atraso",
+   "dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     48211900,
+     74378,
+     28,
+     "2026-11-29",
+     3457.66,
+     2939.01,
+     449.5,
+     69.15,
+     null,
+     null,
+     "Em aberto",
+     0,
+     "2026-11-17 02:45:31"
+    ]
+   },
+   {
+    "valores": [
+     48211901,
+     74628,
+     23,
+     "2026-11-28",
+     603.03,
+     512.58,
+     78.39,
+     12.06,
+     "2026-10-22",
+     603.03,
+     "Paga",
+     0,
+     "2026-11-17 02:45:31"
+    ],
+    "problema": "Registro duplicado: mesmo `id_parcela` gravado duas vezes no reprocesso do lote de 16/11",
+    "colunas_problema": [
+     "id_parcela"
+    ]
+   },
+   {
+    "valores": [
+     48211901,
+     74628,
+     23,
+     "2026-11-28",
+     603.03,
+     512.58,
+     78.39,
+     12.06,
+     "2026-10-22",
+     603.03,
+     "Paga",
+     0,
+     "2026-11-17 02:57:31"
+    ],
+    "problema": "Registro duplicado: mesmo `id_parcela` gravado duas vezes no reprocesso do lote de 16/11",
+    "colunas_problema": [
+     "id_parcela"
+    ]
+   },
+   {
+    "valores": [
+     48211903,
+     74559,
+     2,
+     "2026-11-29",
+     1314.27,
+     1117.12,
+     170.86,
+     26.29,
+     "2026-10-28",
+     1314.27,
+     "Paga",
+     0,
+     "2026-11-17 02:45:31"
+    ]
+   },
+   {
+    "valores": [
+     48211904,
+     74414,
+     3,
+     "2026-09-10",
+     3781.22,
+     3214.04,
+     491.56,
+     75.62,
+     null,
+     null,
+     "Em atraso",
+     68,
+     "2026-11-17 02:45:31"
+    ]
+   },
+   {
+    "valores": [
+     48211905,
+     74431,
+     14,
+     "2026-11-20",
+     2594.48,
+     2205.31,
+     337.28,
+     51.89,
+     "2026-11-13",
+     2594.48,
+     "Paga",
+     0,
+     "2026-11-17 02:45:31"
+    ]
+   },
+   {
+    "valores": [
+     48211906,
+     74498,
+     33,
+     "2026-11-29",
+     3754.37,
+     3191.21,
+     488.07,
+     75.09,
+     null,
+     null,
+     "Em aberto",
+     0,
+     "2026-11-17 02:45:31"
+    ],
+    "problema": "Registro duplicado: mesmo `id_parcela` gravado duas vezes no reprocesso do lote de 16/11",
+    "colunas_problema": [
+     "id_parcela"
+    ]
+   },
+   {
+    "valores": [
+     48211906,
+     74498,
+     33,
+     "2026-11-29",
+     3754.37,
+     3191.21,
+     488.07,
+     75.09,
+     null,
+     null,
+     "Em aberto",
+     0,
+     "2026-11-17 02:57:31"
+    ],
+    "problema": "Registro duplicado: mesmo `id_parcela` gravado duas vezes no reprocesso do lote de 16/11",
+    "colunas_problema": [
+     "id_parcela"
+    ]
+   },
+   {
+    "valores": [
+     48211908,
+     74596,
+     23,
+     "2026-11-29",
+     1293.48,
+     1099.46,
+     168.15,
+     25.87,
+     "2026-10-31",
+     1293.48,
+     "Paga",
+     0,
+     "2026-11-17 02:45:31"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_erp_parcelas",
+  "dim_cota"
+ ],
+ "downstream": [
+  "fato_pagamento",
+  "fato_boleto",
+  "fato_acordo",
+  "fato_renegociacao",
+  "fato_acao_cobranca",
+  "fato_inadimplencia_diaria",
+  "mart_cobranca_carteira",
+  "mart_cobranca_safra_mob"
+ ]
+}

@@ -1,0 +1,722 @@
+{
+ "nome": "fato_lead",
+ "descricao": "Leads captados por canal e origem",
+ "dominio": "Vendas",
+ "camada": "core",
+ "dono": "Bruno Tavares",
+ "dono_area": "Inteligência Comercial",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_vendas",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T02:30:39-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 2322419,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "vendas"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Leads captados por canal e origem. Pertence ao domínio Vendas e fica na camada core (dado tratado e modelado). É construída a partir de `stg_crm_funil_eventos`. Carga diária pela rotina `core_vendas`, com SLA de 24 horas. Tem 10 colunas; chave primária: `id_lead`. Responsável: Bruno Tavares (Inteligência Comercial). Alimenta: Vendas / Comercial.",
+ "colunas": [
+  {
+   "nome": "id_lead",
+   "tipo": "bigint",
+   "descricao": "Chave do lead",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_venda",
+   "tipo": "varchar(30)",
+   "descricao": "Canal de captação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "origem_lead",
+   "tipo": "varchar(40)",
+   "descricao": "Origem (site, indicação, campanha, parceiro)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "campanha",
+   "tipo": "varchar(60)",
+   "descricao": "Campanha de marketing associada",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "uf",
+   "tipo": "char(2)",
+   "descricao": "UF informada pelo lead",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "segmento_interesse",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento de interesse",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "etapa_atual",
+   "tipo": "varchar(30)",
+   "descricao": "Etapa atual no funil",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_vendedor",
+   "tipo": "varchar(12)",
+   "descricao": "Vendedor responsável",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_captacao",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da captação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_ultima_interacao",
+   "tipo": "timestamp",
+   "descricao": "Última interação registrada",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:30:23-03:00",
+   "duracao_seg": 37,
+   "linhas": 681,
+   "linhas_esperadas": 683,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:30:55-03:00",
+   "duracao_seg": 37,
+   "linhas": 3897,
+   "linhas_esperadas": 4030,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:30:42-03:00",
+   "duracao_seg": 40,
+   "linhas": 3781,
+   "linhas_esperadas": 3654,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:30:44-03:00",
+   "duracao_seg": 36,
+   "linhas": 3385,
+   "linhas_esperadas": 3484,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:30:23-03:00",
+   "duracao_seg": 38,
+   "linhas": 3400,
+   "linhas_esperadas": 3415,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:30:28-03:00",
+   "duracao_seg": 35,
+   "linhas": 3174,
+   "linhas_esperadas": 3279,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:30:52-03:00",
+   "duracao_seg": 42,
+   "linhas": 1481,
+   "linhas_esperadas": 1434,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:30:22-03:00",
+   "duracao_seg": 37,
+   "linhas": 698,
+   "linhas_esperadas": 683,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:30:34-03:00",
+   "duracao_seg": 35,
+   "linhas": 4121,
+   "linhas_esperadas": 4030,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:30:51-03:00",
+   "duracao_seg": 35,
+   "linhas": 3527,
+   "linhas_esperadas": 3654,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:30:16-03:00",
+   "duracao_seg": 38,
+   "linhas": 3384,
+   "linhas_esperadas": 3484,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:30:35-03:00",
+   "duracao_seg": 35,
+   "linhas": 3487,
+   "linhas_esperadas": 3415,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:30:12-03:00",
+   "duracao_seg": 38,
+   "linhas": 3198,
+   "linhas_esperadas": 3279,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:30:31-03:00",
+   "duracao_seg": 42,
+   "linhas": 1387,
+   "linhas_esperadas": 1434,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:30:43-03:00",
+   "duracao_seg": 37,
+   "linhas": 686,
+   "linhas_esperadas": 683,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:30:39-03:00",
+   "duracao_seg": 39,
+   "linhas": 3938,
+   "linhas_esperadas": 4030,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:30:54-03:00",
+   "duracao_seg": 40,
+   "linhas": 3567,
+   "linhas_esperadas": 3654,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:30:30-03:00",
+   "duracao_seg": 41,
+   "linhas": 3418,
+   "linhas_esperadas": 3484,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:30:53-03:00",
+   "duracao_seg": 43,
+   "linhas": 3458,
+   "linhas_esperadas": 3415,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:30:32-03:00",
+   "duracao_seg": 43,
+   "linhas": 3339,
+   "linhas_esperadas": 3279,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:30:10-03:00",
+   "duracao_seg": 41,
+   "linhas": 1425,
+   "linhas_esperadas": 1434,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:30:51-03:00",
+   "duracao_seg": 43,
+   "linhas": 674,
+   "linhas_esperadas": 683,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:30:50-03:00",
+   "duracao_seg": 42,
+   "linhas": 4083,
+   "linhas_esperadas": 4030,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:30:45-03:00",
+   "duracao_seg": 38,
+   "linhas": 3737,
+   "linhas_esperadas": 3654,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:30:33-03:00",
+   "duracao_seg": 43,
+   "linhas": 3460,
+   "linhas_esperadas": 3484,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:30:37-03:00",
+   "duracao_seg": 38,
+   "linhas": 3428,
+   "linhas_esperadas": 3415,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:30:29-03:00",
+   "duracao_seg": 42,
+   "linhas": 3202,
+   "linhas_esperadas": 3279,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:30:45-03:00",
+   "duracao_seg": 42,
+   "linhas": 1432,
+   "linhas_esperadas": 1434,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:30:53-03:00",
+   "duracao_seg": 34,
+   "linhas": 687,
+   "linhas_esperadas": 683,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:30:39-03:00",
+   "duracao_seg": 38,
+   "linhas": 3921,
+   "linhas_esperadas": 4030,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_lead.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_lead`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_lead' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_lead.unicidade.id_lead",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_lead`",
+   "coluna": "id_lead",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_lead` (2.322.419 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_lead, COUNT(*) AS qtd\nFROM fato_lead\nGROUP BY id_lead\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_lead.nao_nulo.dt_captacao",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_captacao`",
+   "coluna": "dt_captacao",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_captacao`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_captacao IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_lead;"
+  },
+  {
+   "id": "fato_lead.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "3.921 linhas na última carga, dentro da faixa esperada (cerca de 4.030)",
+   "valor_observado": 3921,
+   "limite": 4030,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_lead'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_lead.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:30); SLA de 24h",
+   "valor_observado": 5.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_lead' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_lead.dominio_valores.canal_venda",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `canal_venda`",
+   "coluna": "canal_venda",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `canal_venda` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT canal_venda, COUNT(*) AS qtd\nFROM fato_lead\nWHERE canal_venda NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'canal_venda')\nGROUP BY canal_venda;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_lead",
+   "canal_venda",
+   "origem_lead",
+   "campanha",
+   "uf",
+   "segmento_interesse",
+   "etapa_atual",
+   "cd_vendedor",
+   "dt_captacao",
+   "dt_ultima_interacao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     1864000,
+     "Representante",
+     "Campanha paga",
+     "Troque de carro",
+     "MG",
+     "Auto",
+     "Lead",
+     "V4649",
+     "2026-11-15 13:40:59",
+     "2026-11-14 10:44:26"
+    ]
+   },
+   {
+    "valores": [
+     1864001,
+     "Parceiro",
+     "Loja",
+     null,
+     "SP",
+     "Serviços",
+     "Lead",
+     "V2814",
+     "2026-11-14 19:48:56",
+     "2026-11-14 16:41:00"
+    ]
+   },
+   {
+    "valores": [
+     1864002,
+     "Parceiro",
+     "Parceiro",
+     "Imóvel sem juros",
+     "SC",
+     "Auto",
+     "Lead",
+     "V9976",
+     "2026-11-15 13:18:07",
+     "2026-11-14 10:36:17"
+    ]
+   },
+   {
+    "valores": [
+     1864003,
+     "Loja",
+     "Site",
+     "Feirão de Novembro",
+     "RJ",
+     "Pesada",
+     "Contato",
+     "V5866",
+     "2026-11-14 21:37:02",
+     null
+    ]
+   },
+   {
+    "valores": [
+     1864004,
+     "Parceiro",
+     "Campanha paga",
+     "Imóvel sem juros",
+     "CE",
+     "Imóvel",
+     "Simulação",
+     null,
+     "2026-11-16 15:41:49",
+     "2026-11-14 12:44:45"
+    ]
+   },
+   {
+    "valores": [
+     1864005,
+     "Representante",
+     "Loja",
+     "Troque de carro",
+     "BA",
+     "Auto",
+     "Proposta",
+     "V2222",
+     "2026-11-15 12:07:31",
+     null
+    ]
+   },
+   {
+    "valores": [
+     1864006,
+     "Digital",
+     "Campanha paga",
+     "Imóvel sem juros",
+     "DF",
+     "Serviços",
+     "Simulação",
+     "V3460",
+     "2026-11-14 10:04:06",
+     null
+    ]
+   },
+   {
+    "valores": [
+     1864007,
+     "Parceiro",
+     "Campanha paga",
+     null,
+     "RJ",
+     "Serviços",
+     "Lead",
+     "V1043",
+     "2026-11-15 18:38:43",
+     "2026-11-14 18:15:42"
+    ]
+   },
+   {
+    "valores": [
+     1864008,
+     "Representante",
+     "Campanha paga",
+     null,
+     "MT",
+     "Auto",
+     "Lead",
+     "V2935",
+     "2026-11-15 12:32:22",
+     "2026-11-16 21:25:57"
+    ]
+   },
+   {
+    "valores": [
+     1864009,
+     "Digital",
+     "Campanha paga",
+     null,
+     "SP",
+     "Imóvel",
+     "Simulação",
+     "V8593",
+     "2026-11-16 18:16:43",
+     "2026-11-15 09:08:23"
+    ]
+   },
+   {
+    "valores": [
+     1864010,
+     "Representante",
+     "Campanha paga",
+     null,
+     "MT",
+     "Serviços",
+     "Lead",
+     "V3418",
+     "2026-11-16 08:49:25",
+     "2026-11-14 12:18:22"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_crm_funil_eventos"
+ ],
+ "downstream": [
+  "fato_funil_crm"
+ ]
+}

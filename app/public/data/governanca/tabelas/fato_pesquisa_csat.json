@@ -1,0 +1,702 @@
+{
+ "nome": "fato_pesquisa_csat",
+ "descricao": "Respostas de CSAT pós-atendimento",
+ "dominio": "Atendimento",
+ "camada": "core",
+ "dono": "Juliana Prado",
+ "dono_area": "Experiência do Cliente",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_pesquisas",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T03:20:11-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 601113,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Respostas de CSAT pós-atendimento. Pertence ao domínio Atendimento e fica na camada core (dado tratado e modelado). É construída a partir de `stg_pesquisas_respostas`, `fato_ticket`. Carga diária pela rotina `core_pesquisas`, com SLA de 24 horas. Tem 7 colunas; chave primária: `id_resposta`. Responsável: Juliana Prado (Experiência do Cliente). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_resposta",
+   "tipo": "varchar(40)",
+   "descricao": "Chave da resposta",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_ticket",
+   "tipo": "bigint",
+   "descricao": "Ticket avaliado",
+   "pk": false,
+   "fk": {
+    "tabela": "fato_ticket",
+    "coluna": "id_ticket"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "nota",
+   "tipo": "smallint",
+   "descricao": "Nota de 1 a 5",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal",
+   "tipo": "varchar(20)",
+   "descricao": "Canal do atendimento avaliado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_satisfeito",
+   "tipo": "char(1)",
+   "descricao": "Nota 4 ou 5 (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "comentario",
+   "tipo": "varchar(500)",
+   "descricao": "Comentário livre",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "dt_resposta",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da resposta",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:20:33-03:00",
+   "duracao_seg": 33,
+   "linhas": 184,
+   "linhas_esperadas": 180,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:20:10-03:00",
+   "duracao_seg": 34,
+   "linhas": 1073,
+   "linhas_esperadas": 1061,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:20:48-03:00",
+   "duracao_seg": 38,
+   "linhas": 969,
+   "linhas_esperadas": 962,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:20:04-03:00",
+   "duracao_seg": 37,
+   "linhas": 926,
+   "linhas_esperadas": 917,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:20:42-03:00",
+   "duracao_seg": 40,
+   "linhas": 904,
+   "linhas_esperadas": 899,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:20:11-03:00",
+   "duracao_seg": 34,
+   "linhas": 871,
+   "linhas_esperadas": 863,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:20:43-03:00",
+   "duracao_seg": 38,
+   "linhas": 375,
+   "linhas_esperadas": 378,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:20:42-03:00",
+   "duracao_seg": 34,
+   "linhas": 178,
+   "linhas_esperadas": 180,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:20:37-03:00",
+   "duracao_seg": 38,
+   "linhas": 1095,
+   "linhas_esperadas": 1061,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:20:51-03:00",
+   "duracao_seg": 39,
+   "linhas": 941,
+   "linhas_esperadas": 962,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:20:34-03:00",
+   "duracao_seg": 34,
+   "linhas": 912,
+   "linhas_esperadas": 917,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:20:54-03:00",
+   "duracao_seg": 39,
+   "linhas": 912,
+   "linhas_esperadas": 899,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:20:34-03:00",
+   "duracao_seg": 35,
+   "linhas": 847,
+   "linhas_esperadas": 863,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:20:37-03:00",
+   "duracao_seg": 37,
+   "linhas": 367,
+   "linhas_esperadas": 378,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:20:08-03:00",
+   "duracao_seg": 35,
+   "linhas": 177,
+   "linhas_esperadas": 180,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:20:07-03:00",
+   "duracao_seg": 40,
+   "linhas": 1080,
+   "linhas_esperadas": 1061,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:20:30-03:00",
+   "duracao_seg": 36,
+   "linhas": 937,
+   "linhas_esperadas": 962,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:20:33-03:00",
+   "duracao_seg": 37,
+   "linhas": 890,
+   "linhas_esperadas": 917,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:20:37-03:00",
+   "duracao_seg": 38,
+   "linhas": 887,
+   "linhas_esperadas": 899,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:20:33-03:00",
+   "duracao_seg": 37,
+   "linhas": 846,
+   "linhas_esperadas": 863,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:20:09-03:00",
+   "duracao_seg": 32,
+   "linhas": 388,
+   "linhas_esperadas": 378,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:20:23-03:00",
+   "duracao_seg": 38,
+   "linhas": 185,
+   "linhas_esperadas": 180,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:20:04-03:00",
+   "duracao_seg": 33,
+   "linhas": 1058,
+   "linhas_esperadas": 1061,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:20:26-03:00",
+   "duracao_seg": 38,
+   "linhas": 974,
+   "linhas_esperadas": 962,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:20:35-03:00",
+   "duracao_seg": 37,
+   "linhas": 903,
+   "linhas_esperadas": 917,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:20:06-03:00",
+   "duracao_seg": 40,
+   "linhas": 904,
+   "linhas_esperadas": 899,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:20:35-03:00",
+   "duracao_seg": 33,
+   "linhas": 890,
+   "linhas_esperadas": 863,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:20:39-03:00",
+   "duracao_seg": 40,
+   "linhas": 389,
+   "linhas_esperadas": 378,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T03:20:18-03:00",
+   "duracao_seg": 38,
+   "linhas": 184,
+   "linhas_esperadas": 180,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T03:20:11-03:00",
+   "duracao_seg": 40,
+   "linhas": 1072,
+   "linhas_esperadas": 1061,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_pesquisa_csat.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_resposta`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_pesquisa_csat' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_pesquisa_csat.unicidade.id_resposta",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_resposta`",
+   "coluna": "id_resposta",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_resposta` (601.113 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_resposta, COUNT(*) AS qtd\nFROM fato_pesquisa_csat\nGROUP BY id_resposta\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_pesquisa_csat.nao_nulo.dt_resposta",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_resposta`",
+   "coluna": "dt_resposta",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_resposta`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_resposta IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_pesquisa_csat;"
+  },
+  {
+   "id": "fato_pesquisa_csat.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_ticket`",
+   "coluna": "id_ticket",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_ticket` existem em `fato_ticket`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_pesquisa_csat f\nLEFT JOIN fato_ticket p ON p.id_ticket = f.id_ticket\nWHERE f.id_ticket IS NOT NULL AND p.id_ticket IS NULL;"
+  },
+  {
+   "id": "fato_pesquisa_csat.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "1.072 linhas na última carga, dentro da faixa esperada (cerca de 1.061)",
+   "valor_observado": 1072,
+   "limite": 1061,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_pesquisa_csat'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_pesquisa_csat.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 4h (17/11 às 03:20); SLA de 24h",
+   "valor_observado": 4.7,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_pesquisa_csat' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_pesquisa_csat.dominio_valores.nota",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `nota`",
+   "coluna": "nota",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `nota` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT nota, COUNT(*) AS qtd\nFROM fato_pesquisa_csat\nWHERE nota NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'nota')\nGROUP BY nota;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_resposta",
+   "id_ticket",
+   "nota",
+   "canal",
+   "fl_satisfeito",
+   "comentario",
+   "dt_resposta"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "res-a4e28781f9",
+     null,
+     2,
+     "WhatsApp",
+     "N",
+     null,
+     "2026-11-14 19:45:39"
+    ]
+   },
+   {
+    "valores": [
+     "res-166d3e8b99",
+     null,
+     4,
+     "WhatsApp",
+     "S",
+     null,
+     "2026-11-15 14:44:49"
+    ]
+   },
+   {
+    "valores": [
+     "res-891745e098",
+     null,
+     4,
+     "WhatsApp",
+     "S",
+     null,
+     "2026-11-16 13:02:59"
+    ]
+   },
+   {
+    "valores": [
+     "res-25a4660b57",
+     1472085,
+     4,
+     "WhatsApp",
+     "S",
+     null,
+     "2026-11-16 07:39:35"
+    ]
+   },
+   {
+    "valores": [
+     "res-eff3f6db6a",
+     null,
+     5,
+     "E-mail",
+     "S",
+     "Atendimento rápido e claro.",
+     "2026-11-16 07:15:56"
+    ]
+   },
+   {
+    "valores": [
+     "res-97a8ef7735",
+     1472127,
+     3,
+     "Voz",
+     "N",
+     null,
+     "2026-11-15 14:46:09"
+    ]
+   },
+   {
+    "valores": [
+     "res-ea9265ef11",
+     1472117,
+     5,
+     "App",
+     "S",
+     "Atendimento rápido e claro.",
+     "2026-11-16 08:26:03"
+    ]
+   },
+   {
+    "valores": [
+     "res-f339512cf5",
+     1472201,
+     5,
+     "WhatsApp",
+     "S",
+     null,
+     "2026-11-15 16:45:31"
+    ]
+   },
+   {
+    "valores": [
+     "res-d989e1e81e",
+     1472008,
+     4,
+     "Voz",
+     "S",
+     null,
+     "2026-11-16 13:41:33"
+    ]
+   },
+   {
+    "valores": [
+     "res-77e2149801",
+     1472033,
+     4,
+     "Chat",
+     "S",
+     null,
+     "2026-11-14 09:20:55"
+    ]
+   },
+   {
+    "valores": [
+     "res-bc73b6e79e",
+     1472315,
+     3,
+     "WhatsApp",
+     "N",
+     "Atendimento rápido e claro.",
+     "2026-11-15 14:50:55"
+    ]
+   },
+   {
+    "valores": [
+     "res-592fc95e5b",
+     1472184,
+     3,
+     "WhatsApp",
+     "N",
+     null,
+     "2026-11-14 20:32:42"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_pesquisas_respostas",
+  "fato_ticket"
+ ],
+ "downstream": [
+  "mart_atendimento"
+ ]
+}

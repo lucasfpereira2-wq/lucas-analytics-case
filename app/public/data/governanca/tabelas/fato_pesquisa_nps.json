@@ -1,0 +1,722 @@
+{
+ "nome": "fato_pesquisa_nps",
+ "descricao": "Respostas de NPS por cliente e canal",
+ "dominio": "Atendimento",
+ "camada": "core",
+ "dono": "Juliana Prado",
+ "dono_area": "Experiência do Cliente",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_pesquisas",
+ "fonte": null,
+ "status": "vermelho",
+ "motivo_status": "Respostas duplicadas em `id_resposta` desde 01/10; NPS de outubro inflado em 6 pontos",
+ "tem_pk": true,
+ "saude": 22.9,
+ "ultima_carga": "2026-11-17T03:20:14-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 149798,
+ "testes_total": 6,
+ "testes_falhando": 1,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [
+  "INC-2027"
+ ],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Respostas de NPS por cliente e canal. Pertence ao domínio Atendimento e fica na camada core (dado tratado e modelado). É construída a partir de `stg_pesquisas_respostas`. Carga diária pela rotina `core_pesquisas`, com SLA de 24 horas. Tem 9 colunas; chave primária: `id_resposta`. Responsável: Juliana Prado (Experiência do Cliente). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_resposta",
+   "tipo": "varchar(40)",
+   "descricao": "Chave da resposta (declarada; a carga não deduplica)",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cliente",
+   "tipo": "bigint",
+   "descricao": "Cliente respondente",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "nota",
+   "tipo": "smallint",
+   "descricao": "Nota de 0 a 10",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "classificacao",
+   "tipo": "varchar(10)",
+   "descricao": "Promotor, neutro ou detrator",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal",
+   "tipo": "varchar(20)",
+   "descricao": "Canal em que a pesquisa foi respondida",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "comentario",
+   "tipo": "varchar(500)",
+   "descricao": "Comentário livre",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "competencia",
+   "tipo": "char(7)",
+   "descricao": "Mês de competência (AAAA-MM)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_resposta",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da resposta",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da carga",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:20:19-03:00",
+   "duracao_seg": 39,
+   "linhas": 46,
+   "linhas_esperadas": 45,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:20:52-03:00",
+   "duracao_seg": 34,
+   "linhas": 262,
+   "linhas_esperadas": 263,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:20:16-03:00",
+   "duracao_seg": 39,
+   "linhas": 244,
+   "linhas_esperadas": 238,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:20:39-03:00",
+   "duracao_seg": 34,
+   "linhas": 221,
+   "linhas_esperadas": 227,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:20:34-03:00",
+   "duracao_seg": 38,
+   "linhas": 224,
+   "linhas_esperadas": 223,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:20:37-03:00",
+   "duracao_seg": 35,
+   "linhas": 212,
+   "linhas_esperadas": 214,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:20:12-03:00",
+   "duracao_seg": 35,
+   "linhas": 97,
+   "linhas_esperadas": 94,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:20:09-03:00",
+   "duracao_seg": 34,
+   "linhas": 45,
+   "linhas_esperadas": 45,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:20:05-03:00",
+   "duracao_seg": 35,
+   "linhas": 254,
+   "linhas_esperadas": 263,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:20:33-03:00",
+   "duracao_seg": 32,
+   "linhas": 237,
+   "linhas_esperadas": 238,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:20:06-03:00",
+   "duracao_seg": 37,
+   "linhas": 230,
+   "linhas_esperadas": 227,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:20:21-03:00",
+   "duracao_seg": 32,
+   "linhas": 226,
+   "linhas_esperadas": 223,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:20:47-03:00",
+   "duracao_seg": 31,
+   "linhas": 208,
+   "linhas_esperadas": 214,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:20:08-03:00",
+   "duracao_seg": 39,
+   "linhas": 97,
+   "linhas_esperadas": 94,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:20:30-03:00",
+   "duracao_seg": 35,
+   "linhas": 44,
+   "linhas_esperadas": 45,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:20:40-03:00",
+   "duracao_seg": 36,
+   "linhas": 260,
+   "linhas_esperadas": 263,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:20:20-03:00",
+   "duracao_seg": 32,
+   "linhas": 244,
+   "linhas_esperadas": 238,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:20:35-03:00",
+   "duracao_seg": 36,
+   "linhas": 229,
+   "linhas_esperadas": 227,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:20:22-03:00",
+   "duracao_seg": 32,
+   "linhas": 219,
+   "linhas_esperadas": 223,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:20:23-03:00",
+   "duracao_seg": 40,
+   "linhas": 213,
+   "linhas_esperadas": 214,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:20:52-03:00",
+   "duracao_seg": 36,
+   "linhas": 93,
+   "linhas_esperadas": 94,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:20:28-03:00",
+   "duracao_seg": 37,
+   "linhas": 44,
+   "linhas_esperadas": 45,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:20:21-03:00",
+   "duracao_seg": 32,
+   "linhas": 258,
+   "linhas_esperadas": 263,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:20:27-03:00",
+   "duracao_seg": 37,
+   "linhas": 242,
+   "linhas_esperadas": 238,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:20:46-03:00",
+   "duracao_seg": 33,
+   "linhas": 219,
+   "linhas_esperadas": 227,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:20:18-03:00",
+   "duracao_seg": 32,
+   "linhas": 219,
+   "linhas_esperadas": 223,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:20:46-03:00",
+   "duracao_seg": 36,
+   "linhas": 207,
+   "linhas_esperadas": 214,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:20:53-03:00",
+   "duracao_seg": 34,
+   "linhas": 96,
+   "linhas_esperadas": 94,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T03:20:20-03:00",
+   "duracao_seg": 34,
+   "linhas": 45,
+   "linhas_esperadas": 45,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T03:20:14-03:00",
+   "duracao_seg": 32,
+   "linhas": 266,
+   "linhas_esperadas": 263,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_pesquisa_nps.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_resposta`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_pesquisa_nps' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_pesquisa_nps.unicidade.id_resposta",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_resposta`",
+   "coluna": "id_resposta",
+   "severidade": "critico",
+   "resultado": "falha",
+   "evidencia": "Respostas duplicadas em `id_resposta` desde 01/10; NPS de outubro inflado em 6 pontos",
+   "valor_observado": 4.6,
+   "limite": 0,
+   "unidade": "%",
+   "historico_7d": [
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha"
+   ],
+   "sql": "SELECT id_resposta, COUNT(*) AS qtd\nFROM fato_pesquisa_nps\nGROUP BY id_resposta\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_pesquisa_nps.nao_nulo.dt_resposta",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_resposta`",
+   "coluna": "dt_resposta",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_resposta`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_resposta IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_pesquisa_nps;"
+  },
+  {
+   "id": "fato_pesquisa_nps.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "266 linhas na última carga, dentro da faixa esperada (cerca de 263)",
+   "valor_observado": 266,
+   "limite": 263,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_pesquisa_nps'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_pesquisa_nps.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 4h (17/11 às 03:20); SLA de 24h",
+   "valor_observado": 4.7,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_pesquisa_nps' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_pesquisa_nps.dominio_valores.nota",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `nota`",
+   "coluna": "nota",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `nota` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT nota, COUNT(*) AS qtd\nFROM fato_pesquisa_nps\nWHERE nota NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'nota')\nGROUP BY nota;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_resposta",
+   "id_cliente",
+   "nota",
+   "classificacao",
+   "canal",
+   "comentario",
+   "competencia",
+   "dt_resposta",
+   "dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "res-8234e6b6fc",
+     318522,
+     10,
+     "Promotor",
+     "Voz",
+     "Atendimento rápido e claro.",
+     "2026-11",
+     "2026-11-16 14:40:33",
+     "2026-11-17 03:20:14"
+    ]
+   },
+   {
+    "valores": [
+     "res-2b14b4e125",
+     318462,
+     10,
+     "Promotor",
+     "App",
+     null,
+     "2026-11",
+     "2026-11-16 10:30:10",
+     "2026-11-17 03:20:14"
+    ]
+   },
+   {
+    "valores": [
+     "res-4c99242507",
+     318497,
+     7,
+     "Neutro",
+     "WhatsApp",
+     "Demorou para resolver, mas resolveu.",
+     "2026-11",
+     "2026-11-14 13:12:40",
+     "2026-11-17 03:20:14"
+    ],
+    "problema": "Resposta repetida: `id_resposta` já entregue antes pela plataforma",
+    "colunas_problema": [
+     "id_resposta"
+    ]
+   },
+   {
+    "valores": [
+     "res-4c99242507",
+     318497,
+     7,
+     "Neutro",
+     "WhatsApp",
+     "Demorou para resolver, mas resolveu.",
+     "2026-11",
+     "2026-11-14 13:12:40",
+     "2026-11-17 03:20:14"
+    ],
+    "problema": "Resposta repetida: `id_resposta` já entregue antes pela plataforma",
+    "colunas_problema": [
+     "id_resposta"
+    ]
+   },
+   {
+    "valores": [
+     "res-4ca7c062ae",
+     null,
+     6,
+     "Detrator",
+     "Voz",
+     null,
+     "2026-11",
+     "2026-11-15 13:37:24",
+     "2026-11-17 03:20:14"
+    ]
+   },
+   {
+    "valores": [
+     "res-6be36f12b7",
+     null,
+     10,
+     "Promotor",
+     "WhatsApp",
+     null,
+     "2026-11",
+     "2026-11-16 15:41:20",
+     "2026-11-17 03:20:14"
+    ]
+   },
+   {
+    "valores": [
+     "res-4c26350b87",
+     318752,
+     9,
+     "Promotor",
+     "E-mail",
+     null,
+     "2026-11",
+     "2026-11-15 16:35:44",
+     "2026-11-17 03:20:14"
+    ]
+   },
+   {
+    "valores": [
+     "res-fbcedcb03e",
+     318764,
+     8,
+     "Neutro",
+     "E-mail",
+     null,
+     "2026-11",
+     "2026-11-16 21:22:18",
+     "2026-11-17 03:20:14"
+    ],
+    "problema": "Resposta repetida: `id_resposta` já entregue antes pela plataforma",
+    "colunas_problema": [
+     "id_resposta"
+    ]
+   },
+   {
+    "valores": [
+     "res-fbcedcb03e",
+     318764,
+     8,
+     "Neutro",
+     "E-mail",
+     null,
+     "2026-11",
+     "2026-11-16 21:22:18",
+     "2026-11-17 03:20:14"
+    ],
+    "problema": "Resposta repetida: `id_resposta` já entregue antes pela plataforma",
+    "colunas_problema": [
+     "id_resposta"
+    ]
+   },
+   {
+    "valores": [
+     "res-e90c7c59cf",
+     318478,
+     3,
+     "Detrator",
+     "WhatsApp",
+     "Gostei do aplicativo.",
+     "2026-11",
+     "2026-11-16 19:57:07",
+     "2026-11-17 03:20:14"
+    ]
+   },
+   {
+    "valores": [
+     "res-ff70fb9bf6",
+     318470,
+     3,
+     "Detrator",
+     "WhatsApp",
+     null,
+     "2026-11",
+     "2026-11-15 20:12:33",
+     "2026-11-17 03:20:14"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_pesquisas_respostas"
+ ],
+ "downstream": [
+  "mart_atendimento"
+ ]
+}

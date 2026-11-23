@@ -1,0 +1,473 @@
+[
+ {
+  "id": "INC-2031",
+  "prioridade": 1,
+  "titulo": "Parcelas duplicadas inflando o recebimento",
+  "tabela": "fato_parcelas",
+  "tipo": "duplicidade",
+  "severidade": "critico",
+  "situacao": "em_analise",
+  "detectado_em": "2026-11-17T05:32:00-03:00",
+  "inicio_estimado": "2026-11-17T02:58:00-03:00",
+  "resumo_tecnico": "312 registros duplicados em `id_parcela`: a rotina `core_financeiro_parcelas` reprocessou o lote de 16/11 após um retry e gravou em modo append, sem upsert.",
+  "impacto_negocio": "O recebimento de 16/11 aparece ~1,8% acima do extrato bancário. Quem olhar o relatório de Cobrança hoje verá uma arrecadação que não existe.",
+  "causa_raiz": "Carga incremental sem chave de merge; retry automático do orquestrador reexecutou o lote inteiro.",
+  "acao_recomendada": "Deduplicar por `id_parcela`, trocar append por MERGE/upsert e criar teste de unicidade bloqueante.",
+  "tabelas_afetadas": [
+   "fato_pagamento",
+   "fato_boleto",
+   "fato_acordo",
+   "fato_renegociacao",
+   "fato_acao_cobranca",
+   "fato_inadimplencia_diaria",
+   "mart_cobranca_carteira",
+   "mart_cobranca_safra_mob",
+   "fato_fundo_comum",
+   "fato_fundo_reserva",
+   "mart_executivo_kpis"
+  ],
+  "relatorios_afetados": [
+   {
+    "id": "cobranca-carteira",
+    "titulo": "Cobrança: Carteira e Inadimplência",
+    "efeito": "Recebimento e recuperação superestimados em ~1,8% no dia 16/11"
+   },
+   {
+    "id": "cobranca-safra",
+    "titulo": "Cobrança: Safra, MOB e Cohort",
+    "efeito": "Efeito marginal nas curvas de safra (abaixo de 0,1 p.p.)"
+   }
+  ],
+  "metricas": [
+   {
+    "rotulo": "Registros duplicados",
+    "valor": "312"
+   },
+   {
+    "rotulo": "Recebimento superestimado em 16/11",
+    "valor": "~1,8%"
+   },
+   {
+    "rotulo": "Valor lançado em duplicidade",
+    "valor": "R$ 341 mil"
+   },
+   {
+    "rotulo": "Recebimento de 16/11: relatório x correto",
+    "valor": "R$ 19,29 mi x R$ 18,95 mi"
+   }
+  ]
+ },
+ {
+  "id": "INC-2032",
+  "prioridade": 2,
+  "titulo": "Rotina de telefonia parada há 3 dias",
+  "tabela": "stg_telefonia_cdr",
+  "tipo": "rotina_parada",
+  "severidade": "critico",
+  "situacao": "aberto",
+  "detectado_em": "2026-11-17T06:05:00-03:00",
+  "inicio_estimado": "2026-11-15T02:10:00-03:00",
+  "resumo_tecnico": "`ingest_telefonia` falha desde 15/11 às 02:10 com erro de autenticação no SFTP da operadora (credencial expirada). Três execuções consecutivas sem sucesso; a última carga válida é de 14/11, com dados até 13/11.",
+  "impacto_negocio": "O relatório de Atendimento não tem chamadas de voz de 14 a 16/11. Volume, TMA, TME e abandono do canal Voz estão desatualizados e o total de contatos parece ter caído.",
+  "causa_raiz": "Senha do SFTP com rotação trimestral e sem alerta de expiração; falha sem notificação ao dono.",
+  "acao_recomendada": "Renovar a credencial, reprocessar os 3 dias e configurar alerta de falha com dono definido.",
+  "tabelas_afetadas": [
+   "fato_chamada",
+   "mart_atendimento",
+   "mart_executivo_kpis"
+  ],
+  "relatorios_afetados": [
+   {
+    "id": "atendimento",
+    "titulo": "Atendimento",
+    "efeito": "Canal Voz sem dados de 14 a 16/11; indicadores de voz desatualizados"
+   }
+  ],
+  "metricas": [
+   {
+    "rotulo": "Dias sem dados de voz",
+    "valor": "3 (14 a 16/11)"
+   },
+   {
+    "rotulo": "Última carga com sucesso",
+    "valor": "14/11 às 02:10"
+   },
+   {
+    "rotulo": "Contatos de voz não carregados (estimativa)",
+    "valor": "4.761"
+   },
+   {
+    "rotulo": "Tabelas a jusante paradas",
+    "valor": "2"
+   }
+  ]
+ },
+ {
+  "id": "INC-2027",
+  "prioridade": 3,
+  "titulo": "NPS divulgado ao comitê 6 pontos acima do real",
+  "tabela": "fato_pesquisa_nps",
+  "tipo": "duplicidade",
+  "severidade": "critico",
+  "situacao": "em_analise",
+  "detectado_em": "2026-11-06T10:20:00-03:00",
+  "inicio_estimado": "2026-10-01T00:00:00-03:00",
+  "resumo_tecnico": "Desde 01/10 a plataforma de pesquisas reenvia respostas já entregues e a carga não deduplica por `id_resposta`. As respostas duplicadas concentram-se em promotores (canal App).",
+  "impacto_negocio": "O NPS de outubro foi apresentado ao comitê como 62; o valor correto é 56. Uma métrica divulgada errada, por duplicidade de respostas.",
+  "causa_raiz": "Reenvio de webhooks pela plataforma + ausência de chave única na carga de respostas.",
+  "acao_recomendada": "Deduplicar por `id_resposta`, republicar o NPS de outubro e novembro e criar teste de unicidade.",
+  "tabelas_afetadas": [
+   "mart_atendimento",
+   "mart_executivo_kpis"
+  ],
+  "relatorios_afetados": [
+   {
+    "id": "atendimento",
+    "titulo": "Atendimento",
+    "efeito": "NPS reportado 6 pontos acima do real desde outubro/2026"
+   }
+  ],
+  "metricas": [
+   {
+    "rotulo": "NPS divulgado (out/2026)",
+    "valor": "62"
+   },
+   {
+    "rotulo": "NPS correto",
+    "valor": "56"
+   },
+   {
+    "rotulo": "Diferença",
+    "valor": "6 pontos"
+   },
+   {
+    "rotulo": "Respostas duplicadas desde 01/10",
+    "valor": "2.035"
+   }
+  ]
+ },
+ {
+  "id": "INC-2033",
+  "prioridade": 4,
+  "titulo": "Carga parcial de propostas do CRM",
+  "tabela": "stg_crm_propostas",
+  "tipo": "volume_anomalo",
+  "severidade": "alto",
+  "situacao": "aberto",
+  "detectado_em": "2026-11-17T06:40:00-03:00",
+  "inicio_estimado": "2026-11-17T01:15:00-03:00",
+  "resumo_tecnico": "A carga de 17/11 trouxe 412 linhas contra uma média de 1.148 nas segundas-feiras (queda de 64%). A paginação da API do CRM expirou e a rotina terminou como sucesso.",
+  "impacto_negocio": "O funil comercial de 16/11 mostra menos propostas do que realmente houve; a conversão do dia fica distorcida e parte das propostas em análise não aparece.",
+  "causa_raiz": "Timeout na paginação da API tratado como fim de dados; não havia teste de volume.",
+  "acao_recomendada": "Reprocessar a carga, tratar timeout como falha e criar teste de volume por dia da semana.",
+  "tabelas_afetadas": [
+   "fato_proposta",
+   "fato_contrato_venda",
+   "fato_funil_crm",
+   "mart_vendas_comercial",
+   "fato_comissao",
+   "mart_cobranca_safra_mob",
+   "mart_executivo_kpis"
+  ],
+  "relatorios_afetados": [
+   {
+    "id": "vendas",
+    "titulo": "Vendas / Comercial",
+    "efeito": "Propostas e conversão do funil de 16/11 subestimadas (carga com 64% menos linhas)"
+   }
+  ],
+  "metricas": [
+   {
+    "rotulo": "Linhas carregadas em 17/11",
+    "valor": "412"
+   },
+   {
+    "rotulo": "Média das segundas-feiras",
+    "valor": "1.148"
+   },
+   {
+    "rotulo": "Queda de volume",
+    "valor": "64%"
+   }
+  ]
+ },
+ {
+  "id": "INC-2024",
+  "prioridade": 5,
+  "titulo": "Cotas apontando para grupos inexistentes",
+  "tabela": "dim_cota",
+  "tipo": "fk_orfa",
+  "severidade": "alto",
+  "situacao": "em_analise",
+  "detectado_em": "2026-11-03T09:15:00-03:00",
+  "inicio_estimado": "2026-10-05T22:00:00-03:00",
+  "resumo_tecnico": "147 cotas com `id_grupo` sem correspondência em `dim_grupo`: grupos encerrados foram excluídos fisicamente no ERP.",
+  "impacto_negocio": "Essas cotas somem de qualquer análise por grupo e ficam fora das curvas de safra, subestimando a carteira analisada.",
+  "causa_raiz": "Exclusão física de grupos encerrados na origem; ausência de teste de integridade referencial.",
+  "acao_recomendada": "Preservar grupos encerrados (soft delete) e criar teste de integridade referencial entre cotas e grupos.",
+  "tabelas_afetadas": [
+   "fato_cota_movimentacao",
+   "fato_transferencia_cota",
+   "fato_cancelamento_cota",
+   "fato_reativacao_cota",
+   "fato_contrato_venda",
+   "fato_parcelas",
+   "fato_inadimplencia_diaria",
+   "mart_cobranca_carteira",
+   "mart_cobranca_safra_mob",
+   "mart_vendas_comercial",
+   "fato_comissao",
+   "fato_pagamento",
+   "fato_boleto",
+   "fato_acordo",
+   "fato_renegociacao",
+   "fato_acao_cobranca",
+   "mart_executivo_kpis",
+   "fato_fundo_comum",
+   "fato_fundo_reserva"
+  ],
+  "relatorios_afetados": [
+   {
+    "id": "cobranca-safra",
+    "titulo": "Cobrança: Safra, MOB e Cohort",
+    "efeito": "147 cotas fora das análises por grupo e safra"
+   },
+   {
+    "id": "cobranca-carteira",
+    "titulo": "Cobrança: Carteira e Inadimplência",
+    "efeito": "147 cotas sem grupo nas quebras por grupo"
+   }
+  ],
+  "metricas": [
+   {
+    "rotulo": "Cotas com grupo inexistente",
+    "valor": "147"
+   },
+   {
+    "rotulo": "Participação na carteira ativa",
+    "valor": "0,19%"
+   },
+   {
+    "rotulo": "Relatórios afetados",
+    "valor": "2"
+   }
+  ]
+ },
+ {
+  "id": "INC-2019",
+  "prioridade": 6,
+  "titulo": "Conversas de WhatsApp sem chave primária",
+  "tabela": "stg_whatsapp_conversas",
+  "tipo": "sem_pk",
+  "severidade": "alto",
+  "situacao": "aberto",
+  "detectado_em": "2026-10-27T14:30:00-03:00",
+  "inicio_estimado": "2026-08-10T00:00:00-03:00",
+  "resumo_tecnico": "Tabela sem chave primária definida. Reenvios de webhook geram linhas repetidas: 2,3% das conversas dos últimos 7 dias.",
+  "impacto_negocio": "O volume do canal WhatsApp pode estar superestimado em ~2,3% e não há como garantir contagem única de conversas.",
+  "causa_raiz": "Tabela criada sem PK; ingestão por append direto do webhook.",
+  "acao_recomendada": "Definir `id_conversa` como PK, deduplicar o histórico e aplicar upsert na ingestão.",
+  "tabelas_afetadas": [
+   "fato_conversa_whatsapp",
+   "mart_atendimento",
+   "mart_executivo_kpis"
+  ],
+  "relatorios_afetados": [
+   {
+    "id": "atendimento",
+    "titulo": "Atendimento",
+    "efeito": "Volume de WhatsApp possivelmente superestimado em ~2,3%"
+   }
+  ],
+  "metricas": [
+   {
+    "rotulo": "Conversas repetidas (7 dias)",
+    "valor": "2,3%"
+   },
+   {
+    "rotulo": "Chave primária",
+    "valor": "Não definida"
+   },
+   {
+    "rotulo": "Dono da tabela",
+    "valor": "Não definido"
+   }
+  ]
+ },
+ {
+  "id": "INC-2011",
+  "prioridade": 7,
+  "titulo": "CPF ausente em cadastros do canal Parceiro",
+  "tabela": "dim_cliente",
+  "tipo": "nulos",
+  "severidade": "alto",
+  "situacao": "aberto",
+  "detectado_em": "2026-10-13T11:00:00-03:00",
+  "inicio_estimado": "2026-03-02T00:00:00-03:00",
+  "resumo_tecnico": "18% de nulos em `cpf_cliente` nos cadastros originados pelo canal Parceiro (4,1% do total da tabela).",
+  "impacto_negocio": "Sem CPF não há negativação, a cobrança perde efetividade e o mesmo cliente pode existir em duplicidade. Há também exposição regulatória (LGPD e cadastro).",
+  "causa_raiz": "Formulário de parceiros não obriga o CPF na pré-venda; campo fica vazio até a efetivação.",
+  "acao_recomendada": "Tornar o campo obrigatório na origem e criar teste de completude com limite por canal.",
+  "tabelas_afetadas": [
+   "dim_cliente_pf",
+   "dim_cliente_pj",
+   "dim_cota",
+   "fato_proposta",
+   "fato_cota_movimentacao",
+   "fato_transferencia_cota",
+   "fato_cancelamento_cota",
+   "fato_reativacao_cota",
+   "fato_contrato_venda",
+   "fato_parcelas",
+   "fato_inadimplencia_diaria",
+   "mart_cobranca_carteira",
+   "mart_cobranca_safra_mob",
+   "fato_funil_crm",
+   "mart_vendas_comercial",
+   "fato_comissao",
+   "fato_pagamento",
+   "fato_boleto",
+   "fato_acordo",
+   "fato_renegociacao",
+   "fato_acao_cobranca",
+   "mart_executivo_kpis",
+   "fato_fundo_comum",
+   "fato_fundo_reserva"
+  ],
+  "relatorios_afetados": [],
+  "metricas": [
+   {
+    "rotulo": "CPF nulo no canal Parceiro",
+    "valor": "18%"
+   },
+   {
+    "rotulo": "CPF nulo no total da tabela",
+    "valor": "4,1%"
+   },
+   {
+    "rotulo": "Limite aceito",
+    "valor": "2%"
+   }
+  ]
+ },
+ {
+  "id": "INC-2034",
+  "prioridade": 8,
+  "titulo": "Carga de boletos registrados falhou hoje",
+  "tabela": "stg_banco_boletos_registrados",
+  "tipo": "rotina_falhou",
+  "severidade": "alto",
+  "situacao": "em_analise",
+  "detectado_em": "2026-11-17T07:15:00-03:00",
+  "inicio_estimado": "2026-11-17T03:40:00-03:00",
+  "resumo_tecnico": "`ingest_banco_boletos` falhou às 03:40 de 17/11: certificado digital da API do banco expirado.",
+  "impacto_negocio": "Boletos registrados ontem ainda não aparecem; a visão de boletos emitidos está um dia atrasada.",
+  "causa_raiz": "Certificado com vencimento anual sem controle de renovação.",
+  "acao_recomendada": "Renovar o certificado, reprocessar e incluir o vencimento no calendário de operações.",
+  "tabelas_afetadas": [
+   "fato_boleto"
+  ],
+  "relatorios_afetados": [],
+  "metricas": [
+   {
+    "rotulo": "Falha da rotina",
+    "valor": "17/11 às 03:40"
+   },
+   {
+    "rotulo": "Atraso da visão de boletos",
+    "valor": "1 dia"
+   },
+   {
+    "rotulo": "Tabelas aguardando",
+    "valor": "1 (`fato_boleto`)"
+   }
+  ]
+ },
+ {
+  "id": "INC-1987",
+  "prioridade": 9,
+  "titulo": "Tabela legada de chamadas sem chave primária e sem dono",
+  "tabela": "fato_chamadas_legacy",
+  "tipo": "sem_pk",
+  "severidade": "medio",
+  "situacao": "aberto",
+  "detectado_em": "2026-09-08T16:00:00-03:00",
+  "inicio_estimado": "2025-01-06T00:00:00-03:00",
+  "resumo_tecnico": "Tabela sem chave primária definida, carregada por pacote legado (DTS). Não há dono formal nem documentação.",
+  "impacto_negocio": "O histórico de chamadas anterior à telefonia atual não é auditável; comparações de longo prazo do atendimento carregam risco.",
+  "causa_raiz": "Sistema legado migrado sem modelagem; ninguém assumiu a tabela.",
+  "acao_recomendada": "Definir dono, criar chave substituta e planejar a aposentadoria da tabela.",
+  "tabelas_afetadas": [
+   "mart_atendimento",
+   "mart_executivo_kpis"
+  ],
+  "relatorios_afetados": [
+   {
+    "id": "atendimento",
+    "titulo": "Atendimento",
+    "efeito": "Histórico de voz anterior a 2025 vem de tabela legada sem PK"
+   }
+  ],
+  "metricas": [
+   {
+    "rotulo": "Chave primária",
+    "valor": "Não definida"
+   },
+   {
+    "rotulo": "Dono da tabela",
+    "valor": "Não definido"
+   },
+   {
+    "rotulo": "Orquestração",
+    "valor": "Pacote DTS legado"
+   }
+  ]
+ },
+ {
+  "id": "INC-2030",
+  "prioridade": 10,
+  "titulo": "Mudança de schema na origem do RH",
+  "tabela": "dim_colaborador",
+  "tipo": "schema_drift",
+  "severidade": "medio",
+  "situacao": "em_analise",
+  "detectado_em": "2026-11-13T09:40:00-03:00",
+  "inicio_estimado": "2026-11-12T01:20:00-03:00",
+  "resumo_tecnico": "A coluna `cd_centro_custo` passou a chegar como `centro_custo_id` desde 12/11; a carga segue preenchendo a coluna antiga com nulos.",
+  "impacto_negocio": "Novos colaboradores ficam sem centro de custo, o que afeta o rateio de comissões e a alocação de agentes.",
+  "causa_raiz": "Alteração de layout no sistema de RH sem aviso ao time de dados.",
+  "acao_recomendada": "Ajustar o mapeamento e criar teste de schema (contrato de dados) com o RH.",
+  "tabelas_afetadas": [
+   "dim_vendedor",
+   "dim_equipe_comercial",
+   "dim_agente",
+   "fato_proposta",
+   "fato_contrato_venda",
+   "fato_comissao",
+   "mart_vendas_comercial",
+   "fato_chamada",
+   "fato_conversa_whatsapp",
+   "fato_ticket",
+   "fato_funil_crm",
+   "mart_cobranca_safra_mob",
+   "mart_executivo_kpis",
+   "mart_atendimento",
+   "fato_pesquisa_csat"
+  ],
+  "relatorios_afetados": [],
+  "metricas": [
+   {
+    "rotulo": "Coluna afetada",
+    "valor": "cd_centro_custo"
+   },
+   {
+    "rotulo": "Novo nome na origem",
+    "valor": "centro_custo_id"
+   },
+   {
+    "rotulo": "Desde",
+    "valor": "12/11"
+   }
+  ]
+ }
+]

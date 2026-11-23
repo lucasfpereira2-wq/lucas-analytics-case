@@ -1,0 +1,611 @@
+{
+ "nome": "dim_assessoria_cobranca",
+ "descricao": "Assessorias externas de cobrança",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "baixa",
+ "frequencia": "semanal",
+ "sla_horas": 168,
+ "pipeline": "core_cobranca",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-15T03:30:16-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 7,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Assessorias externas de cobrança. Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). Carga semanal pela rotina `core_cobranca`, com SLA de 168 horas. Tem 8 colunas; chave primária: `id_assessoria`. Responsável: Patrícia Lemos (Crédito & Cobrança). Alimenta: Cobrança: Carteira e Inadimplência.",
+ "colunas": [
+  {
+   "nome": "id_assessoria",
+   "tipo": "integer",
+   "descricao": "Chave da assessoria",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cnpj_assessoria",
+   "tipo": "varchar(18)",
+   "descricao": "CNPJ",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "razao_social",
+   "tipo": "varchar(120)",
+   "descricao": "Razão social",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "uf",
+   "tipo": "char(2)",
+   "descricao": "UF da sede",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "faixa_atraso_atuacao",
+   "tipo": "varchar(10)",
+   "descricao": "Faixa de atraso em que atua",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_honorario",
+   "tipo": "decimal(7,4)",
+   "descricao": "Honorário sobre o valor recuperado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativa",
+   "tipo": "char(1)",
+   "descricao": "Contrato ativo (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_contrato",
+   "tipo": "date",
+   "descricao": "Início do contrato",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:30:02-03:00",
+   "duracao_seg": 38,
+   "linhas": 7,
+   "linhas_esperadas": 7,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:30:54-03:00",
+   "duracao_seg": 32,
+   "linhas": 7,
+   "linhas_esperadas": 7,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:30:42-03:00",
+   "duracao_seg": 37,
+   "linhas": 7,
+   "linhas_esperadas": 7,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:30:16-03:00",
+   "duracao_seg": 34,
+   "linhas": 7,
+   "linhas_esperadas": 7,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_assessoria_cobranca.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_assessoria`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_assessoria_cobranca' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_assessoria_cobranca.unicidade.id_assessoria",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_assessoria`",
+   "coluna": "id_assessoria",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_assessoria` (7 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_assessoria, COUNT(*) AS qtd\nFROM dim_assessoria_cobranca\nGROUP BY id_assessoria\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_assessoria_cobranca.nao_nulo.dt_contrato",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_contrato`",
+   "coluna": "dt_contrato",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_contrato`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_contrato IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_assessoria_cobranca;"
+  },
+  {
+   "id": "dim_assessoria_cobranca.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2 dias (15/11 às 03:30); SLA de 168h",
+   "valor_observado": 52.5,
+   "limite": 168,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_assessoria_cobranca' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_assessoria_cobranca.dominio_valores.uf",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `uf`",
+   "coluna": "uf",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `uf` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT uf, COUNT(*) AS qtd\nFROM dim_assessoria_cobranca\nWHERE uf NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'uf')\nGROUP BY uf;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_assessoria",
+   "cnpj_assessoria",
+   "razao_social",
+   "uf",
+   "faixa_atraso_atuacao",
+   "pc_honorario",
+   "fl_ativa",
+   "dt_contrato"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     1,
+     "**.531.947/0001-**",
+     "Comercial Ponte Nova Ltda",
+     "PR",
+     "61–90",
+     6.2,
+     "S",
+     "2024-04-05"
+    ]
+   },
+   {
+    "valores": [
+     2,
+     "**.241.229/0001-**",
+     "Construtora Vale Verde S.A.",
+     "MT",
+     "90+",
+     8.49,
+     "S",
+     "2023-09-14"
+    ]
+   },
+   {
+    "valores": [
+     3,
+     "**.137.260/0001-**",
+     "Imobiliária Jardim Real Ltda",
+     "DF",
+     "31–60",
+     18.41,
+     "S",
+     "2024-11-03"
+    ]
+   },
+   {
+    "valores": [
+     4,
+     "**.708.196/0001-**",
+     "Clínica Vida Plena Ltda",
+     "RS",
+     "90+",
+     15.97,
+     "S",
+     "2023-09-07"
+    ]
+   },
+   {
+    "valores": [
+     5,
+     "**.750.191/0001-**",
+     "Clínica Vida Plena Ltda",
+     "DF",
+     "61–90",
+     9.33,
+     "S",
+     "2025-08-31"
+    ]
+   },
+   {
+    "valores": [
+     6,
+     "**.960.472/0001-**",
+     "Comercial Ponte Nova Ltda",
+     "CE",
+     "90+",
+     8.24,
+     "S",
+     "2023-07-19"
+    ]
+   },
+   {
+    "valores": [
+     7,
+     "**.260.901/0001-**",
+     "Agropecuária Boa Safra Ltda",
+     "RS",
+     "31–60",
+     1.19,
+     "S",
+     "2025-05-25"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_acao_cobranca"
+ ]
+}

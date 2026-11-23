@@ -1,0 +1,647 @@
+{
+ "nome": "dim_bem_referencia",
+ "descricao": "Bens de referência e valores de crédito",
+ "dominio": "Produto",
+ "camada": "core",
+ "dono": "Rafael Nogueira",
+ "dono_area": "Produtos",
+ "criticidade": "media",
+ "frequencia": "semanal",
+ "sla_horas": 168,
+ "pipeline": "core_produto",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-15T03:00:23-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 128,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Bens de referência e valores de crédito. Pertence ao domínio Produto e fica na camada core (dado tratado e modelado). É construída a partir de `stg_erp_contratos`. Carga semanal pela rotina `core_produto`, com SLA de 168 horas. Tem 8 colunas; chave primária: `id_bem`. Responsável: Rafael Nogueira (Produtos).",
+ "colunas": [
+  {
+   "nome": "id_bem",
+   "tipo": "integer",
+   "descricao": "Chave do bem de referência",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_bem",
+   "tipo": "varchar(12)",
+   "descricao": "Código do bem no ERP",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "descricao_bem",
+   "tipo": "varchar(120)",
+   "descricao": "Descrição do bem ou serviço",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento do bem",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_credito",
+   "tipo": "decimal(14,2)",
+   "descricao": "Valor atual do crédito de referência",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "indice_reajuste",
+   "tipo": "varchar(10)",
+   "descricao": "Índice de reajuste aplicado (INCC, IPCA, FIPE)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativo",
+   "tipo": "char(1)",
+   "descricao": "Bem em comercialização (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_atualizacao",
+   "tipo": "timestamp",
+   "descricao": "Última atualização",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:00:07-03:00",
+   "duracao_seg": 33,
+   "linhas": 128,
+   "linhas_esperadas": 128,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:00:12-03:00",
+   "duracao_seg": 34,
+   "linhas": 128,
+   "linhas_esperadas": 128,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:00:32-03:00",
+   "duracao_seg": 37,
+   "linhas": 128,
+   "linhas_esperadas": 128,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:00:23-03:00",
+   "duracao_seg": 37,
+   "linhas": 128,
+   "linhas_esperadas": 128,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_bem_referencia.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_bem`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_bem_referencia' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_bem_referencia.unicidade.id_bem",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_bem`",
+   "coluna": "id_bem",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_bem` (128 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_bem, COUNT(*) AS qtd\nFROM dim_bem_referencia\nGROUP BY id_bem\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_bem_referencia.nao_nulo.vl_credito",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `vl_credito`",
+   "coluna": "vl_credito",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `vl_credito`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN vl_credito IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_bem_referencia;"
+  },
+  {
+   "id": "dim_bem_referencia.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2 dias (15/11 às 03:00); SLA de 168h",
+   "valor_observado": 53.0,
+   "limite": 168,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_bem_referencia' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_bem_referencia.dominio_valores.segmento",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `segmento`",
+   "coluna": "segmento",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `segmento` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT segmento, COUNT(*) AS qtd\nFROM dim_bem_referencia\nWHERE segmento NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'segmento')\nGROUP BY segmento;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_bem",
+   "cd_bem",
+   "descricao_bem",
+   "segmento",
+   "vl_credito",
+   "indice_reajuste",
+   "fl_ativo",
+   "dt_atualizacao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     40,
+     "B4626",
+     "Automóvel hatch 1.0",
+     "Auto",
+     150000.0,
+     "FIPE",
+     "N",
+     "2026-11-14 18:55:37"
+    ]
+   },
+   {
+    "valores": [
+     41,
+     "B6945",
+     "Imóvel residencial R$ 300 mil",
+     "Imóvel",
+     240000.0,
+     "FIPE",
+     "S",
+     "2026-11-14 17:07:42"
+    ]
+   },
+   {
+    "valores": [
+     42,
+     "B9591",
+     "Imóvel residencial R$ 300 mil",
+     "Imóvel",
+     150000.0,
+     "IPCA",
+     "S",
+     "2026-11-13 21:02:12"
+    ]
+   },
+   {
+    "valores": [
+     43,
+     "B7593",
+     "Imóvel residencial R$ 500 mil",
+     "Serviços",
+     180000.0,
+     "INCC",
+     "N",
+     "2026-11-12 15:16:20"
+    ]
+   },
+   {
+    "valores": [
+     44,
+     "B7727",
+     "Imóvel residencial R$ 300 mil",
+     "Serviços",
+     45000.0,
+     "IPCA",
+     "N",
+     "2026-11-12 08:53:48"
+    ]
+   },
+   {
+    "valores": [
+     45,
+     "B5210",
+     "Trator agrícola 110 cv",
+     "Pesada",
+     150000.0,
+     "INCC",
+     "N",
+     "2026-11-13 19:37:11"
+    ]
+   },
+   {
+    "valores": [
+     46,
+     "B7598",
+     "SUV compacto",
+     "Auto",
+     180000.0,
+     "FIPE",
+     "S",
+     "2026-11-13 20:54:49"
+    ]
+   },
+   {
+    "valores": [
+     47,
+     "B7375",
+     "Imóvel residencial R$ 500 mil",
+     "Auto",
+     180000.0,
+     "FIPE",
+     "S",
+     "2026-11-12 07:43:33"
+    ]
+   },
+   {
+    "valores": [
+     48,
+     "B2440",
+     "Caminhão semipesado 6x2",
+     "Pesada",
+     95000.0,
+     "INCC",
+     "N",
+     "2026-11-13 15:10:45"
+    ]
+   },
+   {
+    "valores": [
+     49,
+     "B7792",
+     "SUV compacto",
+     "Serviços",
+     300000.0,
+     "INCC",
+     "S",
+     "2026-11-13 13:42:46"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_erp_contratos"
+ ],
+ "downstream": [
+  "fato_reajuste_bem"
+ ]
+}

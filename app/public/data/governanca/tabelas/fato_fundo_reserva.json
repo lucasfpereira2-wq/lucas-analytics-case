@@ -1,0 +1,708 @@
+{
+ "nome": "fato_fundo_reserva",
+ "descricao": "Movimentação do fundo de reserva por grupo",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_financeiro_fundos",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 99.3,
+ "ultima_carga": "2026-11-17T03:45:13-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 168294,
+ "testes_total": 8,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Movimentação do fundo de reserva por grupo. Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). É construída a partir de `fato_pagamento`, `dim_grupo`. Carga diária pela rotina `core_financeiro_fundos`, com SLA de 24 horas. Tem 8 colunas; chave primária: `id_movimento`. Responsável: Patrícia Lemos (Crédito & Cobrança).",
+ "colunas": [
+  {
+   "nome": "id_movimento",
+   "tipo": "bigint",
+   "descricao": "Chave do movimento",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_grupo",
+   "tipo": "integer",
+   "descricao": "Grupo",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_grupo",
+    "coluna": "id_grupo"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_pagamento",
+   "tipo": "bigint",
+   "descricao": "Pagamento que originou o movimento",
+   "pk": false,
+   "fk": {
+    "tabela": "fato_pagamento",
+    "coluna": "id_pagamento"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "tipo_movimento",
+   "tipo": "varchar(30)",
+   "descricao": "Arrecadação, cobertura de inadimplência ou rendimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "competencia",
+   "tipo": "char(7)",
+   "descricao": "Mês de competência (AAAA-MM)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_movimento",
+   "tipo": "decimal(14,2)",
+   "descricao": "Valor do movimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_saldo_apos",
+   "tipo": "decimal(16,2)",
+   "descricao": "Saldo do fundo após o movimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_movimento",
+   "tipo": "date",
+   "descricao": "Data do movimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:45:45-03:00",
+   "duracao_seg": 40,
+   "linhas": 62,
+   "linhas_esperadas": 62,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:45:18-03:00",
+   "duracao_seg": 39,
+   "linhas": 369,
+   "linhas_esperadas": 368,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:45:04-03:00",
+   "duracao_seg": 38,
+   "linhas": 337,
+   "linhas_esperadas": 334,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:45:29-03:00",
+   "duracao_seg": 35,
+   "linhas": 309,
+   "linhas_esperadas": 318,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:45:24-03:00",
+   "duracao_seg": 39,
+   "linhas": 306,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:45:11-03:00",
+   "duracao_seg": 40,
+   "linhas": 306,
+   "linhas_esperadas": 300,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:45:09-03:00",
+   "duracao_seg": 37,
+   "linhas": 133,
+   "linhas_esperadas": 131,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:45:37-03:00",
+   "duracao_seg": 39,
+   "linhas": 60,
+   "linhas_esperadas": 62,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:45:33-03:00",
+   "duracao_seg": 29,
+   "linhas": null,
+   "linhas_esperadas": 368,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Deadlock ao gravar o saldo dos fundos (transação escolhida como vítima). Reprocessada no dia seguinte."
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:45:39-03:00",
+   "duracao_seg": 34,
+   "linhas": 340,
+   "linhas_esperadas": 334,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:45:48-03:00",
+   "duracao_seg": 36,
+   "linhas": 320,
+   "linhas_esperadas": 318,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:45:44-03:00",
+   "duracao_seg": 31,
+   "linhas": 305,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:45:34-03:00",
+   "duracao_seg": 37,
+   "linhas": 295,
+   "linhas_esperadas": 300,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:45:17-03:00",
+   "duracao_seg": 34,
+   "linhas": 128,
+   "linhas_esperadas": 131,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:45:26-03:00",
+   "duracao_seg": 36,
+   "linhas": 63,
+   "linhas_esperadas": 62,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:45:05-03:00",
+   "duracao_seg": 38,
+   "linhas": 377,
+   "linhas_esperadas": 368,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:45:19-03:00",
+   "duracao_seg": 36,
+   "linhas": 336,
+   "linhas_esperadas": 334,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:45:42-03:00",
+   "duracao_seg": 36,
+   "linhas": 320,
+   "linhas_esperadas": 318,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:45:37-03:00",
+   "duracao_seg": 40,
+   "linhas": 319,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:45:17-03:00",
+   "duracao_seg": 33,
+   "linhas": 305,
+   "linhas_esperadas": 300,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:45:28-03:00",
+   "duracao_seg": 32,
+   "linhas": 128,
+   "linhas_esperadas": 131,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:45:35-03:00",
+   "duracao_seg": 32,
+   "linhas": 62,
+   "linhas_esperadas": 62,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:45:44-03:00",
+   "duracao_seg": 35,
+   "linhas": 359,
+   "linhas_esperadas": 368,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:45:37-03:00",
+   "duracao_seg": 35,
+   "linhas": 331,
+   "linhas_esperadas": 334,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:45:12-03:00",
+   "duracao_seg": 35,
+   "linhas": 320,
+   "linhas_esperadas": 318,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:45:50-03:00",
+   "duracao_seg": 36,
+   "linhas": 322,
+   "linhas_esperadas": 312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:45:49-03:00",
+   "duracao_seg": 32,
+   "linhas": 310,
+   "linhas_esperadas": 300,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:45:50-03:00",
+   "duracao_seg": 33,
+   "linhas": 135,
+   "linhas_esperadas": 131,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T03:45:09-03:00",
+   "duracao_seg": 33,
+   "linhas": 63,
+   "linhas_esperadas": 62,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T03:45:13-03:00",
+   "duracao_seg": 33,
+   "linhas": 381,
+   "linhas_esperadas": 368,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_fundo_reserva.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_movimento`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_fundo_reserva' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_fundo_reserva.unicidade.id_movimento",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_movimento`",
+   "coluna": "id_movimento",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_movimento` (168.294 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_movimento, COUNT(*) AS qtd\nFROM fato_fundo_reserva\nGROUP BY id_movimento\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_fundo_reserva.nao_nulo.id_grupo",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_grupo`",
+   "coluna": "id_grupo",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_grupo`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_grupo IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_fundo_reserva;"
+  },
+  {
+   "id": "fato_fundo_reserva.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_grupo`",
+   "coluna": "id_grupo",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_grupo` existem em `dim_grupo`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_fundo_reserva f\nLEFT JOIN dim_grupo p ON p.id_grupo = f.id_grupo\nWHERE f.id_grupo IS NOT NULL AND p.id_grupo IS NULL;"
+  },
+  {
+   "id": "fato_fundo_reserva.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "381 linhas na última carga, dentro da faixa esperada (cerca de 368)",
+   "valor_observado": 381,
+   "limite": 368,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_fundo_reserva'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_fundo_reserva.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 4h (17/11 às 03:45); SLA de 24h",
+   "valor_observado": 4.2,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_fundo_reserva' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_fundo_reserva.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_movimento",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,05% em `vl_movimento` contra `fato_pagamento`",
+   "valor_observado": 0.05,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_movimento) - o.total) / o.total AS pc_diferenca\nFROM fato_fundo_reserva a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'fato_fundo_reserva' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  },
+  {
+   "id": "fato_fundo_reserva.dominio_valores.tipo_movimento",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_movimento`",
+   "coluna": "tipo_movimento",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `tipo_movimento` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_movimento, COUNT(*) AS qtd\nFROM fato_fundo_reserva\nWHERE tipo_movimento NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_movimento')\nGROUP BY tipo_movimento;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_movimento",
+   "id_grupo",
+   "id_pagamento",
+   "tipo_movimento",
+   "competencia",
+   "vl_movimento",
+   "vl_saldo_apos",
+   "dt_movimento"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     1413,
+     1958142,
+     "Arrecadação",
+     "2026-11",
+     471217.81,
+     7211982.32,
+     "2026-10-23"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     1453,
+     1958278,
+     "Arrecadação",
+     "2026-11",
+     416820.96,
+     2481089.38,
+     "2026-10-27"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     1236,
+     null,
+     "Arrecadação",
+     "2026-11",
+     123281.42,
+     8294834.25,
+     "2026-11-16"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     1339,
+     1958310,
+     "Arrecadação",
+     "2026-11",
+     361080.93,
+     1585655.52,
+     "2026-11-02"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     1540,
+     1958159,
+     "Rendimento",
+     "2026-11",
+     64511.99,
+     8226695.69,
+     "2026-11-11"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     1392,
+     1958384,
+     "Rendimento",
+     "2026-11",
+     227963.11,
+     6019563.33,
+     "2026-11-08"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     1335,
+     1958146,
+     "Arrecadação",
+     "2026-11",
+     125261.49,
+     3003720.03,
+     "2026-11-08"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     1496,
+     null,
+     "Arrecadação",
+     "2026-11",
+     545441.72,
+     1373528.55,
+     "2026-11-10"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     1387,
+     null,
+     "Arrecadação",
+     "2026-11",
+     45212.78,
+     2687004.99,
+     "2026-10-25"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "fato_pagamento",
+  "dim_grupo"
+ ],
+ "downstream": []
+}

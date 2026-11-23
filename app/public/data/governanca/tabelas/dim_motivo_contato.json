@@ -1,0 +1,590 @@
+{
+ "nome": "dim_motivo_contato",
+ "descricao": "Árvore de motivos de contato",
+ "dominio": "Atendimento",
+ "camada": "core",
+ "dono": "Juliana Prado",
+ "dono_area": "Experiência do Cliente",
+ "criticidade": "baixa",
+ "frequencia": "semanal",
+ "sla_horas": 168,
+ "pipeline": "core_atendimento",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-15T03:00:52-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 42,
+ "testes_total": 4,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Árvore de motivos de contato. Pertence ao domínio Atendimento e fica na camada core (dado tratado e modelado). Carga semanal pela rotina `core_atendimento`, com SLA de 168 horas. Tem 6 colunas; chave primária: `id_motivo`. Responsável: Juliana Prado (Experiência do Cliente). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_motivo",
+   "tipo": "integer",
+   "descricao": "Chave do motivo de contato",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_motivo",
+   "tipo": "varchar(80)",
+   "descricao": "Nome do motivo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "categoria",
+   "tipo": "varchar(40)",
+   "descricao": "Categoria (nível 1)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "subcategoria",
+   "tipo": "varchar(60)",
+   "descricao": "Subcategoria (nível 2)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "area_responsavel",
+   "tipo": "varchar(40)",
+   "descricao": "Área responsável pela solução",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativo",
+   "tipo": "char(1)",
+   "descricao": "Motivo ativo (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:00:33-03:00",
+   "duracao_seg": 37,
+   "linhas": 42,
+   "linhas_esperadas": 42,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:00:24-03:00",
+   "duracao_seg": 32,
+   "linhas": 42,
+   "linhas_esperadas": 42,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:00:42-03:00",
+   "duracao_seg": 34,
+   "linhas": 42,
+   "linhas_esperadas": 42,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:00:52-03:00",
+   "duracao_seg": 38,
+   "linhas": 42,
+   "linhas_esperadas": 42,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_motivo_contato.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_motivo`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_motivo_contato' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_motivo_contato.unicidade.id_motivo",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_motivo`",
+   "coluna": "id_motivo",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_motivo` (42 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_motivo, COUNT(*) AS qtd\nFROM dim_motivo_contato\nGROUP BY id_motivo\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_motivo_contato.nao_nulo.nm_motivo",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `nm_motivo`",
+   "coluna": "nm_motivo",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `nm_motivo`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN nm_motivo IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_motivo_contato;"
+  },
+  {
+   "id": "dim_motivo_contato.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2 dias (15/11 às 03:00); SLA de 168h",
+   "valor_observado": 53.0,
+   "limite": 168,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_motivo_contato' AND status IN ('sucesso', 'alerta');"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_motivo",
+   "nm_motivo",
+   "categoria",
+   "subcategoria",
+   "area_responsavel",
+   "fl_ativo"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     31,
+     "Reajuste da parcela",
+     "Contemplação",
+     "Dados pessoais",
+     "Cadastro & CRM",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     32,
+     "Cancelamento de cota",
+     "Financeiro",
+     "Lance",
+     "Operações de Assembleias",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     33,
+     "Oferta de lance",
+     "Financeiro",
+     "Crédito",
+     "Crédito & Cobrança",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     34,
+     "Segunda via de boleto",
+     "Cadastro",
+     "Boleto",
+     "Cadastro & CRM",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     35,
+     "Dúvida sobre contemplação",
+     "Financeiro",
+     "Lance",
+     "Cadastro & CRM",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     36,
+     "Transferência de cota",
+     "Cadastro",
+     "Crédito",
+     "Cadastro & CRM",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     37,
+     "Dúvida sobre contemplação",
+     "Cadastro",
+     "Dados pessoais",
+     "Crédito & Cobrança",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     38,
+     "Transferência de cota",
+     "Pós-venda",
+     "Boleto",
+     "Cadastro & CRM",
+     "N"
+    ]
+   },
+   {
+    "valores": [
+     39,
+     "Oferta de lance",
+     "Pós-venda",
+     "Lance",
+     "Cadastro & CRM",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     40,
+     "Dúvida sobre contemplação",
+     "Financeiro",
+     "Dados pessoais",
+     "Crédito & Cobrança",
+     "S"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_chamada",
+  "fato_conversa_whatsapp",
+  "fato_ticket",
+  "mart_atendimento"
+ ]
+}

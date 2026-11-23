@@ -1,0 +1,713 @@
+{
+ "nome": "dim_contato",
+ "descricao": "Telefones e e-mails de contato dos clientes",
+ "dominio": "Cadastro",
+ "camada": "core",
+ "dono": "Marina Azevedo",
+ "dono_area": "Cadastro & CRM",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cadastro",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "6,2% dos telefones fora do padrão (DDD ausente ou tamanho inválido)",
+ "tem_pk": true,
+ "saude": 52.8,
+ "ultima_carga": "2026-11-17T01:40:29-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 1124665,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Telefones e e-mails de contato dos clientes. Pertence ao domínio Cadastro e fica na camada core (dado tratado e modelado). É construída a partir de `stg_crm_clientes`. Carga diária pela rotina `core_cadastro`, com SLA de 24 horas. Tem 9 colunas; chave primária: `id_contato`. Responsável: Marina Azevedo (Cadastro & CRM).",
+ "colunas": [
+  {
+   "nome": "id_contato",
+   "tipo": "bigint",
+   "descricao": "Chave do contato",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cliente",
+   "tipo": "bigint",
+   "descricao": "Cliente (identificador do CRM)",
+   "pk": false,
+   "fk": {
+    "tabela": "stg_crm_clientes",
+    "coluna": "id_cliente_crm"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tipo_contato",
+   "tipo": "varchar(20)",
+   "descricao": "Celular, fixo ou e-mail",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "telefone",
+   "tipo": "varchar(20)",
+   "descricao": "Telefone com DDD",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "email",
+   "tipo": "varchar(120)",
+   "descricao": "Endereço de e-mail",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "fl_whatsapp",
+   "tipo": "char(1)",
+   "descricao": "Número com WhatsApp (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_principal",
+   "tipo": "char(1)",
+   "descricao": "Contato principal (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_opt_in",
+   "tipo": "char(1)",
+   "descricao": "Aceita comunicações (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_atualizacao",
+   "tipo": "timestamp",
+   "descricao": "Última atualização",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:40:06-03:00",
+   "duracao_seg": 645,
+   "linhas": 1114880,
+   "linhas_esperadas": 1114880,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:40:25-03:00",
+   "duracao_seg": 533,
+   "linhas": 1115218,
+   "linhas_esperadas": 1115218,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:40:11-03:00",
+   "duracao_seg": 642,
+   "linhas": 1115555,
+   "linhas_esperadas": 1115555,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:40:28-03:00",
+   "duracao_seg": 623,
+   "linhas": 1115893,
+   "linhas_esperadas": 1115893,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T01:40:52-03:00",
+   "duracao_seg": 562,
+   "linhas": 1116230,
+   "linhas_esperadas": 1116230,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:40:42-03:00",
+   "duracao_seg": 549,
+   "linhas": 1116567,
+   "linhas_esperadas": 1116567,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:40:27-03:00",
+   "duracao_seg": 607,
+   "linhas": 1116905,
+   "linhas_esperadas": 1116905,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:40:26-03:00",
+   "duracao_seg": 636,
+   "linhas": 1117242,
+   "linhas_esperadas": 1117242,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:40:02-03:00",
+   "duracao_seg": 565,
+   "linhas": 1117580,
+   "linhas_esperadas": 1117580,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:40:51-03:00",
+   "duracao_seg": 575,
+   "linhas": 1117917,
+   "linhas_esperadas": 1117917,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:40:42-03:00",
+   "duracao_seg": 601,
+   "linhas": 1118254,
+   "linhas_esperadas": 1118254,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:40:07-03:00",
+   "duracao_seg": 650,
+   "linhas": 1118592,
+   "linhas_esperadas": 1118592,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:40:27-03:00",
+   "duracao_seg": 537,
+   "linhas": 1118929,
+   "linhas_esperadas": 1118929,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:40:45-03:00",
+   "duracao_seg": 587,
+   "linhas": 1119267,
+   "linhas_esperadas": 1119267,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:40:17-03:00",
+   "duracao_seg": 553,
+   "linhas": 1119604,
+   "linhas_esperadas": 1119604,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:40:45-03:00",
+   "duracao_seg": 637,
+   "linhas": 1119941,
+   "linhas_esperadas": 1119941,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:40:27-03:00",
+   "duracao_seg": 578,
+   "linhas": 1120279,
+   "linhas_esperadas": 1120279,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:40:14-03:00",
+   "duracao_seg": 648,
+   "linhas": 1120616,
+   "linhas_esperadas": 1120616,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:40:06-03:00",
+   "duracao_seg": 655,
+   "linhas": 1120954,
+   "linhas_esperadas": 1120954,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:40:43-03:00",
+   "duracao_seg": 630,
+   "linhas": 1121291,
+   "linhas_esperadas": 1121291,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:40:47-03:00",
+   "duracao_seg": 612,
+   "linhas": 1121628,
+   "linhas_esperadas": 1121628,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:40:55-03:00",
+   "duracao_seg": 536,
+   "linhas": 1121966,
+   "linhas_esperadas": 1121966,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:40:35-03:00",
+   "duracao_seg": 614,
+   "linhas": 1122303,
+   "linhas_esperadas": 1122303,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:40:05-03:00",
+   "duracao_seg": 664,
+   "linhas": 1122641,
+   "linhas_esperadas": 1122641,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:40:13-03:00",
+   "duracao_seg": 555,
+   "linhas": 1122978,
+   "linhas_esperadas": 1122978,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:40:12-03:00",
+   "duracao_seg": 651,
+   "linhas": 1123315,
+   "linhas_esperadas": 1123315,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:40:26-03:00",
+   "duracao_seg": 593,
+   "linhas": 1123653,
+   "linhas_esperadas": 1123653,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:40:33-03:00",
+   "duracao_seg": 646,
+   "linhas": 1123990,
+   "linhas_esperadas": 1123990,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:40:14-03:00",
+   "duracao_seg": 666,
+   "linhas": 1124328,
+   "linhas_esperadas": 1124328,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:40:29-03:00",
+   "duracao_seg": 547,
+   "linhas": 1124665,
+   "linhas_esperadas": 1124665,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_contato.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_contato`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_contato' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_contato.unicidade.id_contato",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_contato`",
+   "coluna": "id_contato",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_contato` (1.124.665 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_contato, COUNT(*) AS qtd\nFROM dim_contato\nGROUP BY id_contato\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_contato.nao_nulo.id_cliente",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_cliente`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_cliente IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_contato;"
+  },
+  {
+   "id": "dim_contato.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cliente` existem em `stg_crm_clientes`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM dim_contato f\nLEFT JOIN stg_crm_clientes p ON p.id_cliente_crm = f.id_cliente\nWHERE f.id_cliente IS NOT NULL AND p.id_cliente_crm IS NULL;"
+  },
+  {
+   "id": "dim_contato.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:40); SLA de 24h",
+   "valor_observado": 6.3,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_contato' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_contato.dominio_valores.telefone",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `telefone`",
+   "coluna": "telefone",
+   "severidade": "medio",
+   "resultado": "alerta",
+   "evidencia": "6,2% dos telefones fora do padrão (DDD ausente ou tamanho inválido)",
+   "valor_observado": 6.2,
+   "limite": 2.0,
+   "unidade": "%",
+   "historico_7d": [
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT telefone, COUNT(*) AS qtd\nFROM dim_contato\nWHERE telefone NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'telefone')\nGROUP BY telefone;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_contato",
+   "id_cliente",
+   "tipo_contato",
+   "telefone",
+   "email",
+   "fl_whatsapp",
+   "fl_principal",
+   "fl_opt_in",
+   "dt_atualizacao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     318619,
+     "Celular",
+     "(11) 9****-6105",
+     "p***@exemplo.com.br",
+     "S",
+     "S",
+     "S",
+     "2026-11-16 09:25:19"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     318684,
+     "E-mail",
+     "(11) 9****-3385",
+     "l***@exemplo.com.br",
+     "S",
+     "S",
+     "N",
+     "2026-11-16 07:07:03"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     318483,
+     "Celular",
+     "9****-1187",
+     null,
+     "S",
+     "S",
+     "S",
+     "2026-11-16 10:38:36"
+    ],
+    "problema": "Telefone fora do padrão (DDD ausente ou tamanho inválido)",
+    "colunas_problema": [
+     "telefone"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     318750,
+     "E-mail",
+     null,
+     "a***@exemplo.com.br",
+     "N",
+     "S",
+     "N",
+     "2026-11-16 14:56:28"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     318555,
+     "E-mail",
+     "(62) 9****-7624",
+     null,
+     "N",
+     "N",
+     "N",
+     "2026-11-14 08:01:27"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     318540,
+     "Celular",
+     null,
+     "d***@correio.example",
+     "S",
+     "S",
+     "S",
+     "2026-11-14 15:48:38"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     318737,
+     "Fixo",
+     "(62) 3***-12",
+     "d***@exemplo.com.br",
+     "S",
+     "N",
+     "S",
+     "2026-11-15 07:57:31"
+    ],
+    "problema": "Telefone fora do padrão (DDD ausente ou tamanho inválido)",
+    "colunas_problema": [
+     "telefone"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     318659,
+     "E-mail",
+     "(19) 9****-8920",
+     "g***@correio.example",
+     "N",
+     "S",
+     "S",
+     "2026-11-16 20:31:52"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     318471,
+     "Celular",
+     "(19) 9****-6522",
+     null,
+     "S",
+     "S",
+     "N",
+     "2026-11-14 12:09:07"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     318473,
+     "Celular",
+     "(51) 9****-6782",
+     "b***@empresa.example",
+     "S",
+     "S",
+     "S",
+     "2026-11-15 13:36:50"
+    ]
+   },
+   {
+    "valores": [
+     5000010,
+     318726,
+     "Fixo",
+     null,
+     null,
+     "S",
+     "S",
+     "S",
+     "2026-11-16 12:58:37"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_crm_clientes"
+ ],
+ "downstream": []
+}

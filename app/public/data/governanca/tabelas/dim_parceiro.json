@@ -1,0 +1,655 @@
+{
+ "nome": "dim_parceiro",
+ "descricao": "Parceiros comerciais e correspondentes",
+ "dominio": "Vendas",
+ "camada": "core",
+ "dono": "Bruno Tavares",
+ "dono_area": "Inteligência Comercial",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_vendas",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T02:30:18-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 212,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Parceiros comerciais e correspondentes. Pertence ao domínio Vendas e fica na camada core (dado tratado e modelado). É construída a partir de `stg_crm_clientes`. Carga diária pela rotina `core_vendas`, com SLA de 24 horas. Tem 9 colunas; chave primária: `id_parceiro`. Responsável: Bruno Tavares (Inteligência Comercial).",
+ "colunas": [
+  {
+   "nome": "id_parceiro",
+   "tipo": "integer",
+   "descricao": "Chave do parceiro comercial",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cnpj_parceiro",
+   "tipo": "varchar(18)",
+   "descricao": "CNPJ do parceiro",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "razao_social",
+   "tipo": "varchar(120)",
+   "descricao": "Razão social",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_contato",
+   "tipo": "varchar(120)",
+   "descricao": "Pessoa de contato",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "email_contato",
+   "tipo": "varchar(120)",
+   "descricao": "E-mail de contato",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "uf",
+   "tipo": "char(2)",
+   "descricao": "UF de atuação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tipo_parceiro",
+   "tipo": "varchar(30)",
+   "descricao": "Correspondente, concessionária ou imobiliária",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativo",
+   "tipo": "char(1)",
+   "descricao": "Parceiro ativo (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_credenciamento",
+   "tipo": "date",
+   "descricao": "Data de credenciamento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:30:12-03:00",
+   "duracao_seg": 32,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:30:39-03:00",
+   "duracao_seg": 36,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:30:03-03:00",
+   "duracao_seg": 35,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:30:54-03:00",
+   "duracao_seg": 32,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:30:12-03:00",
+   "duracao_seg": 38,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:30:35-03:00",
+   "duracao_seg": 34,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:30:15-03:00",
+   "duracao_seg": 37,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:30:52-03:00",
+   "duracao_seg": 36,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:30:13-03:00",
+   "duracao_seg": 38,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:30:38-03:00",
+   "duracao_seg": 36,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:30:53-03:00",
+   "duracao_seg": 35,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:30:08-03:00",
+   "duracao_seg": 38,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:30:19-03:00",
+   "duracao_seg": 36,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:30:24-03:00",
+   "duracao_seg": 38,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:30:26-03:00",
+   "duracao_seg": 37,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:30:46-03:00",
+   "duracao_seg": 32,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:30:40-03:00",
+   "duracao_seg": 31,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:30:46-03:00",
+   "duracao_seg": 39,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:30:05-03:00",
+   "duracao_seg": 34,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:30:15-03:00",
+   "duracao_seg": 34,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:30:19-03:00",
+   "duracao_seg": 37,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:30:49-03:00",
+   "duracao_seg": 33,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:30:14-03:00",
+   "duracao_seg": 35,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:30:51-03:00",
+   "duracao_seg": 37,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:30:46-03:00",
+   "duracao_seg": 31,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:30:40-03:00",
+   "duracao_seg": 40,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:30:40-03:00",
+   "duracao_seg": 34,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:30:38-03:00",
+   "duracao_seg": 37,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:30:09-03:00",
+   "duracao_seg": 32,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:30:18-03:00",
+   "duracao_seg": 38,
+   "linhas": 212,
+   "linhas_esperadas": 212,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_parceiro.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_parceiro`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_parceiro' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_parceiro.unicidade.id_parceiro",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_parceiro`",
+   "coluna": "id_parceiro",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_parceiro` (212 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_parceiro, COUNT(*) AS qtd\nFROM dim_parceiro\nGROUP BY id_parceiro\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_parceiro.nao_nulo.dt_credenciamento",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_credenciamento`",
+   "coluna": "dt_credenciamento",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_credenciamento`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_credenciamento IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_parceiro;"
+  },
+  {
+   "id": "dim_parceiro.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:30); SLA de 24h",
+   "valor_observado": 5.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_parceiro' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_parceiro.dominio_valores.uf",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `uf`",
+   "coluna": "uf",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `uf` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT uf, COUNT(*) AS qtd\nFROM dim_parceiro\nWHERE uf NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'uf')\nGROUP BY uf;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_parceiro",
+   "cnpj_parceiro",
+   "razao_social",
+   "nm_contato",
+   "email_contato",
+   "uf",
+   "tipo_parceiro",
+   "fl_ativo",
+   "dt_credenciamento"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     60,
+     "**.975.294/0001-**",
+     "Imobiliária Jardim Real Ltda",
+     "Antônio S. Queiroz",
+     "c***@correio.example",
+     "PE",
+     "Correspondente",
+     "S",
+     "2026-09-06"
+    ]
+   },
+   {
+    "valores": [
+     61,
+     "**.769.681/0001-**",
+     "Logística Rota Sul Ltda",
+     null,
+     "r***@empresa.example",
+     "SP",
+     "Correspondente",
+     "N",
+     "2023-12-09"
+    ]
+   },
+   {
+    "valores": [
+     62,
+     "**.428.134/0001-**",
+     "Construtora Vale Verde S.A.",
+     "Larissa B. Teixeira",
+     "d***@correio.example",
+     "MT",
+     "Imobiliária",
+     "S",
+     "2025-05-18"
+    ]
+   },
+   {
+    "valores": [
+     63,
+     "**.163.206/0001-**",
+     "Comercial Ponte Nova Ltda",
+     "Carlos Eduardo F. Vieira",
+     "l***@exemplo.com.br",
+     "CE",
+     "Imobiliária",
+     "S",
+     "2023-12-13"
+    ]
+   },
+   {
+    "valores": [
+     64,
+     "**.911.591/0001-**",
+     "Construtora Vale Verde S.A.",
+     "Marcelo M. Brandão",
+     "f***@exemplo.com.br",
+     "BA",
+     "Concessionária",
+     "S",
+     "2024-04-30"
+    ]
+   },
+   {
+    "valores": [
+     65,
+     "**.843.743/0001-**",
+     "Auto Center Bandeirantes Ltda",
+     "Aline F. Freitas",
+     "f***@empresa.example",
+     "MT",
+     "Concessionária",
+     "S",
+     "2023-02-04"
+    ]
+   },
+   {
+    "valores": [
+     66,
+     "**.718.420/0001-**",
+     "Clínica Vida Plena Ltda",
+     null,
+     "p***@empresa.example",
+     "MG",
+     "Imobiliária",
+     "S",
+     "2023-07-06"
+    ]
+   },
+   {
+    "valores": [
+     67,
+     "**.250.497/0001-**",
+     "Imobiliária Jardim Real Ltda",
+     "Thiago M. Queiroz",
+     null,
+     "SC",
+     "Imobiliária",
+     "N",
+     "2025-04-20"
+    ]
+   },
+   {
+    "valores": [
+     68,
+     "**.833.795/0001-**",
+     "Construtora Vale Verde S.A.",
+     "Patrícia S. Macedo",
+     null,
+     "RJ",
+     "Concessionária",
+     "S",
+     "2025-06-11"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_crm_clientes"
+ ],
+ "downstream": [
+  "fato_comissao"
+ ]
+}

@@ -1,0 +1,193 @@
+[
+  {
+    "id": "dashboard-mente",
+    "titulo": "Por que seu dashboard mente: qualidade de dados antes de visualização",
+    "resumo": "Um gráfico bonito sobre uma tabela duplicada continua errado. O problema quase nunca está na ferramenta de BI, e sim três camadas abaixo dela.",
+    "minutos": 4,
+    "tag": "Qualidade de dados",
+    "link": "[PREENCHER]",
+    "secoes": [
+      {
+        "subtitulo": "O número errado mais caro é o que parece certo",
+        "paragrafos": [
+          "Toda diretoria já viveu a cena: duas áreas chegam à reunião com valores diferentes para o mesmo indicador. A discussão deixa de ser sobre o negócio e passa a ser sobre quem está com a planilha certa. O custo não aparece em lugar nenhum, mas é alto: uma hora de dez executivos gasta em arqueologia de dados.",
+          "O caso mais perigoso, porém, é o contrário. Quando só existe um número, ele está errado e ninguém percebe. Uma carteira de cobrança inflada em 1,8% por parcelas duplicadas não gera alarme. Ela apenas desloca a meta, a provisão e o bônus de uma operação inteira."
+        ]
+      },
+      {
+        "subtitulo": "Onde o dashboard começa a mentir",
+        "paragrafos": [
+          "Em quase todos os diagnósticos que fiz, a origem cabia em quatro causas. A rotina que não rodou e deixou o relatório com dados de anteontem. A rotina que rodou duas vezes e duplicou o dia. A tabela sem chave primária, que aceita qualquer coisa. E a regra de negócio reescrita em cada relatório, com filtros levemente diferentes.",
+          "Nenhuma delas se resolve na camada de visualização. Trocar a ferramenta de BI nesses casos é pintar a casa com o encanamento vazando."
+        ]
+      },
+      {
+        "subtitulo": "Testar o dado como se testa software",
+        "paragrafos": [
+          "A saída é tratar tabela como produto, com teste automatizado a cada carga. Unicidade da chave, campos obrigatórios preenchidos, integridade entre fato e dimensão, volume dentro da faixa histórica e frescor dentro do SLA. São verificações simples, em SQL, que rodam em segundos.",
+          "Em consórcio, um teste de reconciliação entre parcelas emitidas e o contas a receber do financeiro encontra em minutos o que uma auditoria levaria semanas para apontar."
+        ]
+      },
+      {
+        "subtitulo": "O selo que muda a conversa",
+        "paragrafos": [
+          "O passo final é levar essa informação para quem consome. Cada relatório deveria abrir com uma frase honesta: dados confiáveis, atualizados há duas horas, ou atenção, a tabela de origem está com problema. Parece detalhe, mas inverte a lógica: a área de dados deixa de ser avisada do erro pelo usuário e passa a avisar o usuário antes da decisão.",
+          "Visualização é a última milha. Sem as anteriores, ela só entrega o erro mais rápido e com mais cor."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tabela-sem-pk",
+    "titulo": "Tabela sem chave primária é dívida técnica com juros compostos",
+    "resumo": "A ausência de PK não quebra nada no primeiro dia. Ela cobra a conta meses depois, em duplicidade, retrabalho e desconfiança.",
+    "minutos": 4,
+    "tag": "Engenharia de dados",
+    "link": "[PREENCHER]",
+    "secoes": [
+      {
+        "subtitulo": "O empréstimo que ninguém lembra de ter tomado",
+        "paragrafos": [
+          "Criar uma tabela sem chave primária economiza dez minutos. Não é preciso pensar no grão, discutir com a área de negócio nem tratar o registro que chega repetido. A carga funciona, o relatório sai e o projeto é entregue no prazo.",
+          "A dívida começa a vencer na primeira reexecução. Sem uma chave que diga o que é um registro único, a rotina que roda duas vezes insere duas vezes. Em uma tabela de parcelas, isso significa boleto contado em dobro, inadimplência inflada e uma régua de cobrança acionando cliente que já pagou."
+        ]
+      },
+      {
+        "subtitulo": "Como os juros se acumulam",
+        "paragrafos": [
+          "O primeiro juro é o remendo. Alguém coloca um DISTINCT na consulta do relatório. Depois outro relatório nasce sem o DISTINCT. Agora existem dois números para a mesma carteira.",
+          "O segundo é a propagação. Tabelas derivadas herdam a duplicidade e fazem junções em cima dela. Um join sem chave definida multiplica linhas em silêncio: 312 parcelas duplicadas na origem viram milhares de linhas erradas três camadas adiante.",
+          "O terceiro é o mais caro: a perda de confiança. Depois do segundo incidente, o gestor da área passa a conferir tudo em planilha própria, e a empresa volta a ter uma versão da verdade por departamento."
+        ]
+      },
+      {
+        "subtitulo": "Definir a chave é definir o negócio",
+        "paragrafos": [
+          "Chave primária não é burocracia de banco. É a resposta formal para uma pergunta de negócio: o que é uma linha desta tabela? Uma cota? Uma cota por assembleia? Uma parcela por vencimento? Quando a equipe não consegue responder, o problema é de entendimento, e é melhor descobri-lo na modelagem do que no fechamento do mês.",
+          "Na prática, eu exijo três coisas de toda tabela crítica: chave declarada, teste de unicidade rodando a cada carga e carga idempotente, ou seja, que pode ser reexecutada sem duplicar."
+        ]
+      },
+      {
+        "subtitulo": "Como quitar sem parar a operação",
+        "paragrafos": [
+          "Não se resolve tudo de uma vez. O caminho é inventariar as tabelas sem PK, ordenar pelo impacto nos relatórios executivos e atacar as dez primeiras. Para cada uma: definir o grão com o dono do dado, limpar o histórico duplicado, criar a chave e ligar o teste. Em poucas semanas a parte mais cara da dívida está paga, e o indicador de tabelas críticas com PK vira meta acompanhada pela diretoria."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "safra-mob-cohort",
+    "titulo": "Safra, MOB e cohort: como ler o risco de uma carteira de consórcio",
+    "resumo": "A inadimplência média esconde mais do que mostra. Olhar por safra de venda revela se o problema está no passado ou sendo contratado agora.",
+    "minutos": 5,
+    "tag": "Analytics",
+    "link": "[PREENCHER]",
+    "secoes": [
+      {
+        "subtitulo": "A armadilha da média",
+        "paragrafos": [
+          "Imagine uma carteira com 4,2% de inadimplência acima de 90 dias, estável há seis meses. O relatório mensal mostra uma linha reta e a reunião segue tranquila. Só que estabilidade na média pode ser a soma de dois movimentos opostos: safras antigas melhorando porque os maus pagadores já saíram, e safras novas piorando rápido.",
+          "Quando as vendas crescem, o efeito é ainda mais traiçoeiro. Cotas novas entram no denominador sem tempo de atrasar e diluem o indicador. A carteira parece saudável justamente quando está contratando mais risco."
+        ]
+      },
+      {
+        "subtitulo": "Três conceitos, uma leitura",
+        "paragrafos": [
+          "Safra é o grupo de cotas vendidas no mesmo mês. MOB, do inglês months on book, é a idade da cota em meses desde a venda. Cohort é a análise que acompanha cada safra ao longo dos seus MOBs.",
+          "Com isso, a pergunta muda. Em vez de qual é a inadimplência de novembro, passamos a perguntar: no sexto mês de vida, qual percentual da safra de maio estava com mais de 30 dias de atraso? E como isso se compara com a safra de maio do ano anterior no mesmo MOB 6?"
+        ]
+      },
+      {
+        "subtitulo": "O que as curvas contam",
+        "paragrafos": [
+          "Colocadas no mesmo gráfico, as curvas de safra funcionam como um exame de imagem. Se as safras recentes sobem mais rápido que as antigas nos primeiros MOBs, há um problema de originação: canal, parceiro, política de crédito ou campanha que trouxe um perfil pior.",
+          "Em consórcio, o indicador de primeira parcela não paga e o atraso no MOB 3 são os alertas mais precoces. Uma safra vendida por um canal com comissão antecipada e que apresenta o dobro de atraso no MOB 3 já disse tudo o que precisava, meses antes de afetar a carteira total.",
+          "Outro ponto de atenção é a contemplação. O comportamento de pagamento muda depois que o cliente recebe o bem, e separar as curvas de contemplados e não contemplados evita conclusões erradas."
+        ]
+      },
+      {
+        "subtitulo": "Sem dado confiável, a curva engana",
+        "paragrafos": [
+          "A análise de safra é sensível à qualidade da base. Uma data de venda preenchida com a data de migração do sistema cria uma safra gigante e fictícia. Parcelas duplicadas inflam o atraso de um mês específico. Por isso o relatório de safra deve ser um dos primeiros a ganhar testes de qualidade e selo de confiança: ele orienta política comercial e de crédito, decisões cujo erro leva anos para aparecer."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "governanca-sem-burocracia",
+    "titulo": "Governança de dados sem burocracia: dono, SLA e teste",
+    "resumo": "Governança que funciona cabe em três perguntas por tabela. O resto é comitê, documento e pouca mudança no número que chega à diretoria.",
+    "minutos": 4,
+    "tag": "Governança",
+    "link": "[PREENCHER]",
+    "secoes": [
+      {
+        "subtitulo": "Por que tantos programas travam",
+        "paragrafos": [
+          "Muitas iniciativas de governança começam pelo fim: política de cem páginas, comitê mensal, ferramenta de catálogo cara e um glossário que ninguém consulta. Seis meses depois, o relatório de vendas continua saindo com número errado e a área de negócio conclui que governança é custo.",
+          "O erro está em tratar governança como documentação. Ela é, antes de tudo, operação: alguém responsável, um prazo combinado e uma verificação automática."
+        ]
+      },
+      {
+        "subtitulo": "Três perguntas por tabela",
+        "paragrafos": [
+          "Quem é o dono? Uma pessoa, com nome e sobrenome, e não uma área. É quem decide a regra de negócio e quem é acionado quando o dado quebra. Tabela sem dono é tabela que todo mundo usa e ninguém conserta.",
+          "Qual é o SLA? Até que horas o dado precisa estar atualizado para servir à decisão. A posição de cobrança que alimenta a régua das 8h tem um compromisso diferente do fechamento contábil mensal. Sem SLA explícito, todo atraso é discutível.",
+          "Qual é o teste? Pelo menos unicidade da chave, campos obrigatórios e volume esperado. Se o teste falha, o dono é avisado antes do usuário."
+        ]
+      },
+      {
+        "subtitulo": "Começar pelo que dói",
+        "paragrafos": [
+          "Não é preciso governar oitenta tabelas no primeiro mês. A regra que uso é partir dos relatórios que a diretoria abre toda semana e caminhar para trás na linhagem. As quinze ou vinte tabelas que sustentam esses relatórios recebem dono, SLA e teste primeiro.",
+          "O efeito aparece rápido porque é visível: o gestor de cobrança passa a saber, pela manhã, se pode confiar na posição do dia. Esse é o momento em que a governança deixa de ser assunto de TI."
+        ]
+      },
+      {
+        "subtitulo": "Medir para sustentar",
+        "paragrafos": [
+          "Três indicadores bastam para acompanhar o programa: percentual de tabelas críticas com dono, percentual com testes passando e tempo médio para detectar uma falha. Publicados num painel aberto, eles criam o incentivo certo. Ninguém gosta de ver a própria área em vermelho no farol.",
+          "Catálogo, glossário e políticas vêm depois, como consequência. Quando existe dono, SLA e teste, a documentação tem a quem pertencer e motivo para ser mantida."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fim-de-mes-a-minutos",
+    "titulo": "Do relatório de fim de mês à decisão em minutos",
+    "resumo": "Fechar o mês em D+8 é descobrir o problema quando ele já custou caro. Reduzir esse ciclo depende menos de tecnologia e mais de desenho.",
+    "minutos": 4,
+    "tag": "Gestão & performance",
+    "link": "[PREENCHER]",
+    "secoes": [
+      {
+        "subtitulo": "O custo do atraso",
+        "paragrafos": [
+          "Em muitas operações, o resultado de vendas do mês só é conhecido com segurança no oitavo dia útil do mês seguinte. Até lá, circulam prévias em planilha, cada uma com um recorte. Se uma regional começou a perder ritmo na segunda semana, a diretoria fica sabendo um mês depois, quando a meta já está comprometida.",
+          "O mesmo vale para cobrança. Um aumento de atraso na faixa de 1 a 30 dias, visto no dia, é uma ação de régua. Visto no fechamento, é uma perda."
+        ]
+      },
+      {
+        "subtitulo": "Por que demora",
+        "paragrafos": [
+          "Quase nunca é falta de ferramenta. O ciclo é longo porque depende de pessoas executando passos manuais: extrair do sistema legado, ajustar no Excel, conferir com o financeiro, corrigir divergências e só então publicar. Cada conferência existe porque em algum momento o número saiu errado e a confiança foi substituída por revisão humana.",
+          "Ou seja, o fechamento demorado é um sintoma de dado não confiável. Atacar só a velocidade, sem atacar a confiança, produz o erro mais rápido."
+        ]
+      },
+      {
+        "subtitulo": "O desenho que encurta o ciclo",
+        "paragrafos": [
+          "Primeiro, cargas diárias automatizadas, com monitoramento que avisa quando a rotina não rodou. Segundo, as conferências manuais viram testes: a reconciliação que o analista fazia no dia 5 passa a rodar toda madrugada. Terceiro, uma única definição de cada métrica, publicada em glossário e implementada uma vez só.",
+          "Com isso, o fechamento deixa de ser um evento. O número do dia 30 é o mesmo processo do dia 12, apenas com mais dias acumulados."
+        ]
+      },
+      {
+        "subtitulo": "O que muda na gestão",
+        "paragrafos": [
+          "Quando o dado chega no dia, a reunião de resultado muda de natureza. Em vez de explicar o mês que passou, discute-se o que fazer com as três semanas que restam. O diretor comercial acompanha a produção por canal contra a meta proporcional. O gestor de atendimento vê o nível de serviço cair às 10h e remaneja a equipe às 10h15.",
+          "Esse é o retorno real de investir em engenharia e governança de dados: tempo de reação. A empresa passa a corrigir a rota durante a viagem, e não na leitura do relatório de bordo."
+        ]
+      }
+    ]
+  }
+]

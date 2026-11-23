@@ -1,0 +1,840 @@
+{
+ "nome": "mart_atendimento",
+ "descricao": "Mart do relatório de Atendimento (volumes, tempos, NPS, CSAT)",
+ "dominio": "Marts",
+ "camada": "mart",
+ "dono": "Fernanda Rocha",
+ "dono_area": "Analytics & BI",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "mart_atendimento",
+ "fonte": null,
+ "status": "vermelho",
+ "motivo_status": "Canal Voz sem dados de 14 a 16/11; carga do mart ignorada por falha na dependência",
+ "tem_pk": true,
+ "saude": 14.9,
+ "ultima_carga": "2026-11-14T05:10:08-03:00",
+ "atraso_horas": 51.0,
+ "linhas": 237291,
+ "testes_total": 7,
+ "testes_falhando": 1,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "falha",
+  "falha"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [
+  "INC-2032",
+  "INC-2027",
+  "INC-2019",
+  "INC-1987"
+ ],
+ "tags": [],
+ "descricao_longa": "Mart do relatório de Atendimento (volumes, tempos, NPS, CSAT). Pertence ao domínio Marts e fica na camada de marts (dado agregado para consumo em relatório). É construída a partir de `fato_chamada`, `fato_chamadas_legacy`, `fato_conversa_whatsapp`, `fato_ticket` e outras. Carga diária pela rotina `mart_atendimento`, com SLA de 24 horas. Tem 13 colunas; chave primária: `dt_referencia, canal, id_motivo`. Responsável: Fernanda Rocha (Analytics & BI). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "dt_referencia",
+   "tipo": "date",
+   "descricao": "Data de referência",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal",
+   "tipo": "varchar(20)",
+   "descricao": "Canal de atendimento",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_motivo",
+   "tipo": "integer",
+   "descricao": "Motivo do contato",
+   "pk": true,
+   "fk": {
+    "tabela": "dim_motivo_contato",
+    "coluna": "id_motivo"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_contatos",
+   "tipo": "integer",
+   "descricao": "Contatos recebidos",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_atendidos",
+   "tipo": "integer",
+   "descricao": "Contatos atendidos",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_abandonados",
+   "tipo": "integer",
+   "descricao": "Contatos abandonados",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tempo_atendimento_seg",
+   "tipo": "bigint",
+   "descricao": "Soma do tempo de atendimento (numerador do TMA)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tempo_espera_seg",
+   "tipo": "bigint",
+   "descricao": "Soma do tempo de espera (numerador do TME)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_resolvidos_primeiro_contato",
+   "tipo": "integer",
+   "descricao": "Resolvidos no primeiro contato (FCR)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_promotores",
+   "tipo": "integer",
+   "descricao": "Respostas NPS 9 ou 10",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_detratores",
+   "tipo": "integer",
+   "descricao": "Respostas NPS de 0 a 6",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_respostas_nps",
+   "tipo": "integer",
+   "descricao": "Total de respostas NPS",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da carga",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T05:10:09-03:00",
+   "duracao_seg": 298,
+   "linhas": 354,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T05:10:42-03:00",
+   "duracao_seg": 365,
+   "linhas": 351,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T05:10:18-03:00",
+   "duracao_seg": 346,
+   "linhas": 352,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T05:10:10-03:00",
+   "duracao_seg": 361,
+   "linhas": 350,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T05:10:41-03:00",
+   "duracao_seg": 305,
+   "linhas": 342,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T05:10:45-03:00",
+   "duracao_seg": 323,
+   "linhas": 353,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T05:10:38-03:00",
+   "duracao_seg": 307,
+   "linhas": 342,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T05:10:20-03:00",
+   "duracao_seg": 319,
+   "linhas": 348,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T05:10:51-03:00",
+   "duracao_seg": 350,
+   "linhas": 354,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T05:10:14-03:00",
+   "duracao_seg": 343,
+   "linhas": 346,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T05:10:14-03:00",
+   "duracao_seg": 349,
+   "linhas": 334,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T05:10:44-03:00",
+   "duracao_seg": 303,
+   "linhas": 333,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T05:10:30-03:00",
+   "duracao_seg": 333,
+   "linhas": 332,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T05:10:14-03:00",
+   "duracao_seg": 351,
+   "linhas": 351,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T05:10:07-03:00",
+   "duracao_seg": 326,
+   "linhas": 338,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T05:10:50-03:00",
+   "duracao_seg": 341,
+   "linhas": 346,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T05:10:40-03:00",
+   "duracao_seg": 309,
+   "linhas": 341,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T05:10:22-03:00",
+   "duracao_seg": 336,
+   "linhas": 336,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T05:10:26-03:00",
+   "duracao_seg": 365,
+   "linhas": 343,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T05:10:06-03:00",
+   "duracao_seg": 288,
+   "linhas": 336,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T05:10:12-03:00",
+   "duracao_seg": 309,
+   "linhas": 345,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T05:10:30-03:00",
+   "duracao_seg": 291,
+   "linhas": 338,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T05:10:11-03:00",
+   "duracao_seg": 353,
+   "linhas": 335,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T05:10:32-03:00",
+   "duracao_seg": 306,
+   "linhas": 342,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T05:10:47-03:00",
+   "duracao_seg": 321,
+   "linhas": 334,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T05:10:32-03:00",
+   "duracao_seg": 297,
+   "linhas": 344,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T05:10:08-03:00",
+   "duracao_seg": 300,
+   "linhas": 354,
+   "linhas_esperadas": 343,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T05:10:40-03:00",
+   "duracao_seg": 51,
+   "linhas": 192,
+   "linhas_esperadas": 343,
+   "status": "falha",
+   "anomalia_volume": true,
+   "mensagem": "Etapa de voz ignorada por falha na dependência `fato_chamada`; canais digitais carregados e execução marcada como falha."
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T05:10:38-03:00",
+   "duracao_seg": 97,
+   "linhas": 192,
+   "linhas_esperadas": 343,
+   "status": "falha",
+   "anomalia_volume": true,
+   "mensagem": "Etapa de voz ignorada por falha na dependência `fato_chamada`; canais digitais carregados e execução marcada como falha."
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T05:10:11-03:00",
+   "duracao_seg": 105,
+   "linhas": 192,
+   "linhas_esperadas": 343,
+   "status": "falha",
+   "anomalia_volume": true,
+   "mensagem": "Etapa de voz ignorada por falha na dependência `fato_chamada`; canais digitais carregados e execução marcada como falha."
+  }
+ ],
+ "testes": [
+  {
+   "id": "mart_atendimento.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `dt_referencia, canal, id_motivo`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'mart_atendimento' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "mart_atendimento.unicidade.dt_referencia",
+   "regra": "unicidade",
+   "nome": "Unicidade de `dt_referencia, canal, id_motivo`",
+   "coluna": "dt_referencia, canal, id_motivo",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `dt_referencia, canal, id_motivo` (237.291 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_referencia, canal, id_motivo, COUNT(*) AS qtd\nFROM mart_atendimento\nGROUP BY dt_referencia, canal, id_motivo\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "mart_atendimento.nao_nulo.dt_carga",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_carga`",
+   "coluna": "dt_carga",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_carga`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_carga IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM mart_atendimento;"
+  },
+  {
+   "id": "mart_atendimento.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_motivo`",
+   "coluna": "id_motivo",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_motivo` existem em `dim_motivo_contato`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM mart_atendimento f\nLEFT JOIN dim_motivo_contato p ON p.id_motivo = f.id_motivo\nWHERE f.id_motivo IS NOT NULL AND p.id_motivo IS NULL;"
+  },
+  {
+   "id": "mart_atendimento.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "alerta",
+   "evidencia": "192 linhas na última carga contra 343 esperadas (-44,0%)",
+   "valor_observado": 192,
+   "limite": 343,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'mart_atendimento'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "mart_atendimento.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "falha",
+   "evidencia": "Canal Voz sem dados de 14 a 16/11; carga do mart ignorada por falha na dependência",
+   "valor_observado": 74.8,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta",
+    "falha",
+    "falha"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'mart_atendimento' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "mart_atendimento.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "qt_contatos",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,04% em `qt_contatos` contra as tabelas de origem por canal",
+   "valor_observado": 0.04,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.qt_contatos) - o.total) / o.total AS pc_diferenca\nFROM mart_atendimento a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'mart_atendimento' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "dt_referencia",
+   "canal",
+   "id_motivo",
+   "qt_contatos",
+   "qt_atendidos",
+   "qt_abandonados",
+   "tempo_atendimento_seg",
+   "tempo_espera_seg",
+   "qt_resolvidos_primeiro_contato",
+   "qt_promotores",
+   "qt_detratores",
+   "qt_respostas_nps",
+   "dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "2026-11-13",
+     "E-mail",
+     33,
+     459,
+     425,
+     34,
+     136425,
+     18275,
+     312,
+     27,
+     4,
+     41,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-12",
+     "Voz",
+     43,
+     730,
+     671,
+     59,
+     177815,
+     16775,
+     507,
+     20,
+     3,
+     30,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-13",
+     "Voz",
+     52,
+     873,
+     849,
+     24,
+     259794,
+     51789,
+     556,
+     38,
+     6,
+     57,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-11",
+     "WhatsApp",
+     33,
+     398,
+     374,
+     24,
+     122672,
+     17578,
+     278,
+     18,
+     2,
+     27,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-12",
+     "App",
+     56,
+     393,
+     369,
+     24,
+     102951,
+     10332,
+     282,
+     20,
+     3,
+     30,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-13",
+     "Chat",
+     53,
+     759,
+     729,
+     30,
+     276291,
+     27702,
+     472,
+     34,
+     5,
+     50,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-11",
+     "E-mail",
+     41,
+     629,
+     605,
+     24,
+     170610,
+     24200,
+     421,
+     36,
+     5,
+     54,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-13",
+     "E-mail",
+     50,
+     574,
+     551,
+     23,
+     151525,
+     47937,
+     357,
+     29,
+     4,
+     44,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-13",
+     "App",
+     31,
+     675,
+     656,
+     19,
+     179744,
+     57072,
+     517,
+     31,
+     5,
+     47,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-13",
+     "App",
+     39,
+     30,
+     28,
+     2,
+     7056,
+     840,
+     21,
+     0,
+     0,
+     1,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-12",
+     "WhatsApp",
+     48,
+     811,
+     751,
+     60,
+     194509,
+     21028,
+     533,
+     23,
+     3,
+     35,
+     "2026-11-14 05:10:08"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11-13",
+     "App",
+     48,
+     391,
+     368,
+     23,
+     97520,
+     13248,
+     285,
+     16,
+     2,
+     24,
+     "2026-11-14 05:10:08"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "fato_chamada",
+  "fato_chamadas_legacy",
+  "fato_conversa_whatsapp",
+  "fato_ticket",
+  "fato_interacao_digital",
+  "fato_pesquisa_nps",
+  "fato_pesquisa_csat",
+  "dim_motivo_contato"
+ ],
+ "downstream": [
+  "mart_executivo_kpis"
+ ]
+}

@@ -1,0 +1,746 @@
+{
+ "nome": "fato_chamadas_legacy",
+ "descricao": "Histórico de chamadas do discador antigo (legado)",
+ "dominio": "Atendimento",
+ "camada": "core",
+ "dono": null,
+ "dono_area": null,
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "legacy_chamadas_dts",
+ "fonte": "Discador legado",
+ "status": "vermelho",
+ "motivo_status": "Tabela sem chave primária definida e sem dono formal",
+ "tem_pk": false,
+ "saude": 19.1,
+ "ultima_carga": "2026-11-17T02:50:40-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 1912540,
+ "testes_total": 7,
+ "testes_falhando": 1,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [
+  "INC-1987"
+ ],
+ "tags": [
+  "PII",
+  "legado",
+  "sem dono",
+  "sem PK"
+ ],
+ "descricao_longa": "Histórico de chamadas do discador antigo (legado). Pertence ao domínio Atendimento e fica na camada core (dado tratado e modelado). Origem: Discador legado. Carga diária pela rotina `legacy_chamadas_dts`, com SLA de 24 horas. Tem 10 colunas; não possui chave primária definida. Não há dono formal definido para esta tabela. Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "cod_cham",
+   "tipo": "integer",
+   "descricao": "Código da chamada no discador antigo (reinicia a cada ano; não é chave)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_cham",
+   "tipo": "date",
+   "descricao": "Data da chamada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "hr_ini",
+   "tipo": "char(8)",
+   "descricao": "Hora de início",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "hr_fim",
+   "tipo": "char(8)",
+   "descricao": "Hora de fim",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "ramal",
+   "tipo": "varchar(8)",
+   "descricao": "Ramal do operador",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "fone_cli",
+   "tipo": "varchar(20)",
+   "descricao": "Telefone do cliente",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "cod_oper",
+   "tipo": "varchar(8)",
+   "descricao": "Código do operador",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "tp_cham",
+   "tipo": "char(1)",
+   "descricao": "Tipo da chamada (R receptiva, A ativa)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "st_cham",
+   "tipo": "char(2)",
+   "descricao": "Situação da chamada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "obs",
+   "tipo": "varchar(255)",
+   "descricao": "Observações livres",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:50:12-03:00",
+   "duracao_seg": 32,
+   "linhas": 521,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:50:43-03:00",
+   "duracao_seg": 39,
+   "linhas": 542,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:50:48-03:00",
+   "duracao_seg": 25,
+   "linhas": null,
+   "linhas_esperadas": 530,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "DTS_E_OLEDBERROR: falha de login no servidor SQLLEG01 (0x80040E4D). Pacote PKG_CHAMADAS_HIST abortado na etapa 3."
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:50:21-03:00",
+   "duracao_seg": 31,
+   "linhas": 515,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:50:31-03:00",
+   "duracao_seg": 32,
+   "linhas": 521,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:50:53-03:00",
+   "duracao_seg": 36,
+   "linhas": 532,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:50:26-03:00",
+   "duracao_seg": 36,
+   "linhas": 515,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:50:40-03:00",
+   "duracao_seg": 38,
+   "linhas": 548,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:50:15-03:00",
+   "duracao_seg": 33,
+   "linhas": 541,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:50:43-03:00",
+   "duracao_seg": 29,
+   "linhas": null,
+   "linhas_esperadas": 530,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "DTS_E_OLEDBERROR: falha de login no servidor SQLLEG01 (0x80040E4D). Pacote PKG_CHAMADAS_HIST abortado na etapa 3."
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:50:17-03:00",
+   "duracao_seg": 33,
+   "linhas": 533,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:50:33-03:00",
+   "duracao_seg": 34,
+   "linhas": 532,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:50:51-03:00",
+   "duracao_seg": 33,
+   "linhas": 519,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:50:07-03:00",
+   "duracao_seg": 33,
+   "linhas": 528,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:50:33-03:00",
+   "duracao_seg": 35,
+   "linhas": 513,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:50:47-03:00",
+   "duracao_seg": 36,
+   "linhas": 513,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:50:31-03:00",
+   "duracao_seg": 32,
+   "linhas": 528,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:50:23-03:00",
+   "duracao_seg": 32,
+   "linhas": 532,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:50:40-03:00",
+   "duracao_seg": 25,
+   "linhas": null,
+   "linhas_esperadas": 530,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "DTS_E_OLEDBERROR: falha de login no servidor SQLLEG01 (0x80040E4D). Pacote PKG_CHAMADAS_HIST abortado na etapa 3."
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:50:35-03:00",
+   "duracao_seg": 32,
+   "linhas": 531,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:50:37-03:00",
+   "duracao_seg": 32,
+   "linhas": 515,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:50:55-03:00",
+   "duracao_seg": 36,
+   "linhas": 547,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:50:07-03:00",
+   "duracao_seg": 36,
+   "linhas": 536,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:50:42-03:00",
+   "duracao_seg": 33,
+   "linhas": 527,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:50:19-03:00",
+   "duracao_seg": 35,
+   "linhas": 545,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:50:22-03:00",
+   "duracao_seg": 38,
+   "linhas": 538,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:50:42-03:00",
+   "duracao_seg": 40,
+   "linhas": 543,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:50:27-03:00",
+   "duracao_seg": 26,
+   "linhas": null,
+   "linhas_esperadas": 530,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "DTS_E_OLEDBERROR: falha de login no servidor SQLLEG01 (0x80040E4D). Pacote PKG_CHAMADAS_HIST abortado na etapa 3."
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:50:38-03:00",
+   "duracao_seg": 38,
+   "linhas": 542,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:50:40-03:00",
+   "duracao_seg": 39,
+   "linhas": 517,
+   "linhas_esperadas": 530,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_chamadas_legacy.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "falha",
+   "evidencia": "Tabela sem chave primária definida",
+   "valor_observado": 0,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_chamadas_legacy' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_chamadas_legacy.unicidade.cod_cham",
+   "regra": "unicidade",
+   "nome": "Unicidade de `cod_cham`",
+   "coluna": "cod_cham",
+   "severidade": "medio",
+   "resultado": "alerta",
+   "evidencia": "`cod_cham` reinicia a cada ano: 1,2% dos códigos se repetem entre anos; sem chave, não há como contar chamadas únicas",
+   "valor_observado": 1.2,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT cod_cham, COUNT(*) AS qtd\nFROM fato_chamadas_legacy\nGROUP BY cod_cham\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_chamadas_legacy.nao_nulo.dt_cham",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_cham`",
+   "coluna": "dt_cham",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_cham`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_cham IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_chamadas_legacy;"
+  },
+  {
+   "id": "fato_chamadas_legacy.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "517 linhas na última carga, dentro da faixa esperada (cerca de 530)",
+   "valor_observado": 517,
+   "limite": 530,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_chamadas_legacy'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_chamadas_legacy.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:50); SLA de 24h",
+   "valor_observado": 5.2,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_chamadas_legacy' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_chamadas_legacy.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (10 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'fato_chamadas_legacy'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'fato_chamadas_legacy';"
+  },
+  {
+   "id": "fato_chamadas_legacy.dominio_valores.tp_cham",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tp_cham`",
+   "coluna": "tp_cham",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `tp_cham` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tp_cham, COUNT(*) AS qtd\nFROM fato_chamadas_legacy\nWHERE tp_cham NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tp_cham')\nGROUP BY tp_cham;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "cod_cham",
+   "dt_cham",
+   "hr_ini",
+   "hr_fim",
+   "ramal",
+   "fone_cli",
+   "cod_oper",
+   "tp_cham",
+   "st_cham",
+   "obs"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     1380,
+     "2026-11-12",
+     "12:45:16",
+     "12:50:16",
+     "5427",
+     "(81) 9****-5396",
+     "1567",
+     "A",
+     "AT",
+     "retornar apos 18h"
+    ]
+   },
+   {
+    "valores": [
+     48211,
+     "2026-11-10",
+     "14:44:12",
+     "14:53:12",
+     null,
+     "(81) 9****-7431",
+     "8580",
+     "R",
+     "AB",
+     "cli pediu 2 via"
+    ],
+    "problema": "Mesmo `cod_cham` em registros distintos: sem chave primária não há como identificar a chamada",
+    "colunas_problema": [
+     "cod_cham"
+    ]
+   },
+   {
+    "valores": [
+     48211,
+     "2026-11-10",
+     "08:55:38",
+     null,
+     null,
+     "(21) 9****-8436",
+     null,
+     "R",
+     "AB",
+     null
+    ],
+    "problema": "Mesmo `cod_cham` em registros distintos: sem chave primária não há como identificar a chamada",
+    "colunas_problema": [
+     "cod_cham"
+    ]
+   },
+   {
+    "valores": [
+     1141,
+     "2026-11-07",
+     "12:59:00",
+     "12:59:00",
+     "6392",
+     "(21) 9****-8310",
+     "5092",
+     "R",
+     "AT",
+     "nao atendeu"
+    ]
+   },
+   {
+    "valores": [
+     1119,
+     "2026-10-25",
+     "09:05:51",
+     null,
+     "3375",
+     "(62) 9****-9574",
+     null,
+     "R",
+     "AT",
+     "cli pediu 2 via"
+    ]
+   },
+   {
+    "valores": [
+     1236,
+     "2026-10-26",
+     "12:40:34",
+     "12:46:34",
+     "7254",
+     "(21) 9****-8402",
+     null,
+     "R",
+     "AT",
+     null
+    ]
+   },
+   {
+    "valores": [
+     1081,
+     "2026-10-27",
+     "10:56:01",
+     "10:59:01",
+     "1550",
+     "(19) 9****-6056",
+     "3754",
+     "R",
+     "AT",
+     "cli pediu 2 via"
+    ]
+   },
+   {
+    "valores": [
+     1388,
+     "2026-11-04",
+     "13:26:54",
+     "13:33:54",
+     "9537",
+     null,
+     null,
+     "R",
+     "AT",
+     null
+    ]
+   },
+   {
+    "valores": [
+     1339,
+     "2026-11-05",
+     "10:18:49",
+     "10:20:49",
+     "2760",
+     null,
+     "3409",
+     "R",
+     "AT",
+     null
+    ]
+   },
+   {
+    "valores": [
+     1221,
+     "2026-11-11",
+     "12:43:16",
+     "12:45:16",
+     "6369",
+     "(51) 9****-9598",
+     "1938",
+     "A",
+     "AT",
+     "nao atendeu"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "mart_atendimento"
+ ]
+}

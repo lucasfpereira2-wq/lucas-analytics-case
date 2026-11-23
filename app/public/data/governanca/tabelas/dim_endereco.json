@@ -1,0 +1,708 @@
+{
+ "nome": "dim_endereco",
+ "descricao": "Endereços dos clientes com UF e município",
+ "dominio": "Cadastro",
+ "camada": "core",
+ "dono": "Marina Azevedo",
+ "dono_area": "Cadastro & CRM",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cadastro",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "3,1% dos registros com CEP inválido",
+ "tem_pk": true,
+ "saude": 52.8,
+ "ultima_carga": "2026-11-17T01:40:50-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 639283,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Endereços dos clientes com UF e município. Pertence ao domínio Cadastro e fica na camada core (dado tratado e modelado). É construída a partir de `stg_crm_clientes`. Carga diária pela rotina `core_cadastro`, com SLA de 24 horas. Tem 11 colunas; chave primária: `id_endereco`. Responsável: Marina Azevedo (Cadastro & CRM).",
+ "colunas": [
+  {
+   "nome": "id_endereco",
+   "tipo": "bigint",
+   "descricao": "Chave do endereço",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cliente",
+   "tipo": "bigint",
+   "descricao": "Cliente (identificador do CRM)",
+   "pk": false,
+   "fk": {
+    "tabela": "stg_crm_clientes",
+    "coluna": "id_cliente_crm"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tipo_endereco",
+   "tipo": "varchar(20)",
+   "descricao": "Residencial, comercial ou correspondência",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "logradouro",
+   "tipo": "varchar(120)",
+   "descricao": "Logradouro",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "numero",
+   "tipo": "varchar(10)",
+   "descricao": "Número",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "complemento",
+   "tipo": "varchar(60)",
+   "descricao": "Complemento",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "bairro",
+   "tipo": "varchar(60)",
+   "descricao": "Bairro",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "municipio",
+   "tipo": "varchar(80)",
+   "descricao": "Município",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "uf",
+   "tipo": "char(2)",
+   "descricao": "Unidade da federação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cep",
+   "tipo": "varchar(9)",
+   "descricao": "CEP",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "fl_principal",
+   "tipo": "char(1)",
+   "descricao": "Endereço principal (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:40:17-03:00",
+   "duracao_seg": 613,
+   "linhas": 633721,
+   "linhas_esperadas": 633721,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:40:22-03:00",
+   "duracao_seg": 662,
+   "linhas": 633913,
+   "linhas_esperadas": 633913,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:40:41-03:00",
+   "duracao_seg": 581,
+   "linhas": 634105,
+   "linhas_esperadas": 634105,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:40:15-03:00",
+   "duracao_seg": 542,
+   "linhas": 634297,
+   "linhas_esperadas": 634297,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T01:40:48-03:00",
+   "duracao_seg": 528,
+   "linhas": 634488,
+   "linhas_esperadas": 634488,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:40:06-03:00",
+   "duracao_seg": 587,
+   "linhas": 634680,
+   "linhas_esperadas": 634680,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:40:18-03:00",
+   "duracao_seg": 549,
+   "linhas": 634872,
+   "linhas_esperadas": 634872,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:40:52-03:00",
+   "duracao_seg": 635,
+   "linhas": 635064,
+   "linhas_esperadas": 635064,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:40:07-03:00",
+   "duracao_seg": 561,
+   "linhas": 635256,
+   "linhas_esperadas": 635256,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:40:10-03:00",
+   "duracao_seg": 668,
+   "linhas": 635447,
+   "linhas_esperadas": 635447,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:40:31-03:00",
+   "duracao_seg": 564,
+   "linhas": 635639,
+   "linhas_esperadas": 635639,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:40:45-03:00",
+   "duracao_seg": 628,
+   "linhas": 635831,
+   "linhas_esperadas": 635831,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:40:26-03:00",
+   "duracao_seg": 577,
+   "linhas": 636023,
+   "linhas_esperadas": 636023,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:40:25-03:00",
+   "duracao_seg": 626,
+   "linhas": 636214,
+   "linhas_esperadas": 636214,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:40:38-03:00",
+   "duracao_seg": 601,
+   "linhas": 636406,
+   "linhas_esperadas": 636406,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:40:37-03:00",
+   "duracao_seg": 548,
+   "linhas": 636598,
+   "linhas_esperadas": 636598,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:40:18-03:00",
+   "duracao_seg": 566,
+   "linhas": 636790,
+   "linhas_esperadas": 636790,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:40:03-03:00",
+   "duracao_seg": 606,
+   "linhas": 636982,
+   "linhas_esperadas": 636982,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:40:47-03:00",
+   "duracao_seg": 610,
+   "linhas": 637173,
+   "linhas_esperadas": 637173,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:40:54-03:00",
+   "duracao_seg": 552,
+   "linhas": 637365,
+   "linhas_esperadas": 637365,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:40:31-03:00",
+   "duracao_seg": 531,
+   "linhas": 637557,
+   "linhas_esperadas": 637557,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:40:50-03:00",
+   "duracao_seg": 582,
+   "linhas": 637749,
+   "linhas_esperadas": 637749,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:40:27-03:00",
+   "duracao_seg": 603,
+   "linhas": 637941,
+   "linhas_esperadas": 637941,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:40:22-03:00",
+   "duracao_seg": 555,
+   "linhas": 638132,
+   "linhas_esperadas": 638132,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:40:33-03:00",
+   "duracao_seg": 557,
+   "linhas": 638324,
+   "linhas_esperadas": 638324,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:40:12-03:00",
+   "duracao_seg": 607,
+   "linhas": 638516,
+   "linhas_esperadas": 638516,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:40:51-03:00",
+   "duracao_seg": 669,
+   "linhas": 638708,
+   "linhas_esperadas": 638708,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:40:50-03:00",
+   "duracao_seg": 569,
+   "linhas": 638899,
+   "linhas_esperadas": 638899,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:40:36-03:00",
+   "duracao_seg": 601,
+   "linhas": 639091,
+   "linhas_esperadas": 639091,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:40:50-03:00",
+   "duracao_seg": 668,
+   "linhas": 639283,
+   "linhas_esperadas": 639283,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_endereco.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_endereco`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_endereco' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_endereco.unicidade.id_endereco",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_endereco`",
+   "coluna": "id_endereco",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_endereco` (639.283 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_endereco, COUNT(*) AS qtd\nFROM dim_endereco\nGROUP BY id_endereco\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_endereco.nao_nulo.id_cliente",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_cliente`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_cliente IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_endereco;"
+  },
+  {
+   "id": "dim_endereco.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cliente` existem em `stg_crm_clientes`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM dim_endereco f\nLEFT JOIN stg_crm_clientes p ON p.id_cliente_crm = f.id_cliente\nWHERE f.id_cliente IS NOT NULL AND p.id_cliente_crm IS NULL;"
+  },
+  {
+   "id": "dim_endereco.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:40); SLA de 24h",
+   "valor_observado": 6.3,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_endereco' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_endereco.dominio_valores.cep",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `cep`",
+   "coluna": "cep",
+   "severidade": "medio",
+   "resultado": "alerta",
+   "evidencia": "3,1% dos registros com CEP inválido",
+   "valor_observado": 3.1,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT cep, COUNT(*) AS qtd\nFROM dim_endereco\nWHERE cep NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'cep')\nGROUP BY cep;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_endereco",
+   "id_cliente",
+   "tipo_endereco",
+   "logradouro",
+   "numero",
+   "complemento",
+   "bairro",
+   "municipio",
+   "uf",
+   "cep",
+   "fl_principal"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     318674,
+     "Correspondência",
+     "Av. Brasil",
+     "1123",
+     null,
+     "Setor Bueno",
+     "Fortaleza",
+     "CE",
+     "75990-***",
+     "N"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     318594,
+     "Residencial",
+     "Alameda dos Ipês",
+     "1409",
+     null,
+     "Centro",
+     "Feira de Santana",
+     "BA",
+     "38142-***",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     318523,
+     "Comercial",
+     "Alameda dos Ipês",
+     "1006",
+     "Apto 42",
+     "Jardim América",
+     "Goiânia",
+     "GO",
+     "81648-***",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     318664,
+     "Correspondência",
+     "Rua Rui Barbosa",
+     "1899",
+     "Bloco B",
+     "Cambuí",
+     "Brasília",
+     "DF",
+     "00000-000",
+     "S"
+    ],
+    "problema": "CEP inválido",
+    "colunas_problema": [
+     "cep"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     318590,
+     "Residencial",
+     "Rua das Acácias",
+     "1078",
+     "Casa 2",
+     "Centro",
+     "Goiânia",
+     "GO",
+     "71252-***",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     318716,
+     "Residencial",
+     "Rua Rui Barbosa",
+     "824",
+     null,
+     "Centro",
+     "Uberlândia",
+     "MG",
+     "26094-***",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     318409,
+     "Residencial",
+     "Av. Independência",
+     "224",
+     null,
+     "Centro",
+     "Brasília",
+     "DF",
+     "75754-***",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     318492,
+     "Residencial",
+     "Rua Sete de Setembro",
+     "1064",
+     "Sala 301",
+     "Boa Vista",
+     "Campinas",
+     "SP",
+     "7402-1",
+     "S"
+    ],
+    "problema": "CEP inválido",
+    "colunas_problema": [
+     "cep"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_crm_clientes"
+ ],
+ "downstream": []
+}

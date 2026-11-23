@@ -1,0 +1,781 @@
+{
+ "nome": "fato_pagamento",
+ "descricao": "Pagamentos liquidados e conciliados",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_financeiro_parcelas",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "0,4% dos pagamentos de 16/11 sem parcela correspondente após a duplicidade em `fato_parcelas`",
+ "tem_pk": true,
+ "saude": 52.8,
+ "ultima_carga": "2026-11-17T02:45:40-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 2709096,
+ "testes_total": 8,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira",
+  "cobranca-safra"
+ ],
+ "incidentes": [
+  "INC-2031"
+ ],
+ "tags": [],
+ "descricao_longa": "Pagamentos liquidados e conciliados. Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). É construída a partir de `stg_banco_retorno_cnab`, `fato_parcelas`. Carga diária pela rotina `core_financeiro_parcelas`, com SLA de 24 horas. Tem 10 colunas; chave primária: `id_pagamento`. Responsável: Patrícia Lemos (Crédito & Cobrança). Alimenta: Cobrança: Carteira e Inadimplência, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "id_pagamento",
+   "tipo": "bigint",
+   "descricao": "Chave do pagamento",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_parcela",
+   "tipo": "bigint",
+   "descricao": "Parcela liquidada",
+   "pk": false,
+   "fk": {
+    "tabela": "fato_parcelas",
+    "coluna": "id_parcela"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nosso_numero",
+   "tipo": "varchar(20)",
+   "descricao": "Identificação do título no banco",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "meio_pagamento",
+   "tipo": "varchar(20)",
+   "descricao": "Boleto, débito em conta ou Pix",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_banco",
+   "tipo": "char(3)",
+   "descricao": "Banco da liquidação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_pago",
+   "tipo": "decimal(12,2)",
+   "descricao": "Valor pago",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_juros_multa",
+   "tipo": "decimal(10,2)",
+   "descricao": "Juros e multa cobrados",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_conciliado",
+   "tipo": "char(1)",
+   "descricao": "Conciliado com o retorno bancário (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_pagamento",
+   "tipo": "date",
+   "descricao": "Data do pagamento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_credito",
+   "tipo": "date",
+   "descricao": "Data do crédito em conta",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:45:55-03:00",
+   "duracao_seg": 40,
+   "linhas": 1042,
+   "linhas_esperadas": 1008,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:45:13-03:00",
+   "duracao_seg": 40,
+   "linhas": 5977,
+   "linhas_esperadas": 5947,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:45:21-03:00",
+   "duracao_seg": 43,
+   "linhas": 5395,
+   "linhas_esperadas": 5393,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:45:26-03:00",
+   "duracao_seg": 41,
+   "linhas": 5204,
+   "linhas_esperadas": 5141,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:45:03-03:00",
+   "duracao_seg": 44,
+   "linhas": 5038,
+   "linhas_esperadas": 5040,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:45:09-03:00",
+   "duracao_seg": 43,
+   "linhas": 4836,
+   "linhas_esperadas": 4838,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:45:22-03:00",
+   "duracao_seg": 40,
+   "linhas": 2136,
+   "linhas_esperadas": 2117,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:45:21-03:00",
+   "duracao_seg": 43,
+   "linhas": 1010,
+   "linhas_esperadas": 1008,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:45:45-03:00",
+   "duracao_seg": 38,
+   "linhas": 5849,
+   "linhas_esperadas": 5947,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:45:37-03:00",
+   "duracao_seg": 41,
+   "linhas": 5293,
+   "linhas_esperadas": 5393,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:45:08-03:00",
+   "duracao_seg": 38,
+   "linhas": 5074,
+   "linhas_esperadas": 5141,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:45:31-03:00",
+   "duracao_seg": 44,
+   "linhas": 4914,
+   "linhas_esperadas": 5040,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:45:03-03:00",
+   "duracao_seg": 39,
+   "linhas": 4801,
+   "linhas_esperadas": 4838,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:45:53-03:00",
+   "duracao_seg": 36,
+   "linhas": 2093,
+   "linhas_esperadas": 2117,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:45:28-03:00",
+   "duracao_seg": 40,
+   "linhas": 976,
+   "linhas_esperadas": 1008,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:45:55-03:00",
+   "duracao_seg": 43,
+   "linhas": 5762,
+   "linhas_esperadas": 5947,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:45:52-03:00",
+   "duracao_seg": 36,
+   "linhas": 5416,
+   "linhas_esperadas": 5393,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:45:13-03:00",
+   "duracao_seg": 36,
+   "linhas": 4991,
+   "linhas_esperadas": 5141,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:45:51-03:00",
+   "duracao_seg": 42,
+   "linhas": 5182,
+   "linhas_esperadas": 5040,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:45:14-03:00",
+   "duracao_seg": 36,
+   "linhas": 4943,
+   "linhas_esperadas": 4838,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:45:13-03:00",
+   "duracao_seg": 43,
+   "linhas": 2148,
+   "linhas_esperadas": 2117,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:45:15-03:00",
+   "duracao_seg": 36,
+   "linhas": 999,
+   "linhas_esperadas": 1008,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:45:17-03:00",
+   "duracao_seg": 39,
+   "linhas": 5766,
+   "linhas_esperadas": 5947,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:45:46-03:00",
+   "duracao_seg": 42,
+   "linhas": 5356,
+   "linhas_esperadas": 5393,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:45:29-03:00",
+   "duracao_seg": 37,
+   "linhas": 5294,
+   "linhas_esperadas": 5141,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:45:39-03:00",
+   "duracao_seg": 36,
+   "linhas": 4937,
+   "linhas_esperadas": 5040,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:45:24-03:00",
+   "duracao_seg": 44,
+   "linhas": 4693,
+   "linhas_esperadas": 4838,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:45:39-03:00",
+   "duracao_seg": 36,
+   "linhas": 2051,
+   "linhas_esperadas": 2117,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:45:52-03:00",
+   "duracao_seg": 44,
+   "linhas": 1010,
+   "linhas_esperadas": 1008,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:45:40-03:00",
+   "duracao_seg": 42,
+   "linhas": 5973,
+   "linhas_esperadas": 5947,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_pagamento.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_pagamento`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_pagamento' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_pagamento.unicidade.id_pagamento",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_pagamento`",
+   "coluna": "id_pagamento",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_pagamento` (2.709.096 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_pagamento, COUNT(*) AS qtd\nFROM fato_pagamento\nGROUP BY id_pagamento\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_pagamento.nao_nulo.id_parcela",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_parcela`",
+   "coluna": "id_parcela",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_parcela`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_parcela IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_pagamento;"
+  },
+  {
+   "id": "fato_pagamento.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_parcela`",
+   "coluna": "id_parcela",
+   "severidade": "alto",
+   "resultado": "alerta",
+   "evidencia": "0,4% dos pagamentos de 16/11 sem parcela correspondente após a duplicidade em `fato_parcelas`",
+   "valor_observado": 0.4,
+   "limite": 0.1,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_pagamento f\nLEFT JOIN fato_parcelas p ON p.id_parcela = f.id_parcela\nWHERE f.id_parcela IS NOT NULL AND p.id_parcela IS NULL;"
+  },
+  {
+   "id": "fato_pagamento.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "5.973 linhas na última carga, dentro da faixa esperada (cerca de 5.947)",
+   "valor_observado": 5973,
+   "limite": 5947,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_pagamento'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_pagamento.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:45); SLA de 24h",
+   "valor_observado": 5.2,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_pagamento' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_pagamento.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_pago",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,05% em `vl_pago` contra `stg_banco_retorno_cnab`",
+   "valor_observado": 0.05,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_pago) - o.total) / o.total AS pc_diferenca\nFROM fato_pagamento a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'fato_pagamento' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  },
+  {
+   "id": "fato_pagamento.dominio_valores.meio_pagamento",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `meio_pagamento`",
+   "coluna": "meio_pagamento",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,1% dos valores de `meio_pagamento` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.1,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT meio_pagamento, COUNT(*) AS qtd\nFROM fato_pagamento\nWHERE meio_pagamento NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'meio_pagamento')\nGROUP BY meio_pagamento;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_pagamento",
+   "id_parcela",
+   "nosso_numero",
+   "meio_pagamento",
+   "cd_banco",
+   "vl_pago",
+   "vl_juros_multa",
+   "fl_conciliado",
+   "dt_pagamento",
+   "dt_credito"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     1958000,
+     48211981,
+     "10940775494",
+     "Boleto",
+     "033",
+     3149.41,
+     167.99,
+     "N",
+     "2026-10-29",
+     "2026-11-05"
+    ]
+   },
+   {
+    "valores": [
+     1958001,
+     48212048,
+     "10972821092",
+     "Débito em conta",
+     "033",
+     573.42,
+     260.81,
+     "S",
+     "2026-10-31",
+     "2026-11-05"
+    ]
+   },
+   {
+    "valores": [
+     1958002,
+     48212083,
+     "10996358553",
+     "Boleto",
+     "237",
+     3537.13,
+     108.24,
+     "S",
+     "2026-10-28",
+     "2026-11-14"
+    ]
+   },
+   {
+    "valores": [
+     1958003,
+     48212117,
+     "10990522220",
+     "Boleto",
+     "237",
+     3768.31,
+     272.01,
+     "S",
+     "2026-11-10",
+     "2026-11-14"
+    ]
+   },
+   {
+    "valores": [
+     1958004,
+     48212189,
+     "10965342449",
+     "Débito em conta",
+     "033",
+     3334.66,
+     362.79,
+     "S",
+     "2026-11-13",
+     "2026-11-01"
+    ],
+    "problema": "Pagamento de 16/11 sem parcela correspondente após a duplicidade em `fato_parcelas`",
+    "colunas_problema": [
+     "id_parcela"
+    ]
+   },
+   {
+    "valores": [
+     1958005,
+     48212298,
+     "10945411428",
+     "Pix",
+     "341",
+     2453.76,
+     171.45,
+     "S",
+     "2026-11-01",
+     "2026-11-09"
+    ]
+   },
+   {
+    "valores": [
+     1958006,
+     48212049,
+     "10926928301",
+     "Boleto",
+     "001",
+     509.25,
+     370.43,
+     "S",
+     "2026-10-27",
+     "2026-10-31"
+    ]
+   },
+   {
+    "valores": [
+     1958007,
+     48212201,
+     "10914105233",
+     "Pix",
+     "341",
+     3876.34,
+     268.72,
+     "S",
+     "2026-10-24",
+     "2026-11-14"
+    ]
+   },
+   {
+    "valores": [
+     1958008,
+     48212095,
+     "10956677215",
+     "Débito em conta",
+     "033",
+     3757.25,
+     228.85,
+     "S",
+     "2026-11-09",
+     "2026-11-02"
+    ]
+   },
+   {
+    "valores": [
+     1958009,
+     48212245,
+     "10923727058",
+     "Débito em conta",
+     "104",
+     2381.96,
+     4.07,
+     "S",
+     "2026-10-27",
+     "2026-10-24"
+    ]
+   },
+   {
+    "valores": [
+     1958010,
+     48212216,
+     "10920659250",
+     "Boleto",
+     "341",
+     3895.44,
+     277.18,
+     "S",
+     "2026-11-01",
+     "2026-11-07"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_banco_retorno_cnab",
+  "fato_parcelas"
+ ],
+ "downstream": [
+  "fato_fundo_comum",
+  "fato_fundo_reserva",
+  "fato_inadimplencia_diaria",
+  "mart_cobranca_carteira"
+ ]
+}

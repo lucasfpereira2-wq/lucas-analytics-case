@@ -1,0 +1,788 @@
+{
+ "nome": "stg_helpdesk_tickets",
+ "descricao": "Tickets e interações digitais (chat, e-mail, app) do helpdesk",
+ "dominio": "Staging",
+ "camada": "staging",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "media",
+ "frequencia": "horária",
+ "sla_horas": 3,
+ "pipeline": "ingest_helpdesk",
+ "fonte": "Helpdesk",
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 99.9,
+ "ultima_carga": "2026-11-17T07:10:42-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 2071835,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "alerta",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Tickets e interações digitais (chat, e-mail, app) do helpdesk. Pertence ao domínio Staging e fica na camada de staging (dado bruto, como chega da origem). Origem: Helpdesk. Carga horária pela rotina `ingest_helpdesk`, com SLA de 3 horas. Tem 13 colunas; chave primária: `id_ticket_helpdesk`. Responsável: Thiago Meireles (Engenharia de Dados). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_ticket_helpdesk",
+   "tipo": "bigint",
+   "descricao": "Identificador do ticket no helpdesk",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal",
+   "tipo": "varchar(20)",
+   "descricao": "Chat, e-mail ou aplicativo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "email_solicitante",
+   "tipo": "varchar(120)",
+   "descricao": "E-mail de quem abriu o ticket",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "cpf_solicitante",
+   "tipo": "varchar(14)",
+   "descricao": "CPF informado na abertura",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "assunto",
+   "tipo": "varchar(160)",
+   "descricao": "Assunto do ticket",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_motivo",
+   "tipo": "varchar(12)",
+   "descricao": "Motivo classificado pelo agente",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "status",
+   "tipo": "varchar(20)",
+   "descricao": "Situação do ticket",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "prioridade",
+   "tipo": "varchar(10)",
+   "descricao": "Prioridade atribuída",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_agente",
+   "tipo": "varchar(12)",
+   "descricao": "Agente responsável",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_abertura",
+   "tipo": "timestamp",
+   "descricao": "Abertura do ticket",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_primeira_resposta",
+   "tipo": "timestamp",
+   "descricao": "Primeira resposta ao cliente",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_resolucao",
+   "tipo": "timestamp",
+   "descricao": "Resolução do ticket",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "_dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da ingestão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T23:10:38-03:00",
+   "duracao_seg": 20,
+   "linhas": 134,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T23:10:18-03:00",
+   "duracao_seg": 21,
+   "linhas": 134,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T23:10:33-03:00",
+   "duracao_seg": 21,
+   "linhas": 136,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T23:10:17-03:00",
+   "duracao_seg": 24,
+   "linhas": 130,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T23:10:24-03:00",
+   "duracao_seg": 20,
+   "linhas": 138,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T23:10:18-03:00",
+   "duracao_seg": 20,
+   "linhas": 134,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T23:10:13-03:00",
+   "duracao_seg": 22,
+   "linhas": 136,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T23:10:54-03:00",
+   "duracao_seg": 21,
+   "linhas": 131,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T23:10:19-03:00",
+   "duracao_seg": 23,
+   "linhas": 130,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T23:10:21-03:00",
+   "duracao_seg": 22,
+   "linhas": 133,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T23:10:21-03:00",
+   "duracao_seg": 24,
+   "linhas": 133,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T23:10:16-03:00",
+   "duracao_seg": 20,
+   "linhas": 137,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T23:10:40-03:00",
+   "duracao_seg": 22,
+   "linhas": 137,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T23:10:42-03:00",
+   "duracao_seg": 22,
+   "linhas": 136,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T23:10:21-03:00",
+   "duracao_seg": 22,
+   "linhas": 138,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T23:10:13-03:00",
+   "duracao_seg": 21,
+   "linhas": 136,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T23:10:36-03:00",
+   "duracao_seg": 21,
+   "linhas": 130,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T23:10:55-03:00",
+   "duracao_seg": 49,
+   "linhas": 134,
+   "linhas_esperadas": 134,
+   "status": "alerta",
+   "anomalia_volume": false,
+   "mensagem": "Limite de requisições da API do helpdesk (HTTP 429); carga concluída na 3ª tentativa."
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T23:10:48-03:00",
+   "duracao_seg": 25,
+   "linhas": 135,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T23:10:34-03:00",
+   "duracao_seg": 21,
+   "linhas": 137,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T23:10:12-03:00",
+   "duracao_seg": 20,
+   "linhas": 137,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T23:10:12-03:00",
+   "duracao_seg": 22,
+   "linhas": 132,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T23:10:49-03:00",
+   "duracao_seg": 20,
+   "linhas": 136,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T23:10:28-03:00",
+   "duracao_seg": 22,
+   "linhas": 135,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T23:10:33-03:00",
+   "duracao_seg": 22,
+   "linhas": 132,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T23:10:40-03:00",
+   "duracao_seg": 23,
+   "linhas": 138,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T23:10:13-03:00",
+   "duracao_seg": 20,
+   "linhas": 138,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T23:10:52-03:00",
+   "duracao_seg": 21,
+   "linhas": 135,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T23:10:49-03:00",
+   "duracao_seg": 20,
+   "linhas": 130,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T07:10:42-03:00",
+   "duracao_seg": 23,
+   "linhas": 132,
+   "linhas_esperadas": 134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "stg_helpdesk_tickets.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_ticket_helpdesk`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'stg_helpdesk_tickets' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "stg_helpdesk_tickets.unicidade.id_ticket_helpdesk",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_ticket_helpdesk`",
+   "coluna": "id_ticket_helpdesk",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_ticket_helpdesk` (2.071.835 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_ticket_helpdesk, COUNT(*) AS qtd\nFROM stg_helpdesk_tickets\nGROUP BY id_ticket_helpdesk\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "stg_helpdesk_tickets.nao_nulo.dt_abertura",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_abertura`",
+   "coluna": "dt_abertura",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_abertura`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_abertura IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM stg_helpdesk_tickets;"
+  },
+  {
+   "id": "stg_helpdesk_tickets.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "132 linhas na última carga, dentro da faixa esperada (cerca de 134)",
+   "valor_observado": 132,
+   "limite": 134,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'stg_helpdesk_tickets'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "stg_helpdesk_tickets.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há menos de 1 hora (17/11 às 07:10); SLA de 3h",
+   "valor_observado": 0.8,
+   "limite": 3,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'stg_helpdesk_tickets' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "stg_helpdesk_tickets.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (13 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'stg_helpdesk_tickets'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'stg_helpdesk_tickets';"
+  },
+  {
+   "id": "stg_helpdesk_tickets.dominio_valores.canal",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `canal`",
+   "coluna": "canal",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `canal` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT canal, COUNT(*) AS qtd\nFROM stg_helpdesk_tickets\nWHERE canal NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'canal')\nGROUP BY canal;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_ticket_helpdesk",
+   "canal",
+   "email_solicitante",
+   "cpf_solicitante",
+   "assunto",
+   "cd_motivo",
+   "status",
+   "prioridade",
+   "cd_agente",
+   "dt_abertura",
+   "dt_primeira_resposta",
+   "dt_resolucao",
+   "_dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     "E-mail",
+     "e***@empresa.example",
+     "***.318.***-97",
+     "Transferência de cota",
+     null,
+     "Fechado",
+     "Normal",
+     "A9658",
+     "2026-11-14 14:52:44",
+     "2026-11-14 15:15:44",
+     "2026-11-14 19:14:44",
+     "2026-11-17 07:10:42"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     "App",
+     "p***@exemplo.com.br",
+     "***.785.***-75",
+     "Cancelamento de cota",
+     "M4485",
+     "Aberto",
+     "Baixa",
+     null,
+     "2026-11-15 11:23:31",
+     "2026-11-15 11:56:31",
+     "2026-11-16 02:21:31",
+     "2026-11-17 07:10:42"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     "Chat",
+     "f***@exemplo.com.br",
+     "***.391.***-99",
+     "Liberação de crédito",
+     null,
+     "Aberto",
+     "Normal",
+     "A1895",
+     "2026-11-14 18:24:38",
+     "2026-11-14 18:39:38",
+     "2026-11-14 22:09:38",
+     "2026-11-17 07:10:42"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     "WhatsApp",
+     "m***@empresa.example",
+     null,
+     "Oferta de lance",
+     "M5726",
+     "Resolvido",
+     "Normal",
+     "A9896",
+     "2026-11-15 21:23:07",
+     "2026-11-15 21:59:07",
+     "2026-11-16 06:05:07",
+     "2026-11-17 07:10:42"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     "Chat",
+     "l***@exemplo.com.br",
+     "***.925.***-54",
+     "Reajuste da parcela",
+     null,
+     "Resolvido",
+     "Baixa",
+     "A3132",
+     "2026-11-16 09:42:54",
+     "2026-11-16 10:19:54",
+     "2026-11-16 12:05:54",
+     "2026-11-17 07:10:42"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     "WhatsApp",
+     null,
+     "***.721.***-22",
+     "Cancelamento de cota",
+     "M7632",
+     "Resolvido",
+     "Normal",
+     null,
+     "2026-11-14 13:56:29",
+     "2026-11-14 14:15:29",
+     "2026-11-14 20:48:29",
+     "2026-11-17 07:10:42"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     "App",
+     "d***@empresa.example",
+     "***.222.***-80",
+     "Oferta de lance",
+     "M1824",
+     "Aberto",
+     "Alta",
+     "A1821",
+     "2026-11-14 12:37:51",
+     "2026-11-14 12:51:51",
+     "2026-11-14 20:07:51",
+     "2026-11-17 07:10:42"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     "E-mail",
+     "j***@correio.example",
+     "***.550.***-43",
+     "Segunda via de boleto",
+     "M9923",
+     "Pendente",
+     "Alta",
+     "A6229",
+     "2026-11-16 14:45:05",
+     null,
+     null,
+     "2026-11-17 07:10:42"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     "WhatsApp",
+     "p***@empresa.example",
+     null,
+     "Negociação de parcelas em atraso",
+     "M8453",
+     "Aberto",
+     "Alta",
+     "A9054",
+     "2026-11-16 18:16:41",
+     "2026-11-16 19:10:41",
+     "2026-11-16 19:26:41",
+     "2026-11-17 07:10:42"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     "E-mail",
+     "l***@exemplo.com.br",
+     "***.655.***-57",
+     "Extrato da cota",
+     "M3118",
+     "Resolvido",
+     "Baixa",
+     "A8101",
+     "2026-11-14 10:56:57",
+     "2026-11-14 11:18:57",
+     "2026-11-14 19:13:57",
+     "2026-11-17 07:10:42"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_ticket",
+  "fato_interacao_digital"
+ ]
+}

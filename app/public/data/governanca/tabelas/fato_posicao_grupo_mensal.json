@@ -1,0 +1,687 @@
+{
+ "nome": "fato_posicao_grupo_mensal",
+ "descricao": "Posição de ocupação e vagas por grupo",
+ "dominio": "Grupos e Cotas",
+ "camada": "core",
+ "dono": "Camila Furtado",
+ "dono_area": "Operações de Grupos",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_grupos_cotas",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T02:00:43-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 8014,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "assembleias"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Posição de ocupação e vagas por grupo. Pertence ao domínio Grupos e Cotas e fica na camada core (dado tratado e modelado). É construída a partir de `stg_erp_cotas`, `dim_grupo`. Carga diária pela rotina `core_grupos_cotas`, com SLA de 24 horas. Tem 8 colunas; chave primária: `id_grupo, competencia`. Responsável: Camila Furtado (Operações de Grupos). Alimenta: Assembleias e Contemplações.",
+ "colunas": [
+  {
+   "nome": "id_grupo",
+   "tipo": "integer",
+   "descricao": "Grupo",
+   "pk": true,
+   "fk": {
+    "tabela": "dim_grupo",
+    "coluna": "id_grupo"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "competencia",
+   "tipo": "char(7)",
+   "descricao": "Mês de competência (AAAA-MM)",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cotas_ativas",
+   "tipo": "integer",
+   "descricao": "Cotas ativas no fechamento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cotas_contempladas",
+   "tipo": "integer",
+   "descricao": "Cotas contempladas acumuladas",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_cotas_canceladas",
+   "tipo": "integer",
+   "descricao": "Cotas canceladas acumuladas",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_vagas",
+   "tipo": "integer",
+   "descricao": "Vagas disponíveis para venda",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_ocupacao",
+   "tipo": "decimal(7,4)",
+   "descricao": "Percentual de ocupação do grupo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_saldo_fundo_comum",
+   "tipo": "decimal(16,2)",
+   "descricao": "Saldo do fundo comum no fechamento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:00:08-03:00",
+   "duracao_seg": 33,
+   "linhas": 222,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:00:48-03:00",
+   "duracao_seg": 32,
+   "linhas": 229,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:00:41-03:00",
+   "duracao_seg": 38,
+   "linhas": 230,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:00:47-03:00",
+   "duracao_seg": 32,
+   "linhas": 220,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:00:38-03:00",
+   "duracao_seg": 37,
+   "linhas": 233,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:00:55-03:00",
+   "duracao_seg": 35,
+   "linhas": 221,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:00:31-03:00",
+   "duracao_seg": 38,
+   "linhas": 221,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:00:34-03:00",
+   "duracao_seg": 39,
+   "linhas": 229,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:00:37-03:00",
+   "duracao_seg": 37,
+   "linhas": 223,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:00:16-03:00",
+   "duracao_seg": 39,
+   "linhas": 234,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:00:51-03:00",
+   "duracao_seg": 34,
+   "linhas": 226,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:00:38-03:00",
+   "duracao_seg": 35,
+   "linhas": 221,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:00:03-03:00",
+   "duracao_seg": 38,
+   "linhas": 233,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:00:48-03:00",
+   "duracao_seg": 35,
+   "linhas": 230,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:00:14-03:00",
+   "duracao_seg": 36,
+   "linhas": 222,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:00:32-03:00",
+   "duracao_seg": 33,
+   "linhas": 224,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:00:06-03:00",
+   "duracao_seg": 37,
+   "linhas": 233,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:00:44-03:00",
+   "duracao_seg": 32,
+   "linhas": 230,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:00:52-03:00",
+   "duracao_seg": 35,
+   "linhas": 234,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:00:07-03:00",
+   "duracao_seg": 40,
+   "linhas": 230,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:00:33-03:00",
+   "duracao_seg": 35,
+   "linhas": 226,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:00:35-03:00",
+   "duracao_seg": 33,
+   "linhas": 230,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:00:09-03:00",
+   "duracao_seg": 37,
+   "linhas": 234,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:00:37-03:00",
+   "duracao_seg": 39,
+   "linhas": 236,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:00:55-03:00",
+   "duracao_seg": 36,
+   "linhas": 231,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:00:21-03:00",
+   "duracao_seg": 31,
+   "linhas": 223,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:00:15-03:00",
+   "duracao_seg": 33,
+   "linhas": 228,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:00:07-03:00",
+   "duracao_seg": 32,
+   "linhas": 232,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:00:42-03:00",
+   "duracao_seg": 31,
+   "linhas": 230,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:00:43-03:00",
+   "duracao_seg": 32,
+   "linhas": 225,
+   "linhas_esperadas": 228,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_posicao_grupo_mensal.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_grupo, competencia`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_posicao_grupo_mensal' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_posicao_grupo_mensal.unicidade.id_grupo",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_grupo, competencia`",
+   "coluna": "id_grupo, competencia",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_grupo, competencia` (8.014 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_grupo, competencia, COUNT(*) AS qtd\nFROM fato_posicao_grupo_mensal\nGROUP BY id_grupo, competencia\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_posicao_grupo_mensal.nao_nulo.vl_saldo_fundo_comum",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `vl_saldo_fundo_comum`",
+   "coluna": "vl_saldo_fundo_comum",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `vl_saldo_fundo_comum`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN vl_saldo_fundo_comum IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_posicao_grupo_mensal;"
+  },
+  {
+   "id": "fato_posicao_grupo_mensal.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_grupo`",
+   "coluna": "id_grupo",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_grupo` existem em `dim_grupo`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_posicao_grupo_mensal f\nLEFT JOIN dim_grupo p ON p.id_grupo = f.id_grupo\nWHERE f.id_grupo IS NOT NULL AND p.id_grupo IS NULL;"
+  },
+  {
+   "id": "fato_posicao_grupo_mensal.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "225 linhas na última carga, dentro da faixa esperada (cerca de 228)",
+   "valor_observado": 225,
+   "limite": 228,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_posicao_grupo_mensal'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_posicao_grupo_mensal.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:00); SLA de 24h",
+   "valor_observado": 6.0,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_posicao_grupo_mensal' AND status IN ('sucesso', 'alerta');"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_grupo",
+   "competencia",
+   "qt_cotas_ativas",
+   "qt_cotas_contempladas",
+   "qt_cotas_canceladas",
+   "qt_vagas",
+   "pc_ocupacao",
+   "vl_saldo_fundo_comum"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     1321,
+     "2026-11",
+     773,
+     27,
+     729,
+     41,
+     1.2,
+     2901875.74
+    ]
+   },
+   {
+    "valores": [
+     1463,
+     "2026-11",
+     561,
+     0,
+     329,
+     754,
+     27.83,
+     6698605.34
+    ]
+   },
+   {
+    "valores": [
+     1484,
+     "2026-11",
+     626,
+     5,
+     516,
+     897,
+     30.15,
+     7867605.24
+    ]
+   },
+   {
+    "valores": [
+     1476,
+     "2026-11",
+     695,
+     4,
+     506,
+     455,
+     38.16,
+     1478818.15
+    ]
+   },
+   {
+    "valores": [
+     1325,
+     "2026-11",
+     253,
+     2,
+     626,
+     637,
+     13.9,
+     3721137.94
+    ]
+   },
+   {
+    "valores": [
+     1531,
+     "2026-11",
+     870,
+     15,
+     60,
+     770,
+     47.73,
+     2294577.19
+    ]
+   },
+   {
+    "valores": [
+     1555,
+     "2026-11",
+     128,
+     7,
+     561,
+     536,
+     32.17,
+     2473793.75
+    ]
+   },
+   {
+    "valores": [
+     1325,
+     "2026-11",
+     176,
+     4,
+     722,
+     402,
+     56.42,
+     2682312.01
+    ]
+   },
+   {
+    "valores": [
+     1564,
+     "2026-11",
+     378,
+     15,
+     176,
+     402,
+     12.47,
+     7664598.51
+    ]
+   },
+   {
+    "valores": [
+     1256,
+     "2026-11",
+     810,
+     39,
+     792,
+     852,
+     26.28,
+     4405789.43
+    ]
+   },
+   {
+    "valores": [
+     1404,
+     "2026-11",
+     284,
+     28,
+     493,
+     758,
+     21.69,
+     6235294.01
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_erp_cotas",
+  "dim_grupo"
+ ],
+ "downstream": [
+  "mart_assembleias_contemplacoes"
+ ]
+}

@@ -1,0 +1,784 @@
+{
+ "nome": "mart_assembleias_contemplacoes",
+ "descricao": "Mart do relatório de Assembleias e Contemplações",
+ "dominio": "Marts",
+ "camada": "mart",
+ "dono": "Fernanda Rocha",
+ "dono_area": "Analytics & BI",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "mart_assembleias",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T05:30:17-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 20958,
+ "testes_total": 8,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "assembleias"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Mart do relatório de Assembleias e Contemplações. Pertence ao domínio Marts e fica na camada de marts (dado agregado para consumo em relatório). É construída a partir de `fato_assembleia`, `fato_lance`, `fato_sorteio`, `fato_contemplacao` e outras. Carga diária pela rotina `mart_assembleias`, com SLA de 24 horas. Tem 12 colunas; chave primária: `competencia, id_grupo`. Responsável: Fernanda Rocha (Analytics & BI). Alimenta: Assembleias e Contemplações.",
+ "colunas": [
+  {
+   "nome": "competencia",
+   "tipo": "char(7)",
+   "descricao": "Mês de competência (AAAA-MM)",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_grupo",
+   "tipo": "integer",
+   "descricao": "Grupo",
+   "pk": true,
+   "fk": {
+    "tabela": "dim_grupo",
+    "coluna": "id_grupo"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento do grupo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_assembleias",
+   "tipo": "integer",
+   "descricao": "Assembleias realizadas",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_contemplacoes_sorteio",
+   "tipo": "integer",
+   "descricao": "Contemplações por sorteio",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_contemplacoes_lance",
+   "tipo": "integer",
+   "descricao": "Contemplações por lance",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_lances_ofertados",
+   "tipo": "integer",
+   "descricao": "Lances ofertados",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_lance_medio",
+   "tipo": "decimal(7,4)",
+   "descricao": "Percentual médio dos lances vencedores",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "vl_credito_contemplado",
+   "tipo": "decimal(18,2)",
+   "descricao": "Crédito contemplado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_credito_liberado",
+   "tipo": "decimal(18,2)",
+   "descricao": "Crédito liberado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dias_medio_liberacao",
+   "tipo": "decimal(7,2)",
+   "descricao": "Prazo médio entre contemplação e liberação",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da carga",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T05:30:33-03:00",
+   "duracao_seg": 364,
+   "linhas": 902,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T05:30:07-03:00",
+   "duracao_seg": 292,
+   "linhas": 872,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T05:30:08-03:00",
+   "duracao_seg": 335,
+   "linhas": 872,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T05:30:25-03:00",
+   "duracao_seg": 337,
+   "linhas": 884,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T05:30:43-03:00",
+   "duracao_seg": 366,
+   "linhas": 889,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T05:30:52-03:00",
+   "duracao_seg": 364,
+   "linhas": 895,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T05:30:10-03:00",
+   "duracao_seg": 359,
+   "linhas": 896,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T05:30:11-03:00",
+   "duracao_seg": 304,
+   "linhas": 889,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T05:30:11-03:00",
+   "duracao_seg": 363,
+   "linhas": 899,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T05:30:53-03:00",
+   "duracao_seg": 328,
+   "linhas": 856,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T05:30:43-03:00",
+   "duracao_seg": 311,
+   "linhas": 867,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T05:30:31-03:00",
+   "duracao_seg": 302,
+   "linhas": 852,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T05:30:48-03:00",
+   "duracao_seg": 331,
+   "linhas": 891,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T05:30:14-03:00",
+   "duracao_seg": 357,
+   "linhas": 890,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T05:30:32-03:00",
+   "duracao_seg": 324,
+   "linhas": 891,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T05:30:12-03:00",
+   "duracao_seg": 361,
+   "linhas": 860,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T05:30:43-03:00",
+   "duracao_seg": 350,
+   "linhas": 899,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T05:30:36-03:00",
+   "duracao_seg": 291,
+   "linhas": 864,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T05:30:29-03:00",
+   "duracao_seg": 356,
+   "linhas": 878,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T05:30:25-03:00",
+   "duracao_seg": 303,
+   "linhas": 852,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T05:30:49-03:00",
+   "duracao_seg": 354,
+   "linhas": 878,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T05:30:14-03:00",
+   "duracao_seg": 332,
+   "linhas": 873,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T05:30:04-03:00",
+   "duracao_seg": 349,
+   "linhas": 869,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T05:30:37-03:00",
+   "duracao_seg": 302,
+   "linhas": 869,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T05:30:47-03:00",
+   "duracao_seg": 359,
+   "linhas": 856,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T05:30:05-03:00",
+   "duracao_seg": 325,
+   "linhas": 881,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T05:30:46-03:00",
+   "duracao_seg": 357,
+   "linhas": 900,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T05:30:36-03:00",
+   "duracao_seg": 301,
+   "linhas": 843,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T05:30:10-03:00",
+   "duracao_seg": 324,
+   "linhas": 849,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T05:30:17-03:00",
+   "duracao_seg": 367,
+   "linhas": 878,
+   "linhas_esperadas": 873,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "mart_assembleias_contemplacoes.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `competencia, id_grupo`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'mart_assembleias_contemplacoes' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "mart_assembleias_contemplacoes.unicidade.competencia",
+   "regra": "unicidade",
+   "nome": "Unicidade de `competencia, id_grupo`",
+   "coluna": "competencia, id_grupo",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `competencia, id_grupo` (20.958 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT competencia, id_grupo, COUNT(*) AS qtd\nFROM mart_assembleias_contemplacoes\nGROUP BY competencia, id_grupo\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "mart_assembleias_contemplacoes.nao_nulo.vl_credito_contemplado",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `vl_credito_contemplado`",
+   "coluna": "vl_credito_contemplado",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `vl_credito_contemplado`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN vl_credito_contemplado IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM mart_assembleias_contemplacoes;"
+  },
+  {
+   "id": "mart_assembleias_contemplacoes.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_grupo`",
+   "coluna": "id_grupo",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_grupo` existem em `dim_grupo`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM mart_assembleias_contemplacoes f\nLEFT JOIN dim_grupo p ON p.id_grupo = f.id_grupo\nWHERE f.id_grupo IS NOT NULL AND p.id_grupo IS NULL;"
+  },
+  {
+   "id": "mart_assembleias_contemplacoes.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "878 linhas na última carga, dentro da faixa esperada (cerca de 873)",
+   "valor_observado": 878,
+   "limite": 873,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'mart_assembleias_contemplacoes'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "mart_assembleias_contemplacoes.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2h (17/11 às 05:30); SLA de 24h",
+   "valor_observado": 2.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'mart_assembleias_contemplacoes' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "mart_assembleias_contemplacoes.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_credito_contemplado",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,02% em `vl_credito_contemplado` contra `fato_contemplacao`",
+   "valor_observado": 0.02,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_credito_contemplado) - o.total) / o.total AS pc_diferenca\nFROM mart_assembleias_contemplacoes a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'mart_assembleias_contemplacoes' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  },
+  {
+   "id": "mart_assembleias_contemplacoes.dominio_valores.segmento",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `segmento`",
+   "coluna": "segmento",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `segmento` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT segmento, COUNT(*) AS qtd\nFROM mart_assembleias_contemplacoes\nWHERE segmento NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'segmento')\nGROUP BY segmento;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "competencia",
+   "id_grupo",
+   "segmento",
+   "qt_assembleias",
+   "qt_contemplacoes_sorteio",
+   "qt_contemplacoes_lance",
+   "qt_lances_ofertados",
+   "pc_lance_medio",
+   "vl_credito_contemplado",
+   "vl_credito_liberado",
+   "dias_medio_liberacao",
+   "dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "2026-11",
+     1431,
+     "Auto",
+     24,
+     26,
+     34,
+     842,
+     5.22,
+     80000.0,
+     420000.0,
+     null,
+     "2026-11-17 05:30:17"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     1470,
+     "Serviços",
+     18,
+     33,
+     17,
+     441,
+     27.82,
+     240000.0,
+     45000.0,
+     92,
+     "2026-11-17 05:30:17"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     1483,
+     "Serviços",
+     37,
+     19,
+     35,
+     891,
+     null,
+     45000.0,
+     80000.0,
+     60,
+     "2026-11-17 05:30:17"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     1395,
+     "Serviços",
+     38,
+     11,
+     40,
+     137,
+     7.69,
+     95000.0,
+     240000.0,
+     39,
+     "2026-11-17 05:30:17"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     1187,
+     "Serviços",
+     28,
+     4,
+     19,
+     375,
+     35.09,
+     120000.0,
+     95000.0,
+     43,
+     "2026-11-17 05:30:17"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     1527,
+     "Imóvel",
+     23,
+     34,
+     20,
+     155,
+     58.87,
+     80000.0,
+     180000.0,
+     7,
+     "2026-11-17 05:30:17"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     1308,
+     "Serviços",
+     38,
+     33,
+     27,
+     428,
+     40.6,
+     420000.0,
+     240000.0,
+     13,
+     "2026-11-17 05:30:17"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     1341,
+     "Pesada",
+     33,
+     9,
+     2,
+     470,
+     21.15,
+     420000.0,
+     300000.0,
+     7,
+     "2026-11-17 05:30:17"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     1247,
+     "Imóvel",
+     16,
+     31,
+     7,
+     846,
+     21.86,
+     45000.0,
+     80000.0,
+     61,
+     "2026-11-17 05:30:17"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "fato_assembleia",
+  "fato_lance",
+  "fato_sorteio",
+  "fato_contemplacao",
+  "fato_liberacao_credito",
+  "dim_grupo",
+  "fato_posicao_grupo_mensal"
+ ],
+ "downstream": [
+  "mart_executivo_kpis"
+ ]
+}

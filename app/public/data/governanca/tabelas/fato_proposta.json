@@ -1,0 +1,735 @@
+{
+ "nome": "fato_proposta",
+ "descricao": "Propostas de adesão e seu desfecho",
+ "dominio": "Vendas",
+ "camada": "core",
+ "dono": "Bruno Tavares",
+ "dono_area": "Inteligência Comercial",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_vendas",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "Volume 61% abaixo do esperado, herdado da carga parcial de `stg_crm_propostas`",
+ "tem_pk": true,
+ "saude": 53.0,
+ "ultima_carga": "2026-11-17T02:30:24-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 527045,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "vendas",
+  "cobranca-safra"
+ ],
+ "incidentes": [
+  "INC-2033"
+ ],
+ "tags": [],
+ "descricao_longa": "Propostas de adesão e seu desfecho. Pertence ao domínio Vendas e fica na camada core (dado tratado e modelado). É construída a partir de `stg_crm_propostas`, `dim_cliente`, `dim_vendedor`. Carga diária pela rotina `core_vendas`, com SLA de 24 horas. Tem 11 colunas; chave primária: `id_proposta`. Responsável: Bruno Tavares (Inteligência Comercial). Alimenta: Vendas / Comercial, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "id_proposta",
+   "tipo": "bigint",
+   "descricao": "Chave da proposta",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cliente",
+   "tipo": "bigint",
+   "descricao": "Cliente proponente",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_cliente",
+    "coluna": "id_cliente"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_vendedor",
+   "tipo": "integer",
+   "descricao": "Vendedor responsável",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_vendedor",
+    "coluna": "id_vendedor"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_lead",
+   "tipo": "bigint",
+   "descricao": "Lead de origem, quando rastreado",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento do consórcio",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_venda",
+   "tipo": "varchar(30)",
+   "descricao": "Canal de venda",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_credito",
+   "tipo": "decimal(14,2)",
+   "descricao": "Crédito pretendido",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "status_proposta",
+   "tipo": "varchar(20)",
+   "descricao": "Em análise, aprovada, recusada ou convertida",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "motivo_recusa",
+   "tipo": "varchar(60)",
+   "descricao": "Motivo da recusa",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_proposta",
+   "tipo": "date",
+   "descricao": "Data da proposta",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_decisao",
+   "tipo": "date",
+   "descricao": "Data da decisão",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:30:55-03:00",
+   "duracao_seg": 40,
+   "linhas": 193,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:30:46-03:00",
+   "duracao_seg": 36,
+   "linhas": 1166,
+   "linhas_esperadas": 1148,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:30:31-03:00",
+   "duracao_seg": 35,
+   "linhas": 1005,
+   "linhas_esperadas": 1041,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:30:30-03:00",
+   "duracao_seg": 38,
+   "linhas": 995,
+   "linhas_esperadas": 992,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:30:44-03:00",
+   "duracao_seg": 34,
+   "linhas": 991,
+   "linhas_esperadas": 973,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:30:32-03:00",
+   "duracao_seg": 39,
+   "linhas": 950,
+   "linhas_esperadas": 934,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:30:22-03:00",
+   "duracao_seg": 34,
+   "linhas": 409,
+   "linhas_esperadas": 409,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:30:17-03:00",
+   "duracao_seg": 40,
+   "linhas": 195,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:30:26-03:00",
+   "duracao_seg": 35,
+   "linhas": 1131,
+   "linhas_esperadas": 1148,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:30:12-03:00",
+   "duracao_seg": 35,
+   "linhas": 1025,
+   "linhas_esperadas": 1041,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:30:27-03:00",
+   "duracao_seg": 41,
+   "linhas": 1015,
+   "linhas_esperadas": 992,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:30:34-03:00",
+   "duracao_seg": 36,
+   "linhas": 998,
+   "linhas_esperadas": 973,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:30:44-03:00",
+   "duracao_seg": 33,
+   "linhas": 949,
+   "linhas_esperadas": 934,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:30:07-03:00",
+   "duracao_seg": 35,
+   "linhas": 402,
+   "linhas_esperadas": 409,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:30:31-03:00",
+   "duracao_seg": 36,
+   "linhas": 193,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:30:20-03:00",
+   "duracao_seg": 33,
+   "linhas": 1115,
+   "linhas_esperadas": 1148,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:30:52-03:00",
+   "duracao_seg": 38,
+   "linhas": 1022,
+   "linhas_esperadas": 1041,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:30:16-03:00",
+   "duracao_seg": 39,
+   "linhas": 1013,
+   "linhas_esperadas": 992,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:30:39-03:00",
+   "duracao_seg": 38,
+   "linhas": 986,
+   "linhas_esperadas": 973,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:30:06-03:00",
+   "duracao_seg": 40,
+   "linhas": 933,
+   "linhas_esperadas": 934,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:30:42-03:00",
+   "duracao_seg": 35,
+   "linhas": 406,
+   "linhas_esperadas": 409,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:30:49-03:00",
+   "duracao_seg": 41,
+   "linhas": 200,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:30:33-03:00",
+   "duracao_seg": 37,
+   "linhas": 1183,
+   "linhas_esperadas": 1148,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:30:17-03:00",
+   "duracao_seg": 36,
+   "linhas": 1012,
+   "linhas_esperadas": 1041,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:30:24-03:00",
+   "duracao_seg": 33,
+   "linhas": 966,
+   "linhas_esperadas": 992,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:30:30-03:00",
+   "duracao_seg": 36,
+   "linhas": 961,
+   "linhas_esperadas": 973,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:30:47-03:00",
+   "duracao_seg": 35,
+   "linhas": 965,
+   "linhas_esperadas": 934,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:30:26-03:00",
+   "duracao_seg": 34,
+   "linhas": 403,
+   "linhas_esperadas": 409,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:30:22-03:00",
+   "duracao_seg": 35,
+   "linhas": 189,
+   "linhas_esperadas": 195,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:30:24-03:00",
+   "duracao_seg": 29,
+   "linhas": 448,
+   "linhas_esperadas": 1148,
+   "status": "sucesso",
+   "anomalia_volume": true,
+   "mensagem": "Volume 61% abaixo do esperado: carga parcial herdada de `stg_crm_propostas`."
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_proposta.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_proposta`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_proposta' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_proposta.unicidade.id_proposta",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_proposta`",
+   "coluna": "id_proposta",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_proposta` (527.045 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_proposta, COUNT(*) AS qtd\nFROM fato_proposta\nGROUP BY id_proposta\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_proposta.nao_nulo.id_cliente",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_cliente`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_cliente IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_proposta;"
+  },
+  {
+   "id": "fato_proposta.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cliente` existem em `dim_cliente`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_proposta f\nLEFT JOIN dim_cliente p ON p.id_cliente = f.id_cliente\nWHERE f.id_cliente IS NOT NULL AND p.id_cliente IS NULL;"
+  },
+  {
+   "id": "fato_proposta.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "alerta",
+   "evidencia": "Volume 61% abaixo do esperado, herdado da carga parcial de `stg_crm_propostas`",
+   "valor_observado": 448,
+   "limite": 1148,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_proposta'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_proposta.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:30); SLA de 24h",
+   "valor_observado": 5.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_proposta' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_proposta.dominio_valores.segmento",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `segmento`",
+   "coluna": "segmento",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `segmento` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT segmento, COUNT(*) AS qtd\nFROM fato_proposta\nWHERE segmento NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'segmento')\nGROUP BY segmento;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_proposta",
+   "id_cliente",
+   "id_vendedor",
+   "id_lead",
+   "segmento",
+   "canal_venda",
+   "vl_credito",
+   "status_proposta",
+   "motivo_recusa",
+   "dt_proposta",
+   "dt_decisao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     598300,
+     318536,
+     237,
+     1864239,
+     "Serviços",
+     "Parceiro",
+     80000.0,
+     "Convertida",
+     null,
+     "2026-11-05",
+     "2026-11-04"
+    ]
+   },
+   {
+    "valores": [
+     598301,
+     318574,
+     213,
+     1864044,
+     "Imóvel",
+     "Parceiro",
+     45000.0,
+     "Recusada",
+     "Restrição cadastral",
+     "2026-10-26",
+     "2026-11-08"
+    ]
+   },
+   {
+    "valores": [
+     598302,
+     318532,
+     229,
+     null,
+     "Imóvel",
+     "Digital",
+     180000.0,
+     "Convertida",
+     null,
+     "2026-11-09",
+     null
+    ]
+   },
+   {
+    "valores": [
+     598303,
+     318690,
+     210,
+     1864263,
+     "Pesada",
+     "Parceiro",
+     45000.0,
+     "Convertida",
+     "Restrição cadastral",
+     "2026-11-10",
+     "2026-11-09"
+    ]
+   },
+   {
+    "valores": [
+     598304,
+     318596,
+     215,
+     1864193,
+     "Auto",
+     "Digital",
+     300000.0,
+     "Convertida",
+     "Renda insuficiente",
+     "2026-11-09",
+     "2026-11-12"
+    ]
+   },
+   {
+    "valores": [
+     598305,
+     318767,
+     214,
+     1864358,
+     "Serviços",
+     "Digital",
+     240000.0,
+     "Recusada",
+     null,
+     "2026-11-04",
+     "2026-11-06"
+    ]
+   },
+   {
+    "valores": [
+     598306,
+     318645,
+     217,
+     1864206,
+     "Serviços",
+     "Loja",
+     150000.0,
+     "Recusada",
+     null,
+     "2026-10-31",
+     "2026-11-04"
+    ]
+   },
+   {
+    "valores": [
+     598307,
+     318733,
+     218,
+     1864039,
+     "Auto",
+     "Representante",
+     95000.0,
+     "Em análise",
+     "Renda insuficiente",
+     "2026-11-14",
+     "2026-10-25"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_crm_propostas",
+  "dim_cliente",
+  "dim_vendedor"
+ ],
+ "downstream": [
+  "fato_contrato_venda",
+  "fato_funil_crm",
+  "mart_vendas_comercial"
+ ]
+}

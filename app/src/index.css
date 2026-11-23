@@ -1,0 +1,246 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ *
+ * Tokens do Lucas Analytics Case (docs/contratos.md, seção 4).
+ * Sempre use os tokens semânticos (bg-card, text-muted-foreground...),
+ * nunca hex solto nos componentes.
+ * ------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+  --marinho-950: #00172b;
+  --marinho-900: #00203a;
+  --marinho-800: #062c4b;
+  --marinho-700: #0e3a5c;
+  --agua-500: #7b8cff;
+  --agua-600: #4c5fd5;
+  --agua-700: #3b4bb3;
+  --agua-100: #eceffe;
+
+  --status-verde: #2fa84f;
+  --status-amarelo: #e0a100;
+  --status-vermelho: #d64545;
+  --status-verde-texto: #1e7a38;
+  --status-amarelo-texto: #8a6200;
+  --status-vermelho-texto: #b23232;
+  --status-verde-fundo: #e9f6ed;
+  --status-amarelo-fundo: #fdf4dc;
+  --status-vermelho-fundo: #fbeaea;
+
+  --background: #f4f7fa;
+  --foreground: #0b2239;
+  --card: #ffffff;
+  --card-foreground: #0b2239;
+  --popover: #ffffff;
+  --popover-foreground: #0b2239;
+  --primary: #4c5fd5;
+  --primary-foreground: #ffffff;
+  --secondary: #eef2f6;
+  --secondary-foreground: #0b2239;
+  --muted: #eef2f6;
+  --muted-foreground: #5a6b7d;
+  --accent: #eceffe;
+  --accent-foreground: #303e9c;
+  --destructive: #d64545;
+  --border: #e1e8ef;
+  --input: #d5dee7;
+  --ring: #7b8cff;
+  --sidebar: #00203a;
+  --sidebar-foreground: #c9d8e6;
+  --sidebar-muted: #7f97ad;
+  --sidebar-accent: #0e3a5c;
+  --sidebar-border: #123754;
+
+  /* séries de gráfico: validadas com o validador da skill dataviz (claro) */
+  --serie-1: #175b8c;
+  --serie-2: #22aba8;
+  --serie-3: #6f5fd0;
+  --serie-4: #58a6e8;
+  --serie-5: #b4589e;
+  --serie-6: #c2703d;
+  --serie-outros: #8a9bb0;
+
+  --sombra-card: 0 1px 2px rgb(0 32 58 / 0.05), 0 1px 1px rgb(0 32 58 / 0.03);
+  --sombra-elevada: 0 12px 32px -8px rgb(0 32 58 / 0.18), 0 2px 6px rgb(0 32 58 / 0.06);
+  --radius: 0.75rem;
+}
+
+.dark {
+  color-scheme: dark;
+  --status-verde: #3cbf62;
+  --status-amarelo: #f0b429;
+  --status-vermelho: #ef6461;
+  --status-verde-texto: #6fdc8f;
+  --status-amarelo-texto: #f5c95a;
+  --status-vermelho-texto: #f58a87;
+  --status-verde-fundo: #0d3a2c;
+  --status-amarelo-fundo: #3a3013;
+  --status-vermelho-fundo: #3f1f27;
+
+  --background: #00172b;
+  --foreground: #e6eef5;
+  --card: #06243f;
+  --card-foreground: #e6eef5;
+  --popover: #0a2a47;
+  --popover-foreground: #e6eef5;
+  --primary: #7b8cff;
+  --primary-foreground: #00172b;
+  --secondary: #0e3350;
+  --secondary-foreground: #e6eef5;
+  --muted: #0b2d49;
+  --muted-foreground: #8fa5ba;
+  --accent: #1a2a5c;
+  --accent-foreground: #b4beff;
+  --destructive: #ef6461;
+  --border: #143a59;
+  --input: #1b4566;
+  --ring: #7b8cff;
+  --sidebar: #001324;
+  --sidebar-foreground: #c9d8e6;
+  --sidebar-muted: #7189a0;
+  --sidebar-accent: #0b2d49;
+  --sidebar-border: #0d2b45;
+
+  /* mesmas matizes, passos próprios para a superfície escura (validados) */
+  --serie-1: #4877d6;
+  --serie-2: #17a596;
+  --serie-3: #9466d9;
+  --serie-4: #4a9bd2;
+  --serie-5: #c4609f;
+  --serie-6: #c27a48;
+  --serie-outros: #6f859b;
+
+  --sombra-card: 0 1px 2px rgb(0 0 0 / 0.3);
+  --sombra-elevada: 0 16px 40px -8px rgb(0 0 0 / 0.55), 0 2px 6px rgb(0 0 0 / 0.3);
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-marinho-950: var(--marinho-950);
+  --color-marinho-900: var(--marinho-900);
+  --color-marinho-800: var(--marinho-800);
+  --color-marinho-700: var(--marinho-700);
+  --color-agua-500: var(--agua-500);
+  --color-agua-600: var(--agua-600);
+  --color-agua-700: var(--agua-700);
+  --color-agua-100: var(--agua-100);
+  --color-status-verde: var(--status-verde);
+  --color-status-amarelo: var(--status-amarelo);
+  --color-status-vermelho: var(--status-vermelho);
+  --color-status-verde-texto: var(--status-verde-texto);
+  --color-status-amarelo-texto: var(--status-amarelo-texto);
+  --color-status-vermelho-texto: var(--status-vermelho-texto);
+  --color-status-verde-fundo: var(--status-verde-fundo);
+  --color-status-amarelo-fundo: var(--status-amarelo-fundo);
+  --color-status-vermelho-fundo: var(--status-vermelho-fundo);
+  --color-serie-1: var(--serie-1);
+  --color-serie-2: var(--serie-2);
+  --color-serie-3: var(--serie-3);
+  --color-serie-4: var(--serie-4);
+  --color-serie-5: var(--serie-5);
+  --color-serie-6: var(--serie-6);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --shadow-card: var(--sombra-card);
+  --shadow-elevada: var(--sombra-elevada);
+  --animate-entrar: entrar 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  --animate-surgir: surgir 0.18s ease-out backwards;
+  --animate-brilho: brilho 1.6s ease-in-out infinite;
+}
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes surgir {
+  from { opacity: 0; transform: scale(0.98) translateY(2px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes brilho {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+@keyframes farol-pulso {
+  0% { transform: scale(1); opacity: 0.55; }
+  70%, 100% { transform: scale(2.6); opacity: 0; }
+}
+@keyframes fluxo {
+  to { stroke-dashoffset: -64; }
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { background: var(--background); color: var(--foreground); font-feature-settings: 'cv11', 'ss01'; }
+  button:not(:disabled), [role='button']:not([aria-disabled='true']) { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 6px; }
+  ::selection { background: color-mix(in srgb, var(--agua-500) 30%, transparent); }
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+@utility scroll-fino {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--muted-foreground) 35%, transparent) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Calendário (react-day-picker) nos tokens do Hub (especificidade dobrada: vence o CSS da biblioteca) */
+.rdp-root.rdp-root {
+  --rdp-accent-color: var(--primary);
+  --rdp-accent-background-color: var(--accent);
+  --rdp-day-height: 34px;
+  --rdp-day-width: 34px;
+  --rdp-day_button-height: 32px;
+  --rdp-day_button-width: 32px;
+  --rdp-nav-height: 36px;
+  --rdp-range_start-date-background-color: var(--primary);
+  --rdp-range_end-date-background-color: var(--primary);
+  --rdp-range_start-color: var(--primary-foreground);
+  --rdp-range_end-color: var(--primary-foreground);
+  --rdp-today-color: var(--primary);
+  --rdp-range_middle-background-color: var(--accent);
+  --rdp-range_middle-color: var(--accent-foreground);
+  --rdp-selected-border: 2px solid transparent;
+  font-size: 13px;
+}
+.rdp-root .rdp-month_caption { font-size: 14px; font-weight: 600; text-transform: capitalize; }
+.rdp-root .rdp-weekday { color: var(--muted-foreground); font-weight: 500; }
+.rdp-root .rdp-selected { font-size: inherit; font-weight: 600; }
+.rdp-root .rdp-chevron { fill: var(--muted-foreground); }
+.rdp-root .rdp-day_button:hover:not(:disabled) { background: var(--secondary); }
+.rdp-root .rdp-range_start .rdp-day_button:hover, .rdp-root .rdp-range_end .rdp-day_button:hover { background: var(--primary); }

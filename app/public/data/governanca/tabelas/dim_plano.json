@@ -1,0 +1,677 @@
+{
+ "nome": "dim_plano",
+ "descricao": "Planos comercializados (prazo, taxa de administração, fundo de reserva)",
+ "dominio": "Produto",
+ "camada": "core",
+ "dono": "Rafael Nogueira",
+ "dono_area": "Produtos",
+ "criticidade": "alta",
+ "frequencia": "semanal",
+ "sla_horas": 168,
+ "pipeline": "core_produto",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-15T03:00:52-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 46,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [
+  "assembleias",
+  "cobranca-carteira",
+  "cobranca-safra",
+  "vendas"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Planos comercializados (prazo, taxa de administração, fundo de reserva). Pertence ao domínio Produto e fica na camada core (dado tratado e modelado). É construída a partir de `stg_erp_contratos`. Carga semanal pela rotina `core_produto`, com SLA de 168 horas. Tem 10 colunas; chave primária: `id_plano`. Responsável: Rafael Nogueira (Produtos). Alimenta: Assembleias e Contemplações, Cobrança: Carteira e Inadimplência, Cobrança: Safra, MOB e Cohort, Vendas / Comercial.",
+ "colunas": [
+  {
+   "nome": "id_plano",
+   "tipo": "integer",
+   "descricao": "Chave do plano",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_plano",
+   "tipo": "varchar(12)",
+   "descricao": "Código do plano no ERP",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_plano",
+   "tipo": "varchar(60)",
+   "descricao": "Nome comercial do plano",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento do plano",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "prazo_meses",
+   "tipo": "smallint",
+   "descricao": "Prazo em meses",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_taxa_administracao",
+   "tipo": "decimal(7,4)",
+   "descricao": "Taxa de administração total do plano",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_fundo_reserva",
+   "tipo": "decimal(7,4)",
+   "descricao": "Percentual de fundo de reserva",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_seguro",
+   "tipo": "decimal(7,4)",
+   "descricao": "Percentual de seguro prestamista",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativo",
+   "tipo": "char(1)",
+   "descricao": "Plano em comercialização (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_inicio_vigencia",
+   "tipo": "date",
+   "descricao": "Início da vigência",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:00:52-03:00",
+   "duracao_seg": 36,
+   "linhas": 46,
+   "linhas_esperadas": 46,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:00:08-03:00",
+   "duracao_seg": 37,
+   "linhas": 46,
+   "linhas_esperadas": 46,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:00:42-03:00",
+   "duracao_seg": 35,
+   "linhas": 46,
+   "linhas_esperadas": 46,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:00:52-03:00",
+   "duracao_seg": 34,
+   "linhas": 46,
+   "linhas_esperadas": 46,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_plano.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_plano`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_plano' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_plano.unicidade.id_plano",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_plano`",
+   "coluna": "id_plano",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_plano` (46 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_plano, COUNT(*) AS qtd\nFROM dim_plano\nGROUP BY id_plano\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_plano.nao_nulo.dt_inicio_vigencia",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_inicio_vigencia`",
+   "coluna": "dt_inicio_vigencia",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_inicio_vigencia`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_inicio_vigencia IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_plano;"
+  },
+  {
+   "id": "dim_plano.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2 dias (15/11 às 03:00); SLA de 168h",
+   "valor_observado": 53.0,
+   "limite": 168,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_plano' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_plano.dominio_valores.segmento",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `segmento`",
+   "coluna": "segmento",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `segmento` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT segmento, COUNT(*) AS qtd\nFROM dim_plano\nWHERE segmento NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'segmento')\nGROUP BY segmento;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_plano",
+   "cd_plano",
+   "nm_plano",
+   "segmento",
+   "prazo_meses",
+   "pc_taxa_administracao",
+   "pc_fundo_reserva",
+   "pc_seguro",
+   "fl_ativo",
+   "dt_inicio_vigencia"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     12,
+     "PL6114",
+     "Auto 60 meses",
+     "Auto",
+     60,
+     14.6,
+     2.0,
+     0.05,
+     "N",
+     "2024-07-04"
+    ]
+   },
+   {
+    "valores": [
+     13,
+     "PL6627",
+     "Imóvel 200 meses",
+     "Imóvel",
+     200,
+     21.24,
+     2.0,
+     0.03,
+     "S",
+     "2025-04-20"
+    ]
+   },
+   {
+    "valores": [
+     14,
+     "PL8934",
+     "Imóvel 180 meses",
+     "Imóvel",
+     180,
+     20.47,
+     2.0,
+     0.03,
+     "S",
+     "2024-06-15"
+    ]
+   },
+   {
+    "valores": [
+     15,
+     "PL2048",
+     "Auto 60 meses",
+     "Auto",
+     60,
+     20.02,
+     3.0,
+     0.05,
+     "S",
+     "2024-04-01"
+    ]
+   },
+   {
+    "valores": [
+     16,
+     "PL6684",
+     "Auto 60 meses",
+     "Auto",
+     60,
+     18.41,
+     3.0,
+     0.03,
+     "S",
+     "2024-02-18"
+    ]
+   },
+   {
+    "valores": [
+     17,
+     "PL3204",
+     "Imóvel 180 meses",
+     "Imóvel",
+     180,
+     17.34,
+     2.0,
+     null,
+     "N",
+     "2025-02-13"
+    ]
+   },
+   {
+    "valores": [
+     18,
+     "PL3939",
+     "Serviços 40 meses",
+     "Serviços",
+     40,
+     19.37,
+     1.0,
+     0.05,
+     "S",
+     "2026-05-24"
+    ]
+   },
+   {
+    "valores": [
+     19,
+     "PL8172",
+     "Imóvel 200 meses",
+     "Imóvel",
+     200,
+     19.81,
+     2.0,
+     null,
+     "S",
+     "2026-06-23"
+    ]
+   },
+   {
+    "valores": [
+     20,
+     "PL1665",
+     "Imóvel 200 meses",
+     "Imóvel",
+     200,
+     17.73,
+     2.0,
+     null,
+     "N",
+     "2023-06-07"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_erp_contratos"
+ ],
+ "downstream": [
+  "dim_grupo",
+  "dim_cota"
+ ]
+}

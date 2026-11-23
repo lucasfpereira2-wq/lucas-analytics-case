@@ -1,0 +1,696 @@
+{
+ "nome": "fato_conversa_whatsapp",
+ "descricao": "Conversas de WhatsApp consolidadas",
+ "dominio": "Atendimento",
+ "camada": "core",
+ "dono": "Juliana Prado",
+ "dono_area": "Experiência do Cliente",
+ "criticidade": "alta",
+ "frequencia": "horária",
+ "sla_horas": 3,
+ "pipeline": "core_atendimento_digital",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "Deduplicação heurística: origem `stg_whatsapp_conversas` não tem chave primária",
+ "tem_pk": true,
+ "saude": 51.8,
+ "ultima_carga": "2026-11-17T07:25:34-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 1596147,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [
+  "INC-2019"
+ ],
+ "tags": [],
+ "descricao_longa": "Conversas de WhatsApp consolidadas. Pertence ao domínio Atendimento e fica na camada core (dado tratado e modelado). É construída a partir de `stg_whatsapp_conversas`, `dim_agente`, `dim_motivo_contato`. Carga horária pela rotina `core_atendimento_digital`, com SLA de 3 horas. Tem 10 colunas; chave primária: `id_conversa`. Responsável: Juliana Prado (Experiência do Cliente). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_conversa",
+   "tipo": "varchar(40)",
+   "descricao": "Chave da conversa (após deduplicação heurística)",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_agente",
+   "tipo": "integer",
+   "descricao": "Agente que assumiu a conversa",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_agente",
+    "coluna": "id_agente"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "id_motivo",
+   "tipo": "integer",
+   "descricao": "Motivo do contato",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_motivo_contato",
+    "coluna": "id_motivo"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_inicio",
+   "tipo": "timestamp",
+   "descricao": "Início da conversa",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_fim",
+   "tipo": "timestamp",
+   "descricao": "Encerramento",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "qt_mensagens",
+   "tipo": "integer",
+   "descricao": "Mensagens trocadas",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tempo_primeira_resposta_seg",
+   "tipo": "integer",
+   "descricao": "Tempo até a primeira resposta",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "duracao_seg",
+   "tipo": "integer",
+   "descricao": "Duração da conversa",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "fl_resolvida_bot",
+   "tipo": "char(1)",
+   "descricao": "Resolvida pelo assistente virtual (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_resolvida",
+   "tipo": "char(1)",
+   "descricao": "Resolvida no contato (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T23:25:11-03:00",
+   "duracao_seg": 34,
+   "linhas": 106,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T23:25:42-03:00",
+   "duracao_seg": 38,
+   "linhas": 110,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T23:25:16-03:00",
+   "duracao_seg": 33,
+   "linhas": 108,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T23:25:19-03:00",
+   "duracao_seg": 34,
+   "linhas": 105,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T23:25:18-03:00",
+   "duracao_seg": 38,
+   "linhas": 109,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T23:25:43-03:00",
+   "duracao_seg": 39,
+   "linhas": 110,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T23:25:26-03:00",
+   "duracao_seg": 34,
+   "linhas": 110,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T23:25:29-03:00",
+   "duracao_seg": 38,
+   "linhas": 110,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T23:25:52-03:00",
+   "duracao_seg": 32,
+   "linhas": 111,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T23:25:36-03:00",
+   "duracao_seg": 38,
+   "linhas": 111,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T23:25:49-03:00",
+   "duracao_seg": 38,
+   "linhas": 111,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T23:25:43-03:00",
+   "duracao_seg": 39,
+   "linhas": 109,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T23:25:04-03:00",
+   "duracao_seg": 38,
+   "linhas": 111,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T23:25:06-03:00",
+   "duracao_seg": 38,
+   "linhas": 106,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T23:25:30-03:00",
+   "duracao_seg": 34,
+   "linhas": 107,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T23:25:29-03:00",
+   "duracao_seg": 39,
+   "linhas": 109,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T23:25:25-03:00",
+   "duracao_seg": 37,
+   "linhas": 109,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T23:25:53-03:00",
+   "duracao_seg": 38,
+   "linhas": 106,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T23:25:36-03:00",
+   "duracao_seg": 36,
+   "linhas": 109,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T23:25:35-03:00",
+   "duracao_seg": 31,
+   "linhas": 106,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T23:25:43-03:00",
+   "duracao_seg": 38,
+   "linhas": 106,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T23:25:35-03:00",
+   "duracao_seg": 36,
+   "linhas": 110,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T23:25:47-03:00",
+   "duracao_seg": 32,
+   "linhas": 112,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T23:25:23-03:00",
+   "duracao_seg": 36,
+   "linhas": 109,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T23:25:27-03:00",
+   "duracao_seg": 34,
+   "linhas": 110,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T23:25:14-03:00",
+   "duracao_seg": 33,
+   "linhas": 105,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T23:25:33-03:00",
+   "duracao_seg": 37,
+   "linhas": 109,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T23:25:28-03:00",
+   "duracao_seg": 37,
+   "linhas": 105,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T23:25:34-03:00",
+   "duracao_seg": 35,
+   "linhas": 106,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T07:25:34-03:00",
+   "duracao_seg": 32,
+   "linhas": 110,
+   "linhas_esperadas": 108,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_conversa_whatsapp.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_conversa`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_conversa_whatsapp' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_conversa_whatsapp.unicidade.id_conversa",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_conversa`",
+   "coluna": "id_conversa",
+   "severidade": "critico",
+   "resultado": "alerta",
+   "evidencia": "Deduplicação heurística: origem `stg_whatsapp_conversas` não tem chave primária",
+   "valor_observado": 2.3,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT id_conversa, COUNT(*) AS qtd\nFROM fato_conversa_whatsapp\nGROUP BY id_conversa\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_conversa_whatsapp.nao_nulo.dt_inicio",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_inicio`",
+   "coluna": "dt_inicio",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_inicio`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_inicio IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_conversa_whatsapp;"
+  },
+  {
+   "id": "fato_conversa_whatsapp.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_agente`",
+   "coluna": "id_agente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_agente` existem em `dim_agente`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_conversa_whatsapp f\nLEFT JOIN dim_agente p ON p.id_agente = f.id_agente\nWHERE f.id_agente IS NOT NULL AND p.id_agente IS NULL;"
+  },
+  {
+   "id": "fato_conversa_whatsapp.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "110 linhas na última carga, dentro da faixa esperada (cerca de 108)",
+   "valor_observado": 110,
+   "limite": 108,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_conversa_whatsapp'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_conversa_whatsapp.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há menos de 1 hora (17/11 às 07:25); SLA de 3h",
+   "valor_observado": 0.6,
+   "limite": 3,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_conversa_whatsapp' AND status IN ('sucesso', 'alerta');"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_conversa",
+   "id_agente",
+   "id_motivo",
+   "dt_inicio",
+   "dt_fim",
+   "qt_mensagens",
+   "tempo_primeira_resposta_seg",
+   "duracao_seg",
+   "fl_resolvida_bot",
+   "fl_resolvida"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "con-60e5d21145",
+     145,
+     55,
+     "2026-11-16 11:25:00",
+     "2026-11-16 11:44:00",
+     35,
+     472,
+     76,
+     "S",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "con-f03c93e2e7",
+     null,
+     55,
+     "2026-11-15 15:35:39",
+     "2026-11-15 15:40:39",
+     20,
+     539,
+     569,
+     "N",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "con-37815faa00",
+     null,
+     45,
+     "2026-11-15 09:05:15",
+     "2026-11-15 09:22:15",
+     26,
+     null,
+     null,
+     "S",
+     "N"
+    ]
+   },
+   {
+    "valores": [
+     "con-6e56dcc532",
+     null,
+     40,
+     "2026-11-14 17:38:58",
+     "2026-11-14 17:58:58",
+     34,
+     593,
+     545,
+     "S",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "con-1c09d7a576",
+     null,
+     41,
+     "2026-11-15 11:08:40",
+     "2026-11-15 11:17:40",
+     13,
+     211,
+     550,
+     "S",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "con-55c78de65b",
+     133,
+     37,
+     "2026-11-14 20:22:09",
+     "2026-11-14 20:43:09",
+     29,
+     461,
+     507,
+     "S",
+     "S"
+    ],
+    "problema": "Possível duplicata não resolvida pela deduplicação heurística",
+    "colunas_problema": [
+     "id_conversa"
+    ]
+   },
+   {
+    "valores": [
+     "con-12a0287683",
+     null,
+     null,
+     "2026-11-15 19:57:27",
+     "2026-11-15 20:06:27",
+     26,
+     529,
+     148,
+     "S",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     "con-a8b01aa3e7",
+     132,
+     47,
+     "2026-11-15 11:40:04",
+     "2026-11-15 11:49:04",
+     33,
+     529,
+     142,
+     "S",
+     "S"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_whatsapp_conversas",
+  "dim_agente",
+  "dim_motivo_contato"
+ ],
+ "downstream": [
+  "mart_atendimento"
+ ]
+}

@@ -1,0 +1,301 @@
+{
+ "vendas": {
+  "relatorio": "vendas",
+  "nivel": "atencao",
+  "titulo": "Atenção",
+  "mensagem": "Este relatório usa `stg_crm_propostas`, cuja carga de hoje trouxe 412 linhas contra a média de 1.148. Propostas e conversão do funil de 16/11 estão subestimadas; as vendas efetivadas não foram afetadas.",
+  "tabela_principal": "stg_crm_propostas",
+  "atualizado_em": "2026-11-17T05:00:46-03:00",
+  "horas_desde_atualizacao": 3.0,
+  "problemas": [
+   {
+    "tabela": "stg_crm_propostas",
+    "status": "vermelho",
+    "incidente": "INC-2033",
+    "texto": "Propostas e conversão do funil de 16/11 subestimadas (carga com 64% menos linhas)",
+    "impacto_estimado": "Propostas de 16/11: 412 carregadas de cerca de 1.148 esperadas (-64%)"
+   },
+   {
+    "tabela": "dim_cota",
+    "status": "vermelho",
+    "incidente": "INC-2024",
+    "texto": "147 cotas com `id_grupo` inexistente em `dim_grupo`",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   },
+   {
+    "tabela": "dim_cliente",
+    "status": "vermelho",
+    "incidente": "INC-2011",
+    "texto": "18% de nulos em `cpf_cliente` nos cadastros do canal Parceiro (4,1% do total)",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   },
+   {
+    "tabela": "fato_meta_comercial",
+    "status": "amarelo",
+    "texto": "Metas de novembro carregadas parcialmente: planilha manual sem 2 regionais",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   },
+   {
+    "tabela": "dim_colaborador",
+    "status": "amarelo",
+    "incidente": "INC-2030",
+    "texto": "Coluna `cd_centro_custo` passou a chegar como `centro_custo_id` desde 12/11",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   }
+  ],
+  "tabelas_fonte": [
+   "mart_vendas_comercial",
+   "fato_contrato_venda",
+   "fato_proposta",
+   "fato_funil_crm",
+   "fato_meta_comercial",
+   "dim_vendedor",
+   "dim_canal_venda",
+   "fato_cancelamento_cota",
+   "dim_filial",
+   "stg_erp_contratos",
+   "dim_cota",
+   "stg_crm_propostas",
+   "dim_cliente",
+   "stg_crm_funil_eventos",
+   "fato_lead",
+   "dim_colaborador",
+   "dim_equipe_comercial",
+   "stg_erp_cotas",
+   "dim_grupo",
+   "dim_plano",
+   "stg_crm_clientes",
+   "stg_erp_assembleias"
+  ]
+ },
+ "cobranca-carteira": {
+  "relatorio": "cobranca-carteira",
+  "nivel": "critico",
+  "titulo": "Dados com problema crítico",
+  "mensagem": "Este relatório usa `fato_parcelas`, que contém 312 registros duplicados hoje. Valores de recebimento de 16/11 podem estar superestimados em ~1,8%. Há também 147 cotas sem grupo em `dim_cota`, ausentes das quebras por grupo.",
+  "tabela_principal": "fato_parcelas",
+  "atualizado_em": "2026-11-17T05:20:45-03:00",
+  "horas_desde_atualizacao": 2.7,
+  "problemas": [
+   {
+    "tabela": "fato_parcelas",
+    "status": "vermelho",
+    "incidente": "INC-2031",
+    "texto": "Recebimento e recuperação superestimados em ~1,8% no dia 16/11",
+    "impacto_estimado": "Recebimento de 16/11 superestimado em ~1,8% (R$ 341 mil)"
+   },
+   {
+    "tabela": "dim_cota",
+    "status": "vermelho",
+    "incidente": "INC-2024",
+    "texto": "147 cotas sem grupo nas quebras por grupo",
+    "impacto_estimado": "147 cotas sem grupo; os totais da carteira não mudam"
+   },
+   {
+    "tabela": "dim_cliente",
+    "status": "vermelho",
+    "incidente": "INC-2011",
+    "texto": "18% de nulos em `cpf_cliente` nos cadastros do canal Parceiro (4,1% do total)",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   },
+   {
+    "tabela": "fato_acao_cobranca",
+    "status": "amarelo",
+    "texto": "Carga concluída com 4 horas de atraso em relação ao SLA",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   }
+  ],
+  "tabelas_fonte": [
+   "mart_cobranca_carteira",
+   "fato_parcelas",
+   "fato_pagamento",
+   "fato_inadimplencia_diaria",
+   "fato_acordo",
+   "fato_acao_cobranca",
+   "dim_cota",
+   "stg_erp_parcelas",
+   "stg_banco_retorno_cnab",
+   "dim_regua_cobranca",
+   "dim_assessoria_cobranca",
+   "stg_erp_cotas",
+   "dim_grupo",
+   "dim_cliente",
+   "dim_plano",
+   "stg_erp_assembleias",
+   "stg_crm_clientes",
+   "stg_erp_contratos"
+  ]
+ },
+ "cobranca-safra": {
+  "relatorio": "cobranca-safra",
+  "nivel": "atencao",
+  "titulo": "Atenção",
+  "mensagem": "Este relatório usa `dim_cota`, que tem 147 cotas apontando para grupos inexistentes. Essas cotas ficam fora das análises por grupo e safra. As parcelas duplicadas em `fato_parcelas` têm efeito marginal nas curvas (abaixo de 0,1 p.p.).",
+  "tabela_principal": "dim_cota",
+  "atualizado_em": "2026-11-17T05:20:36-03:00",
+  "horas_desde_atualizacao": 2.7,
+  "problemas": [
+   {
+    "tabela": "dim_cota",
+    "status": "vermelho",
+    "incidente": "INC-2024",
+    "texto": "147 cotas fora das análises por grupo e safra",
+    "impacto_estimado": "147 cotas fora das curvas (0,19% da carteira ativa)"
+   },
+   {
+    "tabela": "fato_parcelas",
+    "status": "vermelho",
+    "incidente": "INC-2031",
+    "texto": "Efeito marginal nas curvas de safra (abaixo de 0,1 p.p.)",
+    "impacto_estimado": "Abaixo de 0,1 p.p. nas curvas de safra"
+   },
+   {
+    "tabela": "dim_cliente",
+    "status": "vermelho",
+    "incidente": "INC-2011",
+    "texto": "18% de nulos em `cpf_cliente` nos cadastros do canal Parceiro (4,1% do total)",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   },
+   {
+    "tabela": "stg_crm_propostas",
+    "status": "vermelho",
+    "incidente": "INC-2033",
+    "texto": "412 linhas carregadas contra média de 1.148 (queda de 64%)",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   },
+   {
+    "tabela": "fato_proposta",
+    "status": "amarelo",
+    "incidente": "INC-2033",
+    "texto": "Volume 61% abaixo do esperado, herdado da carga parcial de `stg_crm_propostas`",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   },
+   {
+    "tabela": "dim_colaborador",
+    "status": "amarelo",
+    "incidente": "INC-2030",
+    "texto": "Coluna `cd_centro_custo` passou a chegar como `centro_custo_id` desde 12/11",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   }
+  ],
+  "tabelas_fonte": [
+   "mart_cobranca_safra_mob",
+   "fato_parcelas",
+   "fato_inadimplencia_diaria",
+   "fato_contrato_venda",
+   "fato_cancelamento_cota",
+   "dim_cota",
+   "stg_erp_parcelas",
+   "fato_pagamento",
+   "stg_erp_contratos",
+   "fato_proposta",
+   "dim_vendedor",
+   "stg_erp_cotas",
+   "dim_grupo",
+   "dim_cliente",
+   "dim_plano",
+   "stg_banco_retorno_cnab",
+   "stg_crm_propostas",
+   "dim_colaborador",
+   "dim_equipe_comercial",
+   "stg_erp_assembleias",
+   "stg_crm_clientes",
+   "dim_filial"
+  ]
+ },
+ "atendimento": {
+  "relatorio": "atendimento",
+  "nivel": "critico",
+  "titulo": "Dados com problema crítico",
+  "mensagem": "Este relatório usa `stg_telefonia_cdr`, que está parada há 3 dias. O canal Voz não tem dados de 14 a 16/11 e os indicadores de voz estão desatualizados. O NPS de outubro foi divulgado como 62; o correto é 56 (respostas duplicadas em `fato_pesquisa_nps`).",
+  "tabela_principal": "stg_telefonia_cdr",
+  "atualizado_em": "2026-11-14T05:10:08-03:00",
+  "horas_desde_atualizacao": 74.8,
+  "problemas": [
+   {
+    "tabela": "stg_telefonia_cdr",
+    "status": "vermelho",
+    "incidente": "INC-2032",
+    "texto": "Canal Voz sem dados de 14 a 16/11; indicadores de voz desatualizados",
+    "impacto_estimado": "Cerca de 4.761 contatos de voz não carregados (14 a 16/11)"
+   },
+   {
+    "tabela": "fato_pesquisa_nps",
+    "status": "vermelho",
+    "incidente": "INC-2027",
+    "texto": "NPS reportado 6 pontos acima do real desde outubro/2026",
+    "impacto_estimado": "NPS de outubro: 62 divulgado x 56 correto (6 pontos)"
+   },
+   {
+    "tabela": "stg_whatsapp_conversas",
+    "status": "vermelho",
+    "incidente": "INC-2019",
+    "texto": "Volume de WhatsApp possivelmente superestimado em ~2,3%",
+    "impacto_estimado": "Volume de WhatsApp até ~2,3% acima do real"
+   },
+   {
+    "tabela": "fato_chamadas_legacy",
+    "status": "vermelho",
+    "incidente": "INC-1987",
+    "texto": "Histórico de voz anterior a 2025 vem de tabela legada sem PK",
+    "impacto_estimado": "Restrito ao histórico de voz anterior a 2025"
+   },
+   {
+    "tabela": "fato_ticket",
+    "status": "amarelo",
+    "texto": "2,7% dos tickets sem `id_motivo` preenchido",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   },
+   {
+    "tabela": "dim_colaborador",
+    "status": "amarelo",
+    "incidente": "INC-2030",
+    "texto": "Coluna `cd_centro_custo` passou a chegar como `centro_custo_id` desde 12/11",
+    "impacto_estimado": "Sem efeito direto declarado nos indicadores deste relatório"
+   }
+  ],
+  "tabelas_fonte": [
+   "mart_atendimento",
+   "fato_chamada",
+   "fato_chamadas_legacy",
+   "fato_conversa_whatsapp",
+   "fato_ticket",
+   "fato_interacao_digital",
+   "fato_pesquisa_nps",
+   "fato_pesquisa_csat",
+   "dim_motivo_contato",
+   "stg_telefonia_cdr",
+   "dim_agente",
+   "dim_fila_atendimento",
+   "stg_whatsapp_conversas",
+   "stg_helpdesk_tickets",
+   "stg_pesquisas_respostas",
+   "dim_colaborador"
+  ]
+ },
+ "assembleias": {
+  "relatorio": "assembleias",
+  "nivel": "confiavel",
+  "titulo": "Dados confiáveis",
+  "mensagem": "Dados confiáveis, atualizados há 2h. As 13 tabelas que alimentam este relatório estão dentro do SLA e com todos os testes aprovados.",
+  "tabela_principal": "mart_assembleias_contemplacoes",
+  "atualizado_em": "2026-11-17T05:30:17-03:00",
+  "horas_desde_atualizacao": 2.5,
+  "problemas": [],
+  "tabelas_fonte": [
+   "mart_assembleias_contemplacoes",
+   "fato_assembleia",
+   "fato_lance",
+   "fato_sorteio",
+   "fato_contemplacao",
+   "fato_liberacao_credito",
+   "dim_grupo",
+   "fato_posicao_grupo_mensal",
+   "stg_erp_assembleias",
+   "stg_erp_lances",
+   "stg_erp_contratos",
+   "stg_erp_cotas",
+   "dim_plano"
+  ]
+ }
+}

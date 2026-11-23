@@ -1,0 +1,662 @@
+{
+ "nome": "dim_equipe_comercial",
+ "descricao": "Equipes comerciais e supervisão",
+ "dominio": "Vendas",
+ "camada": "core",
+ "dono": "Bruno Tavares",
+ "dono_area": "Inteligência Comercial",
+ "criticidade": "baixa",
+ "frequencia": "semanal",
+ "sla_horas": 168,
+ "pipeline": "core_vendas",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-15T02:30:28-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 46,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [
+  "vendas",
+  "cobranca-safra"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Equipes comerciais e supervisão. Pertence ao domínio Vendas e fica na camada core (dado tratado e modelado). É construída a partir de `dim_colaborador`, `dim_filial`. Carga semanal pela rotina `core_vendas`, com SLA de 168 horas. Tem 7 colunas; chave primária: `id_equipe`. Responsável: Bruno Tavares (Inteligência Comercial). Alimenta: Vendas / Comercial, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "id_equipe",
+   "tipo": "integer",
+   "descricao": "Chave da equipe comercial",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_equipe",
+   "tipo": "varchar(60)",
+   "descricao": "Nome da equipe",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_filial",
+   "tipo": "integer",
+   "descricao": "Filial da equipe",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_filial",
+    "coluna": "id_filial"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_supervisor",
+   "tipo": "integer",
+   "descricao": "Supervisor responsável",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_colaborador",
+    "coluna": "id_colaborador"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "canal_venda",
+   "tipo": "varchar(30)",
+   "descricao": "Canal de venda da equipe",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "regional",
+   "tipo": "varchar(30)",
+   "descricao": "Regional comercial",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativa",
+   "tipo": "char(1)",
+   "descricao": "Equipe ativa (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:30:18-03:00",
+   "duracao_seg": 35,
+   "linhas": 46,
+   "linhas_esperadas": 46,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:30:21-03:00",
+   "duracao_seg": 35,
+   "linhas": 46,
+   "linhas_esperadas": 46,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:30:41-03:00",
+   "duracao_seg": 33,
+   "linhas": 46,
+   "linhas_esperadas": 46,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:30:28-03:00",
+   "duracao_seg": 32,
+   "linhas": 46,
+   "linhas_esperadas": 46,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_equipe_comercial.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_equipe`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_equipe_comercial' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_equipe_comercial.unicidade.id_equipe",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_equipe`",
+   "coluna": "id_equipe",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_equipe` (46 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_equipe, COUNT(*) AS qtd\nFROM dim_equipe_comercial\nGROUP BY id_equipe\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_equipe_comercial.nao_nulo.id_filial",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_filial`",
+   "coluna": "id_filial",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_filial`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_filial IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_equipe_comercial;"
+  },
+  {
+   "id": "dim_equipe_comercial.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_filial`",
+   "coluna": "id_filial",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_filial` existem em `dim_filial`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM dim_equipe_comercial f\nLEFT JOIN dim_filial p ON p.id_filial = f.id_filial\nWHERE f.id_filial IS NOT NULL AND p.id_filial IS NULL;"
+  },
+  {
+   "id": "dim_equipe_comercial.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2 dias (15/11 às 02:30); SLA de 168h",
+   "valor_observado": 53.5,
+   "limite": 168,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_equipe_comercial' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_equipe_comercial.dominio_valores.canal_venda",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `canal_venda`",
+   "coluna": "canal_venda",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `canal_venda` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT canal_venda, COUNT(*) AS qtd\nFROM dim_equipe_comercial\nWHERE canal_venda NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'canal_venda')\nGROUP BY canal_venda;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_equipe",
+   "nm_equipe",
+   "id_filial",
+   "id_supervisor",
+   "canal_venda",
+   "regional",
+   "fl_ativa"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     7,
+     "Equipe Paulista",
+     28,
+     654,
+     "Loja",
+     "Sudeste",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     8,
+     "Equipe Centro-Oeste",
+     44,
+     654,
+     "Parceiro",
+     "Norte e Nordeste",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     9,
+     "Equipe Centro-Oeste",
+     36,
+     739,
+     "Digital",
+     "Sul",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     10,
+     "Equipe Centro-Oeste",
+     35,
+     null,
+     "Representante",
+     "Norte e Nordeste",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     11,
+     "Equipe Digital 1",
+     37,
+     null,
+     "Representante",
+     "Sul",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     12,
+     "Equipe Digital 1",
+     28,
+     1018,
+     "Loja",
+     "São Paulo",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     13,
+     "Equipe Triângulo",
+     16,
+     711,
+     "Digital",
+     "Sul",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     14,
+     "Equipe Paulista",
+     16,
+     833,
+     "Loja",
+     "Sul",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     15,
+     "Equipe Paulista",
+     29,
+     911,
+     "Loja",
+     "Sudeste",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     16,
+     "Equipe Triângulo",
+     40,
+     null,
+     "Parceiro",
+     "Centro-Oeste",
+     "S"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "dim_colaborador",
+  "dim_filial"
+ ],
+ "downstream": [
+  "dim_vendedor"
+ ]
+}

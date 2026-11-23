@@ -1,0 +1,747 @@
+{
+ "nome": "stg_erp_assembleias",
+ "descricao": "Assembleias realizadas e resultados de sorteio no ERP",
+ "dominio": "Staging",
+ "camada": "staging",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "ingest_erp",
+ "fonte": "ERP Consórcio",
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 99.7,
+ "ultima_carga": "2026-11-17T01:00:15-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 7798,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "atrasada",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "assembleias",
+  "cobranca-carteira",
+  "cobranca-safra",
+  "vendas"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Assembleias realizadas e resultados de sorteio no ERP. Pertence ao domínio Staging e fica na camada de staging (dado bruto, como chega da origem). Origem: ERP Consórcio. Carga diária pela rotina `ingest_erp`, com SLA de 24 horas. Tem 10 colunas; chave primária: `id_assembleia_erp`. Responsável: Thiago Meireles (Engenharia de Dados). Alimenta: Assembleias e Contemplações, Cobrança: Carteira e Inadimplência, Cobrança: Safra, MOB e Cohort, Vendas / Comercial.",
+ "colunas": [
+  {
+   "nome": "id_assembleia_erp",
+   "tipo": "bigint",
+   "descricao": "Identificador da assembleia no ERP",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_grupo",
+   "tipo": "varchar(8)",
+   "descricao": "Código do grupo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nr_assembleia",
+   "tipo": "integer",
+   "descricao": "Número sequencial da assembleia no grupo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_assembleia",
+   "tipo": "date",
+   "descricao": "Data de realização",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tipo_assembleia",
+   "tipo": "varchar(20)",
+   "descricao": "Ordinária ou extraordinária",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_participantes",
+   "tipo": "integer",
+   "descricao": "Cotas aptas a concorrer",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_contemplados_sorteio",
+   "tipo": "integer",
+   "descricao": "Contemplações por sorteio",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_contemplados_lance",
+   "tipo": "integer",
+   "descricao": "Contemplações por lance",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_saldo_fundo",
+   "tipo": "decimal(16,2)",
+   "descricao": "Saldo do fundo comum disponível na assembleia",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "_dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da ingestão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:00:12-03:00",
+   "duracao_seg": 23,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:00:52-03:00",
+   "duracao_seg": 21,
+   "linhas": 16,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:00:21-03:00",
+   "duracao_seg": 21,
+   "linhas": 16,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:00:38-03:00",
+   "duracao_seg": 20,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:00:37-03:00",
+   "duracao_seg": 21,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "atrasada",
+   "anomalia_volume": false,
+   "mensagem": "Janela de backup do ERP estendida; extração iniciou com 2 horas de atraso."
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:00:02-03:00",
+   "duracao_seg": 23,
+   "linhas": 13,
+   "linhas_esperadas": 13,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:00:49-03:00",
+   "duracao_seg": 20,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:00:05-03:00",
+   "duracao_seg": 20,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:00:27-03:00",
+   "duracao_seg": 24,
+   "linhas": 16,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:00:42-03:00",
+   "duracao_seg": 20,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:00:33-03:00",
+   "duracao_seg": 20,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:00:11-03:00",
+   "duracao_seg": 24,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:00:32-03:00",
+   "duracao_seg": 21,
+   "linhas": 13,
+   "linhas_esperadas": 13,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:00:54-03:00",
+   "duracao_seg": 20,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:00:45-03:00",
+   "duracao_seg": 20,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:00:32-03:00",
+   "duracao_seg": 23,
+   "linhas": 16,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:00:34-03:00",
+   "duracao_seg": 24,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:00:31-03:00",
+   "duracao_seg": 24,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:00:38-03:00",
+   "duracao_seg": 25,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:00:49-03:00",
+   "duracao_seg": 20,
+   "linhas": 13,
+   "linhas_esperadas": 13,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:00:28-03:00",
+   "duracao_seg": 20,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:00:18-03:00",
+   "duracao_seg": 24,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:00:43-03:00",
+   "duracao_seg": 20,
+   "linhas": 16,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:00:50-03:00",
+   "duracao_seg": 23,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:00:53-03:00",
+   "duracao_seg": 24,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:00:20-03:00",
+   "duracao_seg": 24,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:00:15-03:00",
+   "duracao_seg": 21,
+   "linhas": 13,
+   "linhas_esperadas": 13,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:00:36-03:00",
+   "duracao_seg": 21,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:00:21-03:00",
+   "duracao_seg": 24,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:00:15-03:00",
+   "duracao_seg": 23,
+   "linhas": 15,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "stg_erp_assembleias.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_assembleia_erp`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'stg_erp_assembleias' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "stg_erp_assembleias.unicidade.id_assembleia_erp",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_assembleia_erp`",
+   "coluna": "id_assembleia_erp",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_assembleia_erp` (7.798 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_assembleia_erp, COUNT(*) AS qtd\nFROM stg_erp_assembleias\nGROUP BY id_assembleia_erp\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "stg_erp_assembleias.nao_nulo.nr_assembleia",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `nr_assembleia`",
+   "coluna": "nr_assembleia",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `nr_assembleia`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN nr_assembleia IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM stg_erp_assembleias;"
+  },
+  {
+   "id": "stg_erp_assembleias.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "15 linhas na última carga, dentro da faixa esperada (cerca de 16)",
+   "valor_observado": 15,
+   "limite": 16,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'stg_erp_assembleias'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "stg_erp_assembleias.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:00); SLA de 24h",
+   "valor_observado": 7.0,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'stg_erp_assembleias' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "stg_erp_assembleias.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (10 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'stg_erp_assembleias'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'stg_erp_assembleias';"
+  },
+  {
+   "id": "stg_erp_assembleias.dominio_valores.tipo_assembleia",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_assembleia`",
+   "coluna": "tipo_assembleia",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `tipo_assembleia` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_assembleia, COUNT(*) AS qtd\nFROM stg_erp_assembleias\nWHERE tipo_assembleia NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_assembleia')\nGROUP BY tipo_assembleia;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_assembleia_erp",
+   "cd_grupo",
+   "nr_assembleia",
+   "dt_assembleia",
+   "tipo_assembleia",
+   "qt_participantes",
+   "qt_contemplados_sorteio",
+   "qt_contemplados_lance",
+   "vl_saldo_fundo",
+   "_dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     "G8797",
+     14,
+     "2026-11-05",
+     "Ordinária",
+     36,
+     3,
+     8,
+     5541011.8,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     "G7153",
+     21,
+     "2026-10-25",
+     "Ordinária",
+     315,
+     8,
+     37,
+     4721572.28,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     "G5986",
+     10,
+     "2026-10-26",
+     "Ordinária",
+     761,
+     35,
+     14,
+     8034627.28,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     "G5312",
+     30,
+     "2026-11-02",
+     "Ordinária",
+     569,
+     21,
+     22,
+     6010575.81,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     "G5175",
+     3,
+     "2026-10-26",
+     "Ordinária",
+     53,
+     37,
+     11,
+     667058.4,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     "G6121",
+     7,
+     "2026-11-04",
+     "Ordinária",
+     91,
+     20,
+     0,
+     1872533.01,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     "G9879",
+     21,
+     "2026-10-29",
+     "Ordinária",
+     267,
+     3,
+     35,
+     2646907.48,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     "G7428",
+     9,
+     "2026-10-31",
+     "Ordinária",
+     78,
+     33,
+     21,
+     2217294.27,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     "G2181",
+     19,
+     "2026-11-13",
+     "Ordinária",
+     504,
+     32,
+     9,
+     7257044.37,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     "G3830",
+     13,
+     "2026-11-04",
+     "Extraordinária",
+     665,
+     33,
+     21,
+     5262266.51,
+     "2026-11-17 01:00:15"
+    ]
+   },
+   {
+    "valores": [
+     5000010,
+     "G8526",
+     4,
+     "2026-11-03",
+     "Ordinária",
+     81,
+     31,
+     5,
+     9200115.84,
+     "2026-11-17 01:00:15"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "dim_grupo",
+  "fato_assembleia",
+  "fato_sorteio"
+ ]
+}

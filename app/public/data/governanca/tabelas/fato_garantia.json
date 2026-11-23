@@ -1,0 +1,670 @@
+{
+ "nome": "fato_garantia",
+ "descricao": "Garantias vinculadas aos créditos liberados",
+ "dominio": "Assembleias",
+ "camada": "core",
+ "dono": "Diego Sampaio",
+ "dono_area": "Operações de Assembleias",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_assembleias_garantias",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "Última carga com 9 horas de atraso em relação ao SLA",
+ "tem_pk": true,
+ "saude": 45.9,
+ "ultima_carga": "2026-11-16T13:50:27-03:00",
+ "atraso_horas": 9.0,
+ "linhas": 11146,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "atrasada",
+  "atrasada"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Garantias vinculadas aos créditos liberados. Pertence ao domínio Assembleias e fica na camada core (dado tratado e modelado). É construída a partir de `fato_liberacao_credito`. Carga diária pela rotina `core_assembleias_garantias`, com SLA de 24 horas. Tem 8 colunas; chave primária: `id_garantia`. Responsável: Diego Sampaio (Operações de Assembleias).",
+ "colunas": [
+  {
+   "nome": "id_garantia",
+   "tipo": "bigint",
+   "descricao": "Chave da garantia",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_liberacao",
+   "tipo": "bigint",
+   "descricao": "Crédito liberado",
+   "pk": false,
+   "fk": {
+    "tabela": "fato_liberacao_credito",
+    "coluna": "id_liberacao"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tipo_garantia",
+   "tipo": "varchar(30)",
+   "descricao": "Alienação fiduciária, hipoteca ou fiança",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "descricao_bem",
+   "tipo": "varchar(160)",
+   "descricao": "Bem dado em garantia",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_avaliacao",
+   "tipo": "decimal(14,2)",
+   "descricao": "Valor de avaliação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_alienacao_registrada",
+   "tipo": "char(1)",
+   "descricao": "Gravame registrado (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "situacao",
+   "tipo": "varchar(20)",
+   "descricao": "Situação da garantia",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_registro",
+   "tipo": "date",
+   "descricao": "Data do registro do gravame",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T04:50:31-03:00",
+   "duracao_seg": 33,
+   "linhas": 4,
+   "linhas_esperadas": 4,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T04:50:13-03:00",
+   "duracao_seg": 37,
+   "linhas": 22,
+   "linhas_esperadas": 22,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T04:50:14-03:00",
+   "duracao_seg": 36,
+   "linhas": 20,
+   "linhas_esperadas": 20,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T04:50:35-03:00",
+   "duracao_seg": 35,
+   "linhas": 19,
+   "linhas_esperadas": 19,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T04:50:50-03:00",
+   "duracao_seg": 35,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T04:50:09-03:00",
+   "duracao_seg": 37,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T04:50:24-03:00",
+   "duracao_seg": 32,
+   "linhas": 8,
+   "linhas_esperadas": 8,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T04:50:19-03:00",
+   "duracao_seg": 35,
+   "linhas": 4,
+   "linhas_esperadas": 4,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T04:50:27-03:00",
+   "duracao_seg": 32,
+   "linhas": 22,
+   "linhas_esperadas": 22,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T04:50:05-03:00",
+   "duracao_seg": 37,
+   "linhas": 21,
+   "linhas_esperadas": 20,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T04:50:05-03:00",
+   "duracao_seg": 39,
+   "linhas": 19,
+   "linhas_esperadas": 19,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T04:50:43-03:00",
+   "duracao_seg": 37,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T04:50:51-03:00",
+   "duracao_seg": 31,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T04:50:52-03:00",
+   "duracao_seg": 33,
+   "linhas": 8,
+   "linhas_esperadas": 8,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T04:50:09-03:00",
+   "duracao_seg": 37,
+   "linhas": 4,
+   "linhas_esperadas": 4,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T04:50:07-03:00",
+   "duracao_seg": 35,
+   "linhas": 21,
+   "linhas_esperadas": 22,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T04:50:30-03:00",
+   "duracao_seg": 39,
+   "linhas": 20,
+   "linhas_esperadas": 20,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T04:50:13-03:00",
+   "duracao_seg": 36,
+   "linhas": 19,
+   "linhas_esperadas": 19,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T04:50:41-03:00",
+   "duracao_seg": 32,
+   "linhas": 19,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T04:50:33-03:00",
+   "duracao_seg": 33,
+   "linhas": 19,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T04:50:27-03:00",
+   "duracao_seg": 39,
+   "linhas": 8,
+   "linhas_esperadas": 8,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T04:50:41-03:00",
+   "duracao_seg": 32,
+   "linhas": 4,
+   "linhas_esperadas": 4,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T04:50:37-03:00",
+   "duracao_seg": 37,
+   "linhas": 23,
+   "linhas_esperadas": 22,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T04:50:22-03:00",
+   "duracao_seg": 37,
+   "linhas": 19,
+   "linhas_esperadas": 20,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T04:50:12-03:00",
+   "duracao_seg": 33,
+   "linhas": 20,
+   "linhas_esperadas": 19,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T04:50:35-03:00",
+   "duracao_seg": 36,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T04:50:47-03:00",
+   "duracao_seg": 33,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T04:50:09-03:00",
+   "duracao_seg": 35,
+   "linhas": 8,
+   "linhas_esperadas": 8,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T13:50:27-03:00",
+   "duracao_seg": 34,
+   "linhas": 4,
+   "linhas_esperadas": 4,
+   "status": "atrasada",
+   "anomalia_volume": false,
+   "mensagem": "Aguardou o retorno do sistema de registro de gravames; concluída com 9 horas de atraso."
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 22,
+   "status": "atrasada",
+   "anomalia_volume": false,
+   "mensagem": "Execução de hoje ainda não concluída: aguardando o retorno do sistema de registro de gravames."
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_garantia.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_garantia`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_garantia' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_garantia.unicidade.id_garantia",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_garantia`",
+   "coluna": "id_garantia",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_garantia` (11.146 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_garantia, COUNT(*) AS qtd\nFROM fato_garantia\nGROUP BY id_garantia\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_garantia.nao_nulo.id_liberacao",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_liberacao`",
+   "coluna": "id_liberacao",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_liberacao`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_liberacao IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_garantia;"
+  },
+  {
+   "id": "fato_garantia.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_liberacao`",
+   "coluna": "id_liberacao",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_liberacao` existem em `fato_liberacao_credito`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_garantia f\nLEFT JOIN fato_liberacao_credito p ON p.id_liberacao = f.id_liberacao\nWHERE f.id_liberacao IS NOT NULL AND p.id_liberacao IS NULL;"
+  },
+  {
+   "id": "fato_garantia.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "4 linhas na última carga, dentro da faixa esperada (cerca de 4)",
+   "valor_observado": 4,
+   "limite": 4,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_garantia'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_garantia.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "alerta",
+   "evidencia": "Última carga com 9 horas de atraso em relação ao SLA",
+   "valor_observado": 18.2,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_garantia' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_garantia.dominio_valores.tipo_garantia",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_garantia`",
+   "coluna": "tipo_garantia",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `tipo_garantia` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_garantia, COUNT(*) AS qtd\nFROM fato_garantia\nWHERE tipo_garantia NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_garantia')\nGROUP BY tipo_garantia;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_garantia",
+   "id_liberacao",
+   "tipo_garantia",
+   "descricao_bem",
+   "vl_avaliacao",
+   "fl_alienacao_registrada",
+   "situacao",
+   "dt_registro"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     24761,
+     "Fiança",
+     "Imóvel residencial R$ 300 mil",
+     45000.0,
+     "S",
+     "Em análise",
+     "2026-11-01"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     24824,
+     "Alienação fiduciária",
+     "Caminhão semipesado 6x2",
+     420000.0,
+     "N",
+     "Ativo",
+     null
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     24780,
+     "Alienação fiduciária",
+     "Imóvel residencial R$ 300 mil",
+     300000.0,
+     "S",
+     "Ativo",
+     null
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     24906,
+     "Alienação fiduciária",
+     "Automóvel hatch 1.0",
+     420000.0,
+     "S",
+     "Encerrado",
+     "2026-11-01"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     24716,
+     "Alienação fiduciária",
+     "Trator agrícola 110 cv",
+     420000.0,
+     "S",
+     "Ativo",
+     "2026-10-26"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     24847,
+     "Fiança",
+     "Imóvel residencial R$ 500 mil",
+     420000.0,
+     "S",
+     "Ativo",
+     "2026-11-12"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     25052,
+     "Fiança",
+     "Automóvel hatch 1.0",
+     180000.0,
+     "S",
+     "Encerrado",
+     "2026-10-26"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     24964,
+     "Fiança",
+     "Caminhão semipesado 6x2",
+     60000.0,
+     "S",
+     "Ativo",
+     "2026-10-31"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "fato_liberacao_credito"
+ ],
+ "downstream": []
+}

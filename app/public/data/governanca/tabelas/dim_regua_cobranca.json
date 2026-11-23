@@ -1,0 +1,606 @@
+{
+ "nome": "dim_regua_cobranca",
+ "descricao": "Régua de cobrança (etapas, canais e prazos)",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "baixa",
+ "frequencia": "semanal",
+ "sla_horas": 168,
+ "pipeline": "core_cobranca",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-15T03:30:25-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 18,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Régua de cobrança (etapas, canais e prazos). Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). Carga semanal pela rotina `core_cobranca`, com SLA de 168 horas. Tem 7 colunas; chave primária: `id_etapa_regua`. Responsável: Patrícia Lemos (Crédito & Cobrança). Alimenta: Cobrança: Carteira e Inadimplência.",
+ "colunas": [
+  {
+   "nome": "id_etapa_regua",
+   "tipo": "smallint",
+   "descricao": "Chave da etapa da régua",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_etapa",
+   "tipo": "varchar(60)",
+   "descricao": "Nome da etapa",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dias_atraso_inicio",
+   "tipo": "smallint",
+   "descricao": "Dia de atraso em que a etapa começa",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dias_atraso_fim",
+   "tipo": "smallint",
+   "descricao": "Dia de atraso em que a etapa termina",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_cobranca",
+   "tipo": "varchar(40)",
+   "descricao": "Canal de cobrança da etapa",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "acao_prevista",
+   "tipo": "varchar(120)",
+   "descricao": "Ação prevista",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativa",
+   "tipo": "char(1)",
+   "descricao": "Etapa ativa (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:30:15-03:00",
+   "duracao_seg": 37,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:30:36-03:00",
+   "duracao_seg": 33,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:30:26-03:00",
+   "duracao_seg": 35,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:30:25-03:00",
+   "duracao_seg": 35,
+   "linhas": 18,
+   "linhas_esperadas": 18,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_regua_cobranca.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_etapa_regua`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_regua_cobranca' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_regua_cobranca.unicidade.id_etapa_regua",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_etapa_regua`",
+   "coluna": "id_etapa_regua",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_etapa_regua` (18 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_etapa_regua, COUNT(*) AS qtd\nFROM dim_regua_cobranca\nGROUP BY id_etapa_regua\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_regua_cobranca.nao_nulo.nm_etapa",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `nm_etapa`",
+   "coluna": "nm_etapa",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `nm_etapa`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN nm_etapa IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_regua_cobranca;"
+  },
+  {
+   "id": "dim_regua_cobranca.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2 dias (15/11 às 03:30); SLA de 168h",
+   "valor_observado": 52.5,
+   "limite": 168,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_regua_cobranca' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_regua_cobranca.dominio_valores.canal_cobranca",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `canal_cobranca`",
+   "coluna": "canal_cobranca",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,1% dos valores de `canal_cobranca` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.1,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT canal_cobranca, COUNT(*) AS qtd\nFROM dim_regua_cobranca\nWHERE canal_cobranca NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'canal_cobranca')\nGROUP BY canal_cobranca;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_etapa_regua",
+   "nm_etapa",
+   "dias_atraso_inicio",
+   "dias_atraso_fim",
+   "canal_cobranca",
+   "acao_prevista",
+   "fl_ativa"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     1,
+     "Lembrete pré-vencimento",
+     73,
+     52,
+     "Régua digital (SMS/e-mail)",
+     "Enviar SMS e e-mail",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     2,
+     "Aviso D+3",
+     80,
+     94,
+     "WhatsApp",
+     "Mensagem no WhatsApp",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     3,
+     "Contato D+10",
+     51,
+     39,
+     "Central de cobrança",
+     "Ligação da central",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     4,
+     "Negociação D+30",
+     73,
+     11,
+     "Assessoria externa",
+     "Proposta de acordo",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     5,
+     "Assessoria D+60",
+     74,
+     37,
+     "Negativação",
+     "Encaminhar para assessoria",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     6,
+     "Negativação D+90",
+     76,
+     6,
+     "Régua digital (SMS/e-mail)",
+     "Incluir em órgão de proteção ao crédito",
+     "N"
+    ]
+   },
+   {
+    "valores": [
+     7,
+     "Lembrete pré-vencimento",
+     53,
+     51,
+     "WhatsApp",
+     "Enviar SMS e e-mail",
+     "S"
+    ]
+   },
+   {
+    "valores": [
+     8,
+     "Aviso D+3",
+     86,
+     52,
+     "Central de cobrança",
+     "Mensagem no WhatsApp",
+     "S"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_acao_cobranca"
+ ]
+}

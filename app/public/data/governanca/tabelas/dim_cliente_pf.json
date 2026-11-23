@@ -1,0 +1,639 @@
+{
+ "nome": "dim_cliente_pf",
+ "descricao": "Atributos específicos de pessoa física",
+ "dominio": "Cadastro",
+ "camada": "core",
+ "dono": "Marina Azevedo",
+ "dono_area": "Cadastro & CRM",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cadastro",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T01:40:44-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 550493,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Atributos específicos de pessoa física. Pertence ao domínio Cadastro e fica na camada core (dado tratado e modelado). É construída a partir de `dim_cliente`. Carga diária pela rotina `core_cadastro`, com SLA de 24 horas. Tem 8 colunas; chave primária: `id_cliente`. Responsável: Marina Azevedo (Cadastro & CRM).",
+ "colunas": [
+  {
+   "nome": "id_cliente",
+   "tipo": "bigint",
+   "descricao": "Cliente pessoa física",
+   "pk": true,
+   "fk": {
+    "tabela": "dim_cliente",
+    "coluna": "id_cliente"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cpf",
+   "tipo": "varchar(14)",
+   "descricao": "CPF",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "nome_mae",
+   "tipo": "varchar(120)",
+   "descricao": "Nome da mãe",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "dt_nascimento",
+   "tipo": "date",
+   "descricao": "Data de nascimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "sexo",
+   "tipo": "char(1)",
+   "descricao": "Sexo declarado",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "estado_civil",
+   "tipo": "varchar(20)",
+   "descricao": "Estado civil",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "profissao",
+   "tipo": "varchar(60)",
+   "descricao": "Profissão declarada",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "faixa_renda",
+   "tipo": "varchar(20)",
+   "descricao": "Faixa de renda mensal declarada",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:40:29-03:00",
+   "duracao_seg": 549,
+   "linhas": 545704,
+   "linhas_esperadas": 545704,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:40:42-03:00",
+   "duracao_seg": 542,
+   "linhas": 545869,
+   "linhas_esperadas": 545869,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:40:27-03:00",
+   "duracao_seg": 644,
+   "linhas": 546034,
+   "linhas_esperadas": 546034,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:40:42-03:00",
+   "duracao_seg": 613,
+   "linhas": 546199,
+   "linhas_esperadas": 546199,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T01:40:04-03:00",
+   "duracao_seg": 548,
+   "linhas": 546364,
+   "linhas_esperadas": 546364,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:40:36-03:00",
+   "duracao_seg": 662,
+   "linhas": 546529,
+   "linhas_esperadas": 546529,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:40:20-03:00",
+   "duracao_seg": 532,
+   "linhas": 546695,
+   "linhas_esperadas": 546695,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:40:42-03:00",
+   "duracao_seg": 569,
+   "linhas": 546860,
+   "linhas_esperadas": 546860,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:40:03-03:00",
+   "duracao_seg": 588,
+   "linhas": 547025,
+   "linhas_esperadas": 547025,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:40:22-03:00",
+   "duracao_seg": 633,
+   "linhas": 547190,
+   "linhas_esperadas": 547190,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:40:10-03:00",
+   "duracao_seg": 592,
+   "linhas": 547355,
+   "linhas_esperadas": 547355,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:40:41-03:00",
+   "duracao_seg": 607,
+   "linhas": 547520,
+   "linhas_esperadas": 547520,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:40:25-03:00",
+   "duracao_seg": 653,
+   "linhas": 547685,
+   "linhas_esperadas": 547685,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:40:46-03:00",
+   "duracao_seg": 611,
+   "linhas": 547851,
+   "linhas_esperadas": 547851,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:40:35-03:00",
+   "duracao_seg": 600,
+   "linhas": 548016,
+   "linhas_esperadas": 548016,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:40:24-03:00",
+   "duracao_seg": 547,
+   "linhas": 548181,
+   "linhas_esperadas": 548181,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:40:48-03:00",
+   "duracao_seg": 611,
+   "linhas": 548346,
+   "linhas_esperadas": 548346,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:40:47-03:00",
+   "duracao_seg": 636,
+   "linhas": 548511,
+   "linhas_esperadas": 548511,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:40:54-03:00",
+   "duracao_seg": 641,
+   "linhas": 548676,
+   "linhas_esperadas": 548676,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:40:43-03:00",
+   "duracao_seg": 544,
+   "linhas": 548842,
+   "linhas_esperadas": 548842,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:40:43-03:00",
+   "duracao_seg": 583,
+   "linhas": 549007,
+   "linhas_esperadas": 549007,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:40:38-03:00",
+   "duracao_seg": 627,
+   "linhas": 549172,
+   "linhas_esperadas": 549172,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:40:07-03:00",
+   "duracao_seg": 580,
+   "linhas": 549337,
+   "linhas_esperadas": 549337,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:40:18-03:00",
+   "duracao_seg": 601,
+   "linhas": 549502,
+   "linhas_esperadas": 549502,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:40:08-03:00",
+   "duracao_seg": 663,
+   "linhas": 549667,
+   "linhas_esperadas": 549667,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:40:22-03:00",
+   "duracao_seg": 595,
+   "linhas": 549832,
+   "linhas_esperadas": 549832,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:40:44-03:00",
+   "duracao_seg": 656,
+   "linhas": 549998,
+   "linhas_esperadas": 549998,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:40:12-03:00",
+   "duracao_seg": 632,
+   "linhas": 550163,
+   "linhas_esperadas": 550163,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:40:24-03:00",
+   "duracao_seg": 669,
+   "linhas": 550328,
+   "linhas_esperadas": 550328,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:40:44-03:00",
+   "duracao_seg": 558,
+   "linhas": 550493,
+   "linhas_esperadas": 550493,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_cliente_pf.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_cliente`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_cliente_pf' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_cliente_pf.unicidade.id_cliente",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_cliente` (550.493 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_cliente, COUNT(*) AS qtd\nFROM dim_cliente_pf\nGROUP BY id_cliente\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_cliente_pf.nao_nulo.cpf",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `cpf`",
+   "coluna": "cpf",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `cpf`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN cpf IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_cliente_pf;"
+  },
+  {
+   "id": "dim_cliente_pf.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cliente` existem em `dim_cliente`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM dim_cliente_pf f\nLEFT JOIN dim_cliente p ON p.id_cliente = f.id_cliente\nWHERE f.id_cliente IS NOT NULL AND p.id_cliente IS NULL;"
+  },
+  {
+   "id": "dim_cliente_pf.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:40); SLA de 24h",
+   "valor_observado": 6.3,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_cliente_pf' AND status IN ('sucesso', 'alerta');"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_cliente",
+   "cpf",
+   "nome_mae",
+   "dt_nascimento",
+   "sexo",
+   "estado_civil",
+   "profissao",
+   "faixa_renda"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     318477,
+     "***.875.***-40",
+     "Rodrigo M. Siqueira",
+     "**/**/1985",
+     "M",
+     "Casado(a)",
+     "Motorista autônomo",
+     "R$ 3 a 6 mil"
+    ]
+   },
+   {
+    "valores": [
+     318645,
+     "***.324.***-49",
+     "Thiago M. Antunes",
+     "**/**/1962",
+     "F",
+     "Casado(a)",
+     "Servidor público",
+     "Acima de R$ 20 mil"
+    ]
+   },
+   {
+    "valores": [
+     318414,
+     "***.816.***-78",
+     null,
+     "**/**/1976",
+     "F",
+     "Divorciado(a)",
+     "Comerciante",
+     "Até R$ 3 mil"
+    ]
+   },
+   {
+    "valores": [
+     318454,
+     "***.360.***-32",
+     "Fernanda S. Monteiro",
+     "**/**/1996",
+     "F",
+     "União estável",
+     "Enfermeira",
+     "R$ 10 a 20 mil"
+    ]
+   },
+   {
+    "valores": [
+     318772,
+     "***.449.***-47",
+     "Larissa C. Cardoso",
+     "**/**/1989",
+     "M",
+     "Divorciado(a)",
+     "Servidor público",
+     "R$ 3 a 6 mil"
+    ]
+   },
+   {
+    "valores": [
+     318673,
+     "***.327.***-23",
+     "Ricardo Q. Vieira",
+     "**/**/1971",
+     "M",
+     "Casado(a)",
+     "Produtor rural",
+     "R$ 3 a 6 mil"
+    ]
+   },
+   {
+    "valores": [
+     318769,
+     "***.237.***-20",
+     "Renata T. Figueiredo",
+     "**/**/1986",
+     "M",
+     "União estável",
+     "Empresário",
+     "R$ 6 a 10 mil"
+    ]
+   },
+   {
+    "valores": [
+     318691,
+     "***.277.***-32",
+     "Ana Paula C. Vieira",
+     "**/**/1983",
+     "F",
+     "Divorciado(a)",
+     "Professora",
+     "R$ 6 a 10 mil"
+    ]
+   },
+   {
+    "valores": [
+     318521,
+     "***.369.***-48",
+     "Carlos Eduardo S. Macedo",
+     "**/**/2000",
+     "F",
+     "Divorciado(a)",
+     "Produtor rural",
+     "R$ 10 a 20 mil"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "dim_cliente"
+ ],
+ "downstream": []
+}

@@ -1,0 +1,673 @@
+{
+ "nome": "dim_filial",
+ "descricao": "Filiais e lojas próprias",
+ "dominio": "Corporativo",
+ "camada": "core",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "media",
+ "frequencia": "semanal",
+ "sla_horas": 168,
+ "pipeline": "core_corporativo",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-15T02:50:18-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 86,
+ "testes_total": 5,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sucesso",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [
+  "vendas",
+  "cobranca-safra"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Filiais e lojas próprias. Pertence ao domínio Corporativo e fica na camada core (dado tratado e modelado). Carga semanal pela rotina `core_corporativo`, com SLA de 168 horas. Tem 8 colunas; chave primária: `id_filial`. Responsável: Thiago Meireles (Engenharia de Dados). Alimenta: Vendas / Comercial, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "id_filial",
+   "tipo": "integer",
+   "descricao": "Chave da filial",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_filial",
+   "tipo": "varchar(60)",
+   "descricao": "Nome da filial ou loja",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tipo_filial",
+   "tipo": "varchar(20)",
+   "descricao": "Loja própria, escritório regional ou matriz",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "municipio",
+   "tipo": "varchar(80)",
+   "descricao": "Município",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "uf",
+   "tipo": "char(2)",
+   "descricao": "UF",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "regional",
+   "tipo": "varchar(30)",
+   "descricao": "Regional comercial",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativa",
+   "tipo": "char(1)",
+   "descricao": "Filial ativa (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_abertura",
+   "tipo": "date",
+   "descricao": "Data de abertura",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:50:17-03:00",
+   "duracao_seg": 32,
+   "linhas": 86,
+   "linhas_esperadas": 86,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:50:17-03:00",
+   "duracao_seg": 36,
+   "linhas": 86,
+   "linhas_esperadas": 86,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:50:44-03:00",
+   "duracao_seg": 36,
+   "linhas": 86,
+   "linhas_esperadas": 86,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:50:18-03:00",
+   "duracao_seg": 31,
+   "linhas": 86,
+   "linhas_esperadas": 86,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_filial.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_filial`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_filial' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_filial.unicidade.id_filial",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_filial`",
+   "coluna": "id_filial",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_filial` (86 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_filial, COUNT(*) AS qtd\nFROM dim_filial\nGROUP BY id_filial\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_filial.nao_nulo.dt_abertura",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `dt_abertura`",
+   "coluna": "dt_abertura",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `dt_abertura`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN dt_abertura IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_filial;"
+  },
+  {
+   "id": "dim_filial.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 2 dias (15/11 às 02:50); SLA de 168h",
+   "valor_observado": 53.2,
+   "limite": 168,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_filial' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_filial.dominio_valores.tipo_filial",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_filial`",
+   "coluna": "tipo_filial",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `tipo_filial` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_filial, COUNT(*) AS qtd\nFROM dim_filial\nWHERE tipo_filial NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_filial')\nGROUP BY tipo_filial;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_filial",
+   "nm_filial",
+   "tipo_filial",
+   "municipio",
+   "uf",
+   "regional",
+   "fl_ativa",
+   "dt_abertura"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     14,
+     "Loja Londrina",
+     "Loja própria",
+     "Joinville",
+     "SC",
+     "Sul",
+     "S",
+     "2025-03-05"
+    ]
+   },
+   {
+    "valores": [
+     15,
+     "Loja Goiânia",
+     "Escritório regional",
+     "Londrina",
+     "PR",
+     "Sul",
+     "S",
+     "2024-02-02"
+    ]
+   },
+   {
+    "valores": [
+     16,
+     "Loja Recife",
+     "Matriz",
+     "Recife",
+     "PE",
+     "Norte e Nordeste",
+     "S",
+     "2024-06-22"
+    ]
+   },
+   {
+    "valores": [
+     17,
+     "Escritório Regional Sul",
+     "Matriz",
+     "Recife",
+     "PE",
+     "Norte e Nordeste",
+     "S",
+     "2023-08-12"
+    ]
+   },
+   {
+    "valores": [
+     18,
+     "Loja Londrina",
+     "Loja própria",
+     "Recife",
+     "PE",
+     "Norte e Nordeste",
+     "S",
+     "2024-10-12"
+    ]
+   },
+   {
+    "valores": [
+     19,
+     "Loja Goiânia",
+     "Escritório regional",
+     "Niterói",
+     "RJ",
+     "Sudeste",
+     "S",
+     "2025-10-11"
+    ]
+   },
+   {
+    "valores": [
+     20,
+     "Loja Recife",
+     "Escritório regional",
+     "Campinas",
+     "SP",
+     "São Paulo",
+     "S",
+     "2023-07-28"
+    ]
+   },
+   {
+    "valores": [
+     21,
+     "Loja Goiânia",
+     "Loja própria",
+     "Joinville",
+     "SC",
+     "Sul",
+     "N",
+     "2026-04-29"
+    ]
+   },
+   {
+    "valores": [
+     22,
+     "Matriz São Paulo",
+     "Loja própria",
+     "Caxias do Sul",
+     "RS",
+     "Sul",
+     "S",
+     "2023-11-22"
+    ]
+   },
+   {
+    "valores": [
+     23,
+     "Matriz São Paulo",
+     "Matriz",
+     "Caxias do Sul",
+     "RS",
+     "Sul",
+     "N",
+     "2024-07-09"
+    ]
+   },
+   {
+    "valores": [
+     24,
+     "Escritório Regional Sul",
+     "Loja própria",
+     "Brasília",
+     "DF",
+     "Centro-Oeste",
+     "S",
+     "2023-03-14"
+    ]
+   },
+   {
+    "valores": [
+     25,
+     "Loja Londrina",
+     "Loja própria",
+     "Recife",
+     "PE",
+     "Norte e Nordeste",
+     "N",
+     "2023-12-30"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "dim_equipe_comercial",
+  "mart_vendas_comercial"
+ ]
+}

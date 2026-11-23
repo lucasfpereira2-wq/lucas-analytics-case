@@ -1,0 +1,791 @@
+{
+ "nome": "stg_pesquisas_respostas",
+ "descricao": "Respostas brutas das pesquisas NPS e CSAT",
+ "dominio": "Staging",
+ "camada": "staging",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "ingest_pesquisas",
+ "fonte": "Plataforma de Pesquisas",
+ "status": "amarelo",
+ "motivo_status": "Plataforma reenviando respostas já entregues: 3,4% de linhas repetidas nos últimos 30 dias",
+ "tem_pk": true,
+ "saude": 52.3,
+ "ultima_carga": "2026-11-17T02:30:22-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 750911,
+ "testes_total": 8,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [
+  "INC-2027"
+ ],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Respostas brutas das pesquisas NPS e CSAT. Pertence ao domínio Staging e fica na camada de staging (dado bruto, como chega da origem). Origem: Plataforma de Pesquisas. Carga diária pela rotina `ingest_pesquisas`, com SLA de 24 horas. Tem 10 colunas; chave primária: `id_entrega`. Responsável: Thiago Meireles (Engenharia de Dados). Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_entrega",
+   "tipo": "varchar(40)",
+   "descricao": "Identificador da entrega (evento) feita pela plataforma de pesquisas",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_resposta",
+   "tipo": "varchar(40)",
+   "descricao": "Identificador da resposta; deveria ser único, mas a plataforma reenvia respostas",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tipo_pesquisa",
+   "tipo": "varchar(10)",
+   "descricao": "NPS ou CSAT",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cpf_respondente",
+   "tipo": "varchar(14)",
+   "descricao": "CPF do respondente",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "nota",
+   "tipo": "smallint",
+   "descricao": "Nota atribuída",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "comentario",
+   "tipo": "varchar(500)",
+   "descricao": "Comentário livre do cliente",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "canal",
+   "tipo": "varchar(20)",
+   "descricao": "Canal em que a pesquisa foi respondida",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_ticket_helpdesk",
+   "tipo": "bigint",
+   "descricao": "Ticket avaliado (CSAT)",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_resposta",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da resposta",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "_dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da ingestão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:30:16-03:00",
+   "duracao_seg": 22,
+   "linhas": 219,
+   "linhas_esperadas": 223,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:30:05-03:00",
+   "duracao_seg": 22,
+   "linhas": 1297,
+   "linhas_esperadas": 1315,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:30:43-03:00",
+   "duracao_seg": 24,
+   "linhas": 1223,
+   "linhas_esperadas": 1193,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:30:45-03:00",
+   "duracao_seg": 24,
+   "linhas": 1154,
+   "linhas_esperadas": 1137,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:30:50-03:00",
+   "duracao_seg": 21,
+   "linhas": 1152,
+   "linhas_esperadas": 1115,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:30:51-03:00",
+   "duracao_seg": 21,
+   "linhas": 1050,
+   "linhas_esperadas": 1070,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:30:54-03:00",
+   "duracao_seg": 21,
+   "linhas": 468,
+   "linhas_esperadas": 468,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:30:38-03:00",
+   "duracao_seg": 24,
+   "linhas": 224,
+   "linhas_esperadas": 223,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:30:48-03:00",
+   "duracao_seg": 22,
+   "linhas": 1322,
+   "linhas_esperadas": 1315,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:30:54-03:00",
+   "duracao_seg": 23,
+   "linhas": 1232,
+   "linhas_esperadas": 1193,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:30:26-03:00",
+   "duracao_seg": 23,
+   "linhas": 1104,
+   "linhas_esperadas": 1137,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:30:48-03:00",
+   "duracao_seg": 20,
+   "linhas": 1088,
+   "linhas_esperadas": 1115,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:30:12-03:00",
+   "duracao_seg": 22,
+   "linhas": 1086,
+   "linhas_esperadas": 1070,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:30:33-03:00",
+   "duracao_seg": 21,
+   "linhas": 470,
+   "linhas_esperadas": 468,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:30:20-03:00",
+   "duracao_seg": 23,
+   "linhas": 225,
+   "linhas_esperadas": 223,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:30:08-03:00",
+   "duracao_seg": 21,
+   "linhas": 1306,
+   "linhas_esperadas": 1315,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:30:53-03:00",
+   "duracao_seg": 23,
+   "linhas": 1168,
+   "linhas_esperadas": 1193,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:30:14-03:00",
+   "duracao_seg": 21,
+   "linhas": 1149,
+   "linhas_esperadas": 1137,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:30:21-03:00",
+   "duracao_seg": 22,
+   "linhas": 1146,
+   "linhas_esperadas": 1115,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:30:12-03:00",
+   "duracao_seg": 22,
+   "linhas": 1095,
+   "linhas_esperadas": 1070,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:30:13-03:00",
+   "duracao_seg": 25,
+   "linhas": 464,
+   "linhas_esperadas": 468,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:30:13-03:00",
+   "duracao_seg": 24,
+   "linhas": 231,
+   "linhas_esperadas": 223,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:30:43-03:00",
+   "duracao_seg": 22,
+   "linhas": null,
+   "linhas_esperadas": 1315,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Token da API da plataforma de pesquisas expirado (HTTP 401). Renovado manualmente no mesmo dia."
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:30:02-03:00",
+   "duracao_seg": 21,
+   "linhas": 1160,
+   "linhas_esperadas": 1193,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:30:32-03:00",
+   "duracao_seg": 21,
+   "linhas": 1145,
+   "linhas_esperadas": 1137,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:30:14-03:00",
+   "duracao_seg": 23,
+   "linhas": 1145,
+   "linhas_esperadas": 1115,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:30:44-03:00",
+   "duracao_seg": 25,
+   "linhas": 1098,
+   "linhas_esperadas": 1070,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:30:26-03:00",
+   "duracao_seg": 25,
+   "linhas": 460,
+   "linhas_esperadas": 468,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:30:09-03:00",
+   "duracao_seg": 22,
+   "linhas": 218,
+   "linhas_esperadas": 223,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:30:22-03:00",
+   "duracao_seg": 21,
+   "linhas": 1341,
+   "linhas_esperadas": 1315,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "stg_pesquisas_respostas.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_entrega`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'stg_pesquisas_respostas' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "stg_pesquisas_respostas.unicidade.id_entrega",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_entrega`",
+   "coluna": "id_entrega",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_entrega` (750.911 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_entrega, COUNT(*) AS qtd\nFROM stg_pesquisas_respostas\nGROUP BY id_entrega\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "stg_pesquisas_respostas.unicidade.id_resposta",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_resposta`",
+   "coluna": "id_resposta",
+   "severidade": "alto",
+   "resultado": "alerta",
+   "evidencia": "Plataforma reenviando respostas já entregues: 3,4% de linhas repetidas nos últimos 30 dias",
+   "valor_observado": 3.4,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT id_resposta, COUNT(*) AS qtd\nFROM stg_pesquisas_respostas\nGROUP BY id_resposta\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "stg_pesquisas_respostas.nao_nulo.id_resposta",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_resposta`",
+   "coluna": "id_resposta",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_resposta`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_resposta IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM stg_pesquisas_respostas;"
+  },
+  {
+   "id": "stg_pesquisas_respostas.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "1.341 linhas na última carga, dentro da faixa esperada (cerca de 1.315)",
+   "valor_observado": 1341,
+   "limite": 1315,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'stg_pesquisas_respostas'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "stg_pesquisas_respostas.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:30); SLA de 24h",
+   "valor_observado": 5.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'stg_pesquisas_respostas' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "stg_pesquisas_respostas.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (10 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'stg_pesquisas_respostas'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'stg_pesquisas_respostas';"
+  },
+  {
+   "id": "stg_pesquisas_respostas.dominio_valores.tipo_pesquisa",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_pesquisa`",
+   "coluna": "tipo_pesquisa",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `tipo_pesquisa` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_pesquisa, COUNT(*) AS qtd\nFROM stg_pesquisas_respostas\nWHERE tipo_pesquisa NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_pesquisa')\nGROUP BY tipo_pesquisa;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_entrega",
+   "id_resposta",
+   "tipo_pesquisa",
+   "cpf_respondente",
+   "nota",
+   "comentario",
+   "canal",
+   "id_ticket_helpdesk",
+   "dt_resposta",
+   "_dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "ent-99aa8372b3",
+     "res-b017b8edc2",
+     "CSAT",
+     "***.894.***-48",
+     7,
+     null,
+     "WhatsApp",
+     null,
+     "2026-11-16 07:01:23",
+     "2026-11-17 02:30:22"
+    ]
+   },
+   {
+    "valores": [
+     "ent-129a4c9ff7",
+     "res-e5409c0ca3",
+     "NPS",
+     null,
+     9,
+     null,
+     "Chat",
+     1472033,
+     "2026-11-16 14:40:06",
+     "2026-11-17 02:30:22"
+    ]
+   },
+   {
+    "valores": [
+     "ent-ca6192a49c",
+     "res-42f12a3dd4",
+     "CSAT",
+     "***.445.***-24",
+     3,
+     "Atendimento rápido e claro.",
+     "App",
+     null,
+     "2026-11-15 15:58:30",
+     "2026-11-17 02:30:22"
+    ]
+   },
+   {
+    "valores": [
+     "ent-cd9e3a2be0",
+     "res-bccb4b246e",
+     "NPS",
+     "***.149.***-87",
+     10,
+     null,
+     "Chat",
+     1472087,
+     "2026-11-15 07:01:31",
+     "2026-11-17 02:30:22"
+    ]
+   },
+   {
+    "valores": [
+     "ent-d00fd28902",
+     "res-8634a52dc2",
+     "NPS",
+     "***.204.***-14",
+     9,
+     null,
+     "E-mail",
+     null,
+     "2026-11-14 07:06:06",
+     "2026-11-17 02:30:22"
+    ],
+    "problema": "Reenvio da plataforma: mesmo `id_resposta` em duas entregas",
+    "colunas_problema": [
+     "id_resposta"
+    ]
+   },
+   {
+    "valores": [
+     "ent-2d9fdfe59a",
+     "res-8634a52dc2",
+     "NPS",
+     "***.204.***-14",
+     9,
+     null,
+     "E-mail",
+     null,
+     "2026-11-14 07:06:06",
+     "2026-11-17 02:30:22"
+    ],
+    "problema": "Reenvio da plataforma: mesmo `id_resposta` em duas entregas",
+    "colunas_problema": [
+     "id_resposta"
+    ]
+   },
+   {
+    "valores": [
+     "ent-81f8775bc5",
+     "res-71522dd1c5",
+     "NPS",
+     "***.331.***-92",
+     6,
+     "Gostei do aplicativo.",
+     "App",
+     1472070,
+     "2026-11-15 18:12:54",
+     "2026-11-17 02:30:22"
+    ]
+   },
+   {
+    "valores": [
+     "ent-03a11e9bcd",
+     "res-9c94209eae",
+     "CSAT",
+     "***.903.***-14",
+     6,
+     null,
+     "Voz",
+     null,
+     "2026-11-16 09:23:04",
+     "2026-11-17 02:30:22"
+    ]
+   },
+   {
+    "valores": [
+     "ent-9baa326473",
+     "res-19c1b1c06e",
+     "NPS",
+     null,
+     9,
+     "Demorou para resolver, mas resolveu.",
+     "E-mail",
+     1472048,
+     "2026-11-15 13:13:56",
+     "2026-11-17 02:30:22"
+    ]
+   },
+   {
+    "valores": [
+     "ent-9914231d4e",
+     "res-737378db0c",
+     "NPS",
+     "***.698.***-50",
+     6,
+     null,
+     "Chat",
+     null,
+     "2026-11-15 13:39:21",
+     "2026-11-17 02:30:22"
+    ]
+   },
+   {
+    "valores": [
+     "ent-6fb07cf295",
+     "res-439af55285",
+     "CSAT",
+     "***.948.***-13",
+     10,
+     "Demorou para resolver, mas resolveu.",
+     "Voz",
+     1472170,
+     "2026-11-14 11:04:35",
+     "2026-11-17 02:30:22"
+    ]
+   },
+   {
+    "valores": [
+     "ent-836f44f9f0",
+     "res-71e0347931",
+     "CSAT",
+     "***.363.***-80",
+     7,
+     "Demorou para resolver, mas resolveu.",
+     "Chat",
+     1472149,
+     "2026-11-14 11:32:04",
+     "2026-11-17 02:30:22"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_pesquisa_nps",
+  "fato_pesquisa_csat"
+ ]
+}

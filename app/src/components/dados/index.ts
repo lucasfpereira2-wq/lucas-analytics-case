@@ -1,0 +1,10 @@
+// Componentes de dados leves (sem ECharts). O wrapper de gráfico fica em '@/components/dados/EChart'
+// e deve ser importado diretamente, para o ECharts ficar fora do bundle inicial.
+export { ChartCard, type ChartCardProps, type DadosCSV } from './ChartCard'
+export { EmptyState, type EmptyStateProps } from './EmptyState'
+export { KpiCard, type KpiCardProps } from './KpiCard'
+export { SeloConfianca, type SeloConfiancaProps } from './SeloConfianca'
+export { SkeletonGrafico, SkeletonKpi, SkeletonRelatorio, SkeletonTabela } from './Skeletons'
+export { Sparkline, type SparklineProps } from './Sparkline'
+export { STATUS_INFO, StatusBadge, StatusDot, statusDoSelo, type StatusBadgeProps, type StatusDotProps } from './StatusBadge'
+export { TextoComTabelas } from './TextoComTabelas'

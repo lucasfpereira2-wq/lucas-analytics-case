@@ -1,0 +1,1363 @@
+{
+ "nos": [
+  {
+   "id": "fonte:crm-comercial",
+   "tipo": "fonte",
+   "rotulo": "CRM Comercial"
+  },
+  {
+   "id": "fonte:erp-consorcio",
+   "tipo": "fonte",
+   "rotulo": "ERP Consórcio"
+  },
+  {
+   "id": "fonte:banco-cnab-api",
+   "tipo": "fonte",
+   "rotulo": "Banco (CNAB / API)"
+  },
+  {
+   "id": "fonte:telefonia-cdr",
+   "tipo": "fonte",
+   "rotulo": "Telefonia (CDR)"
+  },
+  {
+   "id": "fonte:whatsapp-business-api",
+   "tipo": "fonte",
+   "rotulo": "WhatsApp Business API"
+  },
+  {
+   "id": "fonte:helpdesk",
+   "tipo": "fonte",
+   "rotulo": "Helpdesk"
+  },
+  {
+   "id": "fonte:plataforma-de-pesquisas",
+   "tipo": "fonte",
+   "rotulo": "Plataforma de Pesquisas"
+  },
+  {
+   "id": "fonte:discador-legado",
+   "tipo": "fonte",
+   "rotulo": "Discador legado"
+  },
+  {
+   "id": "fonte:planilha-comercial",
+   "tipo": "fonte",
+   "rotulo": "Planilha Comercial"
+  },
+  {
+   "id": "fonte:rh-folha",
+   "tipo": "fonte",
+   "rotulo": "RH (folha)"
+  },
+  {
+   "id": "stg_crm_clientes",
+   "tipo": "tabela",
+   "rotulo": "stg_crm_clientes",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "verde"
+  },
+  {
+   "id": "stg_crm_propostas",
+   "tipo": "tabela",
+   "rotulo": "stg_crm_propostas",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "vermelho"
+  },
+  {
+   "id": "stg_crm_funil_eventos",
+   "tipo": "tabela",
+   "rotulo": "stg_crm_funil_eventos",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "verde"
+  },
+  {
+   "id": "stg_erp_contratos",
+   "tipo": "tabela",
+   "rotulo": "stg_erp_contratos",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "verde"
+  },
+  {
+   "id": "stg_erp_cotas",
+   "tipo": "tabela",
+   "rotulo": "stg_erp_cotas",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "verde"
+  },
+  {
+   "id": "stg_erp_parcelas",
+   "tipo": "tabela",
+   "rotulo": "stg_erp_parcelas",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "verde"
+  },
+  {
+   "id": "stg_erp_assembleias",
+   "tipo": "tabela",
+   "rotulo": "stg_erp_assembleias",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "verde"
+  },
+  {
+   "id": "stg_erp_lances",
+   "tipo": "tabela",
+   "rotulo": "stg_erp_lances",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "verde"
+  },
+  {
+   "id": "stg_banco_retorno_cnab",
+   "tipo": "tabela",
+   "rotulo": "stg_banco_retorno_cnab",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "verde"
+  },
+  {
+   "id": "stg_banco_boletos_registrados",
+   "tipo": "tabela",
+   "rotulo": "stg_banco_boletos_registrados",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "vermelho"
+  },
+  {
+   "id": "stg_telefonia_cdr",
+   "tipo": "tabela",
+   "rotulo": "stg_telefonia_cdr",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "vermelho"
+  },
+  {
+   "id": "stg_whatsapp_conversas",
+   "tipo": "tabela",
+   "rotulo": "stg_whatsapp_conversas",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "vermelho"
+  },
+  {
+   "id": "stg_helpdesk_tickets",
+   "tipo": "tabela",
+   "rotulo": "stg_helpdesk_tickets",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "verde"
+  },
+  {
+   "id": "stg_pesquisas_respostas",
+   "tipo": "tabela",
+   "rotulo": "stg_pesquisas_respostas",
+   "camada": "staging",
+   "dominio": "Staging",
+   "status": "amarelo"
+  },
+  {
+   "id": "dim_cliente",
+   "tipo": "tabela",
+   "rotulo": "dim_cliente",
+   "camada": "core",
+   "dominio": "Cadastro",
+   "status": "vermelho"
+  },
+  {
+   "id": "dim_cliente_pf",
+   "tipo": "tabela",
+   "rotulo": "dim_cliente_pf",
+   "camada": "core",
+   "dominio": "Cadastro",
+   "status": "verde"
+  },
+  {
+   "id": "dim_cliente_pj",
+   "tipo": "tabela",
+   "rotulo": "dim_cliente_pj",
+   "camada": "core",
+   "dominio": "Cadastro",
+   "status": "verde"
+  },
+  {
+   "id": "dim_endereco",
+   "tipo": "tabela",
+   "rotulo": "dim_endereco",
+   "camada": "core",
+   "dominio": "Cadastro",
+   "status": "amarelo"
+  },
+  {
+   "id": "dim_contato",
+   "tipo": "tabela",
+   "rotulo": "dim_contato",
+   "camada": "core",
+   "dominio": "Cadastro",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_consentimento_lgpd",
+   "tipo": "tabela",
+   "rotulo": "fato_consentimento_lgpd",
+   "camada": "core",
+   "dominio": "Cadastro",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_atualizacao_cadastral",
+   "tipo": "tabela",
+   "rotulo": "fato_atualizacao_cadastral",
+   "camada": "core",
+   "dominio": "Cadastro",
+   "status": "verde"
+  },
+  {
+   "id": "dim_segmento",
+   "tipo": "tabela",
+   "rotulo": "dim_segmento",
+   "camada": "core",
+   "dominio": "Produto",
+   "status": "verde"
+  },
+  {
+   "id": "dim_plano",
+   "tipo": "tabela",
+   "rotulo": "dim_plano",
+   "camada": "core",
+   "dominio": "Produto",
+   "status": "verde"
+  },
+  {
+   "id": "dim_bem_referencia",
+   "tipo": "tabela",
+   "rotulo": "dim_bem_referencia",
+   "camada": "core",
+   "dominio": "Produto",
+   "status": "verde"
+  },
+  {
+   "id": "dim_tabela_taxa",
+   "tipo": "tabela",
+   "rotulo": "dim_tabela_taxa",
+   "camada": "core",
+   "dominio": "Produto",
+   "status": "verde"
+  },
+  {
+   "id": "fato_reajuste_bem",
+   "tipo": "tabela",
+   "rotulo": "fato_reajuste_bem",
+   "camada": "core",
+   "dominio": "Produto",
+   "status": "amarelo"
+  },
+  {
+   "id": "dim_grupo",
+   "tipo": "tabela",
+   "rotulo": "dim_grupo",
+   "camada": "core",
+   "dominio": "Grupos e Cotas",
+   "status": "verde"
+  },
+  {
+   "id": "dim_cota",
+   "tipo": "tabela",
+   "rotulo": "dim_cota",
+   "camada": "core",
+   "dominio": "Grupos e Cotas",
+   "status": "vermelho"
+  },
+  {
+   "id": "fato_cota_movimentacao",
+   "tipo": "tabela",
+   "rotulo": "fato_cota_movimentacao",
+   "camada": "core",
+   "dominio": "Grupos e Cotas",
+   "status": "verde"
+  },
+  {
+   "id": "fato_transferencia_cota",
+   "tipo": "tabela",
+   "rotulo": "fato_transferencia_cota",
+   "camada": "core",
+   "dominio": "Grupos e Cotas",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_cancelamento_cota",
+   "tipo": "tabela",
+   "rotulo": "fato_cancelamento_cota",
+   "camada": "core",
+   "dominio": "Grupos e Cotas",
+   "status": "verde"
+  },
+  {
+   "id": "fato_reativacao_cota",
+   "tipo": "tabela",
+   "rotulo": "fato_reativacao_cota",
+   "camada": "core",
+   "dominio": "Grupos e Cotas",
+   "status": "verde"
+  },
+  {
+   "id": "fato_posicao_grupo_mensal",
+   "tipo": "tabela",
+   "rotulo": "fato_posicao_grupo_mensal",
+   "camada": "core",
+   "dominio": "Grupos e Cotas",
+   "status": "verde"
+  },
+  {
+   "id": "fato_lead",
+   "tipo": "tabela",
+   "rotulo": "fato_lead",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "verde"
+  },
+  {
+   "id": "fato_proposta",
+   "tipo": "tabela",
+   "rotulo": "fato_proposta",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_contrato_venda",
+   "tipo": "tabela",
+   "rotulo": "fato_contrato_venda",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "verde"
+  },
+  {
+   "id": "fato_funil_crm",
+   "tipo": "tabela",
+   "rotulo": "fato_funil_crm",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "amarelo"
+  },
+  {
+   "id": "dim_vendedor",
+   "tipo": "tabela",
+   "rotulo": "dim_vendedor",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "verde"
+  },
+  {
+   "id": "dim_equipe_comercial",
+   "tipo": "tabela",
+   "rotulo": "dim_equipe_comercial",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "verde"
+  },
+  {
+   "id": "fato_meta_comercial",
+   "tipo": "tabela",
+   "rotulo": "fato_meta_comercial",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "amarelo"
+  },
+  {
+   "id": "dim_canal_venda",
+   "tipo": "tabela",
+   "rotulo": "dim_canal_venda",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "verde"
+  },
+  {
+   "id": "dim_parceiro",
+   "tipo": "tabela",
+   "rotulo": "dim_parceiro",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "verde"
+  },
+  {
+   "id": "fato_comissao",
+   "tipo": "tabela",
+   "rotulo": "fato_comissao",
+   "camada": "core",
+   "dominio": "Vendas",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_parcelas",
+   "tipo": "tabela",
+   "rotulo": "fato_parcelas",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "vermelho"
+  },
+  {
+   "id": "fato_pagamento",
+   "tipo": "tabela",
+   "rotulo": "fato_pagamento",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_boleto",
+   "tipo": "tabela",
+   "rotulo": "fato_boleto",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_acordo",
+   "tipo": "tabela",
+   "rotulo": "fato_acordo",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "verde"
+  },
+  {
+   "id": "fato_renegociacao",
+   "tipo": "tabela",
+   "rotulo": "fato_renegociacao",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "verde"
+  },
+  {
+   "id": "dim_regua_cobranca",
+   "tipo": "tabela",
+   "rotulo": "dim_regua_cobranca",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "verde"
+  },
+  {
+   "id": "fato_acao_cobranca",
+   "tipo": "tabela",
+   "rotulo": "fato_acao_cobranca",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "amarelo"
+  },
+  {
+   "id": "dim_assessoria_cobranca",
+   "tipo": "tabela",
+   "rotulo": "dim_assessoria_cobranca",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "verde"
+  },
+  {
+   "id": "fato_fundo_comum",
+   "tipo": "tabela",
+   "rotulo": "fato_fundo_comum",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "verde"
+  },
+  {
+   "id": "fato_fundo_reserva",
+   "tipo": "tabela",
+   "rotulo": "fato_fundo_reserva",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "verde"
+  },
+  {
+   "id": "fato_inadimplencia_diaria",
+   "tipo": "tabela",
+   "rotulo": "fato_inadimplencia_diaria",
+   "camada": "core",
+   "dominio": "Financeiro e Cobrança",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_assembleia",
+   "tipo": "tabela",
+   "rotulo": "fato_assembleia",
+   "camada": "core",
+   "dominio": "Assembleias",
+   "status": "verde"
+  },
+  {
+   "id": "fato_lance",
+   "tipo": "tabela",
+   "rotulo": "fato_lance",
+   "camada": "core",
+   "dominio": "Assembleias",
+   "status": "verde"
+  },
+  {
+   "id": "fato_sorteio",
+   "tipo": "tabela",
+   "rotulo": "fato_sorteio",
+   "camada": "core",
+   "dominio": "Assembleias",
+   "status": "verde"
+  },
+  {
+   "id": "fato_contemplacao",
+   "tipo": "tabela",
+   "rotulo": "fato_contemplacao",
+   "camada": "core",
+   "dominio": "Assembleias",
+   "status": "verde"
+  },
+  {
+   "id": "fato_liberacao_credito",
+   "tipo": "tabela",
+   "rotulo": "fato_liberacao_credito",
+   "camada": "core",
+   "dominio": "Assembleias",
+   "status": "verde"
+  },
+  {
+   "id": "fato_garantia",
+   "tipo": "tabela",
+   "rotulo": "fato_garantia",
+   "camada": "core",
+   "dominio": "Assembleias",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_chamada",
+   "tipo": "tabela",
+   "rotulo": "fato_chamada",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "vermelho"
+  },
+  {
+   "id": "fato_chamadas_legacy",
+   "tipo": "tabela",
+   "rotulo": "fato_chamadas_legacy",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "vermelho"
+  },
+  {
+   "id": "fato_conversa_whatsapp",
+   "tipo": "tabela",
+   "rotulo": "fato_conversa_whatsapp",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_ticket",
+   "tipo": "tabela",
+   "rotulo": "fato_ticket",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "amarelo"
+  },
+  {
+   "id": "fato_interacao_digital",
+   "tipo": "tabela",
+   "rotulo": "fato_interacao_digital",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "verde"
+  },
+  {
+   "id": "dim_motivo_contato",
+   "tipo": "tabela",
+   "rotulo": "dim_motivo_contato",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "verde"
+  },
+  {
+   "id": "fato_pesquisa_nps",
+   "tipo": "tabela",
+   "rotulo": "fato_pesquisa_nps",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "vermelho"
+  },
+  {
+   "id": "fato_pesquisa_csat",
+   "tipo": "tabela",
+   "rotulo": "fato_pesquisa_csat",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "verde"
+  },
+  {
+   "id": "dim_agente",
+   "tipo": "tabela",
+   "rotulo": "dim_agente",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "verde"
+  },
+  {
+   "id": "dim_fila_atendimento",
+   "tipo": "tabela",
+   "rotulo": "dim_fila_atendimento",
+   "camada": "core",
+   "dominio": "Atendimento",
+   "status": "verde"
+  },
+  {
+   "id": "dim_filial",
+   "tipo": "tabela",
+   "rotulo": "dim_filial",
+   "camada": "core",
+   "dominio": "Corporativo",
+   "status": "verde"
+  },
+  {
+   "id": "dim_regional",
+   "tipo": "tabela",
+   "rotulo": "dim_regional",
+   "camada": "core",
+   "dominio": "Corporativo",
+   "status": "verde"
+  },
+  {
+   "id": "dim_calendario",
+   "tipo": "tabela",
+   "rotulo": "dim_calendario",
+   "camada": "core",
+   "dominio": "Corporativo",
+   "status": "verde"
+  },
+  {
+   "id": "dim_colaborador",
+   "tipo": "tabela",
+   "rotulo": "dim_colaborador",
+   "camada": "core",
+   "dominio": "Corporativo",
+   "status": "amarelo"
+  },
+  {
+   "id": "mart_vendas_comercial",
+   "tipo": "tabela",
+   "rotulo": "mart_vendas_comercial",
+   "camada": "mart",
+   "dominio": "Marts",
+   "status": "amarelo"
+  },
+  {
+   "id": "mart_cobranca_carteira",
+   "tipo": "tabela",
+   "rotulo": "mart_cobranca_carteira",
+   "camada": "mart",
+   "dominio": "Marts",
+   "status": "vermelho"
+  },
+  {
+   "id": "mart_cobranca_safra_mob",
+   "tipo": "tabela",
+   "rotulo": "mart_cobranca_safra_mob",
+   "camada": "mart",
+   "dominio": "Marts",
+   "status": "amarelo"
+  },
+  {
+   "id": "mart_atendimento",
+   "tipo": "tabela",
+   "rotulo": "mart_atendimento",
+   "camada": "mart",
+   "dominio": "Marts",
+   "status": "vermelho"
+  },
+  {
+   "id": "mart_assembleias_contemplacoes",
+   "tipo": "tabela",
+   "rotulo": "mart_assembleias_contemplacoes",
+   "camada": "mart",
+   "dominio": "Marts",
+   "status": "verde"
+  },
+  {
+   "id": "mart_executivo_kpis",
+   "tipo": "tabela",
+   "rotulo": "mart_executivo_kpis",
+   "camada": "mart",
+   "dominio": "Marts",
+   "status": "amarelo"
+  },
+  {
+   "id": "relatorio:vendas",
+   "tipo": "relatorio",
+   "rotulo": "Vendas / Comercial",
+   "nivel_selo": "atencao",
+   "rota": "/relatorios/vendas"
+  },
+  {
+   "id": "relatorio:cobranca-carteira",
+   "tipo": "relatorio",
+   "rotulo": "Cobrança: Carteira e Inadimplência",
+   "nivel_selo": "critico",
+   "rota": "/relatorios/cobranca-carteira"
+  },
+  {
+   "id": "relatorio:cobranca-safra",
+   "tipo": "relatorio",
+   "rotulo": "Cobrança: Safra, MOB e Cohort",
+   "nivel_selo": "atencao",
+   "rota": "/relatorios/cobranca-safra"
+  },
+  {
+   "id": "relatorio:atendimento",
+   "tipo": "relatorio",
+   "rotulo": "Atendimento",
+   "nivel_selo": "critico",
+   "rota": "/relatorios/atendimento"
+  },
+  {
+   "id": "relatorio:assembleias",
+   "tipo": "relatorio",
+   "rotulo": "Assembleias e Contemplações",
+   "nivel_selo": "confiavel",
+   "rota": "/relatorios/assembleias"
+  }
+ ],
+ "arestas": [
+  {
+   "de": "fonte:crm-comercial",
+   "para": "stg_crm_clientes"
+  },
+  {
+   "de": "fonte:crm-comercial",
+   "para": "stg_crm_propostas"
+  },
+  {
+   "de": "fonte:crm-comercial",
+   "para": "stg_crm_funil_eventos"
+  },
+  {
+   "de": "fonte:erp-consorcio",
+   "para": "stg_erp_contratos"
+  },
+  {
+   "de": "fonte:erp-consorcio",
+   "para": "stg_erp_cotas"
+  },
+  {
+   "de": "fonte:erp-consorcio",
+   "para": "stg_erp_parcelas"
+  },
+  {
+   "de": "fonte:erp-consorcio",
+   "para": "stg_erp_assembleias"
+  },
+  {
+   "de": "fonte:erp-consorcio",
+   "para": "stg_erp_lances"
+  },
+  {
+   "de": "fonte:banco-cnab-api",
+   "para": "stg_banco_retorno_cnab"
+  },
+  {
+   "de": "fonte:banco-cnab-api",
+   "para": "stg_banco_boletos_registrados"
+  },
+  {
+   "de": "fonte:telefonia-cdr",
+   "para": "stg_telefonia_cdr"
+  },
+  {
+   "de": "fonte:whatsapp-business-api",
+   "para": "stg_whatsapp_conversas"
+  },
+  {
+   "de": "fonte:helpdesk",
+   "para": "stg_helpdesk_tickets"
+  },
+  {
+   "de": "fonte:plataforma-de-pesquisas",
+   "para": "stg_pesquisas_respostas"
+  },
+  {
+   "de": "fonte:discador-legado",
+   "para": "fato_chamadas_legacy"
+  },
+  {
+   "de": "fonte:planilha-comercial",
+   "para": "fato_meta_comercial"
+  },
+  {
+   "de": "fonte:rh-folha",
+   "para": "dim_colaborador"
+  },
+  {
+   "de": "stg_crm_clientes",
+   "para": "dim_cliente"
+  },
+  {
+   "de": "stg_erp_contratos",
+   "para": "dim_cliente"
+  },
+  {
+   "de": "dim_cliente",
+   "para": "dim_cliente_pf"
+  },
+  {
+   "de": "dim_cliente",
+   "para": "dim_cliente_pj"
+  },
+  {
+   "de": "stg_crm_clientes",
+   "para": "dim_endereco"
+  },
+  {
+   "de": "stg_crm_clientes",
+   "para": "dim_contato"
+  },
+  {
+   "de": "stg_crm_clientes",
+   "para": "fato_consentimento_lgpd"
+  },
+  {
+   "de": "stg_crm_clientes",
+   "para": "fato_atualizacao_cadastral"
+  },
+  {
+   "de": "stg_erp_contratos",
+   "para": "dim_segmento"
+  },
+  {
+   "de": "stg_erp_contratos",
+   "para": "dim_plano"
+  },
+  {
+   "de": "stg_erp_contratos",
+   "para": "dim_bem_referencia"
+  },
+  {
+   "de": "stg_erp_contratos",
+   "para": "dim_tabela_taxa"
+  },
+  {
+   "de": "dim_bem_referencia",
+   "para": "fato_reajuste_bem"
+  },
+  {
+   "de": "stg_erp_cotas",
+   "para": "dim_grupo"
+  },
+  {
+   "de": "stg_erp_assembleias",
+   "para": "dim_grupo"
+  },
+  {
+   "de": "dim_plano",
+   "para": "dim_grupo"
+  },
+  {
+   "de": "stg_erp_cotas",
+   "para": "dim_cota"
+  },
+  {
+   "de": "dim_grupo",
+   "para": "dim_cota"
+  },
+  {
+   "de": "dim_cliente",
+   "para": "dim_cota"
+  },
+  {
+   "de": "dim_plano",
+   "para": "dim_cota"
+  },
+  {
+   "de": "stg_erp_cotas",
+   "para": "fato_cota_movimentacao"
+  },
+  {
+   "de": "dim_cota",
+   "para": "fato_cota_movimentacao"
+  },
+  {
+   "de": "stg_erp_cotas",
+   "para": "fato_transferencia_cota"
+  },
+  {
+   "de": "dim_cota",
+   "para": "fato_transferencia_cota"
+  },
+  {
+   "de": "stg_erp_cotas",
+   "para": "fato_cancelamento_cota"
+  },
+  {
+   "de": "dim_cota",
+   "para": "fato_cancelamento_cota"
+  },
+  {
+   "de": "stg_erp_cotas",
+   "para": "fato_reativacao_cota"
+  },
+  {
+   "de": "dim_cota",
+   "para": "fato_reativacao_cota"
+  },
+  {
+   "de": "stg_erp_cotas",
+   "para": "fato_posicao_grupo_mensal"
+  },
+  {
+   "de": "dim_grupo",
+   "para": "fato_posicao_grupo_mensal"
+  },
+  {
+   "de": "stg_crm_funil_eventos",
+   "para": "fato_lead"
+  },
+  {
+   "de": "stg_crm_propostas",
+   "para": "fato_proposta"
+  },
+  {
+   "de": "dim_cliente",
+   "para": "fato_proposta"
+  },
+  {
+   "de": "dim_vendedor",
+   "para": "fato_proposta"
+  },
+  {
+   "de": "stg_erp_contratos",
+   "para": "fato_contrato_venda"
+  },
+  {
+   "de": "fato_proposta",
+   "para": "fato_contrato_venda"
+  },
+  {
+   "de": "dim_cota",
+   "para": "fato_contrato_venda"
+  },
+  {
+   "de": "dim_vendedor",
+   "para": "fato_contrato_venda"
+  },
+  {
+   "de": "stg_crm_funil_eventos",
+   "para": "fato_funil_crm"
+  },
+  {
+   "de": "fato_lead",
+   "para": "fato_funil_crm"
+  },
+  {
+   "de": "fato_proposta",
+   "para": "fato_funil_crm"
+  },
+  {
+   "de": "dim_colaborador",
+   "para": "dim_vendedor"
+  },
+  {
+   "de": "dim_equipe_comercial",
+   "para": "dim_vendedor"
+  },
+  {
+   "de": "dim_colaborador",
+   "para": "dim_equipe_comercial"
+  },
+  {
+   "de": "dim_filial",
+   "para": "dim_equipe_comercial"
+  },
+  {
+   "de": "stg_crm_clientes",
+   "para": "dim_parceiro"
+  },
+  {
+   "de": "fato_contrato_venda",
+   "para": "fato_comissao"
+  },
+  {
+   "de": "dim_vendedor",
+   "para": "fato_comissao"
+  },
+  {
+   "de": "dim_parceiro",
+   "para": "fato_comissao"
+  },
+  {
+   "de": "stg_erp_parcelas",
+   "para": "fato_parcelas"
+  },
+  {
+   "de": "dim_cota",
+   "para": "fato_parcelas"
+  },
+  {
+   "de": "stg_banco_retorno_cnab",
+   "para": "fato_pagamento"
+  },
+  {
+   "de": "fato_parcelas",
+   "para": "fato_pagamento"
+  },
+  {
+   "de": "stg_banco_boletos_registrados",
+   "para": "fato_boleto"
+  },
+  {
+   "de": "fato_parcelas",
+   "para": "fato_boleto"
+  },
+  {
+   "de": "stg_erp_parcelas",
+   "para": "fato_acordo"
+  },
+  {
+   "de": "fato_parcelas",
+   "para": "fato_acordo"
+  },
+  {
+   "de": "fato_acordo",
+   "para": "fato_renegociacao"
+  },
+  {
+   "de": "fato_parcelas",
+   "para": "fato_renegociacao"
+  },
+  {
+   "de": "dim_regua_cobranca",
+   "para": "fato_acao_cobranca"
+  },
+  {
+   "de": "fato_parcelas",
+   "para": "fato_acao_cobranca"
+  },
+  {
+   "de": "dim_assessoria_cobranca",
+   "para": "fato_acao_cobranca"
+  },
+  {
+   "de": "fato_pagamento",
+   "para": "fato_fundo_comum"
+  },
+  {
+   "de": "dim_grupo",
+   "para": "fato_fundo_comum"
+  },
+  {
+   "de": "fato_pagamento",
+   "para": "fato_fundo_reserva"
+  },
+  {
+   "de": "dim_grupo",
+   "para": "fato_fundo_reserva"
+  },
+  {
+   "de": "fato_parcelas",
+   "para": "fato_inadimplencia_diaria"
+  },
+  {
+   "de": "fato_pagamento",
+   "para": "fato_inadimplencia_diaria"
+  },
+  {
+   "de": "dim_cota",
+   "para": "fato_inadimplencia_diaria"
+  },
+  {
+   "de": "stg_erp_assembleias",
+   "para": "fato_assembleia"
+  },
+  {
+   "de": "dim_grupo",
+   "para": "fato_assembleia"
+  },
+  {
+   "de": "stg_erp_lances",
+   "para": "fato_lance"
+  },
+  {
+   "de": "fato_assembleia",
+   "para": "fato_lance"
+  },
+  {
+   "de": "dim_grupo",
+   "para": "fato_lance"
+  },
+  {
+   "de": "stg_erp_assembleias",
+   "para": "fato_sorteio"
+  },
+  {
+   "de": "fato_assembleia",
+   "para": "fato_sorteio"
+  },
+  {
+   "de": "fato_lance",
+   "para": "fato_contemplacao"
+  },
+  {
+   "de": "fato_sorteio",
+   "para": "fato_contemplacao"
+  },
+  {
+   "de": "fato_assembleia",
+   "para": "fato_contemplacao"
+  },
+  {
+   "de": "fato_contemplacao",
+   "para": "fato_liberacao_credito"
+  },
+  {
+   "de": "stg_erp_contratos",
+   "para": "fato_liberacao_credito"
+  },
+  {
+   "de": "fato_liberacao_credito",
+   "para": "fato_garantia"
+  },
+  {
+   "de": "stg_telefonia_cdr",
+   "para": "fato_chamada"
+  },
+  {
+   "de": "dim_agente",
+   "para": "fato_chamada"
+  },
+  {
+   "de": "dim_fila_atendimento",
+   "para": "fato_chamada"
+  },
+  {
+   "de": "dim_motivo_contato",
+   "para": "fato_chamada"
+  },
+  {
+   "de": "stg_whatsapp_conversas",
+   "para": "fato_conversa_whatsapp"
+  },
+  {
+   "de": "dim_agente",
+   "para": "fato_conversa_whatsapp"
+  },
+  {
+   "de": "dim_motivo_contato",
+   "para": "fato_conversa_whatsapp"
+  },
+  {
+   "de": "stg_helpdesk_tickets",
+   "para": "fato_ticket"
+  },
+  {
+   "de": "dim_motivo_contato",
+   "para": "fato_ticket"
+  },
+  {
+   "de": "dim_agente",
+   "para": "fato_ticket"
+  },
+  {
+   "de": "stg_helpdesk_tickets",
+   "para": "fato_interacao_digital"
+  },
+  {
+   "de": "stg_pesquisas_respostas",
+   "para": "fato_pesquisa_nps"
+  },
+  {
+   "de": "stg_pesquisas_respostas",
+   "para": "fato_pesquisa_csat"
+  },
+  {
+   "de": "fato_ticket",
+   "para": "fato_pesquisa_csat"
+  },
+  {
+   "de": "dim_colaborador",
+   "para": "dim_agente"
+  },
+  {
+   "de": "fato_contrato_venda",
+   "para": "mart_vendas_comercial"
+  },
+  {
+   "de": "fato_proposta",
+   "para": "mart_vendas_comercial"
+  },
+  {
+   "de": "fato_funil_crm",
+   "para": "mart_vendas_comercial"
+  },
+  {
+   "de": "fato_meta_comercial",
+   "para": "mart_vendas_comercial"
+  },
+  {
+   "de": "dim_vendedor",
+   "para": "mart_vendas_comercial"
+  },
+  {
+   "de": "dim_canal_venda",
+   "para": "mart_vendas_comercial"
+  },
+  {
+   "de": "fato_cancelamento_cota",
+   "para": "mart_vendas_comercial"
+  },
+  {
+   "de": "dim_filial",
+   "para": "mart_vendas_comercial"
+  },
+  {
+   "de": "fato_parcelas",
+   "para": "mart_cobranca_carteira"
+  },
+  {
+   "de": "fato_pagamento",
+   "para": "mart_cobranca_carteira"
+  },
+  {
+   "de": "fato_inadimplencia_diaria",
+   "para": "mart_cobranca_carteira"
+  },
+  {
+   "de": "fato_acordo",
+   "para": "mart_cobranca_carteira"
+  },
+  {
+   "de": "fato_acao_cobranca",
+   "para": "mart_cobranca_carteira"
+  },
+  {
+   "de": "dim_cota",
+   "para": "mart_cobranca_carteira"
+  },
+  {
+   "de": "fato_parcelas",
+   "para": "mart_cobranca_safra_mob"
+  },
+  {
+   "de": "fato_inadimplencia_diaria",
+   "para": "mart_cobranca_safra_mob"
+  },
+  {
+   "de": "fato_contrato_venda",
+   "para": "mart_cobranca_safra_mob"
+  },
+  {
+   "de": "fato_cancelamento_cota",
+   "para": "mart_cobranca_safra_mob"
+  },
+  {
+   "de": "dim_cota",
+   "para": "mart_cobranca_safra_mob"
+  },
+  {
+   "de": "fato_chamada",
+   "para": "mart_atendimento"
+  },
+  {
+   "de": "fato_chamadas_legacy",
+   "para": "mart_atendimento"
+  },
+  {
+   "de": "fato_conversa_whatsapp",
+   "para": "mart_atendimento"
+  },
+  {
+   "de": "fato_ticket",
+   "para": "mart_atendimento"
+  },
+  {
+   "de": "fato_interacao_digital",
+   "para": "mart_atendimento"
+  },
+  {
+   "de": "fato_pesquisa_nps",
+   "para": "mart_atendimento"
+  },
+  {
+   "de": "fato_pesquisa_csat",
+   "para": "mart_atendimento"
+  },
+  {
+   "de": "dim_motivo_contato",
+   "para": "mart_atendimento"
+  },
+  {
+   "de": "fato_assembleia",
+   "para": "mart_assembleias_contemplacoes"
+  },
+  {
+   "de": "fato_lance",
+   "para": "mart_assembleias_contemplacoes"
+  },
+  {
+   "de": "fato_sorteio",
+   "para": "mart_assembleias_contemplacoes"
+  },
+  {
+   "de": "fato_contemplacao",
+   "para": "mart_assembleias_contemplacoes"
+  },
+  {
+   "de": "fato_liberacao_credito",
+   "para": "mart_assembleias_contemplacoes"
+  },
+  {
+   "de": "dim_grupo",
+   "para": "mart_assembleias_contemplacoes"
+  },
+  {
+   "de": "fato_posicao_grupo_mensal",
+   "para": "mart_assembleias_contemplacoes"
+  },
+  {
+   "de": "mart_vendas_comercial",
+   "para": "mart_executivo_kpis"
+  },
+  {
+   "de": "mart_cobranca_carteira",
+   "para": "mart_executivo_kpis"
+  },
+  {
+   "de": "mart_cobranca_safra_mob",
+   "para": "mart_executivo_kpis"
+  },
+  {
+   "de": "mart_atendimento",
+   "para": "mart_executivo_kpis"
+  },
+  {
+   "de": "mart_assembleias_contemplacoes",
+   "para": "mart_executivo_kpis"
+  },
+  {
+   "de": "mart_vendas_comercial",
+   "para": "relatorio:vendas"
+  },
+  {
+   "de": "mart_cobranca_carteira",
+   "para": "relatorio:cobranca-carteira"
+  },
+  {
+   "de": "mart_cobranca_safra_mob",
+   "para": "relatorio:cobranca-safra"
+  },
+  {
+   "de": "mart_atendimento",
+   "para": "relatorio:atendimento"
+  },
+  {
+   "de": "mart_assembleias_contemplacoes",
+   "para": "relatorio:assembleias"
+  }
+ ]
+}

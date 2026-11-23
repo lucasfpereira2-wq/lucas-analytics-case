@@ -1,0 +1,753 @@
+{
+ "nome": "dim_cliente",
+ "descricao": "Cadastro único de clientes (consorciados e prospects)",
+ "dominio": "Cadastro",
+ "camada": "core",
+ "dono": "Marina Azevedo",
+ "dono_area": "Cadastro & CRM",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_cadastro",
+ "fonte": null,
+ "status": "vermelho",
+ "motivo_status": "18% de nulos em `cpf_cliente` nos cadastros do canal Parceiro (4,1% do total)",
+ "tem_pk": true,
+ "saude": 23.5,
+ "ultima_carga": "2026-11-17T01:40:17-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 591929,
+ "testes_total": 6,
+ "testes_falhando": 1,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira",
+  "cobranca-safra",
+  "vendas"
+ ],
+ "incidentes": [
+  "INC-2011"
+ ],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Cadastro único de clientes (consorciados e prospects). Pertence ao domínio Cadastro e fica na camada core (dado tratado e modelado). É construída a partir de `stg_crm_clientes`, `stg_erp_contratos`. Carga diária pela rotina `core_cadastro`, com SLA de 24 horas. Tem 12 colunas; chave primária: `id_cliente`. Responsável: Marina Azevedo (Cadastro & CRM). Alimenta: Cobrança: Carteira e Inadimplência, Cobrança: Safra, MOB e Cohort, Vendas / Comercial.",
+ "colunas": [
+  {
+   "nome": "id_cliente",
+   "tipo": "bigint",
+   "descricao": "Chave do cliente no cadastro único",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cliente_crm",
+   "tipo": "bigint",
+   "descricao": "Identificador no CRM Comercial",
+   "pk": false,
+   "fk": {
+    "tabela": "stg_crm_clientes",
+    "coluna": "id_cliente_crm"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "cpf_cliente",
+   "tipo": "varchar(14)",
+   "descricao": "CPF do cliente (ausente em parte dos cadastros do canal Parceiro)",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "nome_cliente",
+   "tipo": "varchar(120)",
+   "descricao": "Nome completo ou razão social",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "tipo_pessoa",
+   "tipo": "char(2)",
+   "descricao": "PF ou PJ",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_nascimento",
+   "tipo": "date",
+   "descricao": "Data de nascimento (PF)",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "canal_origem",
+   "tipo": "varchar(30)",
+   "descricao": "Canal em que o cadastro foi originado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "uf",
+   "tipo": "char(2)",
+   "descricao": "UF de residência",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "regional",
+   "tipo": "varchar(30)",
+   "descricao": "Regional comercial",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "fl_consorciado",
+   "tipo": "char(1)",
+   "descricao": "Possui cota ativa (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_cadastro",
+   "tipo": "date",
+   "descricao": "Data do primeiro cadastro",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_atualizacao",
+   "tipo": "timestamp",
+   "descricao": "Última atualização do registro",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:40:19-03:00",
+   "duracao_seg": 664,
+   "linhas": 586779,
+   "linhas_esperadas": 586779,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:40:40-03:00",
+   "duracao_seg": 559,
+   "linhas": 586957,
+   "linhas_esperadas": 586957,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:40:29-03:00",
+   "duracao_seg": 530,
+   "linhas": 587134,
+   "linhas_esperadas": 587134,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:40:50-03:00",
+   "duracao_seg": 649,
+   "linhas": 587312,
+   "linhas_esperadas": 587312,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T01:40:18-03:00",
+   "duracao_seg": 603,
+   "linhas": 587490,
+   "linhas_esperadas": 587490,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:40:30-03:00",
+   "duracao_seg": 613,
+   "linhas": 587667,
+   "linhas_esperadas": 587667,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:40:54-03:00",
+   "duracao_seg": 636,
+   "linhas": 587845,
+   "linhas_esperadas": 587845,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:40:41-03:00",
+   "duracao_seg": 544,
+   "linhas": 588022,
+   "linhas_esperadas": 588022,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:40:03-03:00",
+   "duracao_seg": 606,
+   "linhas": 588200,
+   "linhas_esperadas": 588200,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:40:30-03:00",
+   "duracao_seg": 550,
+   "linhas": 588377,
+   "linhas_esperadas": 588377,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:40:54-03:00",
+   "duracao_seg": 629,
+   "linhas": 588555,
+   "linhas_esperadas": 588555,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:40:49-03:00",
+   "duracao_seg": 586,
+   "linhas": 588733,
+   "linhas_esperadas": 588733,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:40:37-03:00",
+   "duracao_seg": 597,
+   "linhas": 588910,
+   "linhas_esperadas": 588910,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:40:24-03:00",
+   "duracao_seg": 612,
+   "linhas": 589088,
+   "linhas_esperadas": 589088,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:40:44-03:00",
+   "duracao_seg": 567,
+   "linhas": 589265,
+   "linhas_esperadas": 589265,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:40:39-03:00",
+   "duracao_seg": 648,
+   "linhas": 589443,
+   "linhas_esperadas": 589443,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:40:25-03:00",
+   "duracao_seg": 671,
+   "linhas": 589620,
+   "linhas_esperadas": 589620,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:40:26-03:00",
+   "duracao_seg": 659,
+   "linhas": 589798,
+   "linhas_esperadas": 589798,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:40:19-03:00",
+   "duracao_seg": 530,
+   "linhas": 589976,
+   "linhas_esperadas": 589976,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:40:09-03:00",
+   "duracao_seg": 620,
+   "linhas": 590153,
+   "linhas_esperadas": 590153,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:40:19-03:00",
+   "duracao_seg": 619,
+   "linhas": 590331,
+   "linhas_esperadas": 590331,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:40:52-03:00",
+   "duracao_seg": 609,
+   "linhas": 590508,
+   "linhas_esperadas": 590508,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:40:29-03:00",
+   "duracao_seg": 629,
+   "linhas": 590686,
+   "linhas_esperadas": 590686,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:40:33-03:00",
+   "duracao_seg": 577,
+   "linhas": 590864,
+   "linhas_esperadas": 590864,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:40:03-03:00",
+   "duracao_seg": 633,
+   "linhas": 591041,
+   "linhas_esperadas": 591041,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:40:10-03:00",
+   "duracao_seg": 590,
+   "linhas": 591219,
+   "linhas_esperadas": 591219,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:40:27-03:00",
+   "duracao_seg": 618,
+   "linhas": 591396,
+   "linhas_esperadas": 591396,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:40:28-03:00",
+   "duracao_seg": 652,
+   "linhas": 591574,
+   "linhas_esperadas": 591574,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:40:52-03:00",
+   "duracao_seg": 639,
+   "linhas": 591751,
+   "linhas_esperadas": 591751,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:40:17-03:00",
+   "duracao_seg": 557,
+   "linhas": 591929,
+   "linhas_esperadas": 591929,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_cliente.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_cliente`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_cliente' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_cliente.unicidade.id_cliente",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_cliente`",
+   "coluna": "id_cliente",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_cliente` (591.929 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_cliente, COUNT(*) AS qtd\nFROM dim_cliente\nGROUP BY id_cliente\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_cliente.nao_nulo.cpf_cliente",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `cpf_cliente`",
+   "coluna": "cpf_cliente",
+   "severidade": "alto",
+   "resultado": "falha",
+   "evidencia": "18% de nulos em `cpf_cliente` nos cadastros do canal Parceiro (4,1% do total)",
+   "valor_observado": 18,
+   "limite": 2.0,
+   "unidade": "%",
+   "historico_7d": [
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN cpf_cliente IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_cliente;"
+  },
+  {
+   "id": "dim_cliente.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_cliente_crm`",
+   "coluna": "id_cliente_crm",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_cliente_crm` existem em `stg_crm_clientes`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM dim_cliente f\nLEFT JOIN stg_crm_clientes p ON p.id_cliente_crm = f.id_cliente_crm\nWHERE f.id_cliente_crm IS NOT NULL AND p.id_cliente_crm IS NULL;"
+  },
+  {
+   "id": "dim_cliente.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:40); SLA de 24h",
+   "valor_observado": 6.3,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_cliente' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_cliente.dominio_valores.tipo_pessoa",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_pessoa`",
+   "coluna": "tipo_pessoa",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `tipo_pessoa` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_pessoa, COUNT(*) AS qtd\nFROM dim_cliente\nWHERE tipo_pessoa NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_pessoa')\nGROUP BY tipo_pessoa;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_cliente",
+   "id_cliente_crm",
+   "cpf_cliente",
+   "nome_cliente",
+   "tipo_pessoa",
+   "dt_nascimento",
+   "canal_origem",
+   "uf",
+   "regional",
+   "fl_consorciado",
+   "dt_cadastro",
+   "dt_atualizacao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     318400,
+     902233,
+     "***.885.***-70",
+     "Antônio M. Vieira",
+     "PF",
+     "**/**/1980",
+     "Representante",
+     "PE",
+     "Norte e Nordeste",
+     "N",
+     "2024-06-19",
+     "2026-11-14 20:24:06"
+    ]
+   },
+   {
+    "valores": [
+     318401,
+     902322,
+     "***.434.***-98",
+     "Luiz Henrique M. Silveira",
+     "PF",
+     "**/**/1987",
+     "Digital",
+     "MT",
+     "Centro-Oeste",
+     "S",
+     "2026-08-17",
+     "2026-11-15 08:31:16"
+    ]
+   },
+   {
+    "valores": [
+     318402,
+     902309,
+     null,
+     "Marcelo M. Macedo",
+     "PF",
+     "**/**/1959",
+     "Parceiro",
+     "PE",
+     "Norte e Nordeste",
+     "S",
+     "2023-05-07",
+     "2026-11-15 11:40:26"
+    ],
+    "problema": "CPF ausente em cadastro do canal Parceiro",
+    "colunas_problema": [
+     "cpf_cliente"
+    ]
+   },
+   {
+    "valores": [
+     318403,
+     902470,
+     "***.367.***-88",
+     "Mariana A. Siqueira",
+     "PF",
+     "**/**/1996",
+     "Parceiro",
+     "PR",
+     "Sul",
+     "N",
+     "2026-03-30",
+     "2026-11-14 12:19:48"
+    ]
+   },
+   {
+    "valores": [
+     318404,
+     902161,
+     "***.620.***-28",
+     "Ana Paula B. Antunes",
+     "PF",
+     "**/**/1969",
+     "Loja",
+     "CE",
+     "Norte e Nordeste",
+     "N",
+     "2025-08-06",
+     "2026-11-16 14:48:09"
+    ]
+   },
+   {
+    "valores": [
+     318405,
+     902197,
+     "***.953.***-60",
+     "Larissa F. Moraes",
+     "PF",
+     "**/**/1974",
+     "Digital",
+     "MT",
+     "Centro-Oeste",
+     "S",
+     "2024-09-19",
+     "2026-11-14 15:18:34"
+    ]
+   },
+   {
+    "valores": [
+     318406,
+     902111,
+     null,
+     "Paulo Sérgio S. Antunes",
+     "PF",
+     "**/**/1967",
+     "Parceiro",
+     "SC",
+     "Sul",
+     "S",
+     "2026-04-28",
+     "2026-11-14 08:32:29"
+    ],
+    "problema": "CPF ausente em cadastro do canal Parceiro",
+    "colunas_problema": [
+     "cpf_cliente"
+    ]
+   },
+   {
+    "valores": [
+     318407,
+     902316,
+     "***.145.***-29",
+     "José Roberto F. Antunes",
+     "PF",
+     "**/**/1962",
+     "Digital",
+     "SP",
+     "São Paulo",
+     "S",
+     "2024-11-15",
+     "2026-11-14 13:40:20"
+    ]
+   },
+   {
+    "valores": [
+     318408,
+     902274,
+     "***.491.***-34",
+     "José Roberto P. Macedo",
+     "PF",
+     "**/**/1968",
+     "Representante",
+     "MT",
+     "Centro-Oeste",
+     "S",
+     "2026-04-23",
+     "2026-11-15 13:28:43"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_crm_clientes",
+  "stg_erp_contratos"
+ ],
+ "downstream": [
+  "dim_cliente_pf",
+  "dim_cliente_pj",
+  "dim_cota",
+  "fato_proposta"
+ ]
+}

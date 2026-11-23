@@ -1,0 +1,775 @@
+{
+ "nome": "stg_whatsapp_conversas",
+ "descricao": "Conversas recebidas via webhook da WhatsApp Business API",
+ "dominio": "Staging",
+ "camada": "staging",
+ "dono": null,
+ "dono_area": null,
+ "criticidade": "alta",
+ "frequencia": "horária",
+ "sla_horas": 3,
+ "pipeline": "ingest_whatsapp",
+ "fonte": "WhatsApp Business API",
+ "status": "vermelho",
+ "motivo_status": "Tabela sem chave primária definida; 2,3% de conversas repetidas nos últimos 7 dias",
+ "tem_pk": false,
+ "saude": 19.2,
+ "ultima_carga": "2026-11-17T07:05:08-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 1602531,
+ "testes_total": 7,
+ "testes_falhando": 2,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "atendimento"
+ ],
+ "incidentes": [
+  "INC-2019"
+ ],
+ "tags": [
+  "PII",
+  "sem dono",
+  "sem PK"
+ ],
+ "descricao_longa": "Conversas recebidas via webhook da WhatsApp Business API. Pertence ao domínio Staging e fica na camada de staging (dado bruto, como chega da origem). Origem: WhatsApp Business API. Carga horária pela rotina `ingest_whatsapp`, com SLA de 3 horas. Tem 11 colunas; não possui chave primária definida. Não há dono formal definido para esta tabela. Alimenta: Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_conversa",
+   "tipo": "varchar(40)",
+   "descricao": "Identificador da conversa enviado pelo webhook (candidata a chave; não há PK definida)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nr_telefone",
+   "tipo": "varchar(20)",
+   "descricao": "Telefone do cliente",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "nm_contato",
+   "tipo": "varchar(80)",
+   "descricao": "Nome do perfil no WhatsApp",
+   "pk": false,
+   "nulavel": true,
+   "pii": true
+  },
+  {
+   "nome": "dt_inicio",
+   "tipo": "timestamp",
+   "descricao": "Início da conversa",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_fim",
+   "tipo": "timestamp",
+   "descricao": "Encerramento da conversa",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "qt_mensagens",
+   "tipo": "integer",
+   "descricao": "Mensagens trocadas",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_agente",
+   "tipo": "varchar(12)",
+   "descricao": "Agente que assumiu a conversa",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "status_conversa",
+   "tipo": "varchar(20)",
+   "descricao": "Situação da conversa",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_webhook_evento",
+   "tipo": "varchar(40)",
+   "descricao": "Identificador do evento de webhook recebido",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "payload_hash",
+   "tipo": "char(32)",
+   "descricao": "Hash do payload recebido",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "_dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da ingestão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T23:05:11-03:00",
+   "duracao_seg": 21,
+   "linhas": 108,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T23:05:23-03:00",
+   "duracao_seg": 23,
+   "linhas": 106,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T23:05:47-03:00",
+   "duracao_seg": 24,
+   "linhas": 111,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T23:05:41-03:00",
+   "duracao_seg": 21,
+   "linhas": 107,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T23:05:15-03:00",
+   "duracao_seg": 21,
+   "linhas": 112,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T23:05:44-03:00",
+   "duracao_seg": 24,
+   "linhas": 108,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T23:05:50-03:00",
+   "duracao_seg": 21,
+   "linhas": 109,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T23:05:06-03:00",
+   "duracao_seg": 23,
+   "linhas": 107,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T23:05:53-03:00",
+   "duracao_seg": 22,
+   "linhas": 108,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T23:05:31-03:00",
+   "duracao_seg": 24,
+   "linhas": 110,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T23:05:21-03:00",
+   "duracao_seg": 22,
+   "linhas": 108,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T23:05:26-03:00",
+   "duracao_seg": 24,
+   "linhas": 113,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T23:05:16-03:00",
+   "duracao_seg": 21,
+   "linhas": 113,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T23:05:27-03:00",
+   "duracao_seg": 24,
+   "linhas": 112,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T23:05:34-03:00",
+   "duracao_seg": 21,
+   "linhas": 112,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T23:05:24-03:00",
+   "duracao_seg": 19,
+   "linhas": 110,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T23:05:19-03:00",
+   "duracao_seg": 23,
+   "linhas": 113,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T23:05:10-03:00",
+   "duracao_seg": 23,
+   "linhas": 108,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T23:05:22-03:00",
+   "duracao_seg": 20,
+   "linhas": 109,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T23:05:22-03:00",
+   "duracao_seg": 24,
+   "linhas": 110,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T23:05:49-03:00",
+   "duracao_seg": 25,
+   "linhas": 113,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T23:05:02-03:00",
+   "duracao_seg": 24,
+   "linhas": 107,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T23:05:06-03:00",
+   "duracao_seg": 21,
+   "linhas": 109,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T23:05:31-03:00",
+   "duracao_seg": 21,
+   "linhas": 113,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T23:05:52-03:00",
+   "duracao_seg": 22,
+   "linhas": 107,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T23:05:51-03:00",
+   "duracao_seg": 24,
+   "linhas": 108,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T23:05:33-03:00",
+   "duracao_seg": 25,
+   "linhas": 114,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T23:05:40-03:00",
+   "duracao_seg": 20,
+   "linhas": 106,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T23:05:41-03:00",
+   "duracao_seg": 21,
+   "linhas": 109,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T07:05:08-03:00",
+   "duracao_seg": 23,
+   "linhas": 113,
+   "linhas_esperadas": 110,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "stg_whatsapp_conversas.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "falha",
+   "evidencia": "Tabela sem chave primária definida",
+   "valor_observado": 0,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'stg_whatsapp_conversas' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "stg_whatsapp_conversas.unicidade.id_conversa",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_conversa`",
+   "coluna": "id_conversa",
+   "severidade": "alto",
+   "resultado": "falha",
+   "evidencia": "2,3% de conversas repetidas em `id_conversa` nos últimos 7 dias (reenvio de webhook)",
+   "valor_observado": 2.3,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha",
+    "falha"
+   ],
+   "sql": "SELECT id_conversa, COUNT(*) AS qtd\nFROM stg_whatsapp_conversas\nGROUP BY id_conversa\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "stg_whatsapp_conversas.nao_nulo.id_conversa",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_conversa`",
+   "coluna": "id_conversa",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_conversa`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_conversa IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM stg_whatsapp_conversas;"
+  },
+  {
+   "id": "stg_whatsapp_conversas.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "113 linhas na última carga, dentro da faixa esperada (cerca de 110)",
+   "valor_observado": 113,
+   "limite": 110,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'stg_whatsapp_conversas'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "stg_whatsapp_conversas.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há menos de 1 hora (17/11 às 07:05); SLA de 3h",
+   "valor_observado": 0.9,
+   "limite": 3,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'stg_whatsapp_conversas' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "stg_whatsapp_conversas.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (11 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'stg_whatsapp_conversas'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'stg_whatsapp_conversas';"
+  },
+  {
+   "id": "stg_whatsapp_conversas.dominio_valores.status_conversa",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `status_conversa`",
+   "coluna": "status_conversa",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `status_conversa` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT status_conversa, COUNT(*) AS qtd\nFROM stg_whatsapp_conversas\nWHERE status_conversa NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'status_conversa')\nGROUP BY status_conversa;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_conversa",
+   "nr_telefone",
+   "nm_contato",
+   "dt_inicio",
+   "dt_fim",
+   "qt_mensagens",
+   "cd_agente",
+   "status_conversa",
+   "id_webhook_evento",
+   "payload_hash",
+   "_dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "con-6829c9b212",
+     "(11) 9****-3408",
+     null,
+     "2026-11-15 21:51:02",
+     "2026-11-15 22:11:02",
+     7,
+     "A9297",
+     "Encerrada",
+     "web-97f70d88a9",
+     "c0ccccd70d8c19896f5083758c2ef33e",
+     "2026-11-17 07:05:08"
+    ]
+   },
+   {
+    "valores": [
+     "con-380afec5d9",
+     "(81) 9****-8668",
+     "José Roberto B. Brandão",
+     "2026-11-15 10:08:38",
+     "2026-11-15 10:26:38",
+     24,
+     null,
+     "Encerrada",
+     "web-fe294ac480",
+     "5fa2d66ce1703636a23a7582278f36f5",
+     "2026-11-17 07:05:08"
+    ]
+   },
+   {
+    "valores": [
+     "con-5324631304",
+     "(21) 9****-9764",
+     "José Roberto F. Macedo",
+     "2026-11-15 10:51:54",
+     "2026-11-15 11:04:54",
+     37,
+     null,
+     "Aguardando cliente",
+     "web-9baef1647d",
+     "96c5be7ffc7a837e91124f090ec00c53",
+     "2026-11-17 07:05:08"
+    ]
+   },
+   {
+    "valores": [
+     "con-498dbadbe0",
+     "(51) 9****-2176",
+     "Fernanda B. Barros",
+     "2026-11-15 19:08:20",
+     "2026-11-15 19:13:20",
+     36,
+     "A5689",
+     "Encerrada",
+     "web-3a20b3d8e5",
+     "89e29f40c4a8ca5d831f27fd87c1ef14",
+     "2026-11-17 07:05:08"
+    ],
+    "problema": "Conversa repetida por reenvio de webhook; sem PK, as duas linhas foram gravadas",
+    "colunas_problema": [
+     "id_conversa"
+    ]
+   },
+   {
+    "valores": [
+     "con-498dbadbe0",
+     "(51) 9****-2176",
+     "Fernanda B. Barros",
+     "2026-11-15 19:08:20",
+     "2026-11-15 19:13:20",
+     36,
+     "A5689",
+     "Encerrada",
+     "web-3f30e1a752",
+     "58778050d740124219b6c41e8aca4e29",
+     "2026-11-17 07:05:08"
+    ],
+    "problema": "Conversa repetida por reenvio de webhook; sem PK, as duas linhas foram gravadas",
+    "colunas_problema": [
+     "id_conversa"
+    ]
+   },
+   {
+    "valores": [
+     "con-08543cd01d",
+     "(81) 9****-5459",
+     "Ana Paula S. Pacheco",
+     "2026-11-14 07:51:18",
+     "2026-11-14 08:10:18",
+     27,
+     null,
+     "Encerrada",
+     "web-5de53fb887",
+     "17796bee478df4f6b01ebc525031d196",
+     "2026-11-17 07:05:08"
+    ]
+   },
+   {
+    "valores": [
+     "con-20ccef8da3",
+     "(71) 9****-5537",
+     "Ricardo M. Rezende",
+     "2026-11-15 11:45:42",
+     "2026-11-15 11:51:42",
+     24,
+     "A6102",
+     "Aguardando cliente",
+     "web-dcdf98a3ba",
+     "3e4f11e28bfcc5574da05cf7f0a6c8ff",
+     "2026-11-17 07:05:08"
+    ]
+   },
+   {
+    "valores": [
+     "con-1f26cc0f81",
+     "(41) 9****-1432",
+     null,
+     "2026-11-14 12:13:06",
+     null,
+     16,
+     null,
+     "Encerrada",
+     "web-ad55c8b334",
+     "219f78e8a5f78b307c96a2c31a95a73f",
+     "2026-11-17 07:05:08"
+    ]
+   },
+   {
+    "valores": [
+     "con-72c7f6b0ed",
+     "(21) 9****-9239",
+     "Beatriz S. Siqueira",
+     "2026-11-15 11:13:21",
+     "2026-11-15 11:23:21",
+     33,
+     "A8233",
+     "Encerrada",
+     "web-49581fedc9",
+     "c4cb6a475c6436a79caea3c5cc6a76b0",
+     "2026-11-17 07:05:08"
+    ]
+   },
+   {
+    "valores": [
+     "con-7f0538053b",
+     "(41) 9****-3106",
+     "Larissa Q. Macedo",
+     "2026-11-15 19:42:29",
+     "2026-11-15 19:51:29",
+     22,
+     "A7668",
+     "Em atendimento",
+     "web-aa7f2a6c0d",
+     "6486a470ad1e70031e47791f0d78734d",
+     "2026-11-17 07:05:08"
+    ]
+   },
+   {
+    "valores": [
+     "con-4502c878e9",
+     "(81) 9****-2667",
+     "Renata S. Figueiredo",
+     "2026-11-15 16:24:06",
+     null,
+     11,
+     "A1391",
+     "Encerrada",
+     "web-a045158841",
+     "878c55b10d952b333494efab59d4a048",
+     "2026-11-17 07:05:08"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_conversa_whatsapp"
+ ]
+}

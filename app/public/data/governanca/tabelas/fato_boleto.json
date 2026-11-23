@@ -1,0 +1,784 @@
+{
+ "nome": "fato_boleto",
+ "descricao": "Boletos emitidos e seu ciclo de vida",
+ "dominio": "Financeiro e Cobrança",
+ "camada": "core",
+ "dono": "Patrícia Lemos",
+ "dono_area": "Crédito & Cobrança",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_financeiro_boletos",
+ "fonte": null,
+ "status": "amarelo",
+ "motivo_status": "Atrasada: aguardando `stg_banco_boletos_registrados`, que falhou hoje",
+ "tem_pk": true,
+ "saude": 49.5,
+ "ultima_carga": "2026-11-16T04:00:54-03:00",
+ "atraso_horas": 4.0,
+ "linhas": 1427172,
+ "testes_total": 8,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "atrasada"
+ ],
+ "relatorios_impactados": [],
+ "incidentes": [
+  "INC-2034"
+ ],
+ "tags": [],
+ "descricao_longa": "Boletos emitidos e seu ciclo de vida. Pertence ao domínio Financeiro e Cobrança e fica na camada core (dado tratado e modelado). É construída a partir de `stg_banco_boletos_registrados`, `fato_parcelas`. Carga diária pela rotina `core_financeiro_boletos`, com SLA de 24 horas. Tem 10 colunas; chave primária: `id_boleto`. Responsável: Patrícia Lemos (Crédito & Cobrança).",
+ "colunas": [
+  {
+   "nome": "id_boleto",
+   "tipo": "bigint",
+   "descricao": "Chave do boleto",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_parcela",
+   "tipo": "bigint",
+   "descricao": "Parcela cobrada",
+   "pk": false,
+   "fk": {
+    "tabela": "fato_parcelas",
+    "coluna": "id_parcela"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nosso_numero",
+   "tipo": "varchar(20)",
+   "descricao": "Identificação do título no banco",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_envio",
+   "tipo": "varchar(20)",
+   "descricao": "E-mail, aplicativo, WhatsApp ou correio",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "status_boleto",
+   "tipo": "varchar(20)",
+   "descricao": "Emitido, registrado, liquidado, vencido ou baixado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_boleto",
+   "tipo": "decimal(12,2)",
+   "descricao": "Valor do boleto",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_emissao",
+   "tipo": "date",
+   "descricao": "Data de emissão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_vencimento",
+   "tipo": "date",
+   "descricao": "Data de vencimento",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_registro",
+   "tipo": "timestamp",
+   "descricao": "Registro no banco",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "dt_liquidacao",
+   "tipo": "date",
+   "descricao": "Data de liquidação",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T04:00:11-03:00",
+   "duracao_seg": 35,
+   "linhas": 516,
+   "linhas_esperadas": 500,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T04:00:16-03:00",
+   "duracao_seg": 35,
+   "linhas": 2854,
+   "linhas_esperadas": 2948,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T04:00:18-03:00",
+   "duracao_seg": 36,
+   "linhas": 2675,
+   "linhas_esperadas": 2673,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T04:00:55-03:00",
+   "duracao_seg": 41,
+   "linhas": 2471,
+   "linhas_esperadas": 2548,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T04:00:03-03:00",
+   "duracao_seg": 36,
+   "linhas": 2520,
+   "linhas_esperadas": 2498,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T04:00:38-03:00",
+   "duracao_seg": 40,
+   "linhas": 2443,
+   "linhas_esperadas": 2398,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T04:00:22-03:00",
+   "duracao_seg": 39,
+   "linhas": 1054,
+   "linhas_esperadas": 1049,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T04:00:10-03:00",
+   "duracao_seg": 36,
+   "linhas": 487,
+   "linhas_esperadas": 500,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T04:00:29-03:00",
+   "duracao_seg": 38,
+   "linhas": 2918,
+   "linhas_esperadas": 2948,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T04:00:35-03:00",
+   "duracao_seg": 39,
+   "linhas": 2681,
+   "linhas_esperadas": 2673,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T04:00:18-03:00",
+   "duracao_seg": 40,
+   "linhas": 2509,
+   "linhas_esperadas": 2548,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T04:00:44-03:00",
+   "duracao_seg": 41,
+   "linhas": 2465,
+   "linhas_esperadas": 2498,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T04:00:17-03:00",
+   "duracao_seg": 39,
+   "linhas": 2463,
+   "linhas_esperadas": 2398,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T04:00:09-03:00",
+   "duracao_seg": 37,
+   "linhas": 1055,
+   "linhas_esperadas": 1049,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T04:00:19-03:00",
+   "duracao_seg": 37,
+   "linhas": 486,
+   "linhas_esperadas": 500,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T04:00:05-03:00",
+   "duracao_seg": 35,
+   "linhas": 2891,
+   "linhas_esperadas": 2948,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T04:00:50-03:00",
+   "duracao_seg": 35,
+   "linhas": 2669,
+   "linhas_esperadas": 2673,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T04:00:15-03:00",
+   "duracao_seg": 36,
+   "linhas": 2631,
+   "linhas_esperadas": 2548,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T04:00:17-03:00",
+   "duracao_seg": 42,
+   "linhas": 2565,
+   "linhas_esperadas": 2498,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T04:00:52-03:00",
+   "duracao_seg": 36,
+   "linhas": 2408,
+   "linhas_esperadas": 2398,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T04:00:45-03:00",
+   "duracao_seg": 41,
+   "linhas": 1051,
+   "linhas_esperadas": 1049,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T04:00:11-03:00",
+   "duracao_seg": 34,
+   "linhas": 490,
+   "linhas_esperadas": 500,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T04:00:15-03:00",
+   "duracao_seg": 41,
+   "linhas": 2980,
+   "linhas_esperadas": 2948,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T04:00:07-03:00",
+   "duracao_seg": 39,
+   "linhas": 2607,
+   "linhas_esperadas": 2673,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T04:00:46-03:00",
+   "duracao_seg": 39,
+   "linhas": 2539,
+   "linhas_esperadas": 2548,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T04:00:45-03:00",
+   "duracao_seg": 39,
+   "linhas": 2486,
+   "linhas_esperadas": 2498,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T04:00:28-03:00",
+   "duracao_seg": 38,
+   "linhas": 2423,
+   "linhas_esperadas": 2398,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T04:00:10-03:00",
+   "duracao_seg": 38,
+   "linhas": 1056,
+   "linhas_esperadas": 1049,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T04:00:54-03:00",
+   "duracao_seg": 40,
+   "linhas": 484,
+   "linhas_esperadas": 500,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 2948,
+   "status": "atrasada",
+   "anomalia_volume": false,
+   "mensagem": "Aguardando `stg_banco_boletos_registrados`, que falhou hoje às 03:40."
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_boleto.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_boleto`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_boleto' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_boleto.unicidade.id_boleto",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_boleto`",
+   "coluna": "id_boleto",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_boleto` (1.427.172 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_boleto, COUNT(*) AS qtd\nFROM fato_boleto\nGROUP BY id_boleto\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_boleto.nao_nulo.id_parcela",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_parcela`",
+   "coluna": "id_parcela",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_parcela`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_parcela IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_boleto;"
+  },
+  {
+   "id": "fato_boleto.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_parcela`",
+   "coluna": "id_parcela",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_parcela` existem em `fato_parcelas`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_boleto f\nLEFT JOIN fato_parcelas p ON p.id_parcela = f.id_parcela\nWHERE f.id_parcela IS NOT NULL AND p.id_parcela IS NULL;"
+  },
+  {
+   "id": "fato_boleto.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "484 linhas na última carga, dentro da faixa esperada (cerca de 500)",
+   "valor_observado": 484,
+   "limite": 500,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_boleto'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_boleto.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "alerta",
+   "evidencia": "Atrasada: aguardando `stg_banco_boletos_registrados`, que falhou hoje",
+   "valor_observado": 28.0,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "alerta"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_boleto' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_boleto.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_boleto",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,04% em `vl_boleto` contra `stg_banco_boletos_registrados`",
+   "valor_observado": 0.04,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_boleto) - o.total) / o.total AS pc_diferenca\nFROM fato_boleto a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'fato_boleto' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  },
+  {
+   "id": "fato_boleto.dominio_valores.canal_envio",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `canal_envio`",
+   "coluna": "canal_envio",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `canal_envio` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT canal_envio, COUNT(*) AS qtd\nFROM fato_boleto\nWHERE canal_envio NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'canal_envio')\nGROUP BY canal_envio;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_boleto",
+   "id_parcela",
+   "nosso_numero",
+   "canal_envio",
+   "status_boleto",
+   "vl_boleto",
+   "dt_emissao",
+   "dt_vencimento",
+   "dt_registro",
+   "dt_liquidacao"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     48212134,
+     "10937296230",
+     "WhatsApp",
+     "Emitido",
+     2437.99,
+     "2026-11-13",
+     "2026-11-29",
+     "2026-11-14 07:27:36",
+     "2026-10-27"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     48211979,
+     "10915246484",
+     "Correio",
+     "Emitido",
+     1852.0,
+     "2026-11-04",
+     "2026-11-08",
+     "2026-11-14 07:45:37",
+     null
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     48212120,
+     "10969498846",
+     "App",
+     "Emitido",
+     628.25,
+     "2026-10-26",
+     "2026-11-20",
+     "2026-11-13 09:20:14",
+     "2026-10-27"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     48212034,
+     "10933148323",
+     "WhatsApp",
+     "Vencido",
+     749.08,
+     "2026-10-30",
+     "2026-11-16",
+     "2026-11-14 12:10:03",
+     "2026-11-05"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     48211959,
+     "10915585209",
+     "Correio",
+     "Registrado",
+     2595.77,
+     "2026-11-05",
+     "2026-12-03",
+     "2026-11-13 21:08:14",
+     "2026-10-29"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     48211902,
+     "10998090770",
+     "E-mail",
+     "Liquidado",
+     3413.93,
+     "2026-10-27",
+     "2026-11-22",
+     null,
+     "2026-11-11"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     48212289,
+     "10936058750",
+     "App",
+     "Emitido",
+     973.27,
+     "2026-11-02",
+     "2026-11-05",
+     "2026-11-13 15:44:25",
+     "2026-11-05"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     48212197,
+     "10956350734",
+     "App",
+     "Liquidado",
+     2140.77,
+     "2026-10-30",
+     "2026-11-05",
+     "2026-11-14 19:35:02",
+     null
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     48212154,
+     "10913605624",
+     "Correio",
+     "Registrado",
+     1303.13,
+     "2026-10-23",
+     "2026-11-19",
+     "2026-11-13 08:10:57",
+     "2026-10-29"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     48212234,
+     "10945693936",
+     "App",
+     "Liquidado",
+     868.94,
+     "2026-10-27",
+     "2026-11-13",
+     "2026-11-15 12:15:45",
+     "2026-10-22"
+    ]
+   },
+   {
+    "valores": [
+     5000010,
+     48212129,
+     "10949403387",
+     "WhatsApp",
+     "Vencido",
+     2925.82,
+     "2026-11-12",
+     "2026-12-03",
+     "2026-11-13 10:00:58",
+     null
+    ]
+   },
+   {
+    "valores": [
+     5000011,
+     48211961,
+     "10913374382",
+     "Correio",
+     "Vencido",
+     3634.07,
+     "2026-11-10",
+     "2026-11-17",
+     null,
+     "2026-11-06"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_banco_boletos_registrados",
+  "fato_parcelas"
+ ],
+ "downstream": []
+}

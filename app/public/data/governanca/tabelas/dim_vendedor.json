@@ -1,0 +1,692 @@
+{
+ "nome": "dim_vendedor",
+ "descricao": "Vendedores, representantes e sua equipe",
+ "dominio": "Vendas",
+ "camada": "core",
+ "dono": "Bruno Tavares",
+ "dono_area": "Inteligência Comercial",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_vendas",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 100.0,
+ "ultima_carga": "2026-11-17T02:30:24-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 340,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "vendas",
+  "cobranca-safra"
+ ],
+ "incidentes": [],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Vendedores, representantes e sua equipe. Pertence ao domínio Vendas e fica na camada core (dado tratado e modelado). É construída a partir de `dim_colaborador`, `dim_equipe_comercial`. Carga diária pela rotina `core_vendas`, com SLA de 24 horas. Tem 9 colunas; chave primária: `id_vendedor`. Responsável: Bruno Tavares (Inteligência Comercial). Alimenta: Vendas / Comercial, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "id_vendedor",
+   "tipo": "integer",
+   "descricao": "Chave do vendedor",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_colaborador",
+   "tipo": "integer",
+   "descricao": "Colaborador (vazio para representantes externos)",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_colaborador",
+    "coluna": "id_colaborador"
+   },
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "id_equipe",
+   "tipo": "integer",
+   "descricao": "Equipe comercial",
+   "pk": false,
+   "fk": {
+    "tabela": "dim_equipe_comercial",
+    "coluna": "id_equipe"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_vendedor",
+   "tipo": "varchar(120)",
+   "descricao": "Nome do vendedor",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "tipo_vendedor",
+   "tipo": "varchar(20)",
+   "descricao": "Próprio, representante ou parceiro",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_venda",
+   "tipo": "varchar(30)",
+   "descricao": "Canal de atuação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "regional",
+   "tipo": "varchar(30)",
+   "descricao": "Regional comercial",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_ativo",
+   "tipo": "char(1)",
+   "descricao": "Vendedor ativo (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_inicio",
+   "tipo": "date",
+   "descricao": "Início da atuação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T02:30:54-03:00",
+   "duracao_seg": 33,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T02:30:03-03:00",
+   "duracao_seg": 34,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T02:30:54-03:00",
+   "duracao_seg": 40,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T02:30:24-03:00",
+   "duracao_seg": 33,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T02:30:27-03:00",
+   "duracao_seg": 33,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T02:30:03-03:00",
+   "duracao_seg": 37,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T02:30:19-03:00",
+   "duracao_seg": 32,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T02:30:52-03:00",
+   "duracao_seg": 35,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T02:30:52-03:00",
+   "duracao_seg": 35,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T02:30:25-03:00",
+   "duracao_seg": 31,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T02:30:29-03:00",
+   "duracao_seg": 34,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T02:30:45-03:00",
+   "duracao_seg": 39,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T02:30:14-03:00",
+   "duracao_seg": 37,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T02:30:50-03:00",
+   "duracao_seg": 37,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T02:30:32-03:00",
+   "duracao_seg": 31,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T02:30:41-03:00",
+   "duracao_seg": 32,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T02:30:17-03:00",
+   "duracao_seg": 39,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T02:30:31-03:00",
+   "duracao_seg": 32,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T02:30:07-03:00",
+   "duracao_seg": 37,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T02:30:31-03:00",
+   "duracao_seg": 34,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T02:30:20-03:00",
+   "duracao_seg": 34,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T02:30:02-03:00",
+   "duracao_seg": 37,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T02:30:04-03:00",
+   "duracao_seg": 39,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T02:30:55-03:00",
+   "duracao_seg": 39,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T02:30:24-03:00",
+   "duracao_seg": 37,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T02:30:06-03:00",
+   "duracao_seg": 36,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T02:30:49-03:00",
+   "duracao_seg": 39,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T02:30:55-03:00",
+   "duracao_seg": 38,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T02:30:45-03:00",
+   "duracao_seg": 34,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T02:30:24-03:00",
+   "duracao_seg": 35,
+   "linhas": 340,
+   "linhas_esperadas": 340,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_vendedor.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_vendedor`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_vendedor' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_vendedor.unicidade.id_vendedor",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_vendedor`",
+   "coluna": "id_vendedor",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_vendedor` (340 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_vendedor, COUNT(*) AS qtd\nFROM dim_vendedor\nGROUP BY id_vendedor\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_vendedor.nao_nulo.id_equipe",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_equipe`",
+   "coluna": "id_equipe",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_equipe`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_equipe IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_vendedor;"
+  },
+  {
+   "id": "dim_vendedor.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_colaborador`",
+   "coluna": "id_colaborador",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_colaborador` existem em `dim_colaborador`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM dim_vendedor f\nLEFT JOIN dim_colaborador p ON p.id_colaborador = f.id_colaborador\nWHERE f.id_colaborador IS NOT NULL AND p.id_colaborador IS NULL;"
+  },
+  {
+   "id": "dim_vendedor.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 5h (17/11 às 02:30); SLA de 24h",
+   "valor_observado": 5.5,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_vendedor' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_vendedor.dominio_valores.tipo_vendedor",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_vendedor`",
+   "coluna": "tipo_vendedor",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "0,2% dos valores de `tipo_vendedor` fora do domínio (limite de 1,0%)",
+   "valor_observado": 0.2,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_vendedor, COUNT(*) AS qtd\nFROM dim_vendedor\nWHERE tipo_vendedor NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_vendedor')\nGROUP BY tipo_vendedor;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_vendedor",
+   "id_colaborador",
+   "id_equipe",
+   "nm_vendedor",
+   "tipo_vendedor",
+   "canal_venda",
+   "regional",
+   "fl_ativo",
+   "dt_inicio"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     210,
+     653,
+     18,
+     "Luiz Henrique M. Monteiro",
+     "Próprio",
+     "Loja",
+     "Sudeste",
+     "N",
+     "2026-11-11"
+    ]
+   },
+   {
+    "valores": [
+     211,
+     932,
+     22,
+     "Marcelo M. Moraes",
+     "Próprio",
+     "Representante",
+     "Centro-Oeste",
+     "S",
+     "2026-10-25"
+    ]
+   },
+   {
+    "valores": [
+     212,
+     776,
+     20,
+     "Ana Paula M. Vieira",
+     "Próprio",
+     "Parceiro",
+     "Norte e Nordeste",
+     "S",
+     "2026-11-02"
+    ]
+   },
+   {
+    "valores": [
+     213,
+     null,
+     9,
+     "Ana Paula M. Pacheco",
+     "Próprio",
+     "Representante",
+     "São Paulo",
+     "N",
+     "2026-10-26"
+    ]
+   },
+   {
+    "valores": [
+     214,
+     821,
+     16,
+     "Beatriz F. Brandão",
+     "Parceiro",
+     "Digital",
+     "Sudeste",
+     "S",
+     "2026-10-31"
+    ]
+   },
+   {
+    "valores": [
+     215,
+     715,
+     12,
+     "Thiago M. Silveira",
+     "Parceiro",
+     "Digital",
+     "Centro-Oeste",
+     "S",
+     "2026-11-07"
+    ]
+   },
+   {
+    "valores": [
+     216,
+     812,
+     9,
+     "Patrícia A. Rezende",
+     "Próprio",
+     "Representante",
+     "Norte e Nordeste",
+     "S",
+     "2026-10-30"
+    ]
+   },
+   {
+    "valores": [
+     217,
+     972,
+     10,
+     "Carlos Eduardo F. Cardoso",
+     "Representante",
+     "Loja",
+     "Sudeste",
+     "S",
+     "2026-10-29"
+    ]
+   },
+   {
+    "valores": [
+     218,
+     872,
+     28,
+     "Luiz Henrique T. Antunes",
+     "Parceiro",
+     "Digital",
+     "Centro-Oeste",
+     "N",
+     "2026-10-23"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "dim_colaborador",
+  "dim_equipe_comercial"
+ ],
+ "downstream": [
+  "fato_proposta",
+  "fato_contrato_venda",
+  "fato_comissao",
+  "mart_vendas_comercial"
+ ]
+}

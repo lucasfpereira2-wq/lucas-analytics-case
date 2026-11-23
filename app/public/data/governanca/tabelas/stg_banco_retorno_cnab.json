@@ -1,0 +1,778 @@
+{
+ "nome": "stg_banco_retorno_cnab",
+ "descricao": "Arquivos de retorno CNAB 240 com liquidações bancárias",
+ "dominio": "Staging",
+ "camada": "staging",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "alta",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "ingest_banco_cnab",
+ "fonte": "Banco (CNAB / API)",
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 99.9,
+ "ultima_carga": "2026-11-17T01:45:50-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 2709096,
+ "testes_total": 7,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "alerta",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "cobranca-carteira",
+  "cobranca-safra"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Arquivos de retorno CNAB 240 com liquidações bancárias. Pertence ao domínio Staging e fica na camada de staging (dado bruto, como chega da origem). Origem: Banco (CNAB / API). Carga diária pela rotina `ingest_banco_cnab`, com SLA de 24 horas. Tem 11 colunas; chave primária: `id_registro`. Responsável: Thiago Meireles (Engenharia de Dados). Alimenta: Cobrança: Carteira e Inadimplência, Cobrança: Safra, MOB e Cohort.",
+ "colunas": [
+  {
+   "nome": "id_registro",
+   "tipo": "bigint",
+   "descricao": "Identificador do registro de retorno",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_arquivo",
+   "tipo": "varchar(60)",
+   "descricao": "Nome do arquivo CNAB 240 de origem",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nr_lote",
+   "tipo": "integer",
+   "descricao": "Número do lote no arquivo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nosso_numero",
+   "tipo": "varchar(20)",
+   "descricao": "Identificação do título no banco",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_ocorrencia",
+   "tipo": "char(2)",
+   "descricao": "Código de ocorrência do retorno",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_ocorrencia",
+   "tipo": "date",
+   "descricao": "Data da ocorrência",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_credito",
+   "tipo": "date",
+   "descricao": "Data de crédito em conta",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "vl_pago",
+   "tipo": "decimal(12,2)",
+   "descricao": "Valor pago pelo sacado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_tarifa",
+   "tipo": "decimal(8,2)",
+   "descricao": "Tarifa cobrada pelo banco",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_banco",
+   "tipo": "char(3)",
+   "descricao": "Código do banco",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "_dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da ingestão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:45:35-03:00",
+   "duracao_seg": 28,
+   "linhas": 969,
+   "linhas_esperadas": 996,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:45:05-03:00",
+   "duracao_seg": 24,
+   "linhas": 5748,
+   "linhas_esperadas": 5878,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:45:07-03:00",
+   "duracao_seg": 23,
+   "linhas": 5233,
+   "linhas_esperadas": 5330,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:45:42-03:00",
+   "duracao_seg": 23,
+   "linhas": 5154,
+   "linhas_esperadas": 5081,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T01:45:10-03:00",
+   "duracao_seg": 23,
+   "linhas": 4941,
+   "linhas_esperadas": 4981,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:45:10-03:00",
+   "duracao_seg": 23,
+   "linhas": 4894,
+   "linhas_esperadas": 4782,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:45:29-03:00",
+   "duracao_seg": 28,
+   "linhas": 2163,
+   "linhas_esperadas": 2092,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:45:51-03:00",
+   "duracao_seg": 22,
+   "linhas": 985,
+   "linhas_esperadas": 996,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:45:19-03:00",
+   "duracao_seg": 24,
+   "linhas": 5677,
+   "linhas_esperadas": 5878,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:45:28-03:00",
+   "duracao_seg": 25,
+   "linhas": 5206,
+   "linhas_esperadas": 5330,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:45:17-03:00",
+   "duracao_seg": 22,
+   "linhas": 5139,
+   "linhas_esperadas": 5081,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:45:24-03:00",
+   "duracao_seg": 25,
+   "linhas": 4841,
+   "linhas_esperadas": 4981,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:45:52-03:00",
+   "duracao_seg": 24,
+   "linhas": 4851,
+   "linhas_esperadas": 4782,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:45:07-03:00",
+   "duracao_seg": 24,
+   "linhas": 2032,
+   "linhas_esperadas": 2092,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:45:15-03:00",
+   "duracao_seg": 27,
+   "linhas": 969,
+   "linhas_esperadas": 996,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:45:45-03:00",
+   "duracao_seg": 23,
+   "linhas": 3468,
+   "linhas_esperadas": 5878,
+   "status": "alerta",
+   "anomalia_volume": true,
+   "mensagem": "Arquivo de retorno com volume 41% abaixo do esperado (feriado bancário de 02/11)."
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:45:02-03:00",
+   "duracao_seg": 28,
+   "linhas": 5342,
+   "linhas_esperadas": 5330,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:45:46-03:00",
+   "duracao_seg": 26,
+   "linhas": 5142,
+   "linhas_esperadas": 5081,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:45:28-03:00",
+   "duracao_seg": 26,
+   "linhas": 4885,
+   "linhas_esperadas": 4981,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:45:15-03:00",
+   "duracao_seg": 26,
+   "linhas": 4626,
+   "linhas_esperadas": 4782,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:45:13-03:00",
+   "duracao_seg": 27,
+   "linhas": 2026,
+   "linhas_esperadas": 2092,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:45:26-03:00",
+   "duracao_seg": 27,
+   "linhas": 996,
+   "linhas_esperadas": 996,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:45:24-03:00",
+   "duracao_seg": 25,
+   "linhas": 5816,
+   "linhas_esperadas": 5878,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:45:06-03:00",
+   "duracao_seg": 27,
+   "linhas": 5165,
+   "linhas_esperadas": 5330,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:45:54-03:00",
+   "duracao_seg": 27,
+   "linhas": 5224,
+   "linhas_esperadas": 5081,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:45:12-03:00",
+   "duracao_seg": 28,
+   "linhas": 4949,
+   "linhas_esperadas": 4981,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:45:22-03:00",
+   "duracao_seg": 22,
+   "linhas": 4669,
+   "linhas_esperadas": 4782,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:45:36-03:00",
+   "duracao_seg": 28,
+   "linhas": 2163,
+   "linhas_esperadas": 2092,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:45:11-03:00",
+   "duracao_seg": 26,
+   "linhas": 978,
+   "linhas_esperadas": 996,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:45:50-03:00",
+   "duracao_seg": 26,
+   "linhas": 5942,
+   "linhas_esperadas": 5878,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "stg_banco_retorno_cnab.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_registro`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'stg_banco_retorno_cnab' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "stg_banco_retorno_cnab.unicidade.id_registro",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_registro`",
+   "coluna": "id_registro",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_registro` (2.709.096 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_registro, COUNT(*) AS qtd\nFROM stg_banco_retorno_cnab\nGROUP BY id_registro\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "stg_banco_retorno_cnab.nao_nulo.nr_lote",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `nr_lote`",
+   "coluna": "nr_lote",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `nr_lote`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN nr_lote IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM stg_banco_retorno_cnab;"
+  },
+  {
+   "id": "stg_banco_retorno_cnab.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "5.942 linhas na última carga, dentro da faixa esperada (cerca de 5.878)",
+   "valor_observado": 5942,
+   "limite": 5878,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'stg_banco_retorno_cnab'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "stg_banco_retorno_cnab.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:45); SLA de 24h",
+   "valor_observado": 6.2,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'stg_banco_retorno_cnab' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "stg_banco_retorno_cnab.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (11 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'stg_banco_retorno_cnab'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'stg_banco_retorno_cnab';"
+  },
+  {
+   "id": "stg_banco_retorno_cnab.reconciliacao",
+   "regra": "reconciliacao",
+   "nome": "Reconciliação",
+   "coluna": "vl_pago",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Diferença de 0,05% em `vl_pago` contra o trailer dos arquivos CNAB",
+   "valor_observado": 0.05,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * (SUM(a.vl_pago) - o.total) / o.total AS pc_diferenca\nFROM stg_banco_retorno_cnab a\nCROSS JOIN governanca.totais_origem o\nWHERE o.tabela = 'stg_banco_retorno_cnab' AND o.dt_referencia = CURRENT_DATE - 1\nGROUP BY o.total;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_registro",
+   "nm_arquivo",
+   "nr_lote",
+   "nosso_numero",
+   "cd_ocorrencia",
+   "dt_ocorrencia",
+   "dt_credito",
+   "vl_pago",
+   "vl_tarifa",
+   "cd_banco",
+   "_dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     "CNAB240_RET_20261116_01.ret",
+     1285,
+     "10936817459",
+     "02",
+     "2026-11-16",
+     null,
+     2941.37,
+     1.89,
+     "341",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     "CNAB240_RET_20261116_01.ret",
+     1318,
+     "10923062984",
+     "02",
+     "2026-11-16",
+     null,
+     3506.07,
+     1.89,
+     "104",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     "CNAB240_RET_20261116_04.ret",
+     1022,
+     "10931256336",
+     "06",
+     "2026-11-16",
+     "2026-11-17",
+     2883.51,
+     1.89,
+     "033",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     "CNAB240_RET_20261116_02.ret",
+     1331,
+     "10976684439",
+     "06",
+     "2026-11-16",
+     "2026-11-17",
+     2818.36,
+     2.1,
+     "104",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     "CNAB240_RET_20261116_01.ret",
+     1090,
+     "10968471621",
+     "09",
+     "2026-11-16",
+     null,
+     1101.24,
+     2.1,
+     "033",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     "CNAB240_RET_20261116_01.ret",
+     1177,
+     "10940272578",
+     "06",
+     "2026-11-16",
+     "2026-11-17",
+     1021.59,
+     1.89,
+     "104",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     "CNAB240_RET_20261116_03.ret",
+     1227,
+     "10927204122",
+     "02",
+     "2026-11-16",
+     null,
+     3078.45,
+     1.89,
+     "001",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     "CNAB240_RET_20261116_03.ret",
+     1237,
+     "10938226019",
+     "02",
+     "2026-11-16",
+     null,
+     877.92,
+     2.45,
+     "341",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     "CNAB240_RET_20261116_03.ret",
+     1115,
+     "10912482418",
+     "06",
+     "2026-11-16",
+     "2026-11-17",
+     1729.69,
+     1.89,
+     "341",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000009,
+     "CNAB240_RET_20261116_01.ret",
+     1180,
+     "10987827237",
+     "06",
+     "2026-11-16",
+     "2026-11-17",
+     1077.89,
+     1.89,
+     "033",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000010,
+     "CNAB240_RET_20261116_01.ret",
+     1245,
+     "10917676156",
+     "09",
+     "2026-11-16",
+     null,
+     1027.15,
+     1.89,
+     "237",
+     "2026-11-17 01:45:50"
+    ]
+   },
+   {
+    "valores": [
+     5000011,
+     "CNAB240_RET_20261116_01.ret",
+     1334,
+     "10991215403",
+     "02",
+     "2026-11-16",
+     null,
+     3165.34,
+     2.45,
+     "341",
+     "2026-11-17 01:45:50"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_pagamento"
+ ]
+}

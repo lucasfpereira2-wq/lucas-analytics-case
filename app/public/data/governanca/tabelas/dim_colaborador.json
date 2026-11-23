@@ -1,0 +1,773 @@
+{
+ "nome": "dim_colaborador",
+ "descricao": "Colaboradores ativos e desligados (origem RH)",
+ "dominio": "Corporativo",
+ "camada": "core",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_corporativo_rh",
+ "fonte": "RH (folha)",
+ "status": "amarelo",
+ "motivo_status": "Coluna `cd_centro_custo` passou a chegar como `centro_custo_id` desde 12/11",
+ "tem_pk": true,
+ "saude": 52.4,
+ "ultima_carga": "2026-11-17T01:20:22-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 1243,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sucesso",
+  "falha",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "vendas",
+  "cobranca-safra",
+  "atendimento"
+ ],
+ "incidentes": [
+  "INC-2030"
+ ],
+ "tags": [
+  "PII"
+ ],
+ "descricao_longa": "Colaboradores ativos e desligados (origem RH). Pertence ao domínio Corporativo e fica na camada core (dado tratado e modelado). Origem: RH (folha). Carga diária pela rotina `core_corporativo_rh`, com SLA de 24 horas. Tem 11 colunas; chave primária: `id_colaborador`. Responsável: Thiago Meireles (Engenharia de Dados). Alimenta: Vendas / Comercial, Cobrança: Safra, MOB e Cohort, Atendimento.",
+ "colunas": [
+  {
+   "nome": "id_colaborador",
+   "tipo": "integer",
+   "descricao": "Chave do colaborador",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "matricula",
+   "tipo": "varchar(10)",
+   "descricao": "Matrícula no RH",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nm_colaborador",
+   "tipo": "varchar(120)",
+   "descricao": "Nome do colaborador",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "cpf_colaborador",
+   "tipo": "varchar(14)",
+   "descricao": "CPF",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "email_corporativo",
+   "tipo": "varchar(120)",
+   "descricao": "E-mail corporativo",
+   "pk": false,
+   "nulavel": false,
+   "pii": true
+  },
+  {
+   "nome": "cargo",
+   "tipo": "varchar(60)",
+   "descricao": "Cargo",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "cd_centro_custo",
+   "tipo": "varchar(10)",
+   "descricao": "Centro de custo (origem passou a enviar `centro_custo_id` em 12/11)",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "nm_area",
+   "tipo": "varchar(60)",
+   "descricao": "Área de lotação",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "situacao",
+   "tipo": "varchar(20)",
+   "descricao": "Ativo, afastado ou desligado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_admissao",
+   "tipo": "date",
+   "descricao": "Data de admissão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_desligamento",
+   "tipo": "date",
+   "descricao": "Data de desligamento",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:20:34-03:00",
+   "duracao_seg": 36,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:20:52-03:00",
+   "duracao_seg": 27,
+   "linhas": null,
+   "linhas_esperadas": 1243,
+   "status": "falha",
+   "anomalia_volume": false,
+   "mensagem": "Arquivo colaboradores_20261019.csv não encontrado no diretório de troca do RH."
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:20:41-03:00",
+   "duracao_seg": 34,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:20:07-03:00",
+   "duracao_seg": 40,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T01:20:46-03:00",
+   "duracao_seg": 37,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:20:09-03:00",
+   "duracao_seg": 34,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:20:45-03:00",
+   "duracao_seg": 38,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:20:49-03:00",
+   "duracao_seg": 37,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:20:07-03:00",
+   "duracao_seg": 36,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:20:12-03:00",
+   "duracao_seg": 40,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:20:08-03:00",
+   "duracao_seg": 34,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:20:19-03:00",
+   "duracao_seg": 40,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:20:41-03:00",
+   "duracao_seg": 39,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:20:10-03:00",
+   "duracao_seg": 41,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:20:47-03:00",
+   "duracao_seg": 37,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:20:51-03:00",
+   "duracao_seg": 36,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:20:40-03:00",
+   "duracao_seg": 35,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:20:04-03:00",
+   "duracao_seg": 40,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:20:19-03:00",
+   "duracao_seg": 37,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:20:45-03:00",
+   "duracao_seg": 34,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:20:27-03:00",
+   "duracao_seg": 39,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:20:32-03:00",
+   "duracao_seg": 40,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:20:21-03:00",
+   "duracao_seg": 40,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:20:48-03:00",
+   "duracao_seg": 41,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:20:03-03:00",
+   "duracao_seg": 38,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:20:50-03:00",
+   "duracao_seg": 38,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:20:31-03:00",
+   "duracao_seg": 35,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:20:45-03:00",
+   "duracao_seg": 37,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:20:20-03:00",
+   "duracao_seg": 38,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:20:22-03:00",
+   "duracao_seg": 35,
+   "linhas": 1243,
+   "linhas_esperadas": 1243,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "dim_colaborador.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_colaborador`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'dim_colaborador' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "dim_colaborador.unicidade.id_colaborador",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_colaborador`",
+   "coluna": "id_colaborador",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_colaborador` (1.243 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_colaborador, COUNT(*) AS qtd\nFROM dim_colaborador\nGROUP BY id_colaborador\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "dim_colaborador.nao_nulo.cpf_colaborador",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `cpf_colaborador`",
+   "coluna": "cpf_colaborador",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `cpf_colaborador`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN cpf_colaborador IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM dim_colaborador;"
+  },
+  {
+   "id": "dim_colaborador.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:20); SLA de 24h",
+   "valor_observado": 6.7,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'dim_colaborador' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "dim_colaborador.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema de `cd_centro_custo`",
+   "coluna": "cd_centro_custo",
+   "severidade": "medio",
+   "resultado": "alerta",
+   "evidencia": "Coluna `cd_centro_custo` passou a chegar como `centro_custo_id` desde 12/11",
+   "valor_observado": 1,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'dim_colaborador'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'dim_colaborador';"
+  },
+  {
+   "id": "dim_colaborador.dominio_valores.situacao",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `situacao`",
+   "coluna": "situacao",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `situacao` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT situacao, COUNT(*) AS qtd\nFROM dim_colaborador\nWHERE situacao NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'situacao')\nGROUP BY situacao;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_colaborador",
+   "matricula",
+   "nm_colaborador",
+   "cpf_colaborador",
+   "email_corporativo",
+   "cargo",
+   "cd_centro_custo",
+   "nm_area",
+   "situacao",
+   "dt_admissao",
+   "dt_desligamento"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     640,
+     "5413",
+     "Larissa M. Barros",
+     "***.287.***-98",
+     "f***@exemplo.com.br",
+     "Analista de dados",
+     "CC-4100",
+     "Operações",
+     "Ativo",
+     "2024-06-14",
+     "2026-10-30"
+    ]
+   },
+   {
+    "valores": [
+     641,
+     "7755",
+     "Beatriz T. Freitas",
+     "***.102.***-46",
+     "e***@empresa.example",
+     "Assistente administrativo",
+     "CC-1020",
+     "Comercial",
+     "Encerrado",
+     "2024-03-19",
+     null
+    ]
+   },
+   {
+    "valores": [
+     642,
+     "6707",
+     "Beatriz M. Siqueira",
+     "***.123.***-43",
+     "t***@correio.example",
+     "Agente de atendimento",
+     "CC-1020",
+     "Operações",
+     "Encerrado",
+     "2025-06-12",
+     "2026-10-24"
+    ]
+   },
+   {
+    "valores": [
+     643,
+     "5001",
+     "Patrícia B. Pacheco",
+     "***.842.***-56",
+     "p***@exemplo.com.br",
+     "Agente de atendimento",
+     "CC-3010",
+     "Tecnologia",
+     "Em análise",
+     "2023-02-15",
+     null
+    ]
+   },
+   {
+    "valores": [
+     644,
+     "9456",
+     "Renata B. Teixeira",
+     "***.455.***-25",
+     "d***@correio.example",
+     "Agente de atendimento",
+     "CC-3010",
+     "Comercial",
+     "Ativo",
+     "2025-01-09",
+     "2026-11-07"
+    ]
+   },
+   {
+    "valores": [
+     645,
+     "2484",
+     "Rodrigo M. Freitas",
+     "***.825.***-47",
+     "r***@exemplo.com.br",
+     "Assistente administrativo",
+     "CC-3010",
+     "Operações",
+     "Ativo",
+     "2024-07-09",
+     null
+    ]
+   },
+   {
+    "valores": [
+     646,
+     "3431",
+     "Camila A. Figueiredo",
+     "***.574.***-67",
+     "g***@correio.example",
+     "Consultor de vendas",
+     "CC-3010",
+     "Crédito & Cobrança",
+     "Ativo",
+     "2024-03-11",
+     "2026-11-04"
+    ]
+   },
+   {
+    "valores": [
+     647,
+     "3174",
+     "Carlos Eduardo Q. Pacheco",
+     "***.577.***-22",
+     "d***@correio.example",
+     "Analista de dados",
+     "CC-1020",
+     "Comercial",
+     "Ativo",
+     "2023-08-20",
+     "2026-10-24"
+    ]
+   },
+   {
+    "valores": [
+     648,
+     "9068",
+     "Ricardo P. Queiroz",
+     "***.592.***-34",
+     "m***@empresa.example",
+     "Analista de dados",
+     null,
+     "Experiência do Cliente",
+     "Encerrado",
+     "2025-08-03",
+     null
+    ],
+    "problema": "Centro de custo vazio: a origem passou a enviar `centro_custo_id` em 12/11",
+    "colunas_problema": [
+     "cd_centro_custo"
+    ]
+   },
+   {
+    "valores": [
+     649,
+     "7860",
+     "José Roberto V. Antunes",
+     "***.778.***-21",
+     "m***@empresa.example",
+     "Assistente administrativo",
+     null,
+     "Tecnologia",
+     "Ativo",
+     "2025-01-31",
+     "2026-11-12"
+    ],
+    "problema": "Centro de custo vazio: a origem passou a enviar `centro_custo_id` em 12/11",
+    "colunas_problema": [
+     "cd_centro_custo"
+    ]
+   },
+   {
+    "valores": [
+     650,
+     "6819",
+     "Larissa B. Moraes",
+     "***.525.***-65",
+     "m***@exemplo.com.br",
+     "Analista de cobrança",
+     "CC-3010",
+     "Tecnologia",
+     "Ativo",
+     "2023-07-27",
+     "2026-11-14"
+    ]
+   },
+   {
+    "valores": [
+     651,
+     "2947",
+     "Rodrigo T. Freitas",
+     "***.861.***-62",
+     "m***@exemplo.com.br",
+     "Supervisor comercial",
+     "CC-1020",
+     "Operações",
+     "Ativo",
+     "2026-08-15",
+     null
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "dim_vendedor",
+  "dim_equipe_comercial",
+  "dim_agente"
+ ]
+}

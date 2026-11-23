@@ -1,0 +1,676 @@
+{
+ "nome": "fato_meta_comercial",
+ "descricao": "Metas comerciais por regional, canal e segmento (carga manual)",
+ "dominio": "Vendas",
+ "camada": "core",
+ "dono": "Bruno Tavares",
+ "dono_area": "Inteligência Comercial (planilha manual)",
+ "criticidade": "alta",
+ "frequencia": "mensal",
+ "sla_horas": 744,
+ "pipeline": "planilha_metas_manual",
+ "fonte": "Planilha Comercial",
+ "status": "amarelo",
+ "motivo_status": "Metas de novembro carregadas parcialmente: planilha manual sem 2 regionais",
+ "tem_pk": true,
+ "saude": 50.7,
+ "ultima_carga": "2026-11-03T10:42:04-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 1920,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 1,
+ "execucoes_30d": [
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "alerta",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda",
+  "sem_agenda"
+ ],
+ "relatorios_impactados": [
+  "vendas"
+ ],
+ "incidentes": [],
+ "tags": [
+  "manual"
+ ],
+ "descricao_longa": "Metas comerciais por regional, canal e segmento (carga manual). Pertence ao domínio Vendas e fica na camada core (dado tratado e modelado). Origem: Planilha Comercial. Carga mensal pela rotina `planilha_metas_manual`, com SLA de 744 horas. Tem 9 colunas; chave primária: `competencia, regional, canal_venda, segmento`. Responsável: Bruno Tavares (Inteligência Comercial (planilha manual)). Alimenta: Vendas / Comercial.",
+ "colunas": [
+  {
+   "nome": "competencia",
+   "tipo": "char(7)",
+   "descricao": "Mês de competência (AAAA-MM)",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "regional",
+   "tipo": "varchar(30)",
+   "descricao": "Regional comercial",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "canal_venda",
+   "tipo": "varchar(30)",
+   "descricao": "Canal de venda",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "segmento",
+   "tipo": "varchar(20)",
+   "descricao": "Segmento",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "qt_meta_cotas",
+   "tipo": "integer",
+   "descricao": "Meta de cotas vendidas",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_meta_credito",
+   "tipo": "decimal(16,2)",
+   "descricao": "Meta de crédito comercializado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "versao_planilha",
+   "tipo": "varchar(20)",
+   "descricao": "Versão da planilha carregada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "usuario_carga",
+   "tipo": "varchar(40)",
+   "descricao": "Usuário que realizou a carga manual",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da carga",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T10:42:04-03:00",
+   "duracao_seg": 31,
+   "linhas": 48,
+   "linhas_esperadas": 80,
+   "status": "alerta",
+   "anomalia_volume": true,
+   "mensagem": "Planilha de novembro carregada sem 2 das 5 regionais (48 de 80 linhas)."
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": null,
+   "duracao_seg": null,
+   "linhas": null,
+   "linhas_esperadas": 0,
+   "status": "sem_agenda",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_meta_comercial.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `competencia, regional, canal_venda, segmento`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_meta_comercial' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_meta_comercial.unicidade.competencia",
+   "regra": "unicidade",
+   "nome": "Unicidade de `competencia, regional, canal_venda, segmento`",
+   "coluna": "competencia, regional, canal_venda, segmento",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `competencia, regional, canal_venda, segmento` (1.920 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT competencia, regional, canal_venda, segmento, COUNT(*) AS qtd\nFROM fato_meta_comercial\nGROUP BY competencia, regional, canal_venda, segmento\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_meta_comercial.nao_nulo.vl_meta_credito",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `vl_meta_credito`",
+   "coluna": "vl_meta_credito",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `vl_meta_credito`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN vl_meta_credito IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_meta_comercial;"
+  },
+  {
+   "id": "fato_meta_comercial.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "alerta",
+   "evidencia": "Metas de novembro carregadas parcialmente: planilha manual sem 2 regionais",
+   "valor_observado": 48,
+   "limite": 80,
+   "unidade": "linhas",
+   "historico_7d": [
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta",
+    "alerta"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_meta_comercial'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_meta_comercial.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Última carga há 13 dias (03/11 às 10:42); SLA de 744h",
+   "valor_observado": 333.3,
+   "limite": 744,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_meta_comercial' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "fato_meta_comercial.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (9 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'fato_meta_comercial'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'fato_meta_comercial';"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "competencia",
+   "regional",
+   "canal_venda",
+   "segmento",
+   "qt_meta_cotas",
+   "vl_meta_credito",
+   "versao_planilha",
+   "usuario_carga",
+   "dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     "2026-11",
+     "Sul",
+     "Parceiro",
+     "Pesada",
+     391,
+     240000.0,
+     "metas_2026-11_v2.xlsx",
+     "btavares",
+     "2026-11-03 10:42:04"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     "Sul",
+     "Loja",
+     "Pesada",
+     855,
+     60000.0,
+     "metas_2026-11_v2.xlsx",
+     "btavares",
+     "2026-11-03 10:42:04"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     "São Paulo",
+     "Parceiro",
+     "Pesada",
+     225,
+     60000.0,
+     "metas_2026-11_v2.xlsx",
+     "analista.comercial",
+     "2026-11-03 10:42:04"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     "Sudeste",
+     "Loja",
+     "Auto",
+     160,
+     150000.0,
+     "metas_2026-11_v2.xlsx",
+     "btavares",
+     "2026-11-03 10:42:04"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     "Sul",
+     "Representante",
+     "Auto",
+     176,
+     180000.0,
+     "metas_2026-11_v2.xlsx",
+     "analista.comercial",
+     "2026-11-03 10:42:04"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     "Centro-Oeste",
+     "Parceiro",
+     "Auto",
+     564,
+     150000.0,
+     "metas_2026-11_v2.xlsx",
+     "analista.comercial",
+     "2026-11-03 10:42:04"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     "São Paulo",
+     "Representante",
+     "Pesada",
+     348,
+     300000.0,
+     "metas_2026-11_v2.xlsx",
+     "btavares",
+     "2026-11-03 10:42:04"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     "Sul",
+     "Loja",
+     "Serviços",
+     785,
+     60000.0,
+     "metas_2026-11_v2.xlsx",
+     "analista.comercial",
+     "2026-11-03 10:42:04"
+    ]
+   },
+   {
+    "valores": [
+     "2026-11",
+     "Norte e Nordeste",
+     "Representante",
+     "Serviços",
+     837,
+     60000.0,
+     "metas_2026-11_v2.xlsx",
+     "analista.comercial",
+     "2026-11-03 10:42:04"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "mart_vendas_comercial"
+ ]
+}

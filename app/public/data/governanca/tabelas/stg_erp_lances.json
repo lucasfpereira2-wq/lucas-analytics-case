@@ -1,0 +1,744 @@
+{
+ "nome": "stg_erp_lances",
+ "descricao": "Lances ofertados pelos consorciados",
+ "dominio": "Staging",
+ "camada": "staging",
+ "dono": "Thiago Meireles",
+ "dono_area": "Engenharia de Dados",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "ingest_erp",
+ "fonte": "ERP Consórcio",
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 99.7,
+ "ultima_carga": "2026-11-17T01:00:23-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 190898,
+ "testes_total": 8,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "atrasada",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "assembleias"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Lances ofertados pelos consorciados. Pertence ao domínio Staging e fica na camada de staging (dado bruto, como chega da origem). Origem: ERP Consórcio. Carga diária pela rotina `ingest_erp`, com SLA de 24 horas. Tem 10 colunas; chave primária: `id_lance_erp`. Responsável: Thiago Meireles (Engenharia de Dados). Alimenta: Assembleias e Contemplações.",
+ "colunas": [
+  {
+   "nome": "id_lance_erp",
+   "tipo": "bigint",
+   "descricao": "Identificador do lance no ERP",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_assembleia_erp",
+   "tipo": "bigint",
+   "descricao": "Assembleia em que o lance foi ofertado",
+   "pk": false,
+   "fk": {
+    "tabela": "stg_erp_assembleias",
+    "coluna": "id_assembleia_erp"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cota_erp",
+   "tipo": "bigint",
+   "descricao": "Cota ofertante",
+   "pk": false,
+   "fk": {
+    "tabela": "stg_erp_cotas",
+    "coluna": "id_cota_erp"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "tipo_lance",
+   "tipo": "varchar(20)",
+   "descricao": "Livre, fixo ou embutido",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "pc_lance",
+   "tipo": "decimal(7,4)",
+   "descricao": "Percentual do crédito ofertado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_lance",
+   "tipo": "decimal(14,2)",
+   "descricao": "Valor do lance",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "vl_embutido",
+   "tipo": "decimal(14,2)",
+   "descricao": "Parte do lance embutida no crédito",
+   "pk": false,
+   "nulavel": true,
+   "pii": false
+  },
+  {
+   "nome": "fl_vencedor",
+   "tipo": "char(1)",
+   "descricao": "Indica lance vencedor (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_oferta",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da oferta",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "_dt_carga",
+   "tipo": "timestamp",
+   "descricao": "Data e hora da ingestão",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T01:00:41-03:00",
+   "duracao_seg": 24,
+   "linhas": 54,
+   "linhas_esperadas": 54,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T01:00:09-03:00",
+   "duracao_seg": 23,
+   "linhas": 318,
+   "linhas_esperadas": 320,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T01:00:48-03:00",
+   "duracao_seg": 25,
+   "linhas": 283,
+   "linhas_esperadas": 290,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T01:00:11-03:00",
+   "duracao_seg": 20,
+   "linhas": 271,
+   "linhas_esperadas": 276,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:00:18-03:00",
+   "duracao_seg": 21,
+   "linhas": 280,
+   "linhas_esperadas": 271,
+   "status": "atrasada",
+   "anomalia_volume": false,
+   "mensagem": "Janela de backup do ERP estendida; extração iniciou com 2 horas de atraso."
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T01:00:08-03:00",
+   "duracao_seg": 24,
+   "linhas": 265,
+   "linhas_esperadas": 260,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T01:00:15-03:00",
+   "duracao_seg": 22,
+   "linhas": 113,
+   "linhas_esperadas": 114,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T01:00:33-03:00",
+   "duracao_seg": 22,
+   "linhas": 54,
+   "linhas_esperadas": 54,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T01:00:42-03:00",
+   "duracao_seg": 23,
+   "linhas": 329,
+   "linhas_esperadas": 320,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T01:00:31-03:00",
+   "duracao_seg": 23,
+   "linhas": 294,
+   "linhas_esperadas": 290,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T01:00:11-03:00",
+   "duracao_seg": 24,
+   "linhas": 273,
+   "linhas_esperadas": 276,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T01:00:25-03:00",
+   "duracao_seg": 20,
+   "linhas": 275,
+   "linhas_esperadas": 271,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T01:00:24-03:00",
+   "duracao_seg": 24,
+   "linhas": 262,
+   "linhas_esperadas": 260,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T01:00:15-03:00",
+   "duracao_seg": 21,
+   "linhas": 111,
+   "linhas_esperadas": 114,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T01:00:08-03:00",
+   "duracao_seg": 20,
+   "linhas": 53,
+   "linhas_esperadas": 54,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T01:00:09-03:00",
+   "duracao_seg": 24,
+   "linhas": 312,
+   "linhas_esperadas": 320,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T01:00:30-03:00",
+   "duracao_seg": 23,
+   "linhas": 287,
+   "linhas_esperadas": 290,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T01:00:27-03:00",
+   "duracao_seg": 24,
+   "linhas": 273,
+   "linhas_esperadas": 276,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T01:00:51-03:00",
+   "duracao_seg": 21,
+   "linhas": 268,
+   "linhas_esperadas": 271,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T01:00:38-03:00",
+   "duracao_seg": 22,
+   "linhas": 267,
+   "linhas_esperadas": 260,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T01:00:08-03:00",
+   "duracao_seg": 25,
+   "linhas": 118,
+   "linhas_esperadas": 114,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T01:00:28-03:00",
+   "duracao_seg": 21,
+   "linhas": 56,
+   "linhas_esperadas": 54,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T01:00:35-03:00",
+   "duracao_seg": 24,
+   "linhas": 325,
+   "linhas_esperadas": 320,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T01:00:23-03:00",
+   "duracao_seg": 21,
+   "linhas": 297,
+   "linhas_esperadas": 290,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T01:00:19-03:00",
+   "duracao_seg": 21,
+   "linhas": 272,
+   "linhas_esperadas": 276,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T01:00:46-03:00",
+   "duracao_seg": 20,
+   "linhas": 277,
+   "linhas_esperadas": 271,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T01:00:33-03:00",
+   "duracao_seg": 23,
+   "linhas": 256,
+   "linhas_esperadas": 260,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T01:00:18-03:00",
+   "duracao_seg": 20,
+   "linhas": 112,
+   "linhas_esperadas": 114,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T01:00:05-03:00",
+   "duracao_seg": 24,
+   "linhas": 54,
+   "linhas_esperadas": 54,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T01:00:23-03:00",
+   "duracao_seg": 23,
+   "linhas": 328,
+   "linhas_esperadas": 320,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "stg_erp_lances.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_lance_erp`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'stg_erp_lances' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "stg_erp_lances.unicidade.id_lance_erp",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_lance_erp`",
+   "coluna": "id_lance_erp",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_lance_erp` (190.898 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_lance_erp, COUNT(*) AS qtd\nFROM stg_erp_lances\nGROUP BY id_lance_erp\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "stg_erp_lances.nao_nulo.id_assembleia_erp",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_assembleia_erp`",
+   "coluna": "id_assembleia_erp",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_assembleia_erp`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_assembleia_erp IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM stg_erp_lances;"
+  },
+  {
+   "id": "stg_erp_lances.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_assembleia_erp`",
+   "coluna": "id_assembleia_erp",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_assembleia_erp` existem em `stg_erp_assembleias`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM stg_erp_lances f\nLEFT JOIN stg_erp_assembleias p ON p.id_assembleia_erp = f.id_assembleia_erp\nWHERE f.id_assembleia_erp IS NOT NULL AND p.id_assembleia_erp IS NULL;"
+  },
+  {
+   "id": "stg_erp_lances.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "328 linhas na última carga, dentro da faixa esperada (cerca de 320)",
+   "valor_observado": 328,
+   "limite": 320,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'stg_erp_lances'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "stg_erp_lances.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 6h (17/11 às 01:00); SLA de 24h",
+   "valor_observado": 7.0,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'stg_erp_lances' AND status IN ('sucesso', 'alerta');"
+  },
+  {
+   "id": "stg_erp_lances.schema_drift",
+   "regra": "schema_drift",
+   "nome": "Contrato de schema",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "Schema idêntico ao contrato (10 colunas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "colunas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'stg_erp_lances'\nEXCEPT\nSELECT coluna, tipo FROM governanca.contrato_schema WHERE tabela = 'stg_erp_lances';"
+  },
+  {
+   "id": "stg_erp_lances.dominio_valores.tipo_lance",
+   "regra": "dominio_valores",
+   "nome": "Domínio de valores de `tipo_lance`",
+   "coluna": "tipo_lance",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "100% dos valores de `tipo_lance` dentro do domínio esperado",
+   "valor_observado": 0.0,
+   "limite": 1.0,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT tipo_lance, COUNT(*) AS qtd\nFROM stg_erp_lances\nWHERE tipo_lance NOT IN (SELECT valor FROM governanca.dominio WHERE coluna = 'tipo_lance')\nGROUP BY tipo_lance;"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_lance_erp",
+   "id_assembleia_erp",
+   "id_cota_erp",
+   "tipo_lance",
+   "pc_lance",
+   "vl_lance",
+   "vl_embutido",
+   "fl_vencedor",
+   "dt_oferta",
+   "_dt_carga"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     5000000,
+     10215,
+     74548,
+     "Fixo",
+     17.23,
+     10338.0,
+     null,
+     "S",
+     "2026-11-16 16:57:37",
+     "2026-11-17 01:00:23"
+    ]
+   },
+   {
+    "valores": [
+     5000001,
+     10282,
+     74569,
+     "Livre",
+     48.39,
+     145170.0,
+     null,
+     "S",
+     "2026-11-16 18:53:33",
+     "2026-11-17 01:00:23"
+    ]
+   },
+   {
+    "valores": [
+     5000002,
+     10327,
+     74696,
+     "Livre",
+     59.98,
+     89970.0,
+     null,
+     "S",
+     "2026-11-15 19:04:57",
+     "2026-11-17 01:00:23"
+    ]
+   },
+   {
+    "valores": [
+     5000003,
+     10250,
+     74646,
+     "Livre",
+     17.95,
+     26925.0,
+     null,
+     "S",
+     "2026-11-16 07:05:49",
+     "2026-11-17 01:00:23"
+    ]
+   },
+   {
+    "valores": [
+     5000004,
+     10328,
+     74664,
+     "Livre",
+     53.22,
+     79830.0,
+     null,
+     "S",
+     "2026-11-14 14:32:31",
+     "2026-11-17 01:00:23"
+    ]
+   },
+   {
+    "valores": [
+     5000005,
+     10184,
+     74539,
+     "Livre",
+     49.14,
+     29484.0,
+     null,
+     "S",
+     "2026-11-15 07:13:03",
+     "2026-11-17 01:00:23"
+    ]
+   },
+   {
+    "valores": [
+     5000006,
+     10297,
+     74480,
+     "Fixo",
+     18.49,
+     55470.0,
+     null,
+     "S",
+     "2026-11-16 15:47:04",
+     "2026-11-17 01:00:23"
+    ]
+   },
+   {
+    "valores": [
+     5000007,
+     10062,
+     74585,
+     "Livre",
+     21.52,
+     12912.0,
+     null,
+     "N",
+     "2026-11-16 09:06:59",
+     "2026-11-17 01:00:23"
+    ]
+   },
+   {
+    "valores": [
+     5000008,
+     10219,
+     74486,
+     "Livre",
+     36.33,
+     108990.0,
+     null,
+     "S",
+     "2026-11-16 20:31:05",
+     "2026-11-17 01:00:23"
+    ]
+   }
+  ]
+ },
+ "upstream": [],
+ "downstream": [
+  "fato_lance"
+ ]
+}

@@ -1,0 +1,658 @@
+{
+ "nome": "fato_sorteio",
+ "descricao": "Resultados de sorteio por assembleia",
+ "dominio": "Assembleias",
+ "camada": "core",
+ "dono": "Diego Sampaio",
+ "dono_area": "Operações de Assembleias",
+ "criticidade": "media",
+ "frequencia": "diária",
+ "sla_horas": 24,
+ "pipeline": "core_assembleias",
+ "fonte": null,
+ "status": "verde",
+ "motivo_status": "No SLA e testes OK",
+ "tem_pk": true,
+ "saude": 99.9,
+ "ultima_carga": "2026-11-17T03:15:26-03:00",
+ "atraso_horas": 0.0,
+ "linhas": 7798,
+ "testes_total": 6,
+ "testes_falhando": 0,
+ "testes_alerta": 0,
+ "execucoes_30d": [
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "alerta",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso",
+  "sucesso"
+ ],
+ "relatorios_impactados": [
+  "assembleias"
+ ],
+ "incidentes": [],
+ "tags": [],
+ "descricao_longa": "Resultados de sorteio por assembleia. Pertence ao domínio Assembleias e fica na camada core (dado tratado e modelado). É construída a partir de `stg_erp_assembleias`, `fato_assembleia`. Carga diária pela rotina `core_assembleias`, com SLA de 24 horas. Tem 7 colunas; chave primária: `id_sorteio`. Responsável: Diego Sampaio (Operações de Assembleias). Alimenta: Assembleias e Contemplações.",
+ "colunas": [
+  {
+   "nome": "id_sorteio",
+   "tipo": "bigint",
+   "descricao": "Chave do sorteio",
+   "pk": true,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_assembleia",
+   "tipo": "bigint",
+   "descricao": "Assembleia",
+   "pk": false,
+   "fk": {
+    "tabela": "fato_assembleia",
+    "coluna": "id_assembleia"
+   },
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "id_cota",
+   "tipo": "bigint",
+   "descricao": "Cota sorteada",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "nr_sorteado",
+   "tipo": "integer",
+   "descricao": "Número sorteado",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "extracao_loteria",
+   "tipo": "varchar(20)",
+   "descricao": "Extração da Loteria Federal usada como referência",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "fl_contemplada",
+   "tipo": "char(1)",
+   "descricao": "Cota apta e contemplada (S/N)",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  },
+  {
+   "nome": "dt_sorteio",
+   "tipo": "date",
+   "descricao": "Data do sorteio",
+   "pk": false,
+   "nulavel": false,
+   "pii": false
+  }
+ ],
+ "execucoes": [
+  {
+   "data": "2026-10-19",
+   "inicio": "2026-10-19T03:15:25-03:00",
+   "duracao_seg": 37,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-20",
+   "inicio": "2026-10-20T03:15:41-03:00",
+   "duracao_seg": 35,
+   "linhas": 16,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-21",
+   "inicio": "2026-10-21T03:15:18-03:00",
+   "duracao_seg": 34,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-22",
+   "inicio": "2026-10-22T03:15:03-03:00",
+   "duracao_seg": 87,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "alerta",
+   "anomalia_volume": false,
+   "mensagem": "Duração 2,4 vezes acima da média: pico de lances na semana de assembleias."
+  },
+  {
+   "data": "2026-10-23",
+   "inicio": "2026-10-23T03:15:06-03:00",
+   "duracao_seg": 34,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-24",
+   "inicio": "2026-10-24T03:15:06-03:00",
+   "duracao_seg": 36,
+   "linhas": 13,
+   "linhas_esperadas": 13,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-25",
+   "inicio": "2026-10-25T03:15:45-03:00",
+   "duracao_seg": 31,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-26",
+   "inicio": "2026-10-26T03:15:08-03:00",
+   "duracao_seg": 35,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-27",
+   "inicio": "2026-10-27T03:15:15-03:00",
+   "duracao_seg": 35,
+   "linhas": 15,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-28",
+   "inicio": "2026-10-28T03:15:29-03:00",
+   "duracao_seg": 32,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-29",
+   "inicio": "2026-10-29T03:15:12-03:00",
+   "duracao_seg": 36,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-30",
+   "inicio": "2026-10-30T03:15:44-03:00",
+   "duracao_seg": 34,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-10-31",
+   "inicio": "2026-10-31T03:15:40-03:00",
+   "duracao_seg": 36,
+   "linhas": 13,
+   "linhas_esperadas": 13,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-01",
+   "inicio": "2026-11-01T03:15:52-03:00",
+   "duracao_seg": 38,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-02",
+   "inicio": "2026-11-02T03:15:33-03:00",
+   "duracao_seg": 35,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-03",
+   "inicio": "2026-11-03T03:15:11-03:00",
+   "duracao_seg": 39,
+   "linhas": 16,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-04",
+   "inicio": "2026-11-04T03:15:05-03:00",
+   "duracao_seg": 37,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-05",
+   "inicio": "2026-11-05T03:15:31-03:00",
+   "duracao_seg": 33,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-06",
+   "inicio": "2026-11-06T03:15:03-03:00",
+   "duracao_seg": 39,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-07",
+   "inicio": "2026-11-07T03:15:20-03:00",
+   "duracao_seg": 31,
+   "linhas": 13,
+   "linhas_esperadas": 13,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-08",
+   "inicio": "2026-11-08T03:15:52-03:00",
+   "duracao_seg": 33,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-09",
+   "inicio": "2026-11-09T03:15:27-03:00",
+   "duracao_seg": 39,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-10",
+   "inicio": "2026-11-10T03:15:32-03:00",
+   "duracao_seg": 37,
+   "linhas": 16,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-11",
+   "inicio": "2026-11-11T03:15:39-03:00",
+   "duracao_seg": 39,
+   "linhas": 15,
+   "linhas_esperadas": 15,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-12",
+   "inicio": "2026-11-12T03:15:54-03:00",
+   "duracao_seg": 35,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-13",
+   "inicio": "2026-11-13T03:15:07-03:00",
+   "duracao_seg": 31,
+   "linhas": 14,
+   "linhas_esperadas": 14,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-14",
+   "inicio": "2026-11-14T03:15:37-03:00",
+   "duracao_seg": 35,
+   "linhas": 13,
+   "linhas_esperadas": 13,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-15",
+   "inicio": "2026-11-15T03:15:10-03:00",
+   "duracao_seg": 37,
+   "linhas": 6,
+   "linhas_esperadas": 6,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-16",
+   "inicio": "2026-11-16T03:15:38-03:00",
+   "duracao_seg": 33,
+   "linhas": 3,
+   "linhas_esperadas": 3,
+   "status": "sucesso",
+   "anomalia_volume": false
+  },
+  {
+   "data": "2026-11-17",
+   "inicio": "2026-11-17T03:15:26-03:00",
+   "duracao_seg": 34,
+   "linhas": 16,
+   "linhas_esperadas": 16,
+   "status": "sucesso",
+   "anomalia_volume": false
+  }
+ ],
+ "testes": [
+  {
+   "id": "fato_sorteio.pk_existente",
+   "regra": "pk_existente",
+   "nome": "Chave primária definida",
+   "severidade": "critico",
+   "resultado": "ok",
+   "evidencia": "Chave primária declarada: `id_sorteio`",
+   "valor_observado": 1,
+   "limite": 1,
+   "unidade": "chave",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_pk\nFROM information_schema.table_constraints\nWHERE table_name = 'fato_sorteio' AND constraint_type = 'PRIMARY KEY';"
+  },
+  {
+   "id": "fato_sorteio.unicidade.id_sorteio",
+   "regra": "unicidade",
+   "nome": "Unicidade de `id_sorteio`",
+   "coluna": "id_sorteio",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Nenhuma duplicidade em `id_sorteio` (7.798 linhas verificadas)",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT id_sorteio, COUNT(*) AS qtd\nFROM fato_sorteio\nGROUP BY id_sorteio\nHAVING COUNT(*) > 1;"
+  },
+  {
+   "id": "fato_sorteio.nao_nulo.id_assembleia",
+   "regra": "nao_nulo",
+   "nome": "Completude (não nulo) de `id_assembleia`",
+   "coluna": "id_assembleia",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "0% de nulos em `id_assembleia`",
+   "valor_observado": 0.0,
+   "limite": 0.5,
+   "unidade": "%",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT 100.0 * SUM(CASE WHEN id_assembleia IS NULL THEN 1 ELSE 0 END) / COUNT(*) AS pc_nulos\nFROM fato_sorteio;"
+  },
+  {
+   "id": "fato_sorteio.integridade_referencial",
+   "regra": "integridade_referencial",
+   "nome": "Integridade referencial de `id_assembleia`",
+   "coluna": "id_assembleia",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Todas as chaves de `id_assembleia` existem em `fato_assembleia`",
+   "valor_observado": 0,
+   "limite": 0,
+   "unidade": "registros",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT COUNT(*) AS qt_orfaos\nFROM fato_sorteio f\nLEFT JOIN fato_assembleia p ON p.id_assembleia = f.id_assembleia\nWHERE f.id_assembleia IS NOT NULL AND p.id_assembleia IS NULL;"
+  },
+  {
+   "id": "fato_sorteio.volume",
+   "regra": "volume",
+   "nome": "Volume da carga",
+   "severidade": "medio",
+   "resultado": "ok",
+   "evidencia": "16 linhas na última carga, dentro da faixa esperada (cerca de 16)",
+   "valor_observado": 16,
+   "limite": 16,
+   "unidade": "linhas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT dt_execucao, linhas_carregadas, linhas_esperadas\nFROM governanca.log_execucao\nWHERE tabela = 'fato_sorteio'\nORDER BY dt_execucao DESC\nLIMIT 1;  -- esperado: média do mesmo dia da semana (8 semanas)"
+  },
+  {
+   "id": "fato_sorteio.frescor",
+   "regra": "frescor",
+   "nome": "Frescor (SLA)",
+   "severidade": "alto",
+   "resultado": "ok",
+   "evidencia": "Última carga há 4h (17/11 às 03:15); SLA de 24h",
+   "valor_observado": 4.7,
+   "limite": 24,
+   "unidade": "horas",
+   "historico_7d": [
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok",
+    "ok"
+   ],
+   "sql": "SELECT EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP - MAX(dt_fim))) / 3600 AS horas_desde_carga\nFROM governanca.log_execucao\nWHERE tabela = 'fato_sorteio' AND status IN ('sucesso', 'alerta');"
+  }
+ ],
+ "amostra": {
+  "colunas": [
+   "id_sorteio",
+   "id_assembleia",
+   "id_cota",
+   "nr_sorteado",
+   "extracao_loteria",
+   "fl_contemplada",
+   "dt_sorteio"
+  ],
+  "linhas": [
+   {
+    "valores": [
+     9930,
+     9987,
+     74543,
+     1239,
+     "Extração 6019",
+     "S",
+     "2026-11-10"
+    ]
+   },
+   {
+    "valores": [
+     9931,
+     10112,
+     74614,
+     1195,
+     "Extração 6012",
+     "N",
+     "2026-11-11"
+    ]
+   },
+   {
+    "valores": [
+     9932,
+     10311,
+     74509,
+     1184,
+     "Extração 6019",
+     "S",
+     "2026-11-05"
+    ]
+   },
+   {
+    "valores": [
+     9933,
+     10314,
+     74617,
+     1162,
+     "Extração 6012",
+     "S",
+     "2026-11-07"
+    ]
+   },
+   {
+    "valores": [
+     9934,
+     10324,
+     74509,
+     1203,
+     "Extração 6015",
+     "S",
+     "2026-11-08"
+    ]
+   },
+   {
+    "valores": [
+     9935,
+     10173,
+     74646,
+     1201,
+     "Extração 6019",
+     "S",
+     "2026-11-07"
+    ]
+   },
+   {
+    "valores": [
+     9936,
+     10303,
+     74576,
+     1306,
+     "Extração 6019",
+     "S",
+     "2026-10-30"
+    ]
+   },
+   {
+    "valores": [
+     9937,
+     9971,
+     74437,
+     1324,
+     "Extração 6015",
+     "N",
+     "2026-10-29"
+    ]
+   },
+   {
+    "valores": [
+     9938,
+     10183,
+     74684,
+     1135,
+     "Extração 6012",
+     "S",
+     "2026-11-11"
+    ]
+   },
+   {
+    "valores": [
+     9939,
+     10334,
+     74535,
+     1194,
+     "Extração 6012",
+     "S",
+     "2026-10-25"
+    ]
+   }
+  ]
+ },
+ "upstream": [
+  "stg_erp_assembleias",
+  "fato_assembleia"
+ ],
+ "downstream": [
+  "fato_contemplacao",
+  "mart_assembleias_contemplacoes"
+ ]
+}
